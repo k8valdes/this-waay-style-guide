@@ -357,7 +357,8 @@
 
   /* nav */
   nav { background: var(--tw-navy); border-bottom: 1px solid rgba(255,255,255,0.08); position: sticky; top: 0; z-index: 50; }
-  nav .wrap { display: flex; align-items: center; gap: 26px; padding-top: 14px; padding-bottom: 14px; flex-wrap: wrap; }
+  nav .wrap { display: flex; flex-direction: column; align-items: flex-start; padding-top: 14px; padding-bottom: 14px; gap: 10px; }
+  nav .nav-links { display: flex; align-items: center; gap: 26px; flex-wrap: wrap; }
   nav .brand { font-family: var(--tw-font-display); font-weight: 700; color: #fff; letter-spacing: 0.06em; }
   nav .brand small { display: block; font-size: 0.6rem; letter-spacing: 0.3em; color: var(--tw-green); font-weight: 600; }
   nav a { color: #B9CBDC; text-decoration: none; font-size: 0.85rem; font-family: var(--tw-font-display); font-weight: 600; }
@@ -369,17 +370,19 @@
 <nav>
   <div class="wrap">
     <div class="brand">THIS WAAY<small>PRODUCT DESIGN STUDIO</small></div>
-    <a href="#colors">Color</a>
-    <a href="#type">Type</a>
-    <a href="#spacing">Spacing</a>
-    <a href="#components">Components</a>
-    <a href="#screens">Screens</a>
-    <a href="#dataviz">Data viz</a>
-    <a href="#diagrams">Diagrams</a>
-    <a href="#illustration">Illustration</a>
-    <a href="#motifs">Motifs</a>
-    <a href="#voice">Voice</a>
-    <a href="#ai">AI usage</a>
+    <div class="nav-links">
+      <a href="#colors">Color</a>
+      <a href="#type">Type</a>
+      <a href="#spacing">Spacing</a>
+      <a href="#components">Components</a>
+      <a href="#screens">Screens</a>
+      <a href="#dataviz">Data viz</a>
+      <a href="#diagrams">Diagrams</a>
+      <a href="#illustration">Illustration</a>
+      <a href="#motifs">Motifs</a>
+      <a href="#voice">Voice</a>
+      <a href="#ai">AI usage</a>
+    </div>
   </div>
 </nav>
 
