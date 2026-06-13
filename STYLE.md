@@ -2,7 +2,7 @@
 
 > **For AI tools:** This is the canonical brand reference for This Waay. Use it as context when generating any asset — copy, layouts, illustrations, charts, slides, or components. Pair it with `tokens.json` for exact values. This document contains **brand expression only**; it intentionally excludes pricing, positioning, and business strategy.
 >
-> Version 1.7 · June 2026 · Living document.
+> Version 1.8 · June 2026 · Living document.
 
 This Waay is a product design and AI strategy studio in Sacramento, California. The brand reads as **composed, structural, and quietly confident** — clarity over noise, restraint over decoration.
 
@@ -64,6 +64,7 @@ Everything is built on an **8px base unit** — generous breathing room is what 
 
 ## Components
 
+- **Navigation:** sticky bar on navy, `1px solid rgba(255,255,255,0.08)` bottom border. **Two-row layout:** logo/wordmark sits on its own line; navigation links sit on a second row below it. Links are Axiforma SemiBold 600, 0.85rem, `#B9CBDC` default, Waay Green on hover.
 - **Buttons:** primary = green pill; ghost-on-navy = green outline pill; light = white pill with card shadow. Sentence case.
 - **Category labels:** green pill, SemiBold. (A teal variant survives in legacy decks; use green in new work.)
 - **Cards:** 14px radius, soft shadow. The system is consolidating toward three canonical types — **badge card** (centered, navy shield), **content card** (left-aligned, green icon tab), **panel card** (testimonial/pricing/data surfaces). Until consolidation lands, match the nearest existing pattern and prefer soft-gradient grounds with left-aligned text.
@@ -126,7 +127,7 @@ Layered paper-cut illustration, low-poly geometric landscape at night, deep navy
 ## Motifs & iconography
 
 - **Paper plane:** wing is the gradient blade `#62D38C` (nose) → `#30737B` (tail); body navy on light grounds, white on navy. Never outlined, never flat green. Use the official SVG paths, not redrawn geometry. Faded oversized silhouettes (6–10% opacity) texture backgrounds.
-- **Dotted flight path:** round dots (`stroke-dasharray: 0.1 8.5`, round caps, ~3px), navy on light / white on navy. **Every trail includes at least one loop** — hand-flown, never straight, never dashed.
+- **Dotted flight path:** round dots (`stroke-dasharray: 0.1 8`, round caps, ~3px), navy on light / white on navy. **Every trail includes at least one loop** — hand-flown, never straight, never dashed. Five canonical variants are defined: **A — Single loop**, **B — S-wave**, **C — Tight coil**, **D — Wide arc**, **E — Double curl**. New trail shapes should follow the same hand-flown character; reference these before drawing something new.
 - **Icons:** bold navy outlines (~3.5px at a 48px grid) with a single flat green fill element. On navy, outlines invert to white; green fills stay green.
 - **Angled section breaks:** sections meet on a shallow 2–4° diagonal, alternating navy and soft-gradient grounds.
 
