@@ -1,0 +1,18 @@
+/* GRIDMARK LOCKUP COMPONENT v1.0
+   Usage:
+   <div class="gm-lockup" style="font-size:26px">
+     <div class="gm-name">GRIDMARK</div>
+     <div class="gm-rule"><span class="hair"></span><span class="cell"></span></div>
+     <div class="gm-descriptor"><span>P</span><span>A</span><span>R</span><span>T</span><span>N</span><span>E</span><span>R</span><span>S</span></div>
+   </div>
+   Scale the whole lockup with font-size on .gm-lockup. Add .gm-rev on dark grounds. */
+.gm-lockup{display:inline-flex;flex-direction:column;
+  font-family:'Axiforma','Poppins','Segoe UI',sans-serif;color:var(--navy-900,#0C2A48)}
+.gm-lockup .gm-name{font-weight:600;line-height:1;letter-spacing:.14em;margin-right:-.14em;white-space:nowrap}
+.gm-lockup .gm-rule{display:flex;align-items:center;margin:.42em 0}
+.gm-lockup .gm-rule .hair{flex:1;height:1px;background:currentColor;opacity:.55}
+.gm-lockup .gm-rule .cell{width:.42em;height:.26em;background:var(--brass-500,#C8A46B);margin-left:.14em}
+.gm-lockup .gm-descriptor{display:flex;justify-content:space-between;font-weight:400;font-size:.4em;line-height:1}
+.gm-lockup.gm-rev{color:#fff}
+.gm-lockup .gm-tagline{font-weight:400;font-size:.44em;color:var(--steel-500,#0D698A);margin-top:.5em;letter-spacing:.01em}
+.gm-lockup.gm-rev .gm-tagline{color:var(--slate-400,#8DA3B5)}

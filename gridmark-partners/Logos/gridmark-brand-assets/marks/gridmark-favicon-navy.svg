@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 220" role="img" aria-label="Gridmark Partners mark">
+<!-- GRIDMARK FAVICON CUT v1.0 · use below 40px · navy on light -->
+  <g stroke="#0C2A48" fill="none" stroke-linecap="square">
+    <line x1="84" y1="36" x2="84" y2="168" stroke-width="11"/>
+    <line x1="176" y1="36" x2="176" y2="168" stroke-width="11"/>
+    <line x1="84" y1="54" x2="176" y2="54" stroke-width="9"/>
+    <line x1="30" y1="150" x2="230" y2="150" stroke-width="10"/>
+    <g stroke-width="5"><line x1="84" y1="72" x2="176" y2="132"/><line x1="176" y1="72" x2="84" y2="132"/></g>
+  </g>
+  <rect x="112" y="136" width="36" height="20" fill="#C8A46B"/>
+</svg>

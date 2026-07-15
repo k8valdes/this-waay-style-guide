@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Gridmark Partners — Design System & Brand Guidelines v3 (Living)</title>
+<link rel="icon" type="image/svg+xml" href="Logos/gridmark-brand-assets/marks/gridmark-favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ════════════════════════════════════════════════════════════════
+   GRIDMARK DESIGN SYSTEM — TOKENS
+   Layer 1 primitive  ·  Layer 2 semantic  ·  Layer 3 component
+   Brand primitives are inherited verbatim from This Waay v1.7.
+   Functional steps (states, status, neutrals) are derived to sit
+   with the brand and meet WCAG 2.1 AA — flagged as "derived".
+═══════════════════════════════════════════════════════════════ */
+:root{
+  /* ── L1 · PRIMITIVES — brand (This Waay verbatim) ── */
+  --navy-900:#0C2A48;   /* Deep Navy */
+  --green-500:#54B987;  /* Waay Green */
+  --green-punch:#3DD68C;/* Punch Green */
+  --teal-500:#0BABAB;   /* Teal */
+  --steel-500:#0D698A;  /* Steel Blue */
+  --slate-400:#8DA3B5;  /* Slate */
+  --mint-50:#EEF8EC;    /* Mint */
+  --ice-50:#F2FBFB;     /* Ice */
+  --coral-300:#F2A08D;  /* Path Coral — illustration only */
+  --brass-500:#C8A46B;  /* Brass — Gridmark civic accent */
+
+  /* ── L1 · PRIMITIVES — derived functional steps ── */
+  --navy-800:#133A5E; --navy-700:#1C4C77;
+  --green-600:#3E9E70; --green-700:#2E7D55; --green-tint:#EAF6EF;
+  --brass-600:#A9874F; --brass-tint:#F6EFE1;
+  --neutral-0:#FFFFFF; --neutral-50:#F6F8F9; --neutral-100:#EDF1F3;
+  --neutral-200:#DFE6EA; --neutral-300:#C7D2D9; --neutral-500:#57697A;
+  --neutral-700:#33454F; --neutral-900:#0C2A48;
+  --danger-500:#B23A2E; --danger-tint:#FBEEEC; --danger-700:#8E2C22;
+  --warning-500:#B7791F; --warning-tint:#FBF3E2;
+  --info-500:#0D698A;  --info-tint:#E6F2F6;
+  --success-500:#2E7D55; --success-tint:#EAF6EF;
+
+  /* ── L2 · SEMANTIC — surfaces ── */
+  --bg-canvas:var(--neutral-0);
+  --bg-soft:linear-gradient(135deg,var(--mint-50) 0%,var(--ice-50) 100%);
+  --bg-surface:var(--neutral-0);
+  --bg-surface-raised:var(--neutral-0);
+  --bg-inverse:var(--navy-900);
+  --bg-inverse-raised:var(--navy-800);
+
+  /* ── L2 · SEMANTIC — text ── */
+  --text-primary:var(--navy-900);     /* 14.6:1 on white */
+  --text-secondary:var(--neutral-500);/* ~5:1 on white  */
+  --text-muted:var(--slate-400);      /* large/captions only */
+  --text-on-inverse:var(--neutral-0);
+  --text-on-accent:var(--neutral-0);
+  --text-link:var(--steel-500);       /* 6.2:1 on white */
+  --text-link-inverse:var(--green-500);/* 6.0:1 on navy */
+
+  /* ── L2 · SEMANTIC — action (Waay Green) ── */
+  --action:var(--green-500);
+  --action-hover:var(--green-600);
+  --action-pressed:var(--green-700);
+  --action-subtle:var(--green-tint);
+  --action-disabled:var(--neutral-200);
+  --accent-civic:var(--brass-500);    /* rare — parallels Punch Green */
+
+  /* ── L2 · SEMANTIC — borders / focus ── */
+  --border:var(--neutral-200);
+  --border-strong:var(--neutral-300);
+  --border-inverse:rgba(255,255,255,.16);
+  --focus-ring:0 0 0 3px rgba(84,185,135,.55);
+  --focus-ring-inverse:0 0 0 3px rgba(255,255,255,.65);
+
+  /* ── L2 · SEMANTIC — status ── */
+  --status-success:var(--success-500); --status-success-bg:var(--success-tint);
+  --status-warning:var(--warning-500); --status-warning-bg:var(--warning-tint);
+  --status-danger:var(--danger-500);   --status-danger-bg:var(--danger-tint);
+  --status-info:var(--info-500);       --status-info-bg:var(--info-tint);
+
+  /* ── L1 · SCALES — spacing (8px base) ── */
+  --space-1:4px; --space-2:8px; --space-3:16px; --space-4:24px;
+  --space-5:32px; --space-6:48px; --space-7:64px; --space-8:96px;
+  --section-pad:clamp(56px,8vw,110px);
+
+  /* ── L1 · SCALES — radii ── */
+  --radius-xs:6px; --radius-sm:10px; --radius-card:14px; --radius-pill:999px;
+
+  /* ── L1 · SCALES — elevation (navy-tinted) ── */
+  --elev-1:0 1px 2px rgba(12,42,72,.08);
+  --elev-2:0 4px 12px rgba(12,42,72,.10);
+  --elev-3:0 14px 34px rgba(12,42,72,.16);
+  --elev-4:0 24px 60px rgba(12,42,72,.22);
+
+  /* ── L1 · SCALES — motion ── */
+  --dur-fast:120ms; --dur-base:200ms; --dur-slow:320ms;
+  --ease-standard:cubic-bezier(.2,0,0,1);
+  --ease-decelerate:cubic-bezier(0,0,0,1);
+  --ease-accelerate:cubic-bezier(.4,0,1,1);
+
+  /* ── L1 · SCALES — z-index ── */
+  --z-base:0; --z-raised:10; --z-sticky:100; --z-overlay:1000;
+  --z-modal:1100; --z-toast:1200; --z-tooltip:1300;
+
+  /* ── L1 · TYPE ── */
+  --font-sans:'Axiforma','Poppins','Segoe UI',sans-serif;
+  --font-mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+  --measure:64ch;
+
+  /* ── L3 · COMPONENT (examples of the layer) ── */
+  --btn-radius:var(--radius-pill);
+  --btn-pad-y:13px; --btn-pad-x:26px;
+  --card-radius:var(--radius-card);
+  --container:1080px;
+}
+
+/* reset / base */
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-font-smoothing:antialiased;scroll-behavior:smooth;scroll-padding-top:118px}
+body{font-family:var(--font-sans);color:var(--text-primary);background:#aab6bd;line-height:1.7}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation-duration:.001ms!important;transition-duration:.001ms!important}}
+
+.wrap{max-width:1120px;margin:0 auto;background:var(--bg-canvas);box-shadow:0 30px 90px rgba(12,42,72,.34)}
+
+/* ── top nav ── */
+/* Global brand nav (shared pattern: landing + both brand guides); sub nav sticks below its 44px */
+.gnav{position:sticky;top:0;z-index:calc(var(--z-sticky) + 1);display:flex;align-items:center;gap:22px;height:44px;padding:0 20px;background:#081F37;border-bottom:1px solid var(--border-inverse);overflow-x:auto;white-space:nowrap}
+.gnav a:focus-visible{outline:none;box-shadow:var(--focus-ring-inverse)}
+.gnav-home{display:inline-flex;align-items:center;gap:9px;margin-right:auto;flex:none;color:#fff;text-decoration:none;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.gnav-home img{width:16px;height:16px;border-radius:4px}
+.gnav-home span{color:#8DA3B5;font-weight:600}
+.gnav-brand{display:inline-flex;align-items:center;gap:7px;align-self:stretch;flex:none;color:rgba(255,255,255,.72);text-decoration:none;font-size:12px;font-weight:600;border-top:2px solid transparent;border-bottom:2px solid transparent}
+.gnav-brand:hover{color:#fff}
+.gnav-brand .dot{width:8px;height:8px;border-radius:50%;flex:none}
+.gnav-brand.pds .dot{background:var(--green-500)}
+.gnav-brand.gm .dot{background:var(--brass-500)}
+.gnav-brand[aria-current="page"]{color:#fff}
+.gnav-brand.pds[aria-current="page"]{border-bottom-color:var(--green-500)}
+.gnav-brand.gm[aria-current="page"]{border-bottom-color:var(--brass-500)}
+
+.nav{position:sticky;top:44px;z-index:var(--z-sticky);background:rgba(12,42,72,.97);backdrop-filter:blur(6px);color:#fff;display:flex;align-items:center;flex-wrap:wrap;gap:6px;padding:0 18px;overflow:visible;border-bottom:1px solid var(--border-inverse)}
+.nav .brand{font-weight:700;letter-spacing:.06em;font-size:13px;padding:16px 14px 16px 6px;white-space:nowrap;flex:none}
+.nav .brand b{color:var(--green-500)}
+.nav a{color:rgba(255,255,255,.72);text-decoration:none;font-size:12px;font-weight:500;padding:16px 11px;white-space:nowrap;border-bottom:2px solid transparent;transition:color var(--dur-fast) var(--ease-standard)}
+.nav a:hover{color:#fff}
+.nav a.active{color:#fff;border-bottom-color:var(--green-500)}
+.nav a:focus-visible{outline:none;box-shadow:var(--focus-ring-inverse)}
+
+/* sub nav groups — unified IA shared with the This Waay PDS guide */
+.nav-group{position:relative}
+.nav-group-btn{display:flex;align-items:center;gap:5px;background:none;border:none;cursor:pointer;color:rgba(255,255,255,.72);font-family:var(--font-sans);font-size:12px;font-weight:500;padding:16px 11px;white-space:nowrap;border-bottom:2px solid transparent;transition:color var(--dur-fast) var(--ease-standard)}
+.nav-group-btn:hover{color:#fff}
+.nav-group-btn .chev{font-size:9px;transition:transform var(--dur-fast) var(--ease-standard)}
+.nav-group-btn[aria-expanded="true"]{color:#fff}
+.nav-group-btn[aria-expanded="true"] .chev{transform:rotate(180deg)}
+.nav-group-btn.active{color:#fff;border-bottom-color:var(--green-500)}
+.nav-group-btn:focus-visible{outline:none;box-shadow:var(--focus-ring-inverse)}
+.nav-subnav{position:absolute;top:100%;left:0;min-width:190px;list-style:none;margin:0;padding:8px;background:#081F37;border:1px solid var(--border-inverse);border-top:none;border-radius:0 0 8px 8px;box-shadow:0 18px 40px rgba(8,31,55,.45);z-index:var(--z-overlay)}
+.nav-subnav[hidden]{display:none}
+.nav-subnav li+li{margin-top:2px}
+.nav-subnav a{display:block;padding:8px 12px;border-radius:6px;border-bottom:none}
+.nav-subnav a:hover{background:rgba(255,255,255,.08)}
+@media(prefers-reduced-motion:reduce){.nav-group-btn .chev{transition:none}}
+
+/* ── masthead ── */
+.mast{background:var(--bg-inverse);color:#fff;padding:64px 56px 56px;position:relative;overflow:hidden}
+.mast .eyebrow{color:var(--green-500)}
+.mast h1{font-size:clamp(34px,5vw,52px);font-weight:700;letter-spacing:-.02em;line-height:1.05;margin:16px 0 14px;max-width:18ch}
+.mast h1 .hl{color:var(--green-500)}
+.mast p{color:#c5d3dd;max-width:60ch;font-size:16px}
+.mast .meta{display:flex;gap:22px;margin-top:30px;flex-wrap:wrap;font-size:12px;color:var(--slate-400)}
+.mast .meta b{color:#fff;font-weight:600}
+
+/* layout primitives for the doc */
+.section{padding:var(--space-7) 56px;border-bottom:1px solid var(--border)}
+.section.soft{background:var(--bg-soft)}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--action)}
+.section h2{font-size:27px;font-weight:700;letter-spacing:-.015em;margin:12px 0 8px}
+.section .lede{color:var(--text-secondary);max-width:var(--measure);font-size:15px}
+.section h3{font-size:16px;font-weight:600;margin:38px 0 14px;letter-spacing:-.01em}
+.section h3:first-of-type{margin-top:30px}
+.muted{color:var(--text-secondary);font-size:13px}
+
+/* token table */
+.tokens{width:100%;border-collapse:collapse;margin-top:14px;font-size:12.5px}
+.tokens th{text-align:left;font-weight:600;color:var(--text-secondary);font-size:11px;letter-spacing:.04em;text-transform:uppercase;padding:8px 12px;border-bottom:1px solid var(--border-strong)}
+.tokens td{padding:9px 12px;border-bottom:1px solid var(--border);vertical-align:middle}
+.tokens code{font-family:var(--font-mono);font-size:11.5px;background:var(--neutral-50);padding:2px 6px;border-radius:5px;color:var(--navy-800);cursor:copy}
+.tokens code:hover{background:var(--action-subtle)}
+.sw-dot{width:30px;height:30px;border-radius:7px;border:1px solid rgba(12,42,72,.12);display:inline-block;vertical-align:middle}
+.ratio{font-family:var(--font-mono);font-size:11px;font-weight:500}
+.pass{color:var(--success-500);font-weight:600}.fail{color:var(--danger-500);font-weight:600}.cau{color:var(--warning-500);font-weight:600}
+
+/* swatch grid */
+.swgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:24px}
+.swgrid .s .chip{height:72px;border-radius:var(--radius-sm);border:1px solid rgba(12,42,72,.08)}
+.swgrid .s .nm{font-size:11.5px;font-weight:600;margin-top:9px}
+.swgrid .s .hex{font-family:var(--font-mono);font-size:10.5px;color:var(--text-secondary);cursor:copy}
+.swgrid .s .role{font-size:10.5px;color:var(--text-muted);margin-top:1px;line-height:1.4}
+
+/* code block */
+.code{background:#08233d;color:#cfe5d9;border-radius:var(--radius-sm);padding:18px 20px;font-family:var(--font-mono);font-size:11.5px;line-height:1.75;overflow-x:auto;margin-top:16px;position:relative}
+.code .k{color:#8fd3b0}.code .v{color:#f0c987}.code .c{color:#6f8aa0}
+.copybtn{position:absolute;top:10px;right:10px;background:rgba(255,255,255,.1);color:#fff;border:none;border-radius:999px;font-size:10px;padding:5px 12px;cursor:pointer;font-family:var(--font-sans);font-weight:600}
+.copybtn:hover{background:var(--action)}
+
+/* type scale specimen */
+.typescale .row{display:grid;grid-template-columns:170px 1fr;gap:20px;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--border)}
+.typescale .spec{font-size:11px;color:var(--text-secondary);font-family:var(--font-mono);line-height:1.6}
+.t-display{font-size:clamp(34px,5vw,52px);font-weight:700;letter-spacing:-.02em;line-height:1.05}
+.t-h1{font-size:clamp(30px,4vw,40px);font-weight:700;letter-spacing:-.015em}
+.t-h2{font-size:30px;font-weight:700;letter-spacing:-.015em}
+.t-h3{font-size:22px;font-weight:600;letter-spacing:-.01em}
+.t-h4{font-size:18px;font-weight:600}
+.t-bodyl{font-size:18px;font-weight:400}
+.t-body{font-size:16px;font-weight:400}
+.t-bodys{font-size:14px;font-weight:400}
+.t-cap{font-size:12.5px;font-weight:500;color:var(--text-secondary)}
+.t-over{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--action)}
+
+/* spacing visual */
+.spacescale{display:flex;flex-direction:column;gap:8px;margin-top:18px}
+.spacescale .r{display:flex;align-items:center;gap:16px}
+.spacescale .bar{height:18px;background:var(--action);border-radius:3px}
+.spacescale .lab{font-family:var(--font-mono);font-size:11px;color:var(--text-secondary);width:200px;flex:none}
+
+/* generic grids */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:22px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
+.panel{background:var(--bg-surface);border:1px solid var(--border);border-radius:var(--card-radius);padding:24px}
+
+/* ── COMPONENT SPECIMENS ── */
+/* buttons */
+.btn{font-family:var(--font-sans);font-weight:600;font-size:14px;border-radius:var(--btn-radius);padding:var(--btn-pad-y) var(--btn-pad-x);border:1.5px solid transparent;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:background var(--dur-fast) var(--ease-standard),box-shadow var(--dur-fast) var(--ease-standard),transform var(--dur-fast) var(--ease-standard);line-height:1}
+.btn:focus-visible{outline:none;box-shadow:var(--focus-ring)}
+.btn:active{transform:translateY(1px)}
+.btn-primary{background:var(--action);color:var(--text-on-accent)}
+.btn-primary:hover{background:var(--action-hover)}
+.btn-primary:active{background:var(--action-pressed)}
+.btn-secondary{background:transparent;color:var(--navy-900);border-color:var(--border-strong)}
+.btn-secondary:hover{border-color:var(--navy-900);background:var(--neutral-50)}
+.btn-tertiary{background:transparent;color:var(--text-link);padding-left:8px;padding-right:8px}
+.btn-tertiary:hover{color:var(--navy-900)}
+.btn-danger{background:var(--status-danger);color:#fff}
+.btn-danger:hover{background:var(--danger-700)}
+.btn[disabled]{background:var(--action-disabled);color:#fff;cursor:not-allowed;border-color:transparent}
+.btn-sm{font-size:12.5px;padding:9px 18px}
+.btn-lg{font-size:15px;padding:16px 32px}
+.specimen{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:8px}
+.statecols{display:grid;grid-template-columns:repeat(5,auto);gap:10px 22px;margin-top:14px;align-items:center;justify-items:start}
+.statecols .h{font-size:10.5px;color:var(--text-secondary);font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+
+/* form controls */
+.field{margin-bottom:18px;max-width:340px}
+.field label{display:block;font-size:12.5px;font-weight:600;margin-bottom:6px}
+.field .hint{font-size:11.5px;color:var(--text-secondary);margin-top:5px}
+.field .err{font-size:11.5px;color:var(--status-danger);margin-top:5px;font-weight:500}
+.input{width:100%;font-family:var(--font-sans);font-size:14px;padding:11px 14px;border:1.5px solid var(--border-strong);border-radius:var(--radius-sm);background:#fff;color:var(--navy-900);transition:border-color var(--dur-fast) var(--ease-standard),box-shadow var(--dur-fast) var(--ease-standard)}
+.input::placeholder{color:var(--text-muted)}
+.input:hover{border-color:var(--neutral-500)}
+.input:focus{outline:none;border-color:var(--action);box-shadow:var(--focus-ring)}
+.input.invalid{border-color:var(--status-danger)}
+.input.invalid:focus{box-shadow:0 0 0 3px rgba(178,58,46,.4)}
+.input[disabled]{background:var(--neutral-100);color:var(--text-muted);cursor:not-allowed}
+.checkrow{display:flex;align-items:center;gap:10px;margin-bottom:12px;font-size:14px}
+.toggle{width:42px;height:24px;border-radius:999px;background:var(--neutral-300);position:relative;cursor:pointer;transition:background var(--dur-base) var(--ease-standard);flex:none}
+.toggle::after{content:"";position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:#fff;box-shadow:var(--elev-1);transition:transform var(--dur-base) var(--ease-standard)}
+.toggle.on{background:var(--action)}
+.toggle.on::after{transform:translateX(18px)}
+
+/* cards (3 canonical) */
+.cardset{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:22px}
+.c-badge{background:#fff;border:1px solid var(--border);border-radius:var(--card-radius);padding:30px 24px;text-align:center;box-shadow:var(--elev-2)}
+.c-badge .shield{margin:0 auto 16px}
+.c-badge h4{font-size:15px;font-weight:600;margin-bottom:6px}
+.c-badge p{font-size:12.5px;color:var(--text-secondary)}
+.c-content{background:var(--action);border-radius:var(--card-radius);padding:26px 24px;color:#fff;clip-path:polygon(0 8px,100% 0,100% 100%,0 100%)}
+.c-content .tab{width:34px;height:34px;border-radius:9px;background:rgba(255,255,255,.16);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.c-content h4{font-size:15px;font-weight:700;margin-bottom:6px}
+.c-content p{font-size:12.5px;color:rgba(255,255,255,.9)}
+.c-panel{background:var(--bg-soft);border:1px solid var(--border);border-radius:var(--card-radius);padding:26px 24px}
+.c-panel .q{font-size:26px;color:var(--action);line-height:1;font-weight:700}
+.c-panel p{font-style:italic;font-size:13px;color:var(--navy-800);margin:10px 0 14px}
+.c-panel .who{font-size:12px;font-weight:700}
+.c-panel .role{font-size:11px;color:var(--action);font-weight:600}
+
+/* alerts */
+.alert{display:flex;gap:12px;padding:14px 16px;border-radius:var(--radius-sm);font-size:13px;margin-bottom:12px;border:1px solid transparent}
+.alert .ic{font-weight:700;flex:none}
+.alert-success{background:var(--status-success-bg);color:var(--success-500);border-color:rgba(46,125,85,.25)}
+.alert-warning{background:var(--status-warning-bg);color:var(--warning-500);border-color:rgba(183,121,31,.25)}
+.alert-danger{background:var(--status-danger-bg);color:var(--danger-700);border-color:rgba(178,58,46,.25)}
+.alert-info{background:var(--status-info-bg);color:var(--info-500);border-color:rgba(13,105,138,.25)}
+
+/* pills / badges */
+.pillset{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;align-items:center}
+.pill{background:var(--action);color:#fff;font-weight:600;font-size:12px;padding:7px 16px;border-radius:999px}
+.tag{border:1.5px solid var(--action);color:var(--action);font-weight:600;font-size:11px;padding:5px 13px;border-radius:999px}
+.tag-civic{border-color:var(--accent-civic);color:var(--brass-600)}
+.badge-num{background:var(--status-danger);color:#fff;font-size:11px;font-weight:700;min-width:20px;height:20px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;padding:0 6px}
+
+/* tabs */
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--border);margin-top:14px}
+.tabs button{background:none;border:none;font-family:var(--font-sans);font-size:13px;font-weight:600;color:var(--text-secondary);padding:11px 16px;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px}
+.tabs button.active{color:var(--navy-900);border-bottom-color:var(--action)}
+.tabs button:focus-visible{outline:none;box-shadow:var(--focus-ring);border-radius:6px 6px 0 0}
+
+/* accordion */
+.acc{border:1px solid var(--border);border-radius:var(--radius-sm);overflow:hidden;margin-top:14px}
+.acc .item+.item{border-top:1px solid var(--border)}
+.acc .head{width:100%;text-align:left;background:#fff;border:none;font-family:var(--font-sans);font-size:14px;font-weight:600;color:var(--navy-900);padding:15px 18px;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+.acc .head:hover{background:var(--neutral-50)}
+.acc .head .chev{color:var(--action);transition:transform var(--dur-base) var(--ease-standard)}
+.acc .item.open .chev{transform:rotate(90deg)}
+.acc .body{padding:0 18px;max-height:0;overflow:hidden;transition:max-height var(--dur-slow) var(--ease-standard),padding var(--dur-slow) var(--ease-standard);font-size:13px;color:var(--text-secondary)}
+.acc .item.open .body{padding:0 18px 16px;max-height:200px}
+
+/* table */
+.dtable{width:100%;border-collapse:collapse;margin-top:16px;font-size:13px}
+.dtable th{text-align:left;background:var(--neutral-50);font-weight:600;font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--text-secondary);padding:11px 14px;border-bottom:2px solid var(--border-strong)}
+.dtable td{padding:11px 14px;border-bottom:1px solid var(--border)}
+.dtable tr:hover td{background:var(--neutral-50)}
+
+/* logo governance */
+.logo-rules{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
+.lr{border:1px solid var(--border);border-radius:var(--card-radius);padding:26px 0 0;text-align:center;display:flex;flex-direction:column;align-items:center;overflow:hidden}
+.lr > :first-child{margin-top:auto;margin-bottom:20px;padding:0 16px}
+.lr > img{display:block}
+.lr .t{font-size:12px;font-weight:600;margin-top:auto;width:100%;padding:12px 16px 3px;background:var(--neutral-50);border-top:1px solid var(--border)}
+.lr .d{font-size:11px;color:var(--text-secondary);width:100%;padding:0 16px 14px;background:var(--neutral-50)}
+.lr.inv .t{background:rgba(255,255,255,.07);border-top-color:var(--border-inverse)}
+.lr.inv .d{background:rgba(255,255,255,.07)}
+.misuse{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:18px}
+.mu{border:1px solid var(--border);border-radius:var(--radius-sm);padding:18px 12px;text-align:center;position:relative}
+.mu .x{color:var(--danger-500);font-weight:700;font-size:13px}
+.mu .lbl{font-size:10.5px;color:var(--text-secondary);margin-top:8px}
+
+/* wordmark mini */
+.wm{display:inline-flex;flex-direction:column;align-items:center;gap:5px}
+.wm .nm{font-weight:600;letter-spacing:.14em;color:var(--navy-900);line-height:.9;padding-left:.14em;font-size:18px}
+.wm .sub{display:flex;align-items:center;gap:8px;width:100%;justify-content:center}
+.wm .sub .rule{height:1px;background:var(--navy-900);flex:1;position:relative}
+.wm .sub .rule::after{content:"";position:absolute;top:-2px;width:3px;height:3px;background:var(--accent-civic)}
+.wm .sub .rule.l::after{right:0}.wm .sub .rule.r::after{left:0}
+.wm .sub .p{font-weight:500;letter-spacing:.34em;color:var(--navy-900);text-transform:uppercase;padding-left:.34em;font-size:7px}
+.wm.rev .nm,.wm.rev .p{color:#fff}.wm.rev .sub .rule{background:rgba(255,255,255,.5)}
+
+/* motion demo */
+.motiondemo{display:flex;gap:16px;margin-top:18px;flex-wrap:wrap}
+.md{border:1px solid var(--border);border-radius:var(--radius-sm);padding:16px;width:170px}
+.md .box{height:34px;border-radius:6px;background:var(--action);width:34px;transition:transform .9s}
+.md:hover .box{transform:translateX(96px)}
+.md .l{font-size:11px;color:var(--text-secondary);margin-top:12px;font-family:var(--font-mono)}
+
+/* governance changelog */
+.log{margin-top:18px;border-left:2px solid var(--border-strong);padding-left:22px}
+.log .e{margin-bottom:18px}
+.log .v{font-weight:700;font-size:13px}.log .v span{color:var(--action)}
+.log .d{font-size:12.5px;color:var(--text-secondary);margin-top:3px}
+
+.footer{background:var(--bg-inverse);color:#fff;padding:30px 56px;font-size:12px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.footer b{color:var(--green-500)}
+
+.note{font-size:12px;color:var(--text-secondary);background:var(--neutral-50);border-left:3px solid var(--action);padding:12px 16px;border-radius:0 8px 8px 0;margin-top:18px}
+
+@media(max-width:820px){
+  .section{padding:48px 24px}.mast{padding:48px 24px}
+  .grid2,.grid3,.cardset,.logo-rules{grid-template-columns:1fr}
+  .swgrid{grid-template-columns:repeat(2,1fr)}
+  .misuse{grid-template-columns:repeat(2,1fr)}
+  .typescale .row{grid-template-columns:1fr}
+  .statecols{grid-template-columns:repeat(3,auto)}
+}
+@media print{body{background:#fff}.wrap{box-shadow:none}.nav{position:static}.gnav{position:static}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- GLOBAL BRAND NAV -->
+  <nav class="gnav" aria-label="This Waay brands">
+    <a class="gnav-home" href="../index.html">
+      <img src="../product-design-studio/assets/This-Waay-Logo-White-Mark.svg" alt="">
+      This Waay <span>Design System</span>
+    </a>
+    <a class="gnav-brand pds" href="../product-design-studio/index.html"><span class="dot" aria-hidden="true"></span>Product Design Studio</a>
+    <a class="gnav-brand gm" href="gridmark-design-system-v3.html" aria-current="page"><span class="dot" aria-hidden="true"></span>Gridmark Partners</a>
+  </nav>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav" aria-label="Design system sections">
+    <span class="brand"><img src="Logos/gridmark-brand-assets/marks/gridmark-favicon-white.svg" alt="" style="height:16px;vertical-align:-3px;margin-right:7px">GRIDMARK<b>·</b>DS</span>
+    <div class="nav-group">
+      <button type="button" class="nav-group-btn" aria-expanded="false" aria-controls="nav-sub-principles">Principles<span class="chev" aria-hidden="true">⌄</span></button>
+      <ul class="nav-subnav" id="nav-sub-principles" hidden>
+        <li><a href="#principles">Design principles</a></li>
+      </ul>
+    </div>
+    <div class="nav-group">
+      <button type="button" class="nav-group-btn" aria-expanded="false" aria-controls="nav-sub-architecture">Architecture<span class="chev" aria-hidden="true">⌄</span></button>
+      <ul class="nav-subnav" id="nav-sub-architecture" hidden>
+        <li><a href="#tokens">Token layers</a></li>
+      </ul>
+    </div>
+    <div class="nav-group">
+      <button type="button" class="nav-group-btn" aria-expanded="false" aria-controls="nav-sub-foundations">Foundations<span class="chev" aria-hidden="true">⌄</span></button>
+      <ul class="nav-subnav" id="nav-sub-foundations" hidden>
+        <li><a href="#color">Color</a></li>
+        <li><a href="#type">Typography</a></li>
+        <li><a href="#space">Spacing &amp; layout</a></li>
+        <li><a href="#elevation">Elevation, radii &amp; borders</a></li>
+        <li><a href="#motion">Motion</a></li>
+        <li><a href="#a11y">Accessibility</a></li>
+      </ul>
+    </div>
+    <div class="nav-group">
+      <button type="button" class="nav-group-btn" aria-expanded="false" aria-controls="nav-sub-brand">Brand<span class="chev" aria-hidden="true">⌄</span></button>
+      <ul class="nav-subnav" id="nav-sub-brand" hidden>
+        <li><a href="#logo">Logo &amp; lockups</a></li>
+      </ul>
+    </div>
+    <div class="nav-group">
+      <button type="button" class="nav-group-btn" aria-expanded="false" aria-controls="nav-sub-system">System<span class="chev" aria-hidden="true">⌄</span></button>
+      <ul class="nav-subnav" id="nav-sub-system" hidden>
+        <li><a href="#components">Components</a></li>
+        <li><a href="#patterns">Page patterns</a></li>
+      </ul>
+    </div>
+    <div class="nav-group">
+      <button type="button" class="nav-group-btn" aria-expanded="false" aria-controls="nav-sub-language">Language<span class="chev" aria-hidden="true">⌄</span></button>
+      <ul class="nav-subnav" id="nav-sub-language" hidden>
+        <li><a href="#voice">Voice &amp; UI writing</a></li>
+      </ul>
+    </div>
+    <div class="nav-group">
+      <button type="button" class="nav-group-btn" aria-expanded="false" aria-controls="nav-sub-operations">Operations<span class="chev" aria-hidden="true">⌄</span></button>
+      <ul class="nav-subnav" id="nav-sub-operations" hidden>
+        <li><a href="#governance">Governance &amp; versioning</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- MASTHEAD -->
+  <header class="mast">
+    <div class="eyebrow">Living design system · v3.1</div>
+    <h1>One system, <span class="hl">two brands</span>, every element defined.</h1>
+    <p>The single source of truth for Gridmark Partners — tokens, components, and patterns, built as the public-sector sibling of the This Waay system. Layered so the marketing site themes from variables, and conformant to WCAG&nbsp;2.1&nbsp;AA from the foundation up.</p>
+    <div class="meta">
+      <span><b>Inherits</b> This Waay v1.7</span>
+      <span><b>Tokens</b> 3-layer (primitive · semantic · component)</span>
+      <span><b>Accessibility</b> WCAG 2.1 AA</span>
+      <span><b>Updated</b> July 2026</span>
+    </div>
+  </header>
+
+  <!-- PRINCIPLES -->
+  <section class="section" id="principles">
+    <div class="eyebrow">01 · Principles</div>
+    <h2>Design principles</h2>
+    <p class="lede">Six commitments inherited from This Waay and grounded for civic work. They decide the close calls the tokens can't.</p>
+    <div class="grid3">
+      <div class="panel"><h4 style="font-size:14px;margin-bottom:6px">Evidence over hype</h4><p class="muted">Research and a clear reference point before tools. The system favors clarity over decoration.</p></div>
+      <div class="panel"><h4 style="font-size:14px;margin-bottom:6px">Structure before scale</h4><p class="muted">Governance, rhythm, and tokens come first so the system grows without rework.</p></div>
+      <div class="panel"><h4 style="font-size:14px;margin-bottom:6px">Human-centered throughout</h4><p class="muted">Every component is judged by whether it works for residents and the staff who run the service.</p></div>
+      <div class="panel"><h4 style="font-size:14px;margin-bottom:6px">Calm authority</h4><p class="muted">One accent, generous space, no shout. Confidence shown through restraint.</p></div>
+      <div class="panel"><h4 style="font-size:14px;margin-bottom:6px">Accessible by default</h4><p class="muted">AA contrast, visible focus, keyboard paths, and reduced-motion are baseline, not add-ons.</p></div>
+      <div class="panel"><h4 style="font-size:14px;margin-bottom:6px">Sibling, not stranger</h4><p class="muted">70% shared with This Waay; the civic 30% is expressed through structure, not a new palette.</p></div>
+    </div>
+  </section>
+
+  <!-- TOKENS -->
+  <section class="section soft" id="tokens">
+    <div class="eyebrow">02 · Architecture</div>
+    <h2>Token layers</h2>
+    <p class="lede">Three layers. Primitives hold raw brand values; semantic tokens give them meaning and are what components reference; component tokens tune individual parts. The site never hardcodes a hex — it consumes semantic tokens, so a theme change is a token change.</p>
+    <div class="code" id="tokencode"><button class="copybtn" data-copy="#tokencode">Copy</button><span class="c">/* L1 primitive → L2 semantic → L3 component */</span>
+<span class="k">--navy-900</span>: <span class="v">#0C2A48</span>;        <span class="c">/* brand primitive */</span>
+<span class="k">--green-500</span>: <span class="v">#54B987</span>;       <span class="c">/* brand primitive */</span>
+<span class="k">--text-primary</span>: <span class="v">var(--navy-900)</span>;   <span class="c">/* semantic alias */</span>
+<span class="k">--action</span>: <span class="v">var(--green-500)</span>;       <span class="c">/* semantic alias */</span>
+<span class="k">--action-hover</span>: <span class="v">var(--green-600)</span>; <span class="c">/* derived state */</span>
+<span class="k">--btn-primary-bg</span>: <span class="v">var(--action)</span>;   <span class="c">/* component token */</span></div>
+    <div class="note">Naming convention: <code style="font-family:var(--font-mono)">--[category]-[role]-[variant?]-[state?]</code>. Categories: color/text/bg/border, space, radius, elev, dur, ease, z, font. Derived steps (states, status, neutrals) are tuned to the palette and AA — they are never new <em>brand</em> colors.</div>
+  </section>
+
+  <!-- COLOR -->
+  <section class="section" id="color">
+    <div class="eyebrow">03 · Foundations</div>
+    <h2>Color</h2>
+    <p class="lede">Brand primitives are the This Waay set verbatim. Waay Green is the single system accent; brass is Gridmark's rare civic emphasis. Functional status colors are derived to harmonize and meet contrast.</p>
+
+    <h3>Brand primitives</h3>
+    <div class="swgrid">
+      <div class="s"><div class="chip" style="background:#0C2A48"></div><div class="nm">Deep Navy</div><div class="hex">#0C2A48</div><div class="role">Ground, text, hero</div></div>
+      <div class="s"><div class="chip" style="background:#54B987"></div><div class="nm">Waay Green</div><div class="hex">#54B987</div><div class="role">The action accent</div></div>
+      <div class="s"><div class="chip" style="background:#0BABAB"></div><div class="nm">Teal</div><div class="hex">#0BABAB</div><div class="role">Subheads, heritage</div></div>
+      <div class="s"><div class="chip" style="background:#0D698A"></div><div class="nm">Steel Blue</div><div class="hex">#0D698A</div><div class="role">Links, data series 2</div></div>
+      <div class="s"><div class="chip" style="background:#8DA3B5"></div><div class="nm">Slate</div><div class="hex">#8DA3B5</div><div class="role">Muted labels</div></div>
+      <div class="s"><div class="chip" style="background:#EEF8EC"></div><div class="nm">Mint</div><div class="hex">#EEF8EC</div><div class="role">Soft surface A</div></div>
+      <div class="s"><div class="chip" style="background:#F2FBFB"></div><div class="nm">Ice</div><div class="hex">#F2FBFB</div><div class="role">Soft surface B</div></div>
+      <div class="s"><div class="chip" style="background:#C8A46B"></div><div class="nm">Brass · Gridmark</div><div class="hex">#C8A46B</div><div class="role">Rare civic accent</div></div>
+      <div class="s"><div class="chip" style="background:#F2A08D"></div><div class="nm">Path Coral</div><div class="hex">#F2A08D</div><div class="role">Illustration only</div></div>
+      <div class="s"><div class="chip" style="background:#3DD68C"></div><div class="nm">Punch Green</div><div class="hex">#3DD68C</div><div class="role">≤1 emphasis / asset</div></div>
+    </div>
+
+    <h3>Semantic & status tokens</h3>
+    <table class="tokens">
+      <thead><tr><th>Token</th><th>Value</th><th></th><th>Use</th></tr></thead>
+      <tbody>
+        <tr><td><code>--action</code></td><td><code>#54B987</code></td><td><span class="sw-dot" style="background:#54B987"></span></td><td>Primary buttons, active states, accents</td></tr>
+        <tr><td><code>--action-hover</code></td><td><code>#3E9E70</code></td><td><span class="sw-dot" style="background:#3E9E70"></span></td><td>Hover (derived −12% L)</td></tr>
+        <tr><td><code>--text-link</code></td><td><code>#0D698A</code></td><td><span class="sw-dot" style="background:#0D698A"></span></td><td>Links on light (AA-safe)</td></tr>
+        <tr><td><code>--status-success</code></td><td><code>#2E7D55</code></td><td><span class="sw-dot" style="background:#2E7D55"></span></td><td>Success text/icon (derived)</td></tr>
+        <tr><td><code>--status-warning</code></td><td><code>#B7791F</code></td><td><span class="sw-dot" style="background:#B7791F"></span></td><td>Warning (derived)</td></tr>
+        <tr><td><code>--status-danger</code></td><td><code>#B23A2E</code></td><td><span class="sw-dot" style="background:#B23A2E"></span></td><td>Error/destructive (derived)</td></tr>
+        <tr><td><code>--status-info</code></td><td><code>#0D698A</code></td><td><span class="sw-dot" style="background:#0D698A"></span></td><td>Informational (= steel)</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Contrast pairings (WCAG 2.1)</h3>
+    <p class="muted">The most important thing a brand pass usually omits. Waay Green is a graphical accent, <em>not</em> a text color on white.</p>
+    <table class="tokens">
+      <thead><tr><th>Foreground</th><th>On</th><th>Ratio</th><th>Normal text</th><th>Large / UI</th></tr></thead>
+      <tbody>
+        <tr><td>Navy #0C2A48</td><td>White</td><td class="ratio">14.6:1</td><td class="pass">AAA ✓</td><td class="pass">✓</td></tr>
+        <tr><td>White</td><td>Navy</td><td class="ratio">14.6:1</td><td class="pass">AAA ✓</td><td class="pass">✓</td></tr>
+        <tr><td>Steel #0D698A</td><td>White</td><td class="ratio">6.2:1</td><td class="pass">AA ✓</td><td class="pass">✓</td></tr>
+        <tr><td>Waay Green #54B987</td><td>Navy</td><td class="ratio">6.0:1</td><td class="pass">AA ✓</td><td class="pass">✓</td></tr>
+        <tr><td>Waay Green #54B987</td><td>White</td><td class="ratio">2.4:1</td><td class="fail">fail ✗</td><td class="cau">graphical only</td></tr>
+        <tr><td>Teal #0BABAB</td><td>White</td><td class="ratio">2.8:1</td><td class="fail">fail ✗</td><td class="cau">large only</td></tr>
+        <tr><td>Slate #8DA3B5</td><td>White</td><td class="ratio">2.8:1</td><td class="fail">fail ✗</td><td class="cau">captions, care</td></tr>
+        <tr><td>Brass #C8A46B</td><td>Navy</td><td class="ratio">5.4:1</td><td class="pass">AA ✓</td><td class="pass">✓</td></tr>
+      </tbody>
+    </table>
+    <div class="note"><b>Rules that fall out of this:</b> body text is navy on light / white on navy. Green and teal are for large display, icons, fills, and accents — never small text on white. Links on white use Steel; green links are reserved for navy grounds. Muted body text uses the derived <code>--text-secondary #57697A</code> (≈5:1), not Slate.</div>
+  </section>
+
+  <!-- TYPE -->
+  <section class="section soft" id="type">
+    <div class="eyebrow">04 · Foundations</div>
+    <h2>Typography</h2>
+    <p class="lede">Axiforma across every role, Poppins as the licensed-free fallback (rendered here). Weight carries hierarchy. Display and headings scale fluidly with <code>clamp()</code>; body measure caps at 64ch.</p>
+    <div class="typescale">
+      <div class="row"><div class="spec">Display<br>clamp(34→52) · 700 · −.02em</div><div class="t-display">Find the signal.</div></div>
+      <div class="row"><div class="spec">H1<br>clamp(30→40) · 700 · −.015em</div><div class="t-h1">Public systems modernization</div></div>
+      <div class="row"><div class="spec">H2<br>30 · 700 · −.015em</div><div class="t-h2">We operate where clarity matters</div></div>
+      <div class="row"><div class="spec">H3<br>22 · 600 · −.01em</div><div class="t-h3">Responsible AI, applied with judgment</div></div>
+      <div class="row"><div class="spec">H4<br>18 · 600</div><div class="t-h4">Workflow clarity</div></div>
+      <div class="row"><div class="spec">Body L<br>18 · 400 · 1.7</div><div class="t-bodyl">We help agencies find the signal in complex programs.</div></div>
+      <div class="row"><div class="spec">Body<br>16 · 400 · 1.7</div><div class="t-body">Research, human-centered design, AI enablement, and delivery — brought to public service with procurement readiness.</div></div>
+      <div class="row"><div class="spec">Body S<br>14 · 400 · 1.6</div><div class="t-bodys">Used for dense UI, table cells, and secondary detail.</div></div>
+      <div class="row"><div class="spec">Caption<br>12.5 · 500 · secondary</div><div class="t-cap">Captions, metadata, and helper text.</div></div>
+      <div class="row"><div class="spec">Overline / Eyebrow<br>11 · 700 · .22em · caps · green</div><div class="t-over">Why work with us</div></div>
+    </div>
+  </section>
+
+  <!-- SPACE -->
+  <section class="section" id="space">
+    <div class="eyebrow">05 · Foundations</div>
+    <h2>Spacing &amp; layout</h2>
+    <p class="lede">An 8px base unit governs everything — the rhythm that makes a layout feel like the system rather than borrowing its colors.</p>
+    <div class="grid2">
+      <div>
+        <h3>Spacing scale</h3>
+        <div class="spacescale">
+          <div class="r"><span class="lab">--space-1 · 4px</span><span class="bar" style="width:4px"></span></div>
+          <div class="r"><span class="lab">--space-2 · 8px</span><span class="bar" style="width:8px"></span></div>
+          <div class="r"><span class="lab">--space-3 · 16px</span><span class="bar" style="width:16px"></span></div>
+          <div class="r"><span class="lab">--space-4 · 24px</span><span class="bar" style="width:24px"></span></div>
+          <div class="r"><span class="lab">--space-5 · 32px</span><span class="bar" style="width:32px"></span></div>
+          <div class="r"><span class="lab">--space-6 · 48px</span><span class="bar" style="width:48px"></span></div>
+          <div class="r"><span class="lab">--space-7 · 64px</span><span class="bar" style="width:64px"></span></div>
+          <div class="r"><span class="lab">--space-8 · 96px</span><span class="bar" style="width:96px"></span></div>
+        </div>
+      </div>
+      <div>
+        <h3>Layout tokens</h3>
+        <table class="tokens">
+          <tbody>
+            <tr><td><code>--container</code></td><td>1080px max · 28px gutters</td></tr>
+            <tr><td>Text measure</td><td>62–66ch</td></tr>
+            <tr><td><code>--radius-card</code></td><td>14px</td></tr>
+            <tr><td><code>--radius-pill</code></td><td>999px</td></tr>
+            <tr><td><code>--section-pad</code></td><td>clamp(56px, 8vw, 110px)</td></tr>
+            <tr><td>Card grid</td><td>minmax(255–300px, 1fr) · 32px gap</td></tr>
+            <tr><td>Angle break</td><td>2–4° diagonal (echoes plane wing)</td></tr>
+          </tbody>
+        </table>
+        <h3>Breakpoints · z-index</h3>
+        <table class="tokens">
+          <tbody>
+            <tr><td>sm / md / lg / xl</td><td>480 · 768 · 1024 · 1280</td></tr>
+            <tr><td>z sticky / overlay / modal / toast / tooltip</td><td>100 · 1000 · 1100 · 1200 · 1300</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ELEVATION -->
+  <section class="section soft" id="elevation">
+    <div class="eyebrow">06 · Foundations</div>
+    <h2>Elevation, radii &amp; borders</h2>
+    <p class="lede">Shadows are navy-tinted (rgba 12,42,72) — never neutral black — so depth still feels like the brand. Four steps only.</p>
+    <div class="grid3" style="grid-template-columns:repeat(4,1fr)">
+      <div class="panel" style="box-shadow:var(--elev-1)"><b style="font-size:13px">Elev 1</b><div class="muted" style="font-size:11px">cards at rest</div></div>
+      <div class="panel" style="box-shadow:var(--elev-2)"><b style="font-size:13px">Elev 2</b><div class="muted" style="font-size:11px">raised cards</div></div>
+      <div class="panel" style="box-shadow:var(--elev-3)"><b style="font-size:13px">Elev 3</b><div class="muted" style="font-size:11px">popovers, sticky</div></div>
+      <div class="panel" style="box-shadow:var(--elev-4)"><b style="font-size:13px">Elev 4</b><div class="muted" style="font-size:11px">modals, overlays</div></div>
+    </div>
+    <div class="specimen" style="margin-top:24px">
+      <div style="width:80px;height:60px;border:1.5px solid var(--border);border-radius:var(--radius-xs)"><span class="muted" style="font-size:9px;padding:3px;display:block">xs 6</span></div>
+      <div style="width:80px;height:60px;border:1.5px solid var(--border);border-radius:var(--radius-sm)"><span class="muted" style="font-size:9px;padding:3px;display:block">sm 10</span></div>
+      <div style="width:80px;height:60px;border:1.5px solid var(--border);border-radius:var(--radius-card)"><span class="muted" style="font-size:9px;padding:3px;display:block">card 14</span></div>
+      <div style="width:80px;height:36px;border:1.5px solid var(--border);border-radius:var(--radius-pill)"><span class="muted" style="font-size:9px;padding:9px;display:block">pill 999</span></div>
+    </div>
+  </section>
+
+  <!-- MOTION -->
+  <section class="section" id="motion">
+    <div class="eyebrow">07 · Foundations</div>
+    <h2>Motion</h2>
+    <p class="lede">Motion is calm and purposeful — a page-load reveal or a hover micro-interaction, never decoration. All motion respects <code>prefers-reduced-motion</code>.</p>
+    <table class="tokens" style="max-width:560px">
+      <thead><tr><th>Token</th><th>Value</th><th>Use</th></tr></thead>
+      <tbody>
+        <tr><td><code>--dur-fast</code></td><td>120ms</td><td>hover, focus, small state</td></tr>
+        <tr><td><code>--dur-base</code></td><td>200ms</td><td>toggles, tabs</td></tr>
+        <tr><td><code>--dur-slow</code></td><td>320ms</td><td>accordion, reveal</td></tr>
+        <tr><td><code>--ease-standard</code></td><td>cubic-bezier(.2,0,0,1)</td><td>most transitions</td></tr>
+        <tr><td><code>--ease-decelerate</code></td><td>cubic-bezier(0,0,0,1)</td><td>entrances</td></tr>
+      </tbody>
+    </table>
+    <p class="muted" style="margin-top:14px">Hover to preview (each respects reduced-motion):</p>
+    <div class="motiondemo">
+      <div class="md"><div class="box"></div><div class="l">fast · standard</div></div>
+      <div class="md"><div class="box" style="transition-timing-function:cubic-bezier(0,0,0,1)"></div><div class="l">decelerate</div></div>
+      <div class="md"><div class="box" style="transition-timing-function:cubic-bezier(.4,0,1,1)"></div><div class="l">accelerate</div></div>
+    </div>
+  </section>
+
+  <!-- A11Y -->
+  <section class="section soft" id="a11y">
+    <div class="eyebrow">08 · Foundations</div>
+    <h2>Accessibility commitment</h2>
+    <p class="lede">Gridmark's market explicitly buys accessibility — California prioritizes Section 508 / ADA and digital equity. The system targets WCAG 2.1 AA as a floor, and accessibility is a sellable service, so the site must model it.</p>
+    <div class="grid2">
+      <div class="panel">
+        <h4 style="font-size:14px;margin-bottom:10px">Built in</h4>
+        <ul style="font-size:13px;color:var(--text-secondary);padding-left:18px;line-height:1.9">
+          <li>AA contrast on all text (table in §03)</li>
+          <li>Visible focus ring on every interactive element (<code>--focus-ring</code>)</li>
+          <li>Full keyboard operability; logical tab order</li>
+          <li>Targets ≥ 44×44px; ≥ 24px spacing</li>
+          <li><code>prefers-reduced-motion</code> honored globally</li>
+          <li>Semantic HTML, ARIA only to fill gaps</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h4 style="font-size:14px;margin-bottom:10px">Never rely on</h4>
+        <ul style="font-size:13px;color:var(--text-secondary);padding-left:18px;line-height:1.9">
+          <li>Color alone to convey state (pair an icon/label)</li>
+          <li>Green text on white for anything readable</li>
+          <li>Placeholder text as a label</li>
+          <li>Hover-only disclosure of essential info</li>
+          <li>Motion that conveys meaning without a static fallback</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOGO -->
+  <section class="section" id="logo">
+    <div class="eyebrow">09 · Brand</div>
+    <h2>Logo &amp; lockups</h2>
+    <p class="lede">The Marked Cell identity (v1.0) — two survey towers, a cross-braced span, and a gridded deck with a single brass-marked cell. Navy linework on light grounds, white on navy, all-brass on navy for premium print. The marked cell is always brass — the one constant in every variant.</p>
+
+    <h3>Lockups</h3>
+    <div class="logo-rules" style="grid-template-columns:repeat(2,1fr)">
+      <div class="lr" style="background:#fff">
+        <img src="Logos/gridmark-brand-assets/lockups/gridmark-lockup-stacked-navy.svg" alt="Gridmark Partners stacked lockup" style="width:200px;max-width:100%">
+        <div class="t">Stacked · master</div><div class="d">The default lockup. Mark above the wordmark block; use unless the format forbids it.</div>
+      </div>
+      <div class="lr" style="background:#fff">
+        <img src="Logos/gridmark-brand-assets/lockups/gridmark-lockup-horizontal-navy.svg" alt="Gridmark Partners horizontal lockup" style="width:290px;max-width:100%">
+        <div class="t">Horizontal · deck-aligned</div><div class="d">For headers and tight vertical space. The mark's deck line and the wordmark's rule share one axis.</div>
+      </div>
+      <div class="lr" style="background:#fff">
+        <img src="Logos/gridmark-brand-assets/lockups/gridmark-lockup-signature-navy.svg" alt="Gridmark Partners signature lockup with tagline" style="width:200px;max-width:100%">
+        <div class="t">Signature · with tagline</div><div class="d">Tagline in sentence case, Regular, Steel #0D698A. Signature lockup only.</div>
+      </div>
+      <div class="lr inv" style="background:var(--navy-900)">
+        <img src="Logos/gridmark-brand-assets/lockups/gridmark-lockup-endorsement-navy-bg.svg" alt="Gridmark Partners endorsement lockup — A This Waay Company" style="width:250px;max-width:100%">
+        <div class="t" style="color:#fff">Endorsement · navy-grounded</div><div class="d" style="color:#9fb4c4">Carries the "A This Waay Company" endorsement line.</div>
+      </div>
+    </div>
+
+    <h3>The mark</h3>
+    <div class="logo-rules" style="grid-template-columns:repeat(4,1fr)">
+      <div class="lr" style="background:#fff">
+        <img src="Logos/gridmark-brand-assets/marks/gridmark-mark-navy.svg" alt="Gridmark mark, navy" style="width:92px">
+        <div class="t">Navy · primary</div><div class="d">Light grounds</div>
+      </div>
+      <div class="lr inv" style="background:var(--navy-900)">
+        <img src="Logos/gridmark-brand-assets/marks/gridmark-mark-white.svg" alt="Gridmark mark, white reversed" style="width:92px">
+        <div class="t" style="color:#fff">White · reversed</div><div class="d" style="color:#9fb4c4">Deep Navy grounds</div>
+      </div>
+      <div class="lr inv" style="background:var(--navy-900)">
+        <img src="Logos/gridmark-brand-assets/marks/gridmark-mark-brass.svg" alt="Gridmark mark, all brass" style="width:92px">
+        <div class="t" style="color:#fff">All-brass · premium</div><div class="d" style="color:#9fb4c4">Deep Navy only, premium print</div>
+      </div>
+      <div class="lr" style="background:#fff">
+        <div style="display:flex;gap:14px;align-items:center;justify-content:center">
+          <img src="Logos/gridmark-brand-assets/marks/gridmark-favicon.svg" alt="Gridmark favicon tile" style="width:40px">
+          <img src="Logos/gridmark-brand-assets/marks/gridmark-favicon-navy.svg" alt="Gridmark favicon cut, navy" style="width:22px">
+        </div>
+        <div class="t">Favicon cut</div><div class="d">Simplified; use below 40px, never below 16px</div>
+      </div>
+    </div>
+
+    <h3>Rules</h3>
+    <div class="logo-rules">
+      <div class="lr" style="background:#fff">
+        <div style="display:inline-block;padding:22px;border:1px dashed var(--border-strong);border-radius:8px">
+          <img src="Logos/gridmark-brand-assets/marks/gridmark-mark-navy.svg" alt="" style="width:72px;display:block">
+        </div>
+        <div class="t">Clear space</div><div class="d">One marked cell (26×13 artboard units) on all sides</div>
+      </div>
+      <div class="lr" style="background:#fff">
+        <div style="display:flex;gap:18px;align-items:flex-end;justify-content:center">
+          <img src="Logos/gridmark-brand-assets/marks/gridmark-mark-navy.svg" alt="" style="width:40px">
+          <img src="Logos/gridmark-brand-assets/marks/gridmark-favicon-navy.svg" alt="" style="width:20px">
+        </div>
+        <div class="t">Minimum size</div><div class="d">Full mark ≥ 40px wide; below that, favicon cut; favicon ≥ 16px</div>
+      </div>
+      <div class="lr" style="background:#fff">
+        <div style="display:flex;gap:10px;justify-content:center">
+          <span class="sw-dot" style="background:#0C2A48"></span>
+          <span class="sw-dot" style="background:#fff;border-color:var(--border-strong)"></span>
+          <span class="sw-dot" style="background:#C8A46B"></span>
+        </div>
+        <div class="t">Color</div><div class="d">Navy on light, white on navy, all-brass on navy. Never other colors.</div>
+      </div>
+    </div>
+
+    <h3>Misuse</h3>
+    <div class="misuse">
+      <div class="mu"><img src="Logos/gridmark-brand-assets/marks/gridmark-mark-navy.svg" alt="" style="width:52px;transform:skewX(-12deg)"><div class="x">✗</div><div class="lbl">Don't distort or skew</div></div>
+      <div class="mu" style="background:#7a1f1f"><img src="Logos/gridmark-brand-assets/marks/gridmark-mark-white.svg" alt="" style="width:52px"><div class="x" style="color:#ffb3a8">✗</div><div class="lbl">Don't place on off-brand color</div></div>
+      <div class="mu"><span class="wm"><span class="nm" style="font-size:13px;color:#C8A46B">GRIDMARK</span></span><div class="x">✗</div><div class="lbl">Don't fill wordmark with brass</div></div>
+      <div class="mu"><span class="wm"><span class="nm" style="font-size:13px;font-family:Georgia,serif">Gridmark</span></span><div class="x">✗</div><div class="lbl">Don't substitute a serif</div></div>
+    </div>
+
+    <div class="note"><b>Asset package:</b> masters live in <code style="font-family:var(--font-mono)">Logos/gridmark-brand-assets/</code> — marks, lockups, <a href="Logos/gridmark-brand-assets/tokens/gridmark-logo-tokens.json">logo tokens</a>, and a <a href="Logos/gridmark-brand-assets/css/gridmark-lockup.css">CSS lockup component</a>. See the <a href="Logos/gridmark-brand-assets/INDEX.html">package index</a>. These v1.0 masters supersede all prior bridge marks; retire them.</div>
+  </section>
+
+  <!-- COMPONENTS -->
+  <section class="section soft" id="components">
+    <div class="eyebrow">10 · System</div>
+    <h2>Components</h2>
+    <p class="lede">Each component is a set of variants and states, all consuming semantic tokens. Hover, focus (tab to a control), and active states are live.</p>
+
+    <h3>Buttons — variants</h3>
+    <div class="specimen">
+      <button class="btn btn-primary">Start a conversation</button>
+      <button class="btn btn-secondary">Explore services</button>
+      <button class="btn btn-tertiary">Read the brief →</button>
+      <button class="btn btn-danger">Withdraw bid</button>
+      <button class="btn btn-primary" disabled>Disabled</button>
+    </div>
+    <h3>Buttons — sizes &amp; states</h3>
+    <div class="statecols">
+      <span class="h">Default</span><span class="h">Hover</span><span class="h">Pressed</span><span class="h">Focus</span><span class="h">Disabled</span>
+      <button class="btn btn-primary btn-sm">Small</button>
+      <button class="btn btn-primary btn-sm" style="background:var(--action-hover)">Small</button>
+      <button class="btn btn-primary btn-sm" style="background:var(--action-pressed)">Small</button>
+      <button class="btn btn-primary btn-sm" style="box-shadow:var(--focus-ring)">Small</button>
+      <button class="btn btn-primary btn-sm" disabled>Small</button>
+    </div>
+
+    <h3>Form controls</h3>
+    <div class="grid2">
+      <div>
+        <div class="field"><label for="i1">Agency name</label><input class="input" id="i1" placeholder="e.g. Department of Motor Vehicles"><div class="hint">Plain language; no acronyms in labels.</div></div>
+        <div class="field"><label for="i2">Solicitation number</label><input class="input invalid" id="i2" value="DMV-24-883X"><div class="err">⚠ This number isn't in the current register.</div></div>
+        <div class="field"><label for="i3">Notes</label><input class="input" id="i3" placeholder="Disabled" disabled></div>
+      </div>
+      <div>
+        <div class="checkrow"><input type="checkbox" id="c1" checked style="accent-color:var(--action);width:17px;height:17px"><label for="c1">SB/DVBE Option eligible</label></div>
+        <div class="checkrow"><input type="checkbox" id="c2" style="accent-color:var(--action);width:17px;height:17px"><label for="c2">Requires Section 508 audit</label></div>
+        <div class="checkrow"><input type="radio" name="r" id="r1" checked style="accent-color:var(--action);width:17px;height:17px"><label for="r1">Advisory engagement</label></div>
+        <div class="checkrow"><input type="radio" name="r" id="r2" style="accent-color:var(--action);width:17px;height:17px"><label for="r2">Design &amp; delivery</label></div>
+        <div class="checkrow"><span class="toggle on" role="switch" aria-checked="true" tabindex="0"></span><label>Responsible-AI review on</label></div>
+        <div class="checkrow"><span class="toggle" role="switch" aria-checked="false" tabindex="0"></span><label>Auto-publish drafts</label></div>
+      </div>
+    </div>
+
+    <h3>Cards — three canonical variants</h3>
+    <p class="muted">Resolves the This Waay "consolidation watch": badge (centered, shield), content (left, angled green), panel (soft-gradient surfaces).</p>
+    <div class="cardset">
+      <div class="c-badge">
+        <svg class="shield" width="48" height="56" viewBox="0 0 56 64"><path d="M28 4 L50 12 V32 C50 48 40 56 28 60 C16 56 6 48 6 32 V12 Z" fill="#0C2A48"/><path d="M28 9 L45 15 V31 C45 44 37 51 28 54.5 C19 51 11 44 11 31 V15 Z" fill="none" stroke="#54B987" stroke-width="2"/><g stroke="#fff" stroke-width="2"><line x1="20" y1="32" x2="36" y2="32"/><line x1="28" y1="24" x2="28" y2="40"/></g><circle cx="28" cy="32" r="3" fill="#54B987"/></svg>
+        <h4>Trusted in critical environments</h4><p>Badge card · "why work with us" rows. White ground, navy shield, green ring.</p>
+      </div>
+      <div class="c-content">
+        <div class="tab">
+          <svg width="18" height="18" viewBox="0 0 30 30"><g stroke="#fff" stroke-width="1.7"><line x1="5" y1="15" x2="25" y2="15"/><line x1="15" y1="5" x2="15" y2="25"/></g><circle cx="15" cy="15" r="3.4" fill="none" stroke="#fff" stroke-width="1.6"/></svg>
+        </div>
+        <h4>Strategy &amp; Advisory</h4><p>Content card · services. Green ground, angled top edge echoing the wing.</p>
+      </div>
+      <div class="c-panel">
+        <div class="q">"</div>
+        <p>Working with the team merged form and function — a system that measurably improved staff productivity.</p>
+        <div class="who">Lucas Majewski</div><div class="role">Director of Software Development</div>
+      </div>
+    </div>
+
+    <h3>Feedback — alerts &amp; status</h3>
+    <div style="margin-top:14px;max-width:560px">
+      <div class="alert alert-success"><span class="ic">✓</span><div>Vendor registration confirmed. Your UNSPSC alerts are live.</div></div>
+      <div class="alert alert-info"><span class="ic">ℹ</span><div>This solicitation falls under the $250K SB/DVBE Option fast lane.</div></div>
+      <div class="alert alert-warning"><span class="ic">!</span><div>SAM.gov registration renews in 21 days.</div></div>
+      <div class="alert alert-danger"><span class="ic">✗</span><div>Certification lapsed — re-certify before bidding.</div></div>
+    </div>
+
+    <h3>Pills, tags &amp; badges</h3>
+    <div class="pillset">
+      <span class="pill">Request a capability statement</span>
+      <span class="tag">Research</span><span class="tag">AI Enablement</span><span class="tag">Service Design</span>
+      <span class="tag-civic tag">Sacramento-rooted</span>
+      <span style="display:inline-flex;align-items:center;gap:6px;font-size:12px">Alerts <span class="badge-num">3</span></span>
+    </div>
+
+    <h3>Navigation — tabs</h3>
+    <div class="tabs" id="tabs">
+      <button class="active">Find the signal</button>
+      <button>Build the system</button>
+      <button>How we work</button>
+      <button>Procurement</button>
+    </div>
+
+    <h3>Disclosure — accordion</h3>
+    <div class="acc" id="acc">
+      <div class="item open"><button class="head">What is the SB/DVBE Option? <span class="chev">›</span></button><div class="body">A direct-award path letting agencies contract a certified small business for services and IT from $5K up to $249,999.99 with two SB quotes — no full open bid.</div></div>
+      <div class="item"><button class="head">Which NAICS code is primary? <span class="chev">›</span></button><div class="body">541611 (Administrative &amp; General Management Consulting) — the trusted-advisor bucket, with 541512/541511 as secondaries.</div></div>
+      <div class="item"><button class="head">Do you do hands-on build? <span class="chev">›</span></button><div class="body">It's a near-term future offering. We start advisory/design-weighted and expand into build and delivery as past performance accrues.</div></div>
+    </div>
+
+    <h3>Data — table</h3>
+    <table class="dtable">
+      <thead><tr><th>Marketplace</th><th>Classification</th><th>Priority</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>Cal eProcure</td><td>UNSPSC</td><td>Highest</td><td><span class="tag" style="padding:3px 10px;font-size:10px">Registering</span></td></tr>
+        <tr><td>SAM.gov</td><td>NAICS + PSC</td><td>Medium</td><td><span class="tag" style="padding:3px 10px;font-size:10px">Parallel</span></td></tr>
+        <tr><td>SBA · SBS</td><td>Inherited from SAM</td><td>Medium</td><td><span class="tag" style="padding:3px 10px;font-size:10px">Profile</span></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- PATTERNS -->
+  <section class="section" id="patterns">
+    <div class="eyebrow">11 · Application</div>
+    <h2>Page patterns</h2>
+    <p class="lede">The marketing site is assembled from these blocks. Every page follows the This Waay archetype: a navy hero, then alternating navy and soft-gradient sections on shallow angled breaks, each opening with a centered eyebrow → H2 → lede lockup.</p>
+    <div class="code"><span class="c">/* page archetype */</span>
+<span class="k">1</span> Navy hero      <span class="c">— eyebrow · headline (one green highlight) · lede · primary + secondary CTA</span>
+<span class="k">2</span> Soft section   <span class="c">— centered header lockup, then card grid (badge or content cards)</span>
+<span class="k">3</span> Navy section   <span class="c">— angled break · "Find the signal / Build the system" methodology</span>
+<span class="k">4</span> Soft section   <span class="c">— "Who we serve" audience cards</span>
+<span class="k">5</span> Navy section   <span class="c">— procurement readiness · NAICS/UNSPSC/PSC data block</span>
+<span class="k">6</span> Soft section   <span class="c">— testimonial / past-performance panel cards</span>
+<span class="k">7</span> Navy footer    <span class="c">— contact · endorsement lockup · nav</span></div>
+    <div class="grid3" style="margin-top:24px">
+      <div class="panel"><div class="t-over">Hero</div><h4 style="font-size:15px;margin:8px 0 6px">Lead with the resident</h4><p class="muted">Mirror the state's framing — services that work for people, tech as the means. One green highlight, max.</p></div>
+      <div class="panel"><div class="t-over">Section header</div><h4 style="font-size:15px;margin:8px 0 6px">Eyebrow · H2 · lede</h4><p class="muted">Centered, repeated on every section so the page has one rhythm.</p></div>
+      <div class="panel"><div class="t-over">Procurement block</div><h4 style="font-size:15px;margin:8px 0 6px">Show readiness explicitly</h4><p class="muted">UEI/CAGE, codes, SB status, one-page capability download — what contracting officers look for.</p></div>
+    </div>
+  </section>
+
+  <!-- VOICE -->
+  <section class="section soft" id="voice">
+    <div class="eyebrow">12 · Language</div>
+    <h2>Voice &amp; UI writing</h2>
+    <p class="lede">Composed, observational, structural — This Waay's voice, grounded for civic work. Sentence case, plain verbs, specificity over volume.</p>
+    <div class="grid2">
+      <div class="panel" style="background:var(--mint-50);border-color:transparent">
+        <div class="t-over">Sounds like us</div>
+        <ul style="font-size:13px;color:var(--navy-800);padding-left:18px;line-height:1.9;margin-top:10px">
+          <li>"We didn't add AI. We prepared the system for it."</li>
+          <li>"Operational clarity. Governed intelligence."</li>
+          <li>"A right-sized first step that earns the next phase."</li>
+          <li>Buttons say what happens: "Request a capability statement."</li>
+        </ul>
+      </div>
+      <div class="panel" style="background:#fbeeec;border-color:transparent">
+        <div class="t-over" style="color:#c2614f">Never</div>
+        <ul style="font-size:13px;color:var(--navy-800);padding-left:18px;line-height:1.9;margin-top:10px">
+          <li>Hype: "revolutionary," "game-changing," "supercharge"</li>
+          <li>"Users / customers" → say "residents," "the public"</li>
+          <li>"AI-first" → "responsible AI," "AI with purpose"</li>
+          <li>Exclamation points in professional contexts</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- GOVERNANCE -->
+  <section class="section" id="governance">
+    <div class="eyebrow">13 · Operations</div>
+    <h2>Governance &amp; versioning</h2>
+    <p class="lede">A living system. Semantic versioning, a changelog, and clear rules for how AI tools and designers consume the tokens keep it from drifting.</p>
+    <div class="grid2">
+      <div>
+        <h3>How AI tools should use this system</h3>
+        <ol style="font-size:13px;color:var(--text-secondary);padding-left:18px;line-height:1.9">
+          <li>Reference semantic tokens, never raw hex from memory.</li>
+          <li>One green for actions/labels/accents; brass at most once per asset.</li>
+          <li>Sentence-case headlines, one highlight max; eyebrows are the only caps.</li>
+          <li>Axiforma, Poppins fallback — never a second family, never a serif.</li>
+          <li>Frame screenshots; annotate only in green; coral stays in illustration.</li>
+          <li>Check contrast against §03 before placing text on color.</li>
+        </ol>
+      </div>
+      <div>
+        <h3>Changelog</h3>
+        <div class="log">
+          <div class="e"><div class="v">v3.1 <span>· current</span></div><div class="d">Chapter reorg to the shared This Waay spine — Principles split into its own chapter, Accessibility folded into Foundations, Brand/System/Application renumbered. No token or component changes.</div></div>
+          <div class="e"><div class="v">v3.0</div><div class="d">Full token architecture, status colors, accessibility conformance, component variants, page patterns, governance.</div></div>
+          <div class="e"><div class="v">v2.0</div><div class="d">Realigned to This Waay v1.7 — exact tokens, Poppins type, green as system accent, shared structural devices, bridge illustration.</div></div>
+          <div class="e"><div class="v">v1.1</div><div class="d">Brand exploration board — bridge mark kept, mint/green reintroduced, icons rebuilt, brass pulled back.</div></div>
+          <div class="e"><div class="v">v1.0</div><div class="d">Initial creative brief &amp; first exploration.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer">
+    <div>Gridmark Partners · Public Systems Modernization · <b>Find the signal. Build the system.</b></div>
+    <div>Design System v3.1 · sibling to This Waay v1.7 · <b>A This Waay Company</b></div>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  // sub nav groups — disclosure menus, same behavior as the This Waay PDS guide:
+  // click-triggered, one open at a time, Escape / outside-click / focusout close
+  var navGroups=[].slice.call(document.querySelectorAll('.nav-group'));
+  function closeGroup(g){
+    g.querySelector('.nav-group-btn').setAttribute('aria-expanded','false');
+    g.querySelector('.nav-subnav').hidden=true;
+  }
+  function closeAllGroups(){ navGroups.forEach(closeGroup); }
+  navGroups.forEach(function(g){
+    var btn=g.querySelector('.nav-group-btn'),panel=g.querySelector('.nav-subnav');
+    btn.addEventListener('click',function(){
+      var open=btn.getAttribute('aria-expanded')==='true';
+      closeAllGroups();
+      btn.setAttribute('aria-expanded',String(!open)); panel.hidden=open;
+    });
+    panel.addEventListener('click',function(e){ if(e.target.tagName==='A') closeAllGroups(); });
+    g.addEventListener('focusout',function(e){ if(!g.contains(e.relatedTarget)) closeGroup(g); });
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key!=='Escape')return;
+    var open=navGroups.filter(function(g){ return g.querySelector('.nav-group-btn').getAttribute('aria-expanded')==='true'; })[0];
+    if(open){ closeGroup(open); open.querySelector('.nav-group-btn').focus(); }
+  });
+  document.addEventListener('click',function(e){ if(!e.target.closest('.nav-group')) closeAllGroups(); });
+
+  // nav active state on scroll — highlights the group that owns the current section
+  var spy=[];
+  navGroups.forEach(function(g){
+    var btn=g.querySelector('.nav-group-btn');
+    [].slice.call(g.querySelectorAll('.nav-subnav a')).forEach(function(a){
+      var s=document.querySelector(a.getAttribute('href'));
+      if(s) spy.push({sec:s,btn:btn});
+    });
+  });
+  function onScroll(){
+    var y=window.scrollY+140,cur=spy.length?spy[0].btn:null;
+    spy.forEach(function(it){ if(it.sec.offsetTop<=y) cur=it.btn; });
+    navGroups.forEach(function(g){
+      var b=g.querySelector('.nav-group-btn');
+      b.classList.toggle('active',b===cur);
+    });
+  }
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+
+  // copy-to-clipboard for code blocks and hex/code chips
+  function copy(t){ try{navigator.clipboard.writeText(t);}catch(e){} }
+  document.querySelectorAll('.copybtn').forEach(function(b){
+    b.addEventListener('click',function(){
+      var el=document.querySelector(b.dataset.copy);
+      copy(el.innerText.replace('Copy','').trim());
+      var o=b.textContent;b.textContent='Copied ✓';setTimeout(function(){b.textContent=o;},1200);
+    });
+  });
+  document.querySelectorAll('.tokens code, .swgrid .hex').forEach(function(c){
+    c.addEventListener('click',function(){ copy(c.textContent.trim()); var o=c.style.background;c.style.background='var(--action-subtle)';setTimeout(function(){c.style.background=o;},500); });
+  });
+
+  // tabs
+  var tabs=document.querySelectorAll('#tabs button');
+  tabs.forEach(function(t){ t.addEventListener('click',function(){ tabs.forEach(function(x){x.classList.remove('active');}); t.classList.add('active'); }); });
+
+  // accordion
+  document.querySelectorAll('#acc .head').forEach(function(h){
+    h.addEventListener('click',function(){ h.parentElement.classList.toggle('open'); });
+  });
+
+  // toggles
+  document.querySelectorAll('.toggle').forEach(function(t){
+    function flip(){ var on=t.classList.toggle('on'); t.setAttribute('aria-checked',on); }
+    t.addEventListener('click',flip);
+    t.addEventListener('keydown',function(e){ if(e.key===' '||e.key==='Enter'){e.preventDefault();flip();} });
+  });
+})();
+</script>
+</body>
+</html>

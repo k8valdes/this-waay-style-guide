@@ -1,0 +1,1987 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>This Waay — Living Style Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     THIS WAAY — DESIGN TOKENS
+     Machine-readable source of truth. AI tools: read these
+     custom properties as the canonical brand values.
+     ============================================================ */
+  :root {
+    /* Core palette */
+    --tw-navy:        #0C2A48;  /* Primary dark. Hero + section backgrounds, logo plane body */
+    --tw-navy-deep:   #081F37;  /* Footer / deepest surfaces */
+    --tw-teal:        #0BABAB;  /* Subheads, links, accents (deck heritage color) */
+    --tw-green:       #54B987;  /* THE brand green. All actions, labels, highlights — light or dark grounds */
+    --tw-green-bright:#3DD68C;  /* Punch accent ONLY. One intentional moment per page/asset, max. Never default */
+    --tw-steel:       #0D698A;  /* Secondary blue. Charts, supporting UI */
+    --tw-slate:       #8DA3B5;  /* Muted blue-gray. Borders, gridlines, decorative use, and text on DARK grounds only — fails AA as text on light (2.6:1). Use --tw-ink-muted for text on light. */
+    --tw-gray:        #595959;  /* Deck headers / body text on light */
+
+    /* Accessible "ink" text variants — WCAG 2.2 AA (4.5:1+) for TEXT on light grounds.
+       The saturated brand hues above stay as fills/large surfaces/dark-ground text, where they already pass.
+       Never approximate these — they were tuned and verified against a contrast formula, not eyeballed. */
+    --tw-green-ink:   #2C6D4D;  /* Eyebrows, links, inline emphasis on light grounds. ~6.2:1 on white. Same hue/family as Waay Green. */
+    --tw-teal-ink:    #077373;  /* Subheads, links, inline callouts on light grounds. ~5.7:1 on white. Same hue/family as Teal. */
+    --tw-ink-muted:   #5C7185;  /* Captions, secondary labels, chart axis text on light grounds. ~5.1:1 on white. */
+    --tw-no:          #D86A5A;  /* "Don't" / error fill and borders — decorative use only, ~3.4:1 as text so never for labels */
+    --tw-no-ink:      #A53727;  /* "Don't" tags, form error text/messages on light grounds. ~6.6:1 on white. */
+
+    /* Illustration accent (new canonical style only) */
+    --tw-coral:       #F2A08D;  /* Glowing path/node accent in illustrations. NOT a UI color */
+
+    /* Surfaces */
+    --tw-mint:        #EEF8EC;  /* Gradient stop A — warm mint */
+    --tw-ice:         #F2FBFB;  /* Gradient stop B — cool ice */
+    --tw-white:       #FFFFFF;
+
+    /* Gradients */
+    --tw-grad-soft:   linear-gradient(135deg, #EEF8EC 0%, #F2FBFB 100%);
+    --tw-grad-green:  linear-gradient(135deg, #54B987 0%, #3DD68C 100%);  /* Counts as a punch usage — same one-per-asset rule */
+    --tw-grad-wing:   linear-gradient(90deg, #30737B 0%, #62D38C 100%);   /* Official wing stops (tail → nose), from master logo. Motif use only */
+
+    /* Type — Axiforma is the licensed production family (Kastelov).
+       Poppins is the approved free fallback for environments without the license. */
+    --tw-font-display: 'Axiforma', 'Poppins', 'Segoe UI', sans-serif;
+    --tw-font-body:    'Axiforma', 'Poppins', 'Segoe UI', sans-serif;
+
+    /* Weight scale — the four steps used anywhere in the system. Weight alone carries hierarchy. */
+    --tw-weight-regular:  400;
+    --tw-weight-medium:   500;
+    --tw-weight-semibold: 600;
+    --tw-weight-bold:     700;
+
+    /* Display sizes — fluid, used only by H1/H2. Distinct from the fixed UI scale below. */
+    --tw-text-h1:   clamp(2.05rem, 4.8vw, 3.05rem);
+    --tw-text-h2:   clamp(1.55rem, 3.3vw, 2.1rem);
+    --tw-text-body: 16px;   /* the root/reading size — everything else is relative to this */
+    --tw-text-lede: 1.08rem;
+
+    /* UI text scale — every other font-size in the system snaps to one of these 10 steps.
+       Consolidated from ~36 ad-hoc values (0.6rem–2.6rem) that had accumulated with no
+       shared scale; deltas from any single historical value are sub-pixel (<=0.15rem). */
+    --tw-text-2xs: 0.62rem;  /* finest print — nav tagline, deck micro-eyebrow, tiny badges */
+    --tw-text-xs:  0.72rem;  /* fine meta text — slide numbers, breadcrumb, footer links */
+    --tw-text-sm:  0.78rem;  /* small labels — eyebrows, category-ish small text */
+    --tw-text-md:  0.85rem;  /* the dominant secondary/caption size across cards and captions */
+    --tw-text-lg:  0.95rem;  /* near-body UI text — buttons, form fields, list copy */
+    --tw-text-xl:  1.08rem;  /* card titles, sub-headings (matches --tw-text-lede) */
+    --tw-text-2xl: 1.2rem;   /* h3, teal subheads, prominent specimens */
+    --tw-text-3xl: 1.7rem;   /* large decorative glyphs/icons */
+    --tw-text-4xl: 2.2rem;   /* stat numbers, big display figures */
+    --tw-text-5xl: 2.6rem;   /* the largest decorative glyph (testimonial quote mark) */
+
+    /* Letter-spacing scale */
+    --tw-tracking-tightest: -0.015em; /* H1 */
+    --tw-tracking-tighter:  -0.01em;  /* H2 */
+    --tw-tracking-normal:    0.04em;
+    --tw-tracking-wide-2xs:  0.06em;
+    --tw-tracking-wide-xs:   0.1em;
+    --tw-tracking-wide:      0.12em;
+    --tw-tracking-wide-md:   0.14em;
+    --tw-tracking-wider:     0.16em;
+    --tw-tracking-wide-lg:   0.18em;
+    --tw-tracking-widest:    0.22em;  /* eyebrows */
+    --tw-tracking-widest-lg: 0.3em;
+
+    /* Line-height scale */
+    --tw-leading-glyph:   0.6;   /* vertical squeeze for oversized quote-mark glyphs only */
+    --tw-leading-heading: 1.22;  /* h1–h4 */
+    --tw-leading-snug:    1.4;
+    --tw-leading-snug-md: 1.45;
+    --tw-leading-normal:  1.5;
+    --tw-leading-relaxed-sm: 1.55;
+    --tw-leading-relaxed: 1.6;
+    --tw-leading-loose:   1.7;   /* body copy */
+
+    /* Shape & rhythm */
+    --tw-radius-card: 14px;
+    --tw-radius-pill: 999px;
+    --tw-shadow-card: 0 10px 30px rgba(12, 42, 72, 0.10);
+    --tw-section-pad: clamp(56px, 8vw, 110px);
+  }
+
+  /* Render Axiforma when installed locally; otherwise Poppins loads from Google Fonts.
+     If self-hosting licensed woff2 files, replace the local() sources with url() paths. */
+  @font-face { font-family: 'Axiforma'; font-weight: 400; src: local('Axiforma'), local('Axiforma-Regular'); }
+  @font-face { font-family: 'Axiforma'; font-weight: 500; src: local('Axiforma Medium'), local('Axiforma-Medium'); }
+  @font-face { font-family: 'Axiforma'; font-weight: 600; src: local('Axiforma SemiBold'), local('Axiforma-SemiBold'); }
+  @font-face { font-family: 'Axiforma'; font-weight: 700; src: local('Axiforma Bold'), local('Axiforma-Bold'); }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 170px; } /* clears the stacked global bar + sticky section nav */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation: none !important; transition: none !important; }
+  }
+
+  /* ---------- Accessibility primitives ---------- */
+  /* Single shared focus recipe (WCAG 2.4.11/2.4.7) — every interactive element gets this, nothing relies on browser default. */
+  :focus-visible {
+    outline: 3px solid var(--tw-green-ink);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  .on-dark :focus-visible, .hero :focus-visible, nav :focus-visible {
+    outline-color: var(--tw-green-bright); /* passes on navy grounds where green-ink would not */
+  }
+  .skip-link {
+    position: absolute; left: 12px; top: -60px; z-index: 100;
+    background: var(--tw-navy); color: #fff; font-family: var(--tw-font-display); font-weight: 600;
+    padding: 12px 20px; border-radius: 8px; text-decoration: none; transition: top 0.15s ease;
+  }
+  .skip-link:focus { top: 12px; }
+  .visually-hidden {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+  }
+
+  body {
+    font-family: var(--tw-font-body);
+    color: var(--tw-navy);
+    background: var(--tw-white);
+    line-height: var(--tw-leading-loose);
+    font-size: var(--tw-text-body);
+  }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+  /* ---------- Type scale ---------- */
+  h1, h2, h3, h4 { font-family: var(--tw-font-display); line-height: var(--tw-leading-heading); }
+  h1, .h1-demo { font-size: var(--tw-text-h1); font-weight: var(--tw-weight-bold); letter-spacing: var(--tw-tracking-tightest); }
+  .h1-demo { font-family: var(--tw-font-display); line-height: var(--tw-leading-heading); } /* visual specimen only — a real <h1> here would create a second page heading, see Accessibility */
+  h2 { font-size: var(--tw-text-h2); font-weight: var(--tw-weight-bold); letter-spacing: var(--tw-tracking-tighter); }
+  h3 { font-size: var(--tw-text-2xl); font-weight: var(--tw-weight-semibold); }
+  .eyebrow {
+    font-family: var(--tw-font-display);
+    font-size: var(--tw-text-sm); font-weight: var(--tw-weight-bold);
+    letter-spacing: var(--tw-tracking-widest); text-transform: uppercase;
+    color: var(--tw-green-ink); /* AA-safe on light grounds — raw green (#54B987) is 2.4:1 here, fails */
+  }
+  .on-dark .eyebrow { color: var(--tw-green); } /* raw green passes ~6:1 on navy */
+  .lede { font-size: var(--tw-text-lede); color: #3D5670; max-width: 62ch; }
+  .on-dark .lede { color: #B9CBDC; }
+
+  /* ---------- Sections ---------- */
+  section { padding: var(--tw-section-pad) 0; position: relative; }
+  .on-dark { background: var(--tw-navy); color: var(--tw-white); }
+  .on-soft { background: var(--tw-grad-soft); }
+
+  /* Angled divider — signature website device */
+  .angle-top { clip-path: polygon(0 3.2vw, 100% 0, 100% 100%, 0 100%); margin-top: -3.4vw; padding-top: calc(var(--tw-section-pad) + 3.4vw); }
+
+  .sec-head { margin-bottom: 44px; }
+  .sec-head h2 { margin: 10px 0 14px; }
+
+  /* ---------- Hero ---------- */
+  .hero { background: var(--tw-navy); color: #fff; padding: 90px 0 120px; overflow: hidden; position: relative; }
+  .hero h1 .hl { color: var(--tw-green-bright); }
+  .hero .lede { margin-top: 18px; }
+  .hero-meta { margin-top: 34px; display: flex; gap: 12px; flex-wrap: wrap; }
+  .chip {
+    font-family: var(--tw-font-display); font-size: var(--tw-text-md); font-weight: var(--tw-weight-semibold);
+    border: 1px solid rgba(255,255,255,0.25); color: #CFE3DA;
+    padding: 7px 16px; border-radius: var(--tw-radius-pill);
+  }
+  .plane-bg {
+    position: absolute; right: -6%; top: 8%; width: 56%; max-width: 640px;
+    opacity: 0.10; pointer-events: none;
+  }
+  .flight-path { position: absolute; left: 0; bottom: 30px; width: 100%; opacity: 0.65; pointer-events: none; }
+
+  /* ---------- Swatches ---------- */
+  .swatch-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 18px; }
+  .swatch {
+    border-radius: var(--tw-radius-card); overflow: hidden; cursor: pointer;
+    box-shadow: var(--tw-shadow-card); background: #fff; border: 1px solid #E4EDF2;
+    transition: transform 0.18s ease; text-align: left; width: 100%; font: inherit;
+  }
+  .swatch:hover { transform: translateY(-3px); }
+  @media (prefers-reduced-motion: reduce) { .swatch:hover { transform: none; } }
+  .swatch .chipcolor { height: 86px; position: relative; }
+  .swatch .info { padding: 13px 15px 15px; }
+  .swatch .name { font-family: var(--tw-font-display); font-weight: var(--tw-weight-semibold); font-size: var(--tw-text-lg); }
+  .swatch .hex { font-size: var(--tw-text-md); color: var(--tw-ink-muted); letter-spacing: var(--tw-tracking-normal); }
+  .swatch .use { font-size: var(--tw-text-md); color: var(--tw-ink-muted); margin-top: 5px; line-height: var(--tw-leading-snug-md); }
+  .copied-tag {
+    position: absolute; top: 9px; right: 9px; background: rgba(12,42,72,0.85); color: #fff;
+    font-size: var(--tw-text-xs); font-family: var(--tw-font-display); font-weight: var(--tw-weight-semibold);
+    padding: 3px 10px; border-radius: var(--tw-radius-pill); opacity: 0; transition: opacity 0.2s;
+  }
+  .swatch.copied .copied-tag { opacity: 1; }
+
+  /* ---------- Type specimens ---------- */
+  .spec { border-left: 3px solid var(--tw-green); padding: 6px 0 6px 22px; margin-bottom: 30px; }
+  .spec .label { font-size: var(--tw-text-sm); letter-spacing: var(--tw-tracking-wider); text-transform: uppercase; color: var(--tw-ink-muted); margin-bottom: 6px; font-weight: var(--tw-weight-bold); }
+  .teal-sub { color: var(--tw-teal-ink); font-family: var(--tw-font-display); font-weight: var(--tw-weight-semibold); font-size: var(--tw-text-2xl); } /* raw teal is 2.8:1 on white, fails AA */
+
+  /* ---------- Components ---------- */
+  .comp-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 26px; align-items: start; }
+  .comp-block h4 { font-size: var(--tw-text-md); letter-spacing: var(--tw-tracking-wide-md); text-transform: uppercase; color: var(--tw-ink-muted); margin-bottom: 16px; }
+
+  .btn {
+    display: inline-block; font-family: var(--tw-font-display); font-weight: var(--tw-weight-semibold);
+    border-radius: var(--tw-radius-pill); padding: 13px 30px; font-size: var(--tw-text-lg);
+    text-decoration: none; cursor: pointer; border: none; transition: filter .15s ease, transform .15s ease;
+  }
+  .btn:hover { filter: brightness(1.06); transform: translateY(-1px); }
+  @media (prefers-reduced-motion: reduce) { .btn:hover { transform: none; } }
+  .btn-primary { background: var(--tw-green); color: var(--tw-navy); } /* white-on-green was 2.4:1, fails AA; navy-on-green is 6:1 */
+  .btn-ghost-dark { background: transparent; color: var(--tw-green); border: 1.5px solid var(--tw-green); } /* green passes ~6:1 on the navy ground this variant is always used on */
+  .btn-light { background: #fff; color: var(--tw-teal-ink); box-shadow: var(--tw-shadow-card); }
+
+  .cat-label {
+    display: inline-block; background: var(--tw-green); color: var(--tw-navy); text-align: center; /* was white-on-green, 2.4:1 — fails AA */
+    font-family: var(--tw-font-display); font-weight: var(--tw-weight-semibold); font-size: var(--tw-text-lg);
+    padding: 9px 26px; border-radius: 8px; margin: 0 8px 8px 0;
+  }
+  .cat-label.teal { background: var(--tw-teal); color: var(--tw-navy); } /* white-on-teal was ~2.8:1, fails; navy-on-teal is ~5.2:1 */
+
+  .card-dark {
+    background: var(--tw-navy); color: #fff; border-radius: var(--tw-radius-card);
+    padding: 30px 24px 24px; text-align: center; box-shadow: var(--tw-shadow-card); max-width: 300px;
+  }
+  .card-dark .ic { font-size: var(--tw-text-3xl); margin-bottom: 12px; }
+  .card-dark h5 { font-family: var(--tw-font-display); font-size: var(--tw-text-xl); font-weight: var(--tw-weight-semibold); }
+  .card-dark .card-body {
+    background: var(--tw-grad-soft); color: #3D5670; margin: 20px -24px -24px;
+    padding: 20px 22px; border-radius: 0 0 var(--tw-radius-card) var(--tw-radius-card); font-size: var(--tw-text-lg);
+  }
+  .card-green {
+    background: var(--tw-green); color: var(--tw-navy); border-radius: var(--tw-radius-card); /* was white-on-green, 2.4:1 — fails AA */
+    padding: 28px 24px; box-shadow: var(--tw-shadow-card); max-width: 300px;
+  }
+  .card-green h5 { font-family: var(--tw-font-display); font-size: var(--tw-text-xl); margin-bottom: 8px; }
+  .card-green p { font-size: var(--tw-text-lg); opacity: 0.95; }
+
+  /* ---------- Card library (full inventory, pre-consolidation) ---------- */
+  .card-lib { display: grid; grid-template-columns: repeat(auto-fill, minmax(255px, 1fr)); gap: 34px 30px; margin-top: 26px; align-items: start; }
+  .lib-item .cap { margin-top: 14px; font-size: var(--tw-text-md); color: #5C7185; line-height: var(--tw-leading-normal); }
+  .lib-item .cap strong { font-family: var(--tw-font-display); color: var(--tw-navy); display: block; font-size: var(--tw-text-lg); margin-bottom: 2px; }
+  .prov { display: inline-block; font-family: var(--tw-font-display); font-weight: var(--tw-weight-semibold); font-size: var(--tw-text-2xs); letter-spacing: var(--tw-tracking-wide); text-transform: uppercase; padding: 3px 10px; border-radius: var(--tw-radius-pill); margin-top: 7px; }
+  .prov.site { background: #E2F4EA; color: var(--tw-green-ink); } /* #2E7D58 was 4.38:1, narrowly fails AA */
+  .prov.deck { background: #E4EEF6; color: #0D698A; }
+
+  .badge-shield { width: 60px; height: 66px; filter: drop-shadow(0 6px 12px rgba(12,42,72,.28)); }
+
+  .tw-pillar { background: #fff; border-radius: var(--tw-radius-card); box-shadow: var(--tw-shadow-card); border: 1px solid #E4EDF2; text-align: center; padding: 0 22px 26px; margin-top: 33px; }
+  .tw-pillar .badge-shield { margin: -33px auto 12px; display: block; }
+  .tw-pillar h5 { font-family: var(--tw-font-display); font-weight: var(--tw-weight-semibold); font-size: var(--tw-text-lg); line-height: var(--tw-leading-snug); }
+
+  .tw-service-wrap { position: relative; padding-top: 32px; }
+  .tw-service-wrap .badge-shield { position: absolute; top: 0; left: 50%; transform: translateX(-50%); z-index: 2; }
+  .tw-service { background: var(--tw-green); color: #fff; border-radius: 10px; padding: 52px 22px 26px; text-align: center; clip-path: polygon(0 8%, 100% 0, 100% 100%, 0 100%); }
+  .tw-service h5 { font-family: var(--tw-font-display); font-weight: var(--tw-weight-bold); color: var(--tw-navy); margin-bottom: 8px; font-size: var(--tw-text-lg); }
+  .tw-service p { font-size: var(--tw-text-md); }
+
+  .tw-audience { background: var(--tw-grad-soft); border-radius: var(--tw-radius-card); border: 1px solid #E4EDF2; box-shadow: var(--tw-shadow-card); padding: 36px 22px 24px; position: relative; margin-top: 18px; }
+  .tw-audience .tab { position: absolute; top: -17px; left: 20px; width: 56px; height: 38px; background: var(--tw-green); border-radius: 9px; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 14px rgba(84,185,135,.45); }
+  .tw-audience h5 { font-family: var(--tw-font-display); font-weight: var(--tw-weight-bold); font-size: var(--tw-text-lg); margin-bottom: 8px; }
+  .tw-audience p { font-size: var(--tw-text-md); color: #5C7185; }
+
+  .tw-testimonial { background: var(--tw-grad-soft); border-radius: var(--tw-radius-card); border: 1px solid #E4EDF2; box-shadow: var(--tw-shadow-card); padding: 24px; }
+  .tw-testimonial .top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+  .tw-testimonial .logo { font-family: var(--tw-font-display); font-weight: var(--tw-weight-bold); color: var(--tw-steel); font-size: var(--tw-text-lg); }
+  .tw-testimonial .qmark { font-family: Georgia, serif; font-size: var(--tw-text-5xl); color: var(--tw-green-ink); line-height: var(--tw-leading-glyph); } /* raw green was 2.4:1, fails even the large-text 3:1 threshold */
+  .tw-testimonial blockquote { font-size: var(--tw-text-md); font-style: italic; color: #3D5670; margin-bottom: 14px; }
+  .tw-testimonial .who { font-family: var(--tw-font-display); font-weight: var(--tw-weight-bold); font-size: var(--tw-text-md); }
+  .tw-testimonial .role { font-size: var(--tw-text-sm); color: var(--tw-green-ink); font-weight: var(--tw-weight-semibold); } /* raw green was 2.4:1, fails */
+
+  .tw-worktile { background: #fff; border-radius: var(--tw-radius-card); box-shadow: var(--tw-shadow-card); border: 1px solid #E4EDF2; padding: 16px 16px 20px; text-align: center; }
+  .tw-worktile .thumb { background: var(--tw-navy); border-radius: 8px; height: 108px; margin-bottom: 14px; position: relative; overflow: hidden; }
+  .tw-worktile .thumb i { position: absolute; background: rgba(255,255,255,0.18); border-radius: 3px; }
+  .tw-worktile h5 { font-family: var(--tw-font-display); font-weight: var(--tw-weight-bold); font-size: var(--tw-text-lg); }
+  .tw-worktile .sub { font-size: var(--tw-text-md); color: var(--tw-green-ink); font-weight: var(--tw-weight-semibold); margin-top: 4px; } /* raw green was 2.4:1, fails */
+
+  .tw-meta { background: var(--tw-grad-soft); border-radius: 12px; border: 1px solid #E4EDF2; padding: 16px 18px 14px; position: relative; min-height: 92px; }
+  .tw-meta .lab { font-size: var(--tw-text-xs); color: var(--tw-ink-muted); }
+  .tw-meta .val { font-family: var(--tw-font-display); font-weight: var(--tw-weight-bold); font-size: var(--tw-text-lg); margin-top: 2px; }
+  .tw-meta .ic { position: absolute; right: 13px; bottom: 11px; width: 30px; height: 30px; border-radius: 50%; background: var(--tw-green); color: var(--tw-navy); display: flex; align-items: center; justify-content: center; font-size: var(--tw-text-md); } /* white glyph on green was ~2.4:1, fails the 3:1 non-text threshold too */
+
+  .tw-price { background: var(--tw-grad-soft); border: 1px solid #E4EDF2; border-radius: var(--tw-radius-card); box-shadow: var(--tw-shadow-card); padding: 26px 24px; text-align: center; }
+  .tw-price .tier { font-size: var(--tw-text-md); color: var(--tw-ink-muted); }
+  .tw-price .amount { font-family: var(--tw-font-display); font-weight: var(--tw-weight-bold); font-size: var(--tw-text-4xl); color: var(--tw-green-ink); margin: 6px 0 2px; } /* raw green is 2.4:1 even at this size, fails large-text 3:1 */
+  .tw-price .start { font-size: var(--tw-text-xs); color: var(--tw-ink-muted); margin-bottom: 14px; }
+  .tw-price ul { text-align: left; font-size: var(--tw-text-md); color: #3D5670; margin: 0 0 0 18px; }
+  .tw-price li { margin-bottom: 5px; }
+  .tw-price.featured { background: var(--tw-green); border: none; }
+  .tw-price.featured .tier, .tw-price.featured .start { color: var(--tw-navy); } /* white-on-green was ~2.4:1, fails */
+  .tw-price.featured .amount { color: var(--tw-navy); }
+  .tw-price.featured ul { color: var(--tw-navy); }
+
+  .consol-note { margin-top: 40px; background: #fff; border: 1px dashed #B7CCBE; border-radius: var(--tw-radius-card); padding: 24px 28px; font-size: var(--tw-text-lg); color: #3D5670; }
+  .consol-note strong { font-family: var(--tw-font-display); color: var(--tw-navy); }
+
+  /* ---------- New marketing components ---------- */
+  /* Mobile nav */
+  .mobile-nav-demo { background: var(--tw-navy); border-radius: 12px; padding: 16px 20px; }
+  .mobile-nav-demo .bar { display: flex; align-items: center; justify-content: space-between; }
+  .hamburger { width: 26px; height: 20px; display: flex; flex-direction: column; justify-content: space-between; background: none; border: none; cursor: pointer; padding: 0; }
+  .hamburger span { display: block; height: 2.5px; background: #fff; border-radius: 2px; }
+  .mobile-menu-panel { margin-top: 14px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.12); display: flex; flex-direction: column; gap: 14px; }
+  .mobile-menu-panel a { color: #B9CBDC; text-decoration: none; font-family: var(--tw-font-display); font-weight: var(--tw-weight-semibold); font-size: var(--tw-text-lg); }
+  .mobile-menu-panel a:hover { color: var(--tw-green); }
+
+  /* Forms */
+  .field { margin-bottom: 20px; max-width: 360px; }
+  .field label { display: block; font-family: var(--tw-font-display); font-weight: var(--tw-weight-semibold); font-size: var(--tw-text-md); color: var(--tw-navy); margin-bottom: 6px; }
+  .field .req-tag { color: var(--tw-no-ink); font-weight: var(--tw-weight-semibold); font-size: var(--tw-text-sm); margin-left: 4px; } /* text label, not color-only */
+  .field input, .field textarea, .field select {
+    width: 100%; font: inherit; font-size: var(--tw-text-lg); padding: 11px 14px;
+    border: 1.5px solid #D4DEE6; border-radius: 8px; background: #fff; color: var(--tw-navy);
+  }
+  .field .hint { color: var(--tw-ink-muted); font-size: var(--tw-text-md); margin-top: 6px; }
+  .field.error input { border-color: var(--tw-no); border-width: 2px; }
+  .field .err-msg { color: var(--tw-no-ink); font-size: var(--tw-text-md); margin-top: 6px; display: flex; gap: 6px; align-items: center; font-weight: var(--tw-weight-semibold); }
+  .check-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-size: var(--tw-text-lg); color: var(--tw-navy); }
+  .check-row input { accent-color: var(--tw-green); width: 18px; height: 18px; }
+
+  /* FAQ / accordion (native <details>, accessible by default) */
+  .accordion { border: 1px solid #E4EDF2; border-radius: var(--tw-radius-card); overflow: hidden; background: #fff; box-shadow: var(--tw-shadow-card); }
+  .accordion-item { border-top: 1px solid #E4EDF2; }
+  .accordion-item:first-child { border-top: none; }
+  .accordion-item summary {
+    cursor: pointer; padding: 18px 22px; font-family: var(--tw-font-display); font-weight: var(--tw-weight-semibold); color: var(--tw-navy);
+    display: flex; justify-content: space-between; align-items: center; list-style: none;
+  }
+  .accordion-item summary::-webkit-details-marker { display: none; }
+  .accordion-item summary .chev { transition: transform 0.2s ease; color: var(--tw-green-ink); flex: none; margin-left: 12px; }
+  .accordion-item[open] summary .chev { transform: rotate(180deg); }
+  @media (prefers-reduced-motion: reduce) { .accordion-item summary .chev { transition: none; } }
+  .accordion-item .panel { padding: 0 22px 20px; color: var(--tw-ink-muted); font-size: var(--tw-text-lg); }
+
+  /* Tabs */
+  .tab-list { display: flex; gap: 4px; border-bottom: 2px solid #E4EDF2; }
+  .tab-btn {
+    background: none; border: none; padding: 12px 20px; font-family: var(--tw-font-display); font-weight: var(--tw-weight-semibold);
+    font-size: var(--tw-text-lg); color: var(--tw-ink-muted); cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -2px;
+  }
+  .tab-btn[aria-selected="true"] { color: var(--tw-green-ink); border-bottom-color: var(--tw-green); }
+  .tab-panel { padding: 20px 4px; font-size: var(--tw-text-lg); color: #3D5670; }
+  .tab-panel[hidden] { display: none; }
+
+  /* Modal (native <dialog>) */
+  dialog.tw-modal { border: none; border-radius: var(--tw-radius-card); box-shadow: var(--tw-shadow-card); padding: 30px; max-width: 420px; width: 90%; }
+  dialog.tw-modal::backdrop { background: rgba(12,42,72,0.55); }
+  dialog.tw-modal h4 { font-family: var(--tw-font-display); margin-bottom: 10px; }
+  dialog.tw-modal p { color: var(--tw-ink-muted); font-size: var(--tw-text-lg); margin-bottom: 20px; }
+
+  /* Alert / banner */
+  .alert { display: flex; gap: 12px; align-items: flex-start; border-radius: 10px; padding: 16px 18px; font-size: var(--tw-text-lg); margin-bottom: 14px; }
+  .alert .ic { flex: none; margin-top: 1px; }
+  .alert.info { background: #E4EEF6; color: var(--tw-navy); border: 1px solid #C9DCEB; }
+  .alert.success { background: #E2F4EA; color: var(--tw-green-ink); border: 1px solid #C9EAD4; }
+  .alert.warning { background: #FBE7E3; color: var(--tw-no-ink); border: 1px solid #F3CCC3; }
+
+  /* Breadcrumb & pagination */
+  .breadcrumb { display: flex; gap: 8px; align-items: center; font-size: var(--tw-text-md); color: var(--tw-ink-muted); flex-wrap: wrap; }
+  .breadcrumb a { color: var(--tw-green-ink); text-decoration: none; font-weight: var(--tw-weight-semibold); }
+  .breadcrumb [aria-current="page"] { color: var(--tw-navy); font-weight: var(--tw-weight-semibold); }
+  .pagination { display: flex; gap: 6px; list-style: none; }
+  .pagination a, .pagination span {
+    min-width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;
+    border-radius: 8px; font-family: var(--tw-font-display); font-weight: var(--tw-weight-semibold); font-size: var(--tw-text-md); color: var(--tw-navy); text-decoration: none;
+  }
+  .pagination a:hover { background: var(--tw-grad-soft); }
+  .pagination [aria-current="page"] { background: var(--tw-green); color: var(--tw-navy); }
+
+  /* Tooltip — shown on hover AND focus (WCAG 1.4.13) */
+  .tooltip-wrap { position: relative; display: inline-block; }
+  .tooltip-wrap [role="tooltip"] {
+    position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%);
+    background: var(--tw-navy); color: #fff; font-size: var(--tw-text-sm); padding: 6px 12px; border-radius: 6px;
+    white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.15s ease;
+  }
+  .tooltip-wrap:hover [role="tooltip"], .tooltip-wrap:focus-within [role="tooltip"] { opacity: 1; }
+  @media (prefers-reduced-motion: reduce) { .tooltip-wrap [role="tooltip"] { transition: none; } }
+
+  /* Logo cloud */
+  .logo-cloud { display: flex; flex-wrap: wrap; gap: 34px; align-items: center; justify-content: center; padding: 26px; background: #fff; border: 1px solid #E4EDF2; border-radius: var(--tw-radius-card); }
+  .logo-cloud span { font-family: var(--tw-font-display); font-weight: var(--tw-weight-bold); color: var(--tw-ink-muted); font-size: var(--tw-text-xl); }
+
+  /* Stats row */
+  .stats-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 24px; text-align: center; }
+  .stats-row .num { font-family: var(--tw-font-display); font-weight: var(--tw-weight-bold); font-size: var(--tw-text-4xl); color: var(--tw-green-ink); }
+  .stats-row .lab { font-size: var(--tw-text-md); color: var(--tw-ink-muted); margin-top: 4px; }
+
+  /* Article / blog card */
+  .article-card { background: #fff; border: 1px solid #E4EDF2; border-radius: var(--tw-radius-card); box-shadow: var(--tw-shadow-card); overflow: hidden; }
+  .article-card .thumb { height: 130px; background: var(--tw-grad-soft); }
+  .article-card .body { padding: 20px 22px; }
+  .article-card .meta { font-size: var(--tw-text-sm); color: var(--tw-ink-muted); margin-bottom: 8px; }
+  .article-card h5 { font-family: var(--tw-font-display); font-weight: var(--tw-weight-bold); font-size: var(--tw-text-lg); color: var(--tw-navy); margin-bottom: 8px; }
+  .article-card p { font-size: var(--tw-text-md); color: #5C7185; }
+  .article-card .readmore { font-weight: var(--tw-weight-semibold); color: var(--tw-green-ink); font-size: var(--tw-text-md); text-decoration: none; display: inline-block; margin-top: 10px; }
+
+  /* Expanded footer pattern (preview only — not the live page footer) */
+  .footer-preview { background: var(--tw-navy-deep); border-radius: var(--tw-radius-card); padding: 34px 30px; }
+  .footer-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 26px; margin-bottom: 26px; }
+  .footer-cols h6 { font-family: var(--tw-font-display); font-weight: var(--tw-weight-bold); font-size: var(--tw-text-sm); letter-spacing: var(--tw-tracking-wide-xs); text-transform: uppercase; color: var(--tw-green); margin-bottom: 12px; }
+  .footer-cols a { display: block; color: #8DA3B5; text-decoration: none; font-size: var(--tw-text-md); margin-bottom: 8px; }
+  .footer-cols a:hover { color: #fff; }
+  .footer-social { display: flex; gap: 12px; margin-bottom: 22px; }
+  .footer-social a { width: 34px; height: 34px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; color: #B9CBDC; text-decoration: none; }
+  .footer-newsletter { display: flex; gap: 10px; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 22px; }
+  .footer-newsletter input { flex: 1; min-width: 200px; padding: 11px 14px; border-radius: 8px; border: 1.5px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); color: #fff; font: inherit; }
+  .footer-newsletter input::placeholder { color: #8DA3B5; }
+
+
+  /* ---------- Spacing & layout ---------- */
+  .scale-row { display: flex; align-items: center; gap: 16px; margin-bottom: 10px; }
+  .scale-row .bar { background: var(--tw-green); height: 18px; border-radius: 4px; }
+  .scale-row .lab { font-family: var(--tw-font-display); font-weight: var(--tw-weight-semibold); font-size: var(--tw-text-md); color: var(--tw-navy); width: 60px; }
+  .scale-row .role { font-size: var(--tw-text-md); color: #5C7185; }
+  .spec-table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: var(--tw-text-lg); }
+  .spec-table td { padding: 11px 14px; border-bottom: 1px solid #E4EDF2; vertical-align: top; }
+  .spec-table tr td:first-child { font-family: var(--tw-font-display); font-weight: var(--tw-weight-semibold); color: var(--tw-navy); white-space: nowrap; }
+  .spec-table tr td:nth-child(2) { font-family: 'SFMono-Regular', Consolas, monospace; font-size: var(--tw-text-md); color: var(--tw-steel); white-space: nowrap; }
+  .spec-table tr td:last-child { color: #5C7185; }
+  .archetype { background: #fff; border: 1px solid #E4EDF2; border-radius: var(--tw-radius-card); overflow: hidden; box-shadow: var(--tw-shadow-card); }
+  .archetype .seg { padding: 14px 18px; font-family: var(--tw-font-display); font-weight: var(--tw-weight-semibold); font-size: var(--tw-text-md); }
+  .archetype .navy { background: var(--tw-navy); color: #fff; }
+  .archetype .soft { background: var(--tw-grad-soft); color: var(--tw-navy); }
+  .archetype .ang { clip-path: polygon(0 30%, 100% 0, 100% 100%, 0 100%); margin-top: -10px; }
+
+  /* ---------- Screenshots ---------- */
+  .shot-frame-light { background: var(--tw-grad-soft); border-radius: var(--tw-radius-card); padding: 26px; }
+  .shot-frame-navy { background: var(--tw-navy); border-radius: var(--tw-radius-card); padding: 26px; position: relative; overflow: hidden; }
+  .shot { background: #fff; border-radius: 8px; box-shadow: 0 12px 30px rgba(12,42,72,0.18); overflow: hidden; border: 1px solid rgba(12,42,72,0.06); }
+  .shot .bar { background: #F4F7FA; border-bottom: 1px solid #E4EDF2; padding: 8px 12px; display: flex; gap: 6px; }
+  .shot .bar i { width: 9px; height: 9px; border-radius: 50%; background: #D4DEE6; }
+  .shot .body { padding: 16px; display: grid; grid-template-columns: 60px 1fr; gap: 14px; }
+  .shot .nav-col { background: var(--tw-navy); border-radius: 6px; height: 120px; }
+  .shot .rows { display: flex; flex-direction: column; gap: 8px; }
+  .shot .rows span { height: 12px; background: #EAF0F4; border-radius: 3px; }
+  .callout-pill { position: absolute; background: var(--tw-green); color: #fff; font-family: var(--tw-font-display); font-weight: var(--tw-weight-semibold); font-size: var(--tw-text-xs); padding: 5px 12px; border-radius: var(--tw-radius-pill); box-shadow: 0 4px 12px rgba(84,185,135,0.4); }
+  .callout-box { position: absolute; border: 2.5px solid var(--tw-green); border-radius: 7px; }
+  .topo-bg { position: absolute; inset: 0; opacity: 0.10; pointer-events: none; }
+
+  /* ---------- Data viz ---------- */
+  .viz-card { background: #fff; border: 1px solid #E4EDF2; border-radius: var(--tw-radius-card); box-shadow: var(--tw-shadow-card); padding: 22px 24px; }
+  .viz-card h5 { font-family: var(--tw-font-display); font-weight: var(--tw-weight-semibold); font-size: var(--tw-text-lg); margin-bottom: 16px; }
+  .legend { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 14px; font-size: var(--tw-text-md); color: #5C7185; }
+  .legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .legend i { width: 12px; height: 12px; border-radius: 3px; }
+  .series-list { list-style: none; margin-top: 6px; }
+  .series-list li { display: flex; align-items: center; gap: 12px; padding: 8px 0; border-bottom: 1px solid #EEF2F5; font-size: var(--tw-text-lg); }
+  .series-list .sw { width: 26px; height: 26px; border-radius: 6px; flex: none; }
+  .series-list .nm { font-family: var(--tw-font-display); font-weight: var(--tw-weight-semibold); color: var(--tw-navy); }
+  .series-list .ord { font-size: var(--tw-text-sm); color: var(--tw-ink-muted); }
+
+  /* ---------- Diagrams ---------- */
+  .dd-flow { display: flex; gap: 6px; align-items: stretch; flex-wrap: wrap; }
+  .dd-tri { flex: 1; min-width: 90px; color: #fff; text-align: center; font-family: var(--tw-font-display); font-weight: var(--tw-weight-bold); font-size: var(--tw-text-sm); letter-spacing: var(--tw-tracking-wide-2xs); padding: 26px 8px; display: flex; align-items: center; justify-content: center; }
+  .frame-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 18px; }
+  .step-flow { display: flex; flex-direction: column; gap: 0; }
+  .step { display: flex; gap: 16px; padding: 0 0 22px; position: relative; }
+  .step:not(:last-child)::before { content: ''; position: absolute; left: 15px; top: 32px; bottom: 0; width: 2px; background: #D7E3DC; }
+  .step .num { flex: none; width: 32px; height: 32px; border-radius: 50%; background: var(--tw-navy); color: #fff; display: flex; align-items: center; justify-content: center; font-family: var(--tw-font-display); font-weight: var(--tw-weight-bold); font-size: var(--tw-text-md); z-index: 1; }
+  .step .txt strong { font-family: var(--tw-font-display); display: block; color: var(--tw-navy); margin-bottom: 2px; }
+  .step .txt span { font-size: var(--tw-text-md); color: #5C7185; }
+
+  /* ---------- Do / Don't ---------- */
+  .dd-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 22px; }
+  .dd {
+    border-radius: var(--tw-radius-card); padding: 24px 26px; background: #fff;
+    border: 1px solid #E4EDF2; box-shadow: var(--tw-shadow-card);
+  }
+  .dd .tag { font-family: var(--tw-font-display); font-weight: var(--tw-weight-bold); font-size: var(--tw-text-md); letter-spacing: var(--tw-tracking-wide-md); text-transform: uppercase; }
+  .dd.yes { border-top: 4px solid var(--tw-green); } .dd.yes .tag { color: var(--tw-green-ink); } /* raw green was 2.4:1, fails */
+  .dd.no  { border-top: 4px solid var(--tw-no); }    .dd.no .tag  { color: var(--tw-no-ink); } /* raw #D86A5A was 3.4:1, fails 4.5:1 for this small label */
+  .dd ul { margin: 12px 0 0 18px; font-size: var(--tw-text-lg); color: #3D5670; }
+  .dd li { margin-bottom: 8px; }
+
+  /* ---------- Accessibility ---------- */
+  .wcag-table td:nth-child(3) { font-family: 'SFMono-Regular', Consolas, monospace; font-size: var(--tw-text-md); }
+  .a11y-badge { display: inline-block; font-family: var(--tw-font-display); font-weight: var(--tw-weight-bold); font-size: var(--tw-text-xs); letter-spacing: var(--tw-tracking-wide-2xs); padding: 2px 9px; border-radius: var(--tw-radius-pill); }
+  .a11y-badge.pass { background: #E2F4EA; color: var(--tw-green-ink); }
+  .a11y-badge.fail { background: #FBE7E3; color: var(--tw-no-ink); }
+  .focus-demo { background: #fff; border: 1px solid #E4EDF2; border-radius: var(--tw-radius-card); box-shadow: var(--tw-shadow-card); padding: 26px; display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+  .focus-demo .hint { font-size: var(--tw-text-md); color: var(--tw-ink-muted); }
+  kbd { font-family: 'SFMono-Regular', Consolas, monospace; font-size: var(--tw-text-md); background: #EEF2F5; border: 1px solid #D4DEE6; border-bottom-width: 2px; border-radius: 5px; padding: 2px 7px; color: var(--tw-navy); }
+  .wcag-ref { font-family: 'SFMono-Regular', Consolas, monospace; font-size: var(--tw-text-xs); color: var(--tw-ink-muted); }
+
+  /* ---------- Motion ---------- */
+  .motion-row { display: flex; align-items: center; gap: 16px; margin-bottom: 12px; }
+  .motion-row .bar { height: 14px; border-radius: 4px; background: var(--tw-green); }
+  .motion-row .lab { font-family: var(--tw-font-display); font-weight: var(--tw-weight-semibold); font-size: var(--tw-text-md); color: var(--tw-navy); width: 130px; flex: none; }
+  .motion-row .role { font-size: var(--tw-text-md); color: var(--tw-ink-muted); }
+  .flight-draw { stroke-dasharray: 300; stroke-dashoffset: 300; animation: draw-path 2.4s ease-out forwards; }
+  @keyframes draw-path { to { stroke-dashoffset: 0; } }
+  @media (prefers-reduced-motion: reduce) { .flight-draw { animation: none; stroke-dashoffset: 0; } }
+
+  /* ---------- Slide decks ---------- */
+  .deck-frame { background: #fff; border: 1px solid #E4EDF2; border-radius: 10px; box-shadow: var(--tw-shadow-card); aspect-ratio: 16/9; padding: 26px 30px; display: flex; flex-direction: column; position: relative; overflow: hidden; }
+  .deck-frame.navy { background: var(--tw-navy); color: #fff; }
+  .deck-frame .deck-eyebrow { font-family: var(--tw-font-display); font-weight: var(--tw-weight-bold); font-size: var(--tw-text-2xs); letter-spacing: var(--tw-tracking-wide-lg); text-transform: uppercase; color: var(--tw-green-ink); }
+  .deck-frame.navy .deck-eyebrow { color: var(--tw-green); }
+  .deck-frame .deck-title { font-family: var(--tw-font-display); font-weight: var(--tw-weight-bold); font-size: var(--tw-text-2xl); color: #595959; margin-top: 8px; }
+  .deck-frame.navy .deck-title { color: #fff; }
+  .deck-frame .deck-sub { font-family: var(--tw-font-display); font-weight: var(--tw-weight-semibold); font-size: var(--tw-text-md); color: var(--tw-teal-ink); margin-top: 6px; }
+  .deck-frame .deck-num { position: absolute; right: 16px; bottom: 12px; font-size: var(--tw-text-xs); color: var(--tw-ink-muted); font-family: var(--tw-font-display); }
+  .deck-frame.navy .deck-num { color: #8DA3B5; }
+  .deck-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 22px; }
+  .deck-frame figcaption { font-size: var(--tw-text-md); color: var(--tw-ink-muted); text-align: center; margin-top: 10px; }
+
+  /* ---------- Prompt library ---------- */
+  .prompt-card {
+    background: #0E3050; border: 1px solid #1C466E; border-radius: var(--tw-radius-card);
+    padding: 24px 26px; margin-bottom: 22px; position: relative;
+  }
+  .prompt-card h4 { font-size: var(--tw-text-xl); color: #fff; margin-bottom: 4px; }
+  .prompt-card .when { font-size: var(--tw-text-md); color: #8FB6A8; margin-bottom: 14px; }
+  .prompt-card pre {
+    white-space: pre-wrap; font-family: 'SFMono-Regular', Consolas, monospace;
+    font-size: var(--tw-text-md); line-height: var(--tw-leading-relaxed); color: #CFE3DA; background: rgba(0,0,0,0.22);
+    border-radius: 10px; padding: 16px 18px; border: 1px solid rgba(255,255,255,0.08);
+  }
+  .copy-btn {
+    position: absolute; top: 20px; right: 20px;
+    background: var(--tw-green); color: #fff; border: none; cursor: pointer;
+    font-family: var(--tw-font-display); font-weight: var(--tw-weight-semibold); font-size: var(--tw-text-sm);
+    padding: 7px 16px; border-radius: var(--tw-radius-pill);
+  }
+  .copy-btn:hover { filter: brightness(1.08); }
+
+  .style-anatomy { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; margin: 30px 0 38px; }
+  .anat {
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px; padding: 18px 20px;
+  }
+  .anat .k { font-family: var(--tw-font-display); font-weight: var(--tw-weight-semibold); color: var(--tw-green); font-size: var(--tw-text-lg); margin-bottom: 5px; }
+  .anat .v { font-size: var(--tw-text-md); color: #B9CBDC; line-height: var(--tw-leading-relaxed-sm); }
+
+  .deprecated {
+    margin-top: 40px; border: 1px dashed rgba(255,255,255,0.3); border-radius: var(--tw-radius-card);
+    padding: 22px 26px; color: #9FB4C7; font-size: var(--tw-text-lg);
+  }
+  .deprecated strong { color: #E8B8A8; }
+
+  /* ---------- Voice ---------- */
+  .pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 16px; margin: 26px 0; }
+  .pillar {
+    background: #fff; border-radius: 12px; border: 1px solid #E4EDF2; box-shadow: var(--tw-shadow-card);
+    padding: 20px; font-family: var(--tw-font-display); font-weight: var(--tw-weight-semibold); color: var(--tw-navy); font-size: var(--tw-text-lg);
+  }
+  .pillar span { display: block; font-family: var(--tw-font-body); font-weight: var(--tw-weight-regular); color: #5C7185; font-size: var(--tw-text-md); margin-top: 6px; }
+
+  /* ---------- AI usage ---------- */
+  .ai-note {
+    background: var(--tw-grad-soft); border-radius: var(--tw-radius-card); border: 1px solid #DCEDE4;
+    padding: 28px 30px; font-size: var(--tw-text-lg); color: #2D4660;
+  }
+  .ai-note ol { margin: 14px 0 0 20px; } .ai-note li { margin-bottom: 9px; }
+
+  footer { background: var(--tw-navy-deep); color: #8DA3B5; padding: 44px 0; font-size: var(--tw-text-md); }
+  footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 14px; }
+
+  /* global brand nav (shared pattern: landing + both brand guides) */
+  .gnav {
+    position: sticky; top: 0; z-index: 60;
+    display: flex; align-items: center; gap: 22px; height: 44px; padding: 0 20px;
+    background: var(--tw-navy-deep); border-bottom: 1px solid rgba(255,255,255,0.08);
+    overflow-x: auto; white-space: nowrap; font-family: var(--tw-font-display);
+  }
+  .gnav-home {
+    display: inline-flex; align-items: center; gap: 9px; margin-right: auto; flex: none;
+    color: #fff; text-decoration: none; font-size: 0.72rem; font-weight: var(--tw-weight-bold);
+    letter-spacing: 0.16em; text-transform: uppercase;
+  }
+  .gnav-home img { width: 16px; height: 16px; border-radius: 4px; }
+  .gnav-home span { color: #8DA3B5; font-weight: var(--tw-weight-semibold); }
+  .gnav-brand {
+    display: inline-flex; align-items: center; gap: 7px; align-self: stretch; flex: none;
+    color: #B9CBDC; text-decoration: none; font-size: var(--tw-text-sm); font-weight: var(--tw-weight-semibold);
+    border-top: 2px solid transparent; border-bottom: 2px solid transparent;
+  }
+  .gnav-brand:hover { color: #fff; }
+  .gnav-brand .dot { width: 8px; height: 8px; border-radius: 50%; flex: none; }
+  .gnav-brand.pds .dot { background: var(--tw-green); }
+  .gnav-brand.gm .dot { background: #C8A46B; } /* Gridmark brand identifier only — not a PDS token */
+  .gnav-brand[aria-current="page"] { color: #fff; }
+  .gnav-brand.pds[aria-current="page"] { border-bottom-color: var(--tw-green); }
+  .gnav-brand.gm[aria-current="page"] { border-bottom-color: #C8A46B; }
+
+  /* nav (sub nav sticks below the 44px global bar) */
+  nav { background: var(--tw-navy); border-bottom: 1px solid rgba(255,255,255,0.08); position: sticky; top: 44px; z-index: 50; }
+  nav .wrap { display: flex; flex-direction: column; align-items: flex-start; padding-top: 14px; padding-bottom: 14px; gap: 10px; }
+  nav .nav-links { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+  nav .brand { font-family: var(--tw-font-display); font-weight: var(--tw-weight-bold); color: #fff; letter-spacing: var(--tw-tracking-wide-2xs); }
+  nav .brand small { display: block; font-size: var(--tw-text-2xs); letter-spacing: var(--tw-tracking-widest-lg); color: var(--tw-green); font-weight: var(--tw-weight-semibold); }
+  nav a { color: #B9CBDC; text-decoration: none; font-size: var(--tw-text-md); font-family: var(--tw-font-display); font-weight: var(--tw-weight-semibold); }
+  nav a:hover { color: var(--tw-green); }
+
+  /* nav — section groups with subsection dropdowns */
+  .nav-group { position: relative; }
+  .nav-group-btn {
+    display: flex; align-items: center; gap: 6px; background: none; border: none; cursor: pointer;
+    color: #B9CBDC; text-decoration: none; font-size: var(--tw-text-md); font-family: var(--tw-font-display);
+    font-weight: var(--tw-weight-semibold); padding: 8px 10px; border-radius: 6px;
+  }
+  .nav-group-btn:hover { color: var(--tw-green); }
+  .nav-group-btn .chev { font-size: var(--tw-text-2xs); transition: transform 0.15s ease; }
+  .nav-group-btn[aria-expanded="true"] { color: var(--tw-green); background: rgba(255,255,255,0.06); }
+  .nav-group-btn[aria-expanded="true"] .chev { transform: rotate(180deg); }
+  @media (prefers-reduced-motion: reduce) { .nav-group-btn .chev { transition: none; } }
+  .nav-subnav {
+    position: absolute; top: calc(100% + 8px); left: 0; min-width: 200px; list-style: none;
+    background: var(--tw-navy-deep); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px;
+    box-shadow: var(--tw-shadow-card); padding: 8px; z-index: 60;
+  }
+  .nav-subnav[hidden] { display: none; }
+  .nav-subnav li + li { margin-top: 2px; }
+  .nav-subnav a { display: block; padding: 8px 12px; border-radius: 6px; font-weight: var(--tw-weight-medium); }
+  .nav-subnav a:hover { background: rgba(255,255,255,0.06); color: var(--tw-green); }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<nav class="gnav" aria-label="This Waay brands">
+  <a class="gnav-home" href="../index.html">
+    <img src="assets/This-Waay-Logo-White-Mark.svg" alt="">
+    This Waay <span>Design System</span>
+  </a>
+  <a class="gnav-brand pds" href="index.html" aria-current="page"><span class="dot" aria-hidden="true"></span>Product Design Studio</a>
+  <a class="gnav-brand gm" href="../gridmark-partners/gridmark-design-system-v3.html"><span class="dot" aria-hidden="true"></span>Gridmark Partners</a>
+</nav>
+
+<nav aria-label="Style guide sections">
+  <div class="wrap">
+    <div class="brand">THIS WAAY<small>PRODUCT DESIGN STUDIO</small></div>
+    <div class="nav-links">
+      <div class="nav-group">
+        <button type="button" class="nav-group-btn" aria-expanded="false" aria-controls="nav-sub-architecture">Architecture<span class="chev" aria-hidden="true">⌄</span></button>
+        <ul class="nav-subnav" id="nav-sub-architecture" hidden>
+          <li><a href="#tokens">Token architecture</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button type="button" class="nav-group-btn" aria-expanded="false" aria-controls="nav-sub-foundations">Foundations<span class="chev" aria-hidden="true">⌄</span></button>
+        <ul class="nav-subnav" id="nav-sub-foundations" hidden>
+          <li><a href="#colors">Color</a></li>
+          <li><a href="#type">Typography</a></li>
+          <li><a href="#spacing">Spacing &amp; layout</a></li>
+          <li><a href="#motion">Motion</a></li>
+          <li><a href="#accessibility">Accessibility</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button type="button" class="nav-group-btn" aria-expanded="false" aria-controls="nav-sub-brand">Brand<span class="chev" aria-hidden="true">⌄</span></button>
+        <ul class="nav-subnav" id="nav-sub-brand" hidden>
+          <li><a href="#motifs">Motifs &amp; iconography</a></li>
+          <li><a href="#illustration">Illustration</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button type="button" class="nav-group-btn" aria-expanded="false" aria-controls="nav-sub-system">System<span class="chev" aria-hidden="true">⌄</span></button>
+        <ul class="nav-subnav" id="nav-sub-system" hidden>
+          <li><a href="#components">Core components</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button type="button" class="nav-group-btn" aria-expanded="false" aria-controls="nav-sub-application">Application<span class="chev" aria-hidden="true">⌄</span></button>
+        <ul class="nav-subnav" id="nav-sub-application" hidden>
+          <li><a href="#screens">Screenshots</a></li>
+          <li><a href="#dataviz">Data visualization</a></li>
+          <li><a href="#diagrams">Diagrams &amp; frameworks</a></li>
+          <li><a href="#decks">Slide decks</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button type="button" class="nav-group-btn" aria-expanded="false" aria-controls="nav-sub-language">Language<span class="chev" aria-hidden="true">⌄</span></button>
+        <ul class="nav-subnav" id="nav-sub-language" hidden>
+          <li><a href="#voice">Voice &amp; messaging</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button type="button" class="nav-group-btn" aria-expanded="false" aria-controls="nav-sub-operations">Operations<span class="chev" aria-hidden="true">⌄</span></button>
+        <ul class="nav-subnav" id="nav-sub-operations" hidden>
+          <li><a href="#ai">AI usage</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <svg class="plane-bg" viewBox="0 0 600 360" fill="none" aria-hidden="true">
+    <path d="M20 200 L560 40 L300 230 Z" fill="#ffffff"/>
+    <path d="M300 230 L560 40 L330 320 Z" fill="#ffffff" opacity="0.6"/>
+  </svg>
+  <div class="wrap">
+    <div class="eyebrow" style="color:var(--tw-green)">Living Style Guide · v2.3 · July 2026 · Public-safe edition</div>
+    <h1 style="margin-top:14px">Guiding complex products<br>with a <span class="hl">consistent visual language</span></h1>
+    <p class="lede">The single source of truth for This Waay's brand — colors, type, components, illustration prompts, and voice. Built to be read by humans and used as context by AI tools.</p>
+    <div class="hero-meta">
+      <span class="chip">Drives: site · decks · social · case studies</span>
+      <span class="chip">Canonical illustration: paper-cut night landscapes</span>
+    </div>
+  </div>
+  <svg class="flight-path" viewBox="0 0 1200 90" fill="none" aria-hidden="true" preserveAspectRatio="none">
+    <path d="M0 60 C 150 24, 280 70, 380 48 C 430 38, 446 10, 420 12 C 396 14, 414 48, 470 44 C 600 35, 720 14, 860 40 C 960 58, 1080 52, 1200 24" stroke="#FFFFFF" stroke-width="3" stroke-dasharray="0.1 9" stroke-linecap="round"/>
+  </svg>
+</header>
+
+<main id="main">
+
+<!-- ================= TOKEN ARCHITECTURE ================= -->
+<section id="tokens">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">01 · Architecture</div>
+      <h2>Token architecture</h2>
+      <p class="lede">One flat layer, on purpose. Every brand value is a single <strong>--tw-*</strong> custom property, declared once in this page's stylesheet and mirrored one-to-one in <strong>tokens.json</strong> — color (with its accessible ink text variants), gradients, type family, weight, the 10-step size scale, tracking, leading, the 8px spacing rhythm, radii, shadows, and section padding. Components reference tokens directly; there are no semantic or component alias layers.</p>
+    </div>
+
+    <div class="prompt-card">
+      <button class="copy-btn" data-copy="token-arch-spec">Copy</button>
+      <h4>Flat by design</h4>
+      <div class="when">Value → use, no alias hop. Representative declarations from this page's <strong style="color:#CFE3DA">:root</strong>:</div>
+      <pre id="token-arch-spec">--tw-navy: #0C2A48;              /* color primitive — used directly */
+--tw-green-ink: #2C6D4D;         /* accessible text variant of green — 6.2:1 on white */
+--tw-grad-soft: linear-gradient(135deg, #EEF8EC 0%, #F2FBFB 100%);  /* standard light surface */
+--tw-text-md: 0.85rem;           /* step 4 of the 10-step UI text scale */
+--tw-radius-card: 14px;          /* card and panel corners */
+--tw-section-pad: clamp(56px, 8vw, 110px);  /* section rhythm */</pre>
+    </div>
+
+    <p class="lede" style="margin-top:22px">This flatness is a deliberate per-brand difference: the Gridmark Partners sibling system documents an explicit three-layer model (primitive → semantic → component), while This Waay's block stays flat — each reflects that document's own authoring history. See <strong>RELATIONSHIP.md</strong> in the unified home before "aligning" one to the other.</p>
+  </div>
+</section>
+
+<!-- ================= COLORS ================= -->
+<section id="colors">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">02 · Foundations</div>
+      <h2>Color system</h2>
+      <p class="lede">Navy is the ground; <strong>Waay Green is the action — everywhere, on every surface</strong>. Punch Green exists for rare, deliberate emphasis. Teal is heritage — it carries hierarchy in documents and decks. Click any swatch to copy its hex.</p>
+    </div>
+    <h3 style="margin-bottom:18px">Primary</h3>
+    <div class="swatch-grid" style="margin-bottom:40px">
+      <button type="button" class="swatch" data-hex="#0C2A48" aria-label="Deep Navy, hex 0 C 2 A 4 8. Press to copy hex code."><div class="chipcolor" style="background:#0C2A48" aria-hidden="true"><span class="copied-tag">Copied</span></div><div class="info" aria-hidden="true"><div class="name">Deep Navy</div><div class="hex">#0C2A48</div><div class="use">Hero &amp; section backgrounds, card bodies, logo plane. The brand's ground state.</div></div></button>
+      <button type="button" class="swatch" data-hex="#54B987" aria-label="Waay Green, hex 5 4 B 9 8 7. Press to copy hex code."><div class="chipcolor" style="background:#54B987" aria-hidden="true"><span class="copied-tag">Copied</span></div><div class="info" aria-hidden="true"><div class="name">Waay Green</div><div class="hex">#54B987</div><div class="use">The brand green. All actions, labels, highlights, and accents — on light and dark grounds alike. Default to this.</div></div></button>
+      <button type="button" class="swatch" data-hex="#3DD68C" aria-label="Punch Green, hex 3 D D 6 8 C. Press to copy hex code."><div class="chipcolor" style="background:#3DD68C" aria-hidden="true"><span class="copied-tag">Copied</span></div><div class="info" aria-hidden="true"><div class="name">Punch Green</div><div class="hex">#3DD68C</div><div class="use">Sparing, intentional emphasis only — at most one moment per page or asset (e.g., a single highlighted headline word). Never for buttons, labels, or recurring UI.</div></div></button>
+      <button type="button" class="swatch" data-hex="#0BABAB" aria-label="Teal, hex 0 B A B A B. Press to copy hex code."><div class="chipcolor" style="background:#0BABAB" aria-hidden="true"><span class="copied-tag">Copied</span></div><div class="info" aria-hidden="true"><div class="name">Teal</div><div class="hex">#0BABAB</div><div class="use">Subheads, links, mid-sentence callouts in decks and documents.</div></div></button>
+    </div>
+    <h3 style="margin-bottom:18px">Supporting &amp; surfaces</h3>
+    <div class="swatch-grid">
+      <button type="button" class="swatch" data-hex="#0D698A" aria-label="Steel Blue, hex 0 D 6 9 8 A. Press to copy hex code."><div class="chipcolor" style="background:#0D698A" aria-hidden="true"><span class="copied-tag">Copied</span></div><div class="info" aria-hidden="true"><div class="name">Steel Blue</div><div class="hex">#0D698A</div><div class="use">Charts, diagrams, secondary data series.</div></div></button>
+      <button type="button" class="swatch" data-hex="#595959" aria-label="Deck Gray, hex 5 9 5 9 5 9. Press to copy hex code."><div class="chipcolor" style="background:#595959" aria-hidden="true"><span class="copied-tag">Copied</span></div><div class="info" aria-hidden="true"><div class="name">Deck Gray</div><div class="hex">#595959</div><div class="use">Slide headers and body text on white (deck system).</div></div></button>
+      <button type="button" class="swatch" data-hex="#8DA3B5" aria-label="Slate, hex 8 D A 3 B 5. Press to copy hex code."><div class="chipcolor" style="background:#8DA3B5" aria-hidden="true"><span class="copied-tag">Copied</span></div><div class="info" aria-hidden="true"><div class="name">Slate</div><div class="hex">#8DA3B5</div><div class="use">Muted labels, captions, secondary text.</div></div></button>
+      <button type="button" class="swatch" data-hex="#EEF8EC" aria-label="Mint, hex E E F 8 E C. Press to copy hex code."><div class="chipcolor" style="background:#EEF8EC; border-bottom:1px solid #E4EDF2" aria-hidden="true"><span class="copied-tag">Copied</span></div><div class="info" aria-hidden="true"><div class="name">Mint</div><div class="hex">#EEF8EC</div><div class="use">Gradient stop A. Soft card and panel surfaces.</div></div></button>
+      <button type="button" class="swatch" data-hex="#F2FBFB" aria-label="Ice, hex F 2 F B F B. Press to copy hex code."><div class="chipcolor" style="background:#F2FBFB; border-bottom:1px solid #E4EDF2" aria-hidden="true"><span class="copied-tag">Copied</span></div><div class="info" aria-hidden="true"><div class="name">Ice</div><div class="hex">#F2FBFB</div><div class="use">Gradient stop B. Pairs with Mint at 135°.</div></div></button>
+      <button type="button" class="swatch" data-hex="#F2A08D" aria-label="Path Coral, hex F 2 A 0 8 D. Press to copy hex code."><div class="chipcolor" style="background:#F2A08D" aria-hidden="true"><span class="copied-tag">Copied</span></div><div class="info" aria-hidden="true"><div class="name">Path Coral</div><div class="hex">#F2A08D</div><div class="use">Illustration only — the glowing route/node accent. Never a UI color.</div></div></button>
+    </div>
+    <div id="copy-status" class="visually-hidden" role="status" aria-live="polite"></div>
+    <div style="margin-top:34px; background:var(--tw-grad-soft); border-radius:var(--tw-radius-card); padding:22px 26px; font-size:var(--tw-text-lg); color:#3D5670; border:1px solid #DCEDE4">
+      <strong style="font-family:var(--tw-font-display)">Soft gradient:</strong> <code>linear-gradient(135deg, #EEF8EC 0%, #F2FBFB 100%)</code> — the standard light surface for testimonial panels, expanded cards, and alternating page sections. This panel is rendered with it.
+    </div>
+  </div>
+</section>
+
+<!-- ================= TYPOGRAPHY ================= -->
+<section id="type" class="on-soft angle-top">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">03 · Foundations</div>
+      <h2>Typography</h2>
+      <p class="lede"><strong>Axiforma</strong> is the brand typeface — a single geometric sans family carrying every role, with weight doing the hierarchy work. It's what gives the marketing site its rounded-but-precise character, and it now supersedes the legacy deck typography. <strong>Poppins</strong> is the approved free fallback when the license isn't available (this page renders Axiforma if installed, Poppins otherwise).</p>
+    </div>
+    <div class="spec"><div class="label">Display · Axiforma Bold 700 · −0.015em tracking</div><p class="h1-demo" style="color:var(--tw-navy)">Designing system evolution with intention</p></div>
+    <div class="spec"><div class="label">H2 · Axiforma Bold 700</div><h2 style="color:var(--tw-navy)">We operate where clarity matters most</h2></div>
+    <div class="spec"><div class="label">Teal subhead · Axiforma SemiBold 600 · decks &amp; documents</div><div class="teal-sub">Initial summary of findings</div></div>
+    <div class="spec"><div class="label">Body · Axiforma Regular 400 · 16px · 1.7 line height</div><p style="max-width:64ch">We help product and technology teams align workflows, strengthen product foundations, and apply AI in ways that support real business and user outcomes. Body copy stays calm and unornamented — emphasis comes from <span style="color:var(--tw-teal-ink); font-weight:var(--tw-weight-bold)">teal mid-sentence callouts</span>, never from underlines or italics.</p></div>
+    <div class="spec"><div class="label">Eyebrow · Axiforma Bold 700 · 0.22em tracking · uppercase</div><div class="eyebrow">Why work with us</div></div>
+
+    <h3 style="margin:38px 0 16px">Weight ladder</h3>
+    <div style="background:#fff; border:1px solid #E4EDF2; border-radius:var(--tw-radius-card); box-shadow:var(--tw-shadow-card); padding:26px 30px; font-family:var(--tw-font-display)">
+      <div style="font-weight:var(--tw-weight-bold); font-size:var(--tw-text-2xl); margin-bottom:8px">Bold 700 — headlines, eyebrows, buttons <span style="font-family:var(--tw-font-body); font-weight:var(--tw-weight-regular); font-size:var(--tw-text-md); color:var(--tw-ink-muted)">Aa Bb Cc 0123</span></div>
+      <div style="font-weight:var(--tw-weight-semibold); font-size:var(--tw-text-2xl); margin-bottom:8px">SemiBold 600 — subheads, card titles, labels <span style="font-weight:var(--tw-weight-regular); font-size:var(--tw-text-md); color:var(--tw-ink-muted)">Aa Bb Cc 0123</span></div>
+      <div style="font-weight:var(--tw-weight-medium); font-size:var(--tw-text-2xl); margin-bottom:8px">Medium 500 — emphasis within body, nav links <span style="font-weight:var(--tw-weight-regular); font-size:var(--tw-text-md); color:var(--tw-ink-muted)">Aa Bb Cc 0123</span></div>
+      <div style="font-weight:var(--tw-weight-regular); font-size:var(--tw-text-2xl)">Regular 400 — body copy, captions <span style="font-size:var(--tw-text-md); color:var(--tw-ink-muted)">Aa Bb Cc 0123</span></div>
+    </div>
+    <p style="font-size:var(--tw-text-md); color:#5C7185; margin-top:16px; max-width:70ch"><strong>Licensing &amp; fallbacks:</strong> Axiforma (Kastelov) requires a license per use — confirm web-embedding coverage before self-hosting woff2 files. Stack: <code>'Axiforma', 'Poppins', 'Segoe UI', sans-serif</code>. In tools where neither loads (some slide/AI environments), Poppins is the only acceptable substitute. The legacy deck face is retired with the next template refresh.</p>
+
+    <h3 style="margin:44px 0 16px">Type size scale</h3>
+    <p style="color:var(--tw-ink-muted); font-size:var(--tw-text-lg); max-width:70ch; margin-bottom:18px">Ten fixed steps carry every font-size in the system — display and body copy sit outside the scale as their own dedicated tokens. This consolidates what had accumulated into ~36 unrelated one-off values; every element in this page now points at one of the tokens below, so a future size change happens in one place.</p>
+    <div style="background:#fff; border:1px solid #E4EDF2; border-radius:var(--tw-radius-card); box-shadow:var(--tw-shadow-card); padding:24px 28px 10px; margin-bottom:18px">
+      <div class="scale-row" style="align-items:baseline"><span class="lab" style="width:150px">--tw-text-2xs</span><span style="font-family:var(--tw-font-display); font-weight:var(--tw-weight-semibold); font-size:var(--tw-text-2xs)">Aa Bb Cc</span><span class="role" style="margin-left:auto">0.62rem — nav tagline, micro-eyebrows, tiny badges</span></div>
+      <div class="scale-row" style="align-items:baseline"><span class="lab" style="width:150px">--tw-text-xs</span><span style="font-family:var(--tw-font-display); font-weight:var(--tw-weight-semibold); font-size:var(--tw-text-xs)">Aa Bb Cc</span><span class="role" style="margin-left:auto">0.72rem — slide numbers, breadcrumb, footer links</span></div>
+      <div class="scale-row" style="align-items:baseline"><span class="lab" style="width:150px">--tw-text-sm</span><span style="font-family:var(--tw-font-display); font-weight:var(--tw-weight-semibold); font-size:var(--tw-text-sm)">Aa Bb Cc</span><span class="role" style="margin-left:auto">0.78rem — eyebrows, small labels</span></div>
+      <div class="scale-row" style="align-items:baseline"><span class="lab" style="width:150px">--tw-text-md</span><span style="font-family:var(--tw-font-display); font-weight:var(--tw-weight-semibold); font-size:var(--tw-text-md)">Aa Bb Cc</span><span class="role" style="margin-left:auto">0.85rem — the dominant caption/secondary size</span></div>
+      <div class="scale-row" style="align-items:baseline"><span class="lab" style="width:150px">--tw-text-lg</span><span style="font-family:var(--tw-font-display); font-weight:var(--tw-weight-semibold); font-size:var(--tw-text-lg)">Aa Bb Cc</span><span class="role" style="margin-left:auto">0.95rem — buttons, form fields, near-body UI text</span></div>
+      <div class="scale-row" style="align-items:baseline"><span class="lab" style="width:150px">--tw-text-xl / lede</span><span style="font-family:var(--tw-font-display); font-weight:var(--tw-weight-semibold); font-size:var(--tw-text-xl)">Aa Bb Cc</span><span class="role" style="margin-left:auto">1.08rem — card titles, sub-headings, lede paragraphs</span></div>
+      <div class="scale-row" style="align-items:baseline"><span class="lab" style="width:150px">--tw-text-2xl / h3</span><span style="font-family:var(--tw-font-display); font-weight:var(--tw-weight-semibold); font-size:var(--tw-text-2xl)">Aa Bb Cc</span><span class="role" style="margin-left:auto">1.2rem — h3, teal subheads, prominent specimens</span></div>
+      <div class="scale-row" style="align-items:baseline"><span class="lab" style="width:150px">--tw-text-3xl</span><span style="font-family:var(--tw-font-display); font-weight:var(--tw-weight-semibold); font-size:var(--tw-text-3xl)">Aa Bb</span><span class="role" style="margin-left:auto">1.7rem — large decorative glyphs and icons</span></div>
+      <div class="scale-row" style="align-items:baseline"><span class="lab" style="width:150px">--tw-text-4xl</span><span style="font-family:var(--tw-font-display); font-weight:var(--tw-weight-bold); font-size:var(--tw-text-4xl)">Aa</span><span class="role" style="margin-left:auto">2.2rem — stat numbers, big display figures</span></div>
+      <div class="scale-row" style="align-items:baseline"><span class="lab" style="width:150px">--tw-text-5xl</span><span style="font-family:var(--tw-font-display); font-weight:var(--tw-weight-bold); font-size:var(--tw-text-5xl)">Aa</span><span class="role" style="margin-left:auto">2.6rem — the testimonial quote glyph</span></div>
+    </div>
+
+    <div class="comp-grid" style="gap:30px; margin-bottom:34px">
+      <div class="comp-block">
+        <h4>Letter-spacing scale</h4>
+        <div style="background:#fff; border:1px solid #E4EDF2; border-radius:var(--tw-radius-card); box-shadow:var(--tw-shadow-card); padding:20px 22px">
+          <table class="spec-table">
+            <tr><td>--tw-tracking-tightest</td><td>−0.015em</td><td>H1</td></tr>
+            <tr><td>--tw-tracking-tighter</td><td>−0.01em</td><td>H2</td></tr>
+            <tr><td>--tw-tracking-normal</td><td>0.04em</td><td>Swatch hex codes</td></tr>
+            <tr><td>--tw-tracking-wide-2xs</td><td>0.06em</td><td>Double-diamond triangle labels</td></tr>
+            <tr><td>--tw-tracking-wide-xs</td><td>0.1em</td><td>Footer column headers</td></tr>
+            <tr><td>--tw-tracking-wide</td><td>0.12em</td><td>WCAG reference tags, diagram labels</td></tr>
+            <tr><td>--tw-tracking-wide-md</td><td>0.14em</td><td>Component block labels</td></tr>
+            <tr><td>--tw-tracking-wider</td><td>0.16em</td><td>Card-titles-as-labels</td></tr>
+            <tr><td>--tw-tracking-wide-lg</td><td>0.18em</td><td>"On light ground" caption</td></tr>
+            <tr><td>--tw-tracking-widest</td><td>0.22em</td><td>Eyebrows (the widest common case)</td></tr>
+            <tr><td>--tw-tracking-widest-lg</td><td>0.3em</td><td>Nav wordmark tagline</td></tr>
+          </table>
+        </div>
+      </div>
+      <div class="comp-block">
+        <h4>Line-height scale</h4>
+        <div style="background:#fff; border:1px solid #E4EDF2; border-radius:var(--tw-radius-card); box-shadow:var(--tw-shadow-card); padding:20px 22px">
+          <table class="spec-table">
+            <tr><td>--tw-leading-glyph</td><td>0.6</td><td>Oversized quote-mark glyphs only</td></tr>
+            <tr><td>--tw-leading-heading</td><td>1.22</td><td>H1–H4</td></tr>
+            <tr><td>--tw-leading-snug</td><td>1.4</td><td>Testimonial quotes</td></tr>
+            <tr><td>--tw-leading-snug-md</td><td>1.45</td><td>Swatch descriptions</td></tr>
+            <tr><td>--tw-leading-normal</td><td>1.5</td><td>Chart legends, card captions</td></tr>
+            <tr><td>--tw-leading-relaxed-sm</td><td>1.55</td><td>Step-flow descriptions</td></tr>
+            <tr><td>--tw-leading-relaxed</td><td>1.6</td><td>Prompt-library code blocks</td></tr>
+            <tr><td>--tw-leading-loose</td><td>1.7</td><td>Body copy — the reading default</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="dd-grid" style="margin-top:36px">
+      <div class="dd yes"><div class="tag">Do</div><ul><li>Sentence case for headlines and buttons</li><li>One green or teal highlight per headline, maximum</li><li>Short declarative lines; let whitespace do the pacing</li></ul></div>
+      <div class="dd no"><div class="tag">Don't</div><ul><li>All-caps headlines (caps are for eyebrows only)</li><li>Multiple accent colors in one text block</li><li>Decorative or script faces anywhere</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SPACING & LAYOUT ================= -->
+<section id="spacing" class="on-soft angle-top">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">04 · Foundations</div>
+      <h2>Spacing &amp; layout</h2>
+      <p class="lede">An 8px base unit governs all spacing. This is what makes a generated layout <em>feel</em> like This Waay rather than just borrowing its colors — generous breathing room, a consistent rhythm, and a predictable page structure.</p>
+    </div>
+    <h3 style="margin-bottom:18px">Spacing scale (8px base)</h3>
+    <div style="background:#fff; border:1px solid #E4EDF2; border-radius:var(--tw-radius-card); box-shadow:var(--tw-shadow-card); padding:24px 28px; margin-bottom:34px">
+      <div class="scale-row"><span class="lab">4px</span><span class="bar" style="width:4px"></span><span class="role">Tight — icon-to-label, inline gaps</span></div>
+      <div class="scale-row"><span class="lab">8px</span><span class="bar" style="width:8px"></span><span class="role">Base unit — small internal padding</span></div>
+      <div class="scale-row"><span class="lab">16px</span><span class="bar" style="width:16px"></span><span class="role">Default gap between related elements</span></div>
+      <div class="scale-row"><span class="lab">24px</span><span class="bar" style="width:24px"></span><span class="role">Card padding, list spacing</span></div>
+      <div class="scale-row"><span class="lab">32px</span><span class="bar" style="width:32px"></span><span class="role">Card-to-card grid gap</span></div>
+      <div class="scale-row"><span class="lab">48px</span><span class="bar" style="width:48px"></span><span class="role">Section-header to content</span></div>
+      <div class="scale-row"><span class="lab">64px</span><span class="bar" style="width:64px"></span><span class="role">Sub-block separation within a section</span></div>
+      <div class="scale-row"><span class="lab">96px+</span><span class="bar" style="width:96px"></span><span class="role">Vertical section padding (clamped 56–110px responsive)</span></div>
+    </div>
+    <h3 style="margin-bottom:8px">Layout tokens</h3>
+    <table class="spec-table" style="margin-bottom:34px">
+      <tr><td>Content width</td><td>max 1080px</td><td>Centered container; 28px side gutters on mobile</td></tr>
+      <tr><td>Text measure</td><td>62–66ch</td><td>Body and lede line length cap for readability</td></tr>
+      <tr><td>Card radius</td><td>14px</td><td>All cards and panels (<code>--tw-radius-card</code>)</td></tr>
+      <tr><td>Pill radius</td><td>999px</td><td>Buttons, chips, category labels</td></tr>
+      <tr><td>Card grid</td><td>minmax(255–300px, 1fr)</td><td>Auto-fill responsive columns, 30–34px gap</td></tr>
+      <tr><td>Section pad</td><td>clamp(56px, 8vw, 110px)</td><td>Vertical breathing room (<code>--tw-section-pad</code>)</td></tr>
+      <tr><td>Angle break</td><td>2–4° diagonal</td><td>Section transitions; echoes the plane wing</td></tr>
+    </table>
+    <h3 style="margin-bottom:14px">Page archetype</h3>
+    <p style="color:#5C7185; font-size:var(--tw-text-lg); margin-bottom:18px; max-width:64ch">Every This Waay page follows the same skeleton: a navy hero, then alternating navy and soft-gradient sections joined by shallow angled breaks. Each section opens with the same centered header lockup — eyebrow, H2, lede.</p>
+    <div class="archetype">
+      <div class="seg navy">Navy hero — eyebrow · headline (one punch highlight) · lede · CTA</div>
+      <div class="seg soft ang">Soft section — centered header lockup, then card grid</div>
+      <div class="seg navy ang">Navy section — angled break, alternating ground</div>
+      <div class="seg soft ang">Soft section — continues the rhythm</div>
+      <div class="seg navy ang" style="border-radius:0 0 var(--tw-radius-card) var(--tw-radius-card)">Navy footer — contact + nav</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MOTION ================= -->
+<section id="motion" class="angle-top">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">05 · Foundations</div>
+      <h2>Motion</h2>
+      <p class="lede">Motion should feel like the flight path itself — <strong>purposeful and directional, never decorative-for-its-own-sake.</strong> Every animated component ships with its own reduced-motion fallback; this page's global reset (see below) is the safety net, not the only line of defense.</p>
+    </div>
+
+    <h3 style="margin-bottom:16px">Duration &amp; easing scale</h3>
+    <div style="background:#fff; border:1px solid #E4EDF2; border-radius:var(--tw-radius-card); box-shadow:var(--tw-shadow-card); padding:24px 28px; margin-bottom:18px">
+      <div class="motion-row"><span class="lab">Micro · 120–160ms</span><span class="bar" style="width:16px"></span><span class="role">ease-out — hover/focus feedback (buttons, swatches, links)</span></div>
+      <div class="motion-row"><span class="lab">Element · 200–300ms</span><span class="bar" style="width:32px"></span><span class="role">ease-out — card lift, menu open/close, tab switch</span></div>
+      <div class="motion-row"><span class="lab">Reveal · 400–600ms</span><span class="bar" style="width:64px"></span><span class="role">ease-out — one-directional scroll reveals, the flight-path draw-on below</span></div>
+    </div>
+    <p style="font-size:var(--tw-text-md); color:var(--tw-ink-muted); margin-bottom:34px">Nothing runs slower than ~600ms without a specific reason. No bounce, spring-overshoot, or elastic easing — it reads as playful, not composed.</p>
+
+    <h3 style="margin-bottom:16px">Signature moment — the flight-path draw-on</h3>
+    <div style="background:var(--tw-navy); border-radius:var(--tw-radius-card); padding:26px; margin-bottom:14px">
+      <svg viewBox="0 0 400 90" width="100%" aria-hidden="true">
+        <path class="flight-draw" d="M10 60 C 90 20, 170 70, 230 45 C 260 32, 275 12, 255 14 C 235 16, 250 45, 300 42 C 340 40, 370 25, 390 15" fill="none" stroke="#fff" stroke-width="3" stroke-dasharray="0.1 9" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <p style="font-size:var(--tw-text-md); color:var(--tw-ink-muted); margin-bottom:34px">A one-time <code>stroke-dashoffset</code> draw, ~2.4s ease-out, for hero and section entrances — never looping. With <code>prefers-reduced-motion: reduce</code>, the path renders complete immediately (try it: enable reduced motion in your OS and reload).</p>
+
+    <div class="dd-grid" style="margin-bottom:34px">
+      <div class="dd yes"><div class="tag">May animate</div><ul>
+        <li>Hover/focus micro-feedback — the existing swatch lift and button brightness are the reference examples</li>
+        <li>One-directional scroll reveals: fade + a small (≤16px) translate, once, never re-triggering on scroll-up</li>
+        <li>The flight-path draw-on for hero/section entrances</li>
+        <li>Loading indicators, with a text alternative for screen readers (not motion alone)</li>
+      </ul></div>
+      <div class="dd no"><div class="tag">Must never</div><ul>
+        <li>Parallax layers moving at conflicting speeds</li>
+        <li>Autoplaying or looping background motion with no pause control <span class="wcag-ref">(2.2.2)</span></li>
+        <li>Anything flashing more than 3 times per second <span class="wcag-ref">(2.3.1)</span></li>
+        <li>Motion as the <em>only</em> way information is conveyed (e.g., a shake to signal "error" with no text)</li>
+      </ul></div>
+    </div>
+
+    <h3 style="margin-bottom:16px">Reduced motion — the contract</h3>
+    <p style="color:var(--tw-ink-muted); font-size:var(--tw-text-lg); max-width:70ch; margin-bottom:12px">This page's global reset removes animation/transition duration for <code>prefers-reduced-motion: reduce</code>. Every <em>new</em> animated component adds its own explicit fallback next to the animation itself (see <code>.swatch:hover</code>, <code>.btn:hover</code>, and <code>.flight-draw</code> above) — don't rely on the blanket reset alone, since a future removal of the global rule shouldn't silently break anyone's accessibility.</p>
+    <p style="color:var(--tw-ink-muted); font-size:var(--tw-text-lg); max-width:70ch"><strong style="color:var(--tw-navy)">Slide-deck note:</strong> transitions between slides are a simple fade or cut only — no per-slide novelty transitions. Advance is always presenter-controlled; never auto-advance a deck. Full deck templates are in <a href="#decks" style="color:var(--tw-green-ink); font-weight:var(--tw-weight-semibold)">Slide decks</a>.</p>
+  </div>
+</section>
+
+<!-- ================= ACCESSIBILITY ================= -->
+<section id="accessibility" class="on-soft angle-top">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">06 · Foundations</div>
+      <h2>Accessibility</h2>
+      <p class="lede"><strong>WCAG 2.2 AA is the baseline for every This Waay and client deliverable</strong> — not a follow-up pass. It's applied here, in the guide itself, so every rule below is demonstrated live rather than just described. A few of the studio's own signature colors fail AA contrast when used as text on light grounds — the fixes are documented as tokens below and used consistently throughout this page.</p>
+    </div>
+
+    <h3 style="margin-bottom:16px">Color &amp; contrast</h3>
+    <p style="color:var(--tw-ink-muted); font-size:var(--tw-text-lg); max-width:70ch; margin-bottom:18px">The saturated brand hues (Waay Green, Teal, Slate) are <strong>fill and dark-ground colors</strong> — several drop below 3:1 when used as text on white or soft-gradient grounds. Use the paired "ink" token for text in those cases; the fill stays exactly as documented in Color system.</p>
+    <table class="spec-table wcag-table" style="margin-bottom:34px">
+      <tr><td>Waay Green</td><td><code>#54B987</code></td><td>2.4:1 on white</td><td><span class="a11y-badge fail">Fails text</span> — fill/icons/dark grounds only</td></tr>
+      <tr><td>Green — Ink</td><td><code>--tw-green-ink</code></td><td>6.2:1 on white</td><td><span class="a11y-badge pass">Passes AA</span> — eyebrows, links, inline emphasis on light</td></tr>
+      <tr><td>Teal</td><td><code>#0BABAB</code></td><td>2.8:1 on white</td><td><span class="a11y-badge fail">Fails text</span> — fill/dark grounds only</td></tr>
+      <tr><td>Teal — Ink</td><td><code>--tw-teal-ink</code></td><td>5.7:1 on white</td><td><span class="a11y-badge pass">Passes AA</span> — subheads, links on light</td></tr>
+      <tr><td>Slate</td><td><code>#8DA3B5</code></td><td>2.6:1 on white</td><td><span class="a11y-badge fail">Fails text</span> — borders/gridlines/dark grounds only</td></tr>
+      <tr><td>Ink — Muted</td><td><code>--tw-ink-muted</code></td><td>5.1:1 on white</td><td><span class="a11y-badge pass">Passes AA</span> — captions, secondary labels on light</td></tr>
+      <tr><td>No — Ink</td><td><code>--tw-no-ink</code></td><td>6.6:1 on white</td><td><span class="a11y-badge pass">Passes AA</span> — "don't" tags, form error text</td></tr>
+      <tr><td>Navy / White</td><td><code>#0C2A48</code> / <code>#FFFFFF</code></td><td>16.6:1</td><td><span class="a11y-badge pass">Passes AAA</span> — always safe either direction</td></tr>
+    </table>
+    <p style="font-size:var(--tw-text-md); color:var(--tw-ink-muted); margin-bottom:34px"><span class="wcag-ref">WCAG 1.4.3 / 1.4.11</span> — 4.5:1 minimum for normal text, 3:1 for large text (≥24px, or ≥18.66px bold) and meaningful graphical objects/UI boundaries.</p>
+
+    <h3 style="margin-bottom:16px">Focus states</h3>
+    <div class="focus-demo">
+      <button class="btn btn-primary">Tab to me</button>
+      <a href="#accessibility" class="btn btn-ghost-dark" style="border-color:var(--tw-navy); color:var(--tw-navy)">Then me</a>
+      <span class="hint">Press <kbd>Tab</kbd> to move focus — every interactive element on this page shows a visible ring (<code>:focus-visible</code>, 3px, offset 3px). Nothing relies on the browser default.</span>
+    </div>
+    <p style="font-size:var(--tw-text-md); color:var(--tw-ink-muted); margin:14px 0 34px"><span class="wcag-ref">WCAG 2.4.7 / 2.4.11</span> — one shared focus recipe, swapped to Green Bright on navy/hero grounds where Green Ink wouldn't show.</p>
+
+    <h3 style="margin-bottom:16px">Structure &amp; keyboard</h3>
+    <div class="dd-grid" style="margin-bottom:34px">
+      <div class="dd yes"><div class="tag">Required on every page</div><ul>
+        <li>A skip-to-content link as the first focusable element (this page has one — tab from the very top)</li>
+        <li>One <code>&lt;main&gt;</code> landmark, one <code>&lt;h1&gt;</code>, sequential <code>&lt;h2&gt;</code>s — never skip a level</li>
+        <li>Every clickable thing is a real <code>&lt;button&gt;</code>/<code>&lt;a&gt;</code>, or has <code>role</code> + <code>tabindex="0"</code> + a keydown handler for Enter/Space</li>
+        <li>Async confirmations (copy, save, submit) update an <code>aria-live="polite"</code> region — a visual-only state change (like the old "Copied" tag) is invisible to screen readers</li>
+        <li>Purely decorative SVGs/icons get <code>aria-hidden="true"</code>; meaningful ones get <code>role="img"</code> + <code>aria-label</code></li>
+      </ul></div>
+      <div class="dd no"><div class="tag">Never</div><ul>
+        <li>A clickable <code>&lt;div&gt;</code> with only an <code>onclick</code> — not reachable or operable by keyboard</li>
+        <li>Color as the only signal (link-only-by-color text, color-only chart series, color-only form errors)</li>
+        <li>Content or navigation that requires a mouse (drag-only reordering, hover-only menus with no focus equivalent)</li>
+        <li>Auto-advancing carousels, slides, or background motion without a visible pause control</li>
+      </ul></div>
+    </div>
+
+    <h3 style="margin-bottom:16px">Images, icons &amp; illustration</h3>
+    <p style="color:var(--tw-ink-muted); font-size:var(--tw-text-lg); max-width:70ch; margin-bottom:18px">The paper-cut landscape illustrations (see Illustration) are narrative, not decorative, when used as a hero or section image — they need real alt text describing the <em>metaphor</em>, not the literal scene.</p>
+    <div class="dd-grid" style="margin-bottom:34px">
+      <div class="dd yes"><div class="tag">Good alt text</div><ul><li>"Illustration of a suspension bridge crossing a canyon at night, representing the studio's approach to system integration"</li></ul></div>
+      <div class="dd no"><div class="tag">Not this</div><ul><li>"Bridge, mountains, stars, moon, coral dots" (literal, no meaning) — or a blank <code>alt=""</code> on a meaningful hero image</li></ul></div>
+    </div>
+
+    <h3 style="margin-bottom:16px">Forms &amp; data</h3>
+    <p style="color:var(--tw-ink-muted); font-size:var(--tw-text-lg); max-width:70ch">Form patterns (labels, required-field convention, inline error state) are documented in <a href="#components" style="color:var(--tw-green-ink); font-weight:var(--tw-weight-semibold)">Components</a> — every field has a visible, programmatically-associated <code>&lt;label&gt;</code>, and errors are announced via <code>aria-live</code>, not color alone. Charts and diagrams never rely on color alone either — see the secondary-encoding example in <a href="#dataviz" style="color:var(--tw-green-ink); font-weight:var(--tw-weight-semibold)">Data visualization</a>.</p>
+  </div>
+</section>
+
+<!-- ================= MOTIFS & ICONOGRAPHY ================= -->
+<section id="motifs">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">07 · Brand</div>
+      <h2>Motifs &amp; iconography</h2>
+      <p class="lede">Three recurring devices tie everything together: the paper plane, the dotted flight path, and angled section breaks.</p>
+    </div>
+    <div class="comp-grid">
+      <div class="comp-block">
+        <h4>Logo lockup</h4>
+        <svg width="100%" style="max-width:230px; border-radius:12px" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="This Waay logo — paper plane mark and wordmark">
+<rect width="100" height="100" fill="#0C2A48"/>
+<path d="M4.9971 25.4104C4.46424 25.5 4.0578 25.9369 4.00553 26.4746C3.95379 27.0128 4.26956 27.519 4.77574 27.7089C10.1886 29.7397 19.3805 33.1878 22.9996 34.546C23.988 34.9167 25.075 34.9322 26.0736 34.5902C33.549 32.0276 66.3761 20.7738 85.2891 14.2899C85.8684 14.0914 86.1986 13.4812 86.0481 12.8875C85.8977 12.2938 85.3163 11.915 84.7125 12.0164C62.0791 15.8198 18.8466 23.0835 4.9971 25.4104Z" fill="url(#paint0_linear_573_2)"/>
+<path d="M59.9076 33.9573C60.2575 33.7487 60.7087 33.8543 60.9296 34.1962C61.1504 34.5376 61.0608 34.9932 60.7269 35.2252C52.382 41.037 43.6189 47.1395 40.7065 49.1676C40.4436 49.3506 40.2665 49.6333 40.2169 49.9496C40.1668 50.2665 40.2484 50.5892 40.442 50.8447C41.8091 52.6461 44.7422 56.5098 46.4272 58.7289C46.7467 59.1503 47.231 59.4143 47.758 59.4543C48.285 59.4949 48.804 59.3076 49.1843 58.9406C56.0282 52.3245 84.4538 24.8473 95.1605 14.4976C95.5616 14.1103 95.6353 13.4937 95.3366 13.0221C95.0373 12.5505 94.4485 12.3537 93.9263 12.5516C77.9202 18.6098 30.4259 36.5855 14.0812 42.7717C13.502 42.991 13.1537 43.5831 13.2433 44.1955C13.3329 44.8078 13.8359 45.2757 14.4535 45.3199C21.2916 45.8096 32.0885 46.5842 36.2895 46.885C37.431 46.9672 38.5703 46.6962 39.5528 46.1094C42.9671 44.0717 51.6277 38.9011 59.9076 33.9573Z" fill="white"/>
+<path d="M39.1132 66C40.7742 66 42.1754 66.5642 43.3173 67.6924L41.951 69.5195C41.6051 69.1589 41.1754 68.8734 40.662 68.665C40.1489 68.4564 39.6444 68.3526 39.1483 68.3525C38.641 68.3525 38.2395 68.4626 37.9452 68.6826C37.6513 68.9024 37.5048 69.1929 37.5048 69.5537C37.5048 70.039 37.8501 70.4507 38.5419 70.7891L39.8055 71.3311C40.5203 71.6241 41.039 71.8443 41.3622 71.9912C42.8154 72.6797 43.5428 73.717 43.5428 75.1045C43.5428 76.2213 43.1101 77.135 42.245 77.8457C41.38 78.5567 40.2492 78.9121 38.8534 78.9121C37.85 78.9121 36.9214 78.7089 36.0682 78.3027C35.2151 77.8966 34.5286 77.3216 34.0096 76.5771L35.4794 74.834C36.3327 75.9961 37.4638 76.5771 38.871 76.5771C39.4016 76.5771 39.8404 76.4525 40.1864 76.2041C40.532 75.9559 40.7048 75.6347 40.705 75.2402C40.705 74.7212 40.3189 74.2866 39.5458 73.9365C39.4535 73.8912 39.032 73.7284 38.2831 73.4463C37.6948 73.2209 37.1923 72.9949 36.7772 72.7695C35.4276 72.0133 34.7528 70.9752 34.7528 69.6553C34.7528 68.6061 35.1569 67.7373 35.9647 67.0488C36.7834 66.3499 37.8331 66 39.1132 66ZM15.9374 68.623H12.287V78.709H9.69128V68.623H6.04089V66.2031H15.9374V68.623ZM19.912 71.1953H25.2762V66.2031H27.8368V78.709H25.2762V73.6152H19.912V78.709H17.3514V66.2031H19.912V71.1953ZM32.5087 78.709H29.9315V66.2031H32.5087V78.709ZM52.0428 74.6133L54.9491 66.2031H56.576L59.5341 74.6133L62.078 66.2031H64.8807L60.6591 78.709H58.496L55.7802 70.5186L53.0634 78.709H50.9003L46.662 66.2031H49.4647L52.0428 74.6133ZM74.5634 75.2158L78.5028 66.2031H80.8485L86.2362 78.709H83.2128L79.6659 69.6045L77.9598 73.7676H80.2743L81.1444 76.001H77.1464L76.0536 78.6758L76.0682 78.709H73.037L73.0399 78.7002L69.4969 69.6045L67.7919 73.7676H70.1063L70.9764 76.001H66.9774L65.8729 78.709H62.869L68.3348 66.2031H70.6796L74.5634 75.2158ZM89.2899 71.6865L92.0409 66.2031H94.9999L90.5702 74.377V78.709H88.0096V74.377L83.6327 66.2031H86.5907L89.2899 71.6865Z" fill="white"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M7.7061 82.9937C8.24797 82.9937 8.65415 83.1417 8.92487 83.4375C9.19983 83.729 9.33742 84.0894 9.33742 84.5187C9.33742 84.9436 9.19559 85.3019 8.91234 85.5936C8.62909 85.8769 8.20423 86.0187 7.63752 86.0187H6.92495V87.6124H6.00005V82.9937H7.7061ZM7.66873 85.1813C7.89783 85.1813 8.07598 85.1176 8.20316 84.9906C8.33014 84.8636 8.39362 84.702 8.39362 84.5062C8.39362 84.3187 8.33226 84.1624 8.20932 84.0374C8.08638 83.9125 7.92289 83.8499 7.71863 83.8499H6.92495V85.1813H7.66873Z" fill="white"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M13.8954 87.6124H12.8142L11.8392 85.9313H11.2893V87.6124H10.3642V82.9937H12.1329C12.6454 82.9937 13.0372 83.1353 13.3079 83.4186C13.5786 83.7019 13.7141 84.048 13.7141 84.4561C13.7141 84.7644 13.634 85.0405 13.4735 85.2842C13.313 85.528 13.0809 85.7043 12.7766 85.8124L13.8954 87.6124ZM12.1267 83.8499H11.2893V85.0999H12.0454C12.2787 85.0999 12.4569 85.0418 12.5798 84.925C12.7027 84.8082 12.7641 84.6561 12.7641 84.4686C12.7641 84.2894 12.7068 84.1416 12.5923 84.0248C12.4777 83.9083 12.3225 83.8499 12.1267 83.8499Z" fill="white"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M15.3284 87.006C14.8702 86.5478 14.6408 85.9853 14.6408 85.3185C14.6408 84.6477 14.8721 84.079 15.3345 83.6123C15.8014 83.1456 16.3722 82.9122 17.0469 82.9122C17.7219 82.9122 18.2908 83.1456 18.7532 83.6123C19.2199 84.079 19.4533 84.6434 19.4533 85.306C19.4533 85.9685 19.2199 86.531 18.7532 86.9935C18.2908 87.456 17.72 87.6872 17.0408 87.6872C16.3533 87.6872 15.7825 87.4602 15.3284 87.006ZM18.0721 84.2498C17.7888 83.9665 17.447 83.8246 17.0469 83.8246C16.6471 83.8246 16.3053 83.9665 16.022 84.2498C15.7428 84.529 15.6033 84.8811 15.6033 85.306C15.6033 85.7268 15.7409 86.0768 16.0159 86.356C16.2951 86.6352 16.6388 86.7748 17.0469 86.7748C17.4552 86.7748 17.799 86.6352 18.0782 86.356C18.3574 86.0768 18.495 85.7268 18.4908 85.306C18.4908 84.8811 18.3513 84.529 18.0721 84.2498Z" fill="white"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M22.3494 87.6124H20.5807V82.9937H22.387C23.0826 82.9937 23.6264 83.202 24.0181 83.6186C24.4139 84.0354 24.6118 84.5999 24.6118 85.3125C24.6118 86.0249 24.4098 86.5855 24.0056 86.9936C23.6055 87.4062 23.0537 87.6124 22.3494 87.6124ZM21.5056 83.8811V86.725H22.3932C22.7889 86.725 23.0974 86.5895 23.3181 86.3188C23.5389 86.0478 23.6493 85.7062 23.6493 85.2936C23.6493 84.8937 23.5389 84.5582 23.3181 84.2875C23.0974 84.0168 22.7889 83.8811 22.3932 83.8811H21.5056Z" fill="white"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M25.7136 82.9937V85.9249C25.7136 86.5042 25.8843 86.9437 26.2261 87.2438C26.5678 87.5438 26.999 87.6937 27.5198 87.6937C28.0405 87.6937 28.4698 87.5438 28.8072 87.2438C29.1488 86.9437 29.3197 86.5042 29.3197 85.9249V82.9937H28.3821V85.8625C28.3821 86.1583 28.3052 86.3874 28.1509 86.55C27.9967 86.7125 27.7865 86.7936 27.5198 86.7936C27.2447 86.7936 27.0302 86.7144 26.8761 86.5562C26.7217 86.398 26.6448 86.1668 26.6448 85.8625V82.9937H25.7136Z" fill="white"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M32.7776 87.681C32.1026 87.681 31.5382 87.4623 31.084 87.0247C30.6297 86.583 30.4027 86.0143 30.4027 85.3185C30.4027 84.6184 30.6339 84.0436 31.0966 83.5934C31.5633 83.1392 32.1276 82.9122 32.7901 82.9122C33.2027 82.9122 33.5859 82.9986 33.9401 83.1717C34.2942 83.3445 34.5732 83.5766 34.7775 83.8684L34.1588 84.4748C33.7963 84.0289 33.3568 83.806 32.8402 83.806C32.4234 83.806 32.0735 83.9497 31.7902 84.2372C31.507 84.5205 31.3652 84.8811 31.3652 85.3185C31.3652 85.7434 31.5047 86.0955 31.7839 86.3747C32.0631 86.6539 32.4132 86.7934 32.8338 86.7934C33.3715 86.7934 33.8193 86.5686 34.1777 86.1186L34.8151 86.6998C34.5983 86.9956 34.3099 87.233 33.9494 87.4122C33.5889 87.5914 33.1984 87.681 32.7776 87.681Z" fill="white"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M36.711 83.8874V87.6124H37.6484V83.8874H38.967V82.9937H35.3922V83.8874H36.711Z" fill="white"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M43.2728 87.6124H41.5041V82.9937H43.3104C44.0062 82.9937 44.5497 83.202 44.9415 83.6186C45.3373 84.0354 45.5352 84.5999 45.5352 85.3125C45.5352 86.0249 45.3332 86.5855 44.929 86.9936C44.5291 87.4062 43.9771 87.6124 43.2728 87.6124ZM42.4292 83.8811V86.725H43.3165C43.7123 86.725 44.0208 86.5895 44.2417 86.3188C44.4623 86.0478 44.5729 85.7062 44.5729 85.2936C44.5729 84.8937 44.4623 84.5582 44.2417 84.2875C44.0208 84.0168 43.7123 83.8811 43.3165 83.8811H42.4292Z" fill="white"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M46.6874 87.6124H49.8184V86.7499H47.6187V85.7125H49.656V84.85H47.6187V83.8562H49.8184V82.9937H46.6874V87.6124Z" fill="white"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M52.3959 87.6872C52.0333 87.6872 51.6978 87.6122 51.3897 87.4623C51.0814 87.3122 50.8334 87.0998 50.6459 86.8248L51.1772 86.181C51.4855 86.6102 51.8938 86.8248 52.4021 86.8248C52.5938 86.8248 52.752 86.779 52.8771 86.6872C53.0021 86.5955 53.0646 86.4768 53.0646 86.3309C53.0646 86.1392 52.9251 85.9789 52.6459 85.8498C52.6125 85.833 52.4603 85.7727 52.1896 85.6684C51.9772 85.5852 51.7959 85.5017 51.646 85.4185C51.1585 85.1393 50.9147 84.756 50.9147 84.2684C50.9147 83.8809 51.0604 83.5603 51.3521 83.3059C51.6479 83.0477 52.0271 82.9185 52.4896 82.9185C53.0896 82.9185 53.5958 83.1266 54.0084 83.5435L53.5145 84.2185C53.3896 84.0852 53.2344 83.9798 53.0489 83.9028C52.8635 83.8259 52.6813 83.7873 52.5021 83.7873C52.3189 83.7873 52.1741 83.8278 52.0677 83.9091C51.9615 83.9903 51.9084 84.0977 51.9084 84.2311C51.9084 84.4103 52.0333 84.5623 52.2834 84.6872L52.7397 84.8872C52.9979 84.9955 53.1854 85.0768 53.3022 85.131C53.827 85.3851 54.0895 85.7684 54.0895 86.281C54.0895 86.6934 53.9332 87.031 53.6209 87.2935C53.3083 87.556 52.9 87.6872 52.3959 87.6872Z" fill="white"/>
+<path d="M56.1287 82.9937H55.1974V87.6124H56.1287V82.9937Z" fill="white"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M59.6678 87.681C58.972 87.681 58.3949 87.4581 57.9367 87.0124C57.4868 86.5622 57.2617 85.9935 57.2617 85.306C57.2617 84.6103 57.4949 84.0372 57.9618 83.5872C58.4285 83.1373 59.0096 82.9122 59.7054 82.9122C60.0721 82.9122 60.4209 82.9799 60.7522 83.1154C61.0834 83.2509 61.3552 83.4331 61.5677 83.6622L60.9615 84.3247C60.6159 83.979 60.1972 83.806 59.7054 83.806C59.2761 83.806 58.9198 83.9478 58.6365 84.2311C58.3533 84.5143 58.2117 84.8704 58.2117 85.2998C58.2117 85.7205 58.349 86.0747 58.6242 86.3622C58.9075 86.6497 59.2636 86.7934 59.6929 86.7934C59.926 86.7934 60.1532 86.7486 60.374 86.6592C60.5948 86.5696 60.7802 86.4499 60.9303 86.2997V85.6684H59.6553V84.8622H61.7739V86.7622C61.1866 87.3748 60.4844 87.681 59.6678 87.681Z" fill="white"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M65.9824 82.9937V85.8499L63.545 82.9937H62.9575V87.6124H63.8699V84.7812L66.2637 87.6124H66.8947V82.9937H65.9824Z" fill="white"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M71.1903 87.6872C70.8279 87.6872 70.4924 87.6122 70.1841 87.4623C69.8758 87.3122 69.6278 87.0998 69.4403 86.8248L69.9716 86.181C70.2799 86.6102 70.6884 86.8248 71.1965 86.8248C71.3882 86.8248 71.5464 86.779 71.6715 86.6872C71.7965 86.5955 71.859 86.4768 71.859 86.3309C71.859 86.1392 71.7195 85.9789 71.4403 85.8498C71.4071 85.833 71.2549 85.7727 70.984 85.6684C70.7716 85.5852 70.5903 85.5017 70.4404 85.4185C69.9529 85.1393 69.7092 84.756 69.7092 84.2684C69.7092 83.8809 69.8548 83.5603 70.1465 83.3059C70.4423 83.0477 70.8215 82.9185 71.284 82.9185C71.884 82.9185 72.3902 83.1266 72.8028 83.5435L72.3089 84.2185C72.184 84.0852 72.0288 83.9798 71.8435 83.9028C71.6579 83.8259 71.4757 83.7873 71.2965 83.7873C71.1133 83.7873 70.9685 83.8278 70.8621 83.9091C70.7559 83.9903 70.7028 84.0977 70.7028 84.2311C70.7028 84.4103 70.8279 84.5623 71.0778 84.6872L71.5341 84.8872C71.7923 84.9955 71.9798 85.0768 72.0966 85.131C72.6214 85.3851 72.8839 85.7684 72.8839 86.281C72.8839 86.6934 72.7278 87.031 72.4153 87.2935C72.1027 87.556 71.6944 87.6872 71.1903 87.6872Z" fill="white"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M74.8171 83.8874V87.6124H75.7545V83.8874H77.0733V82.9937H73.4983V83.8874H74.8171Z" fill="white"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M77.994 85.9249V82.9937H78.9253V85.8625C78.9253 86.1668 79.0021 86.398 79.1565 86.5562C79.3106 86.7144 79.5251 86.7936 79.8 86.7936C80.0669 86.7936 80.2771 86.7125 80.4313 86.55C80.5857 86.3874 80.6625 86.1583 80.6625 85.8625V82.9937H81.6V85.9249C81.6 86.5042 81.4292 86.9437 81.0876 87.2438C80.75 87.5438 80.3209 87.6937 79.8 87.6937C79.2794 87.6937 78.8482 87.5438 78.5063 87.2438C78.1647 86.9437 77.994 86.5042 77.994 85.9249Z" fill="white"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M82.9457 87.6124V82.9937H84.7518C85.4476 82.9937 85.9914 83.202 86.3831 83.6186C86.7787 84.0354 86.9768 84.5999 86.9768 85.3125C86.9768 86.0249 86.7746 86.5855 86.3706 86.9936C85.9705 87.4062 85.4185 87.6124 84.7144 87.6124H82.9457ZM83.8706 86.725H84.7582C85.1539 86.725 85.4622 86.5895 85.6831 86.3188C85.9039 86.0478 86.0143 85.7062 86.0143 85.2936C86.0143 84.8937 85.9039 84.5582 85.6831 84.2875C85.4622 84.0168 85.1539 83.8811 84.7582 83.8811H83.8706V86.725Z" fill="white"/>
+<path d="M89.0604 82.9937H88.1292V87.6124H89.0604V82.9937Z" fill="white"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M90.8749 87.006C90.4167 86.5478 90.1874 85.9853 90.1874 85.3185C90.1874 84.6477 90.4186 84.079 90.8813 83.6123C91.348 83.1456 91.9187 82.9122 92.5935 82.9122C93.2685 82.9122 93.8373 83.1456 94.2998 83.6123C94.7665 84.079 94.9998 84.6434 94.9998 85.306C94.9998 85.9685 94.7665 86.531 94.2998 86.9935C93.8373 87.456 93.2666 87.6872 92.5873 87.6872C91.8998 87.6872 91.3291 87.4602 90.8749 87.006ZM93.6186 84.2498C93.3354 83.9665 92.9935 83.8246 92.5935 83.8246C92.1937 83.8246 91.8518 83.9665 91.5686 84.2498C91.2894 84.529 91.1499 84.8811 91.1499 85.306C91.1499 85.7268 91.2875 86.0768 91.5624 86.356C91.8416 86.6352 92.1854 86.7748 92.5935 86.7748C93.0018 86.7748 93.3456 86.6352 93.6248 86.356C93.904 86.0768 94.0416 85.7268 94.0373 85.306C94.0373 84.8811 93.8978 84.529 93.6186 84.2498Z" fill="white"/>
+<defs>
+<linearGradient id="paint0_linear_573_2" x1="59.1564" y1="3.80891" x2="18.8035" y2="45.61" gradientUnits="userSpaceOnUse">
+<stop stop-color="#62D38C"/>
+<stop offset="1" stop-color="#30737B"/>
+</linearGradient>
+</defs>
+</svg>
+
+        <p style="font-size:var(--tw-text-md); color:#5C7185; margin-top:12px">The full mark: plane + wordmark, white on navy. Embedded here verbatim from the master file — lift this SVG for any asset needing the logo. Maintain clear space of one plane-height on all sides.</p>
+        <span class="prov site">Master asset</span>
+      </div>
+      <div class="comp-block">
+        <h4>The paper plane (official geometry)</h4>
+        <div style="display:flex; flex-direction:column; gap:14px">
+          <div style="background:#fff; border:1px solid #E4EDF2; border-radius:12px; padding:14px">
+            <svg viewBox="0 9 100 53" width="100%" aria-label="Official paper plane mark">
+              <defs><linearGradient id="pgNavy" x1="59.1564" y1="3.80891" x2="18.8035" y2="45.61" gradientUnits="userSpaceOnUse"><stop stop-color="#62D38C"/><stop offset="1" stop-color="#30737B"/></linearGradient></defs>
+              <path d="M4.9971 25.4104C4.46424 25.5 4.0578 25.9369 4.00553 26.4746C3.95379 27.0128 4.26956 27.519 4.77574 27.7089C10.1886 29.7397 19.3805 33.1878 22.9996 34.546C23.988 34.9167 25.075 34.9322 26.0736 34.5902C33.549 32.0276 66.3761 20.7738 85.2891 14.2899C85.8684 14.0914 86.1986 13.4812 86.0481 12.8875C85.8977 12.2938 85.3163 11.915 84.7125 12.0164C62.0791 15.8198 18.8466 23.0835 4.9971 25.4104Z" fill="url(#pgNavy)"/>
+              <path d="M59.9076 33.9573C60.2575 33.7487 60.7087 33.8543 60.9296 34.1962C61.1504 34.5376 61.0608 34.9932 60.7269 35.2252C52.382 41.037 43.6189 47.1395 40.7065 49.1676C40.4436 49.3506 40.2665 49.6333 40.2169 49.9496C40.1668 50.2665 40.2484 50.5892 40.442 50.8447C41.8091 52.6461 44.7422 56.5098 46.4272 58.7289C46.7467 59.1503 47.231 59.4143 47.758 59.4543C48.285 59.4949 48.804 59.3076 49.1843 58.9406C56.0282 52.3245 84.4538 24.8473 95.1605 14.4976C95.5616 14.1103 95.6353 13.4937 95.3366 13.0221C95.0373 12.5505 94.4485 12.3537 93.9263 12.5516C77.9202 18.6098 30.4259 36.5855 14.0812 42.7717C13.502 42.991 13.1537 43.5831 13.2433 44.1955C13.3329 44.8078 13.8359 45.2757 14.4535 45.3199C21.2916 45.8096 32.0885 46.5842 36.2895 46.885C37.431 46.9672 38.5703 46.6962 39.5528 46.1094C42.9671 44.0717 51.6277 38.9011 59.9076 33.9573Z" fill="#0C2A48"/>
+            </svg>
+          </div>
+          <div style="background:var(--tw-navy); border-radius:12px; padding:14px">
+            <svg viewBox="0 9 100 53" width="100%" aria-label="Official paper plane mark">
+              <defs><linearGradient id="pgWhite" x1="59.1564" y1="3.80891" x2="18.8035" y2="45.61" gradientUnits="userSpaceOnUse"><stop stop-color="#62D38C"/><stop offset="1" stop-color="#30737B"/></linearGradient></defs>
+              <path d="M4.9971 25.4104C4.46424 25.5 4.0578 25.9369 4.00553 26.4746C3.95379 27.0128 4.26956 27.519 4.77574 27.7089C10.1886 29.7397 19.3805 33.1878 22.9996 34.546C23.988 34.9167 25.075 34.9322 26.0736 34.5902C33.549 32.0276 66.3761 20.7738 85.2891 14.2899C85.8684 14.0914 86.1986 13.4812 86.0481 12.8875C85.8977 12.2938 85.3163 11.915 84.7125 12.0164C62.0791 15.8198 18.8466 23.0835 4.9971 25.4104Z" fill="url(#pgWhite)"/>
+              <path d="M59.9076 33.9573C60.2575 33.7487 60.7087 33.8543 60.9296 34.1962C61.1504 34.5376 61.0608 34.9932 60.7269 35.2252C52.382 41.037 43.6189 47.1395 40.7065 49.1676C40.4436 49.3506 40.2665 49.6333 40.2169 49.9496C40.1668 50.2665 40.2484 50.5892 40.442 50.8447C41.8091 52.6461 44.7422 56.5098 46.4272 58.7289C46.7467 59.1503 47.231 59.4143 47.758 59.4543C48.285 59.4949 48.804 59.3076 49.1843 58.9406C56.0282 52.3245 84.4538 24.8473 95.1605 14.4976C95.5616 14.1103 95.6353 13.4937 95.3366 13.0221C95.0373 12.5505 94.4485 12.3537 93.9263 12.5516C77.9202 18.6098 30.4259 36.5855 14.0812 42.7717C13.502 42.991 13.1537 43.5831 13.2433 44.1955C13.3329 44.8078 13.8359 45.2757 14.4535 45.3199C21.2916 45.8096 32.0885 46.5842 36.2895 46.885C37.431 46.9672 38.5703 46.6962 39.5528 46.1094C42.9671 44.0717 51.6277 38.9011 59.9076 33.9573Z" fill="#FFFFFF"/>
+            </svg>
+          </div>
+        </div>
+        <p style="font-size:var(--tw-text-md); color:#5C7185; margin-top:12px">Exact path data from the master logo file. The wing is the official gradient <strong>#62D38C → #30737B</strong> (light at the nose, deep teal at the tail, running diagonally). Body is <strong>navy on light grounds, white on navy</strong> — never outlined, never flat green. Faded oversized silhouettes (6–10% opacity) texture backgrounds in both modes.</p>
+      </div>
+      <div class="comp-block" style="grid-column: 1 / -1">
+        <h4>Dotted flight path</h4>
+        <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(195px, 1fr)); gap:12px; margin-bottom:16px">
+
+          <!-- A — Single loop -->
+          <div>
+            <div style="background:var(--tw-navy); border-radius:12px; padding:14px 12px">
+              <svg viewBox="0 0 240 170" width="100%" aria-label="Flight path A — single loop">
+                <defs><linearGradient id="pfg-a" x1="138" y1="10" x2="112" y2="38" gradientUnits="userSpaceOnUse"><stop stop-color="#62D38C"/><stop offset="1" stop-color="#30737B"/></linearGradient></defs>
+                <g transform="translate(100,8) scale(0.65)">
+                  <path d="M4.9971 25.4104C4.46424 25.5 4.0578 25.9369 4.00553 26.4746C3.95379 27.0128 4.26956 27.519 4.77574 27.7089C10.1886 29.7397 19.3805 33.1878 22.9996 34.546C23.988 34.9167 25.075 34.9322 26.0736 34.5902C33.549 32.0276 66.3761 20.7738 85.2891 14.2899C85.8684 14.0914 86.1986 13.4812 86.0481 12.8875C85.8977 12.2938 85.3163 11.915 84.7125 12.0164C62.0791 15.8198 18.8466 23.0835 4.9971 25.4104Z" fill="url(#pfg-a)"/>
+                  <path d="M59.9076 33.9573C60.2575 33.7487 60.7087 33.8543 60.9296 34.1962C61.1504 34.5376 61.0608 34.9932 60.7269 35.2252C52.382 41.037 43.6189 47.1395 40.7065 49.1676C40.4436 49.3506 40.2665 49.6333 40.2169 49.9496C40.1668 50.2665 40.2484 50.5892 40.442 50.8447C41.8091 52.6461 44.7422 56.5098 46.4272 58.7289C46.7467 59.1503 47.231 59.4143 47.758 59.4543C48.285 59.4949 48.804 59.3076 49.1843 58.9406C56.0282 52.3245 84.4538 24.8473 95.1605 14.4976C95.5616 14.1103 95.6353 13.4937 95.3366 13.0221C95.0373 12.5505 94.4485 12.3537 93.9263 12.5516C77.9202 18.6098 30.4259 36.5855 14.0812 42.7717C13.502 42.991 13.1537 43.5831 13.2433 44.1955C13.3329 44.8078 13.8359 45.2757 14.4535 45.3199C21.2916 45.8096 32.0885 46.5842 36.2895 46.885C37.431 46.9672 38.5703 46.6962 39.5528 46.1094C42.9671 44.0717 51.6277 38.9011 59.9076 33.9573Z" fill="#fff"/>
+                </g>
+                <path d="M103 30 C 85 38, 72 54, 70 72 C 68 90, 80 104, 93 100 C 106 96, 110 80, 101 68 C 92 56, 74 58, 64 72 C 54 86, 46 110, 26 135" stroke="#fff" stroke-width="2.8" stroke-dasharray="0.1 8" stroke-linecap="round" fill="none"/>
+              </svg>
+            </div>
+            <p style="font-size:var(--tw-text-sm); font-family:var(--tw-font-display); font-weight:var(--tw-weight-semibold); color:var(--tw-ink-muted); margin-top:8px; text-align:center">A — Single loop</p>
+          </div>
+
+          <!-- B — S-wave -->
+          <div>
+            <div style="background:var(--tw-navy); border-radius:12px; padding:14px 12px">
+              <svg viewBox="0 0 240 170" width="100%" aria-label="Flight path B — S-wave">
+                <defs><linearGradient id="pfg-b" x1="138" y1="10" x2="112" y2="38" gradientUnits="userSpaceOnUse"><stop stop-color="#62D38C"/><stop offset="1" stop-color="#30737B"/></linearGradient></defs>
+                <g transform="translate(100,8) scale(0.65)">
+                  <path d="M4.9971 25.4104C4.46424 25.5 4.0578 25.9369 4.00553 26.4746C3.95379 27.0128 4.26956 27.519 4.77574 27.7089C10.1886 29.7397 19.3805 33.1878 22.9996 34.546C23.988 34.9167 25.075 34.9322 26.0736 34.5902C33.549 32.0276 66.3761 20.7738 85.2891 14.2899C85.8684 14.0914 86.1986 13.4812 86.0481 12.8875C85.8977 12.2938 85.3163 11.915 84.7125 12.0164C62.0791 15.8198 18.8466 23.0835 4.9971 25.4104Z" fill="url(#pfg-b)"/>
+                  <path d="M59.9076 33.9573C60.2575 33.7487 60.7087 33.8543 60.9296 34.1962C61.1504 34.5376 61.0608 34.9932 60.7269 35.2252C52.382 41.037 43.6189 47.1395 40.7065 49.1676C40.4436 49.3506 40.2665 49.6333 40.2169 49.9496C40.1668 50.2665 40.2484 50.5892 40.442 50.8447C41.8091 52.6461 44.7422 56.5098 46.4272 58.7289C46.7467 59.1503 47.231 59.4143 47.758 59.4543C48.285 59.4949 48.804 59.3076 49.1843 58.9406C56.0282 52.3245 84.4538 24.8473 95.1605 14.4976C95.5616 14.1103 95.6353 13.4937 95.3366 13.0221C95.0373 12.5505 94.4485 12.3537 93.9263 12.5516C77.9202 18.6098 30.4259 36.5855 14.0812 42.7717C13.502 42.991 13.1537 43.5831 13.2433 44.1955C13.3329 44.8078 13.8359 45.2757 14.4535 45.3199C21.2916 45.8096 32.0885 46.5842 36.2895 46.885C37.431 46.9672 38.5703 46.6962 39.5528 46.1094C42.9671 44.0717 51.6277 38.9011 59.9076 33.9573Z" fill="#fff"/>
+                </g>
+                <path d="M103 30 C 78 42, 68 65, 80 82 C 92 99, 112 102, 108 120 C 104 138, 82 143, 60 134 C 38 125, 20 112, 5 120" stroke="#fff" stroke-width="2.8" stroke-dasharray="0.1 8" stroke-linecap="round" fill="none"/>
+              </svg>
+            </div>
+            <p style="font-size:var(--tw-text-sm); font-family:var(--tw-font-display); font-weight:var(--tw-weight-semibold); color:var(--tw-ink-muted); margin-top:8px; text-align:center">B — S-wave</p>
+          </div>
+
+          <!-- C — Tight coil -->
+          <div>
+            <div style="background:var(--tw-navy); border-radius:12px; padding:14px 12px">
+              <svg viewBox="0 0 240 170" width="100%" aria-label="Flight path C — tight coil">
+                <defs><linearGradient id="pfg-c" x1="138" y1="10" x2="112" y2="38" gradientUnits="userSpaceOnUse"><stop stop-color="#62D38C"/><stop offset="1" stop-color="#30737B"/></linearGradient></defs>
+                <g transform="translate(100,8) scale(0.65)">
+                  <path d="M4.9971 25.4104C4.46424 25.5 4.0578 25.9369 4.00553 26.4746C3.95379 27.0128 4.26956 27.519 4.77574 27.7089C10.1886 29.7397 19.3805 33.1878 22.9996 34.546C23.988 34.9167 25.075 34.9322 26.0736 34.5902C33.549 32.0276 66.3761 20.7738 85.2891 14.2899C85.8684 14.0914 86.1986 13.4812 86.0481 12.8875C85.8977 12.2938 85.3163 11.915 84.7125 12.0164C62.0791 15.8198 18.8466 23.0835 4.9971 25.4104Z" fill="url(#pfg-c)"/>
+                  <path d="M59.9076 33.9573C60.2575 33.7487 60.7087 33.8543 60.9296 34.1962C61.1504 34.5376 61.0608 34.9932 60.7269 35.2252C52.382 41.037 43.6189 47.1395 40.7065 49.1676C40.4436 49.3506 40.2665 49.6333 40.2169 49.9496C40.1668 50.2665 40.2484 50.5892 40.442 50.8447C41.8091 52.6461 44.7422 56.5098 46.4272 58.7289C46.7467 59.1503 47.231 59.4143 47.758 59.4543C48.285 59.4949 48.804 59.3076 49.1843 58.9406C56.0282 52.3245 84.4538 24.8473 95.1605 14.4976C95.5616 14.1103 95.6353 13.4937 95.3366 13.0221C95.0373 12.5505 94.4485 12.3537 93.9263 12.5516C77.9202 18.6098 30.4259 36.5855 14.0812 42.7717C13.502 42.991 13.1537 43.5831 13.2433 44.1955C13.3329 44.8078 13.8359 45.2757 14.4535 45.3199C21.2916 45.8096 32.0885 46.5842 36.2895 46.885C37.431 46.9672 38.5703 46.6962 39.5528 46.1094C42.9671 44.0717 51.6277 38.9011 59.9076 33.9573Z" fill="#fff"/>
+                </g>
+                <path d="M103 30 C 88 46, 82 64, 88 80 C 94 96, 110 102, 118 92 C 126 82, 120 66, 110 62 C 100 58, 91 68, 94 78" stroke="#fff" stroke-width="2.8" stroke-dasharray="0.1 8" stroke-linecap="round" fill="none"/>
+              </svg>
+            </div>
+            <p style="font-size:var(--tw-text-sm); font-family:var(--tw-font-display); font-weight:var(--tw-weight-semibold); color:var(--tw-ink-muted); margin-top:8px; text-align:center">C — Tight coil</p>
+          </div>
+
+          <!-- D — Wide arc -->
+          <div>
+            <div style="background:var(--tw-navy); border-radius:12px; padding:14px 12px">
+              <svg viewBox="0 0 240 170" width="100%" aria-label="Flight path D — wide arc loop">
+                <defs><linearGradient id="pfg-d" x1="138" y1="10" x2="112" y2="38" gradientUnits="userSpaceOnUse"><stop stop-color="#62D38C"/><stop offset="1" stop-color="#30737B"/></linearGradient></defs>
+                <g transform="translate(100,8) scale(0.65)">
+                  <path d="M4.9971 25.4104C4.46424 25.5 4.0578 25.9369 4.00553 26.4746C3.95379 27.0128 4.26956 27.519 4.77574 27.7089C10.1886 29.7397 19.3805 33.1878 22.9996 34.546C23.988 34.9167 25.075 34.9322 26.0736 34.5902C33.549 32.0276 66.3761 20.7738 85.2891 14.2899C85.8684 14.0914 86.1986 13.4812 86.0481 12.8875C85.8977 12.2938 85.3163 11.915 84.7125 12.0164C62.0791 15.8198 18.8466 23.0835 4.9971 25.4104Z" fill="url(#pfg-d)"/>
+                  <path d="M59.9076 33.9573C60.2575 33.7487 60.7087 33.8543 60.9296 34.1962C61.1504 34.5376 61.0608 34.9932 60.7269 35.2252C52.382 41.037 43.6189 47.1395 40.7065 49.1676C40.4436 49.3506 40.2665 49.6333 40.2169 49.9496C40.1668 50.2665 40.2484 50.5892 40.442 50.8447C41.8091 52.6461 44.7422 56.5098 46.4272 58.7289C46.7467 59.1503 47.231 59.4143 47.758 59.4543C48.285 59.4949 48.804 59.3076 49.1843 58.9406C56.0282 52.3245 84.4538 24.8473 95.1605 14.4976C95.5616 14.1103 95.6353 13.4937 95.3366 13.0221C95.0373 12.5505 94.4485 12.3537 93.9263 12.5516C77.9202 18.6098 30.4259 36.5855 14.0812 42.7717C13.502 42.991 13.1537 43.5831 13.2433 44.1955C13.3329 44.8078 13.8359 45.2757 14.4535 45.3199C21.2916 45.8096 32.0885 46.5842 36.2895 46.885C37.431 46.9672 38.5703 46.6962 39.5528 46.1094C42.9671 44.0717 51.6277 38.9011 59.9076 33.9573Z" fill="#fff"/>
+                </g>
+                <path d="M103 30 C 80 26, 50 30, 34 52 C 18 74, 28 104, 48 114 C 68 124, 88 110, 84 92 C 80 74, 58 70, 46 82" stroke="#fff" stroke-width="2.8" stroke-dasharray="0.1 8" stroke-linecap="round" fill="none"/>
+              </svg>
+            </div>
+            <p style="font-size:var(--tw-text-sm); font-family:var(--tw-font-display); font-weight:var(--tw-weight-semibold); color:var(--tw-ink-muted); margin-top:8px; text-align:center">D — Wide arc</p>
+          </div>
+
+          <!-- E — Double curl -->
+          <div>
+            <div style="background:var(--tw-navy); border-radius:12px; padding:14px 12px">
+              <svg viewBox="0 0 240 170" width="100%" aria-label="Flight path E — double curl">
+                <defs><linearGradient id="pfg-e" x1="138" y1="10" x2="112" y2="38" gradientUnits="userSpaceOnUse"><stop stop-color="#62D38C"/><stop offset="1" stop-color="#30737B"/></linearGradient></defs>
+                <g transform="translate(100,8) scale(0.65)">
+                  <path d="M4.9971 25.4104C4.46424 25.5 4.0578 25.9369 4.00553 26.4746C3.95379 27.0128 4.26956 27.519 4.77574 27.7089C10.1886 29.7397 19.3805 33.1878 22.9996 34.546C23.988 34.9167 25.075 34.9322 26.0736 34.5902C33.549 32.0276 66.3761 20.7738 85.2891 14.2899C85.8684 14.0914 86.1986 13.4812 86.0481 12.8875C85.8977 12.2938 85.3163 11.915 84.7125 12.0164C62.0791 15.8198 18.8466 23.0835 4.9971 25.4104Z" fill="url(#pfg-e)"/>
+                  <path d="M59.9076 33.9573C60.2575 33.7487 60.7087 33.8543 60.9296 34.1962C61.1504 34.5376 61.0608 34.9932 60.7269 35.2252C52.382 41.037 43.6189 47.1395 40.7065 49.1676C40.4436 49.3506 40.2665 49.6333 40.2169 49.9496C40.1668 50.2665 40.2484 50.5892 40.442 50.8447C41.8091 52.6461 44.7422 56.5098 46.4272 58.7289C46.7467 59.1503 47.231 59.4143 47.758 59.4543C48.285 59.4949 48.804 59.3076 49.1843 58.9406C56.0282 52.3245 84.4538 24.8473 95.1605 14.4976C95.5616 14.1103 95.6353 13.4937 95.3366 13.0221C95.0373 12.5505 94.4485 12.3537 93.9263 12.5516C77.9202 18.6098 30.4259 36.5855 14.0812 42.7717C13.502 42.991 13.1537 43.5831 13.2433 44.1955C13.3329 44.8078 13.8359 45.2757 14.4535 45.3199C21.2916 45.8096 32.0885 46.5842 36.2895 46.885C37.431 46.9672 38.5703 46.6962 39.5528 46.1094C42.9671 44.0717 51.6277 38.9011 59.9076 33.9573Z" fill="#fff"/>
+                </g>
+                <path d="M103 30 C 90 44, 82 58, 88 72 C 94 86, 108 90, 114 81 C 120 72, 112 58, 102 56 C 92 54, 85 66, 89 76 C 93 86, 108 88, 112 81" stroke="#fff" stroke-width="2.8" stroke-dasharray="0.1 8" stroke-linecap="round" fill="none"/>
+              </svg>
+            </div>
+            <p style="font-size:var(--tw-text-sm); font-family:var(--tw-font-display); font-weight:var(--tw-weight-semibold); color:var(--tw-ink-muted); margin-top:8px; text-align:center">E — Double curl</p>
+          </div>
+
+        </div>
+        <div style="background:#fff; border:1px solid #E4EDF2; border-radius:12px; padding:16px 14px; margin-bottom:14px">
+          <p style="font-size:var(--tw-text-sm); font-family:var(--tw-font-display); font-weight:var(--tw-weight-bold); letter-spacing:var(--tw-tracking-wide); text-transform:uppercase; color:var(--tw-ink-muted); margin-bottom:10px">On light ground — navy stroke</p>
+          <svg viewBox="0 0 500 70" width="100%" aria-label="Dotted flight path — navy on light">
+            <path d="M490 35 C 450 15, 400 25, 368 45 C 336 65, 330 82, 298 72 C 266 62, 248 40, 218 46 C 188 52, 168 75, 138 68 C 110 62, 88 44, 58 50 C 36 55, 18 66, 5 62" stroke="#0C2A48" stroke-width="2.8" stroke-dasharray="0.1 8" stroke-linecap="round" fill="none"/>
+          </svg>
+        </div>
+        <p style="font-size:var(--tw-text-md); color:#5C7185; margin-top:4px">Trails are <strong>round dots, not dashes</strong> (SVG: <code>stroke-dasharray: 0.1 8</code>, round caps, ≈3px weight), and every trail includes <strong>at least one loop-de-loop curl</strong> — hand-flown, never straight. White on navy grounds; navy on light grounds. The trail exits the plane's tail and extends behind it. Use A–E as canonical references; new trail shapes should follow the same character.</p>
+      </div>
+      <div class="comp-block">
+        <h4>Duotone icon set</h4>
+        <div style="display:flex; gap:18px; align-items:center">
+          <svg viewBox="0 0 48 48" width="46" aria-hidden="true"><circle cx="24" cy="24" r="14" fill="none" stroke="#0C2A48" stroke-width="3.4"/><circle cx="24" cy="24" r="5.5" fill="#54B987"/><path d="M34 14 L42 6" stroke="#0C2A48" stroke-width="3.4" stroke-linecap="round"/></svg>
+          <svg viewBox="0 0 48 48" width="46" aria-hidden="true"><rect x="8" y="10" width="32" height="24" rx="4" fill="none" stroke="#0C2A48" stroke-width="3.4"/><rect x="14" y="17" width="12" height="10" rx="2" fill="#54B987"/><path d="M18 40 h12" stroke="#0C2A48" stroke-width="3.4" stroke-linecap="round"/></svg>
+          <svg viewBox="0 0 48 48" width="46" aria-hidden="true"><path d="M10 38 V22 M24 38 V12 M38 38 V28" stroke="#0C2A48" stroke-width="3.8" stroke-linecap="round"/><circle cx="24" cy="12" r="5" fill="#54B987"/></svg>
+        </div>
+        <p style="font-size:var(--tw-text-md); color:#5C7185; margin-top:12px">Bold navy outlines (≈3.5px at 48px grid) with a single flat green fill element. On navy backgrounds, outlines invert to white; green fills stay green.</p>
+      </div>
+      <div class="comp-block">
+        <h4>Angled section breaks</h4>
+        <div style="border-radius:12px; overflow:hidden; border:1px solid #E4EDF2">
+          <div style="height:54px; background:var(--tw-grad-soft)"></div>
+          <div style="height:64px; background:var(--tw-navy); clip-path:polygon(0 38%, 100% 0, 100% 100%, 0 100%); margin-top:-22px"></div>
+        </div>
+        <p style="font-size:var(--tw-text-md); color:#5C7185; margin-top:12px">Sections meet on a shallow diagonal (2–4°), alternating navy and soft-gradient surfaces. Echoes the plane's wing line.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ILLUSTRATION ================= -->
+<section id="illustration" class="on-dark angle-top">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">08 · Brand</div>
+      <h2 style="color:#fff">Illustration style &amp; Firefly prompt library</h2>
+      <p class="lede">The canonical This Waay illustration style: <strong style="color:#fff">layered paper-cut night landscapes</strong>. Terrain stands in for system complexity; the glowing coral path is the guided route through it. Every new illustrated asset uses this language.</p>
+    </div>
+
+    <div class="style-anatomy">
+      <div class="anat"><div class="k">Medium</div><div class="v">Layered paper-cut / low-poly collage with matte paper texture and soft drop shadows between layers.</div></div>
+      <div class="anat"><div class="k">Setting</div><div class="v">Night. Deep navy sky with faint topographic contour lines, sparse stars, crescent moon.</div></div>
+      <div class="anat"><div class="k">Terrain palette</div><div class="v">Sage, mint, and teal greens stepping into navy shadow — drawn from the brand greens.</div></div>
+      <div class="anat"><div class="k">The path</div><div class="v">A glowing coral (#F2A08D) route of connected nodes — a data path traversing the landscape. The narrative focal point.</div></div>
+      <div class="anat"><div class="k">Destination</div><div class="v">One warm-lit structure: lighthouse, cabin, bridge house, modern building. Windows glow amber.</div></div>
+      <div class="anat"><div class="k">Metaphors</div><div class="v">Journeys through complex terrain: bridges, switchback trails, boardwalks, constellations. Guidance, never chaos.</div></div>
+    </div>
+
+    <div class="prompt-card">
+      <button class="copy-btn" data-copy="prompt-base">Copy prompt</button>
+      <h4>Base style block</h4>
+      <div class="when">Append to every scene prompt. This is the style contract.</div>
+      <pre id="prompt-base">Layered paper-cut illustration, low-poly geometric landscape at night, deep navy sky (#0C2A48) with subtle topographic contour lines and sparse stars, terrain in sage and teal greens, glowing coral path of connected dots and lines (#F2A08D) winding through the scene, one structure with warm amber window light, matte paper texture, soft layered shadows, vertical composition, muted sophisticated enterprise palette, no people, no text</pre>
+    </div>
+
+    <div class="prompt-card">
+      <button class="copy-btn" data-copy="prompt-bridge">Copy prompt</button>
+      <h4>Scene · The Bridge</h4>
+      <div class="when">Use for: connecting systems, integration, crossing from current state to future state.</div>
+      <pre id="prompt-bridge">A suspension footbridge spanning a deep canyon between two cliff faces, glowing coral node path crossing the bridge toward a small lit outpost on the far cliff, crescent moon, river far below. [+ base style block]</pre>
+    </div>
+
+    <div class="prompt-card">
+      <button class="copy-btn" data-copy="prompt-lighthouse">Copy prompt</button>
+      <h4>Scene · The Lighthouse</h4>
+      <div class="when">Use for: guidance, governance, trust, synthesis posts.</div>
+      <pre id="prompt-lighthouse">A wooden boardwalk path with glowing coral edge winding up a coastal hill to a low-poly lighthouse with teal beacon light, constellation of connected coral and green stars in the night sky above, crystals and coastal plants along the path. [+ base style block]</pre>
+    </div>
+
+    <div class="prompt-card">
+      <button class="copy-btn" data-copy="prompt-cabin">Copy prompt</button>
+      <h4>Scene · The Mountain Path</h4>
+      <div class="when">Use for: approach/framework content, the work before the destination.</div>
+      <pre id="prompt-cabin">A switchback trail with dotted route markers descending a forested mountainside from a modern building with warm lit windows at the summit, layered pine trees and ferns framing the foreground. [+ base style block]</pre>
+    </div>
+
+    <div class="prompt-card">
+      <button class="copy-btn" data-copy="prompt-new">Copy prompt</button>
+      <h4>Template · New scene</h4>
+      <div class="when">For new concepts: pick one terrain metaphor + one destination, keep everything else fixed.</div>
+      <pre id="prompt-new">[TERRAIN METAPHOR: canyon / forest / coastline / valley / ridgeline] with a glowing coral path leading to [DESTINATION: lighthouse / cabin / bridge outpost / modern studio building], [ONE distinguishing element]. [+ base style block]</pre>
+    </div>
+
+    <div class="deprecated">
+      <strong>Deprecated:</strong> the isometric flat-icon illustration style (globe/target/circuit-board vignettes on floating platforms) used in older deck templates. Do not generate new assets in this style. Existing deck slides will be migrated to the paper-cut landscape style and the duotone icon set in Motifs &amp; iconography, above.
+    </div>
+  </div>
+</section>
+
+<!-- ================= COMPONENTS ================= -->
+<section id="components">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">09 · System</div>
+      <h2>Core components</h2>
+      <p class="lede">The recurring building blocks across the site and client decks. Rendered live — inspect this page's CSS for exact values.</p>
+    </div>
+    <div class="comp-grid">
+      <div class="comp-block">
+        <h4>Buttons</h4>
+        <p style="margin-bottom:14px"><button class="btn btn-primary">Start a conversation</button></p>
+        <p style="background:var(--tw-navy); display:inline-block; padding:18px; border-radius:12px; margin-bottom:14px"><button class="btn btn-ghost-dark">Explore services</button></p>
+        <p><button class="btn btn-light">Contact us</button></p>
+      </div>
+      <div class="comp-block">
+        <h4>Category labels</h4>
+        <span class="cat-label">Discovery</span>
+        <span class="cat-label">AI Guidance</span>
+        <span class="cat-label teal">Usability Testing</span>
+        <p style="font-size:var(--tw-text-md); color:#5C7185; margin-top:12px">Green is current standard; teal variant persists in legacy deck slides. New work: use green.</p>
+      </div>
+      <div class="comp-block">
+        <h4>Expanded card</h4>
+        <div class="card-dark">
+          <div class="ic">🎯</div>
+          <h5>Follow Ups</h5>
+          <div class="card-body">We're pushing the conversation forward</div>
+        </div>
+        <span class="prov deck">Client deck</span>
+      </div>
+      <div class="comp-block">
+        <h4>Service text block</h4>
+        <div class="card-green">
+          <h5>Workflow clarity</h5>
+          <p>Understanding how real operational work flows through a platform and identifying where friction emerges.</p>
+        </div>
+        <span class="prov deck">Client deck</span>
+      </div>
+    </div>
+
+    <h3 style="margin-top:64px">Card library — full inventory</h3>
+    <p style="color:#5C7185; font-size:var(--tw-text-lg); max-width:68ch; margin-top:8px">Every distinct card pattern currently in production across the marketing site and client deck, documented as-is ahead of consolidation. Provenance tagged on each.</p>
+
+    <div class="card-lib">
+      <div class="lib-item">
+        <div class="tw-pillar">
+          <svg class="badge-shield" viewBox="0 0 64 70" aria-hidden="true"><path d="M32 3 L59 13 V38 C59 53 46 63 32 67 C18 63 5 53 5 38 V13 Z" fill="#0C2A48" stroke="#54B987" stroke-width="2.5"/><path d="M22 35 l7 7 13 -14" stroke="#fff" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h5>Trusted in operationally critical environments</h5>
+        </div>
+        <div class="cap"><strong>Pillar card</strong>Homepage "why work with us" + approach rows. White ground, overlapping navy shield badge with green ring, centered SemiBold title.</div>
+        <span class="prov site">Marketing site</span>
+      </div>
+
+      <div class="lib-item">
+        <div class="tw-service-wrap">
+          <svg class="badge-shield" viewBox="0 0 64 70" aria-hidden="true"><path d="M32 3 L59 13 V38 C59 53 46 63 32 67 C18 63 5 53 5 38 V13 Z" fill="#0C2A48" stroke="#54B987" stroke-width="2.5"/><g stroke="#fff" stroke-width="3" stroke-linecap="round"><path d="M32 22 v20 M22 32 h20"/></g></svg>
+          <div class="tw-service">
+            <h5>Product Strategy &amp; UXR</h5>
+            <p>Clarifying direction before building. Research, workflow analysis, stakeholder alignment, and opportunity mapping.</p>
+          </div>
+        </div>
+        <div class="cap"><strong>Service card</strong>Homepage + services page. Green ground with angled top edge, navy shield badge, navy Bold title, white body. The angle echoes the plane wing.</div>
+        <span class="prov site">Marketing site</span>
+      </div>
+
+      <div class="lib-item">
+        <div class="tw-audience">
+          <div class="tab"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M12 3 v18 M5 10 l7 -7 7 7"/></svg></div>
+          <h5>Scaling &amp; Emerging Technology Teams</h5>
+          <p>We help growing product and technology teams clarify workflows, strengthen usability, and build systems that scale with greater confidence.</p>
+        </div>
+        <div class="cap"><strong>Audience card</strong>"Who we serve" sections. Soft gradient ground, protruding green icon tab top-left, left-aligned navy title + slate body.</div>
+        <span class="prov site">Marketing site</span>
+      </div>
+
+      <div class="lib-item">
+        <div class="tw-testimonial">
+          <div class="top"><span class="logo">⌘ Vestige</span><span class="qmark">"</span></div>
+          <blockquote>"Working with Kate was a wonderful collaboration where form and function seamlessly merged… ultimately delivered a product that significantly enhanced user productivity."</blockquote>
+          <div class="who">Lucas Majewski</div>
+          <div class="role">Director of Software Development | Vestige</div>
+        </div>
+        <div class="cap"><strong>Testimonial card</strong>Homepage carousel. Soft gradient, client logo top-left, green quote glyph top-right, italic quote, bold name + green role line.</div>
+        <span class="prov site">Marketing site</span>
+      </div>
+
+      <div class="lib-item">
+        <div class="tw-worktile">
+          <div class="thumb">
+            <i style="left:12px; top:12px; width:36px; height:5px"></i>
+            <i style="left:12px; top:26px; width:80%; height:34px; background:rgba(255,255,255,0.12)"></i>
+            <i style="left:12px; top:70px; width:42%; height:24px"></i>
+            <i style="left:58%; top:70px; width:30%; height:24px"></i>
+          </div>
+          <h5>Vestige: Fleet Tracking</h5>
+          <div class="sub">Workflow modernization, UX foundation redesign, and development alignment</div>
+        </div>
+        <div class="cap"><strong>Work tile</strong>"Selected work" grid. White ground, product screenshot thumb, navy Bold title, green summary line.</div>
+        <span class="prov site">Marketing site</span>
+      </div>
+
+      <div class="lib-item">
+        <div class="tw-meta">
+          <div class="lab">Client</div>
+          <div class="val">Jams Software</div>
+          <div class="ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0C2A48" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19 c0-3 2.5-5 5.5-5 s5.5 2 5.5 5"/><path d="M16 5 h5 M16 9 h5"/></svg></div>
+        </div>
+        <div class="cap"><strong>Meta card</strong>Case study fact strips (Client / Industry / Platform / Solution type). Soft gradient, slate label, Bold value, green circular icon anchored bottom-right.</div>
+        <span class="prov site">Marketing site</span>
+      </div>
+
+      <div class="lib-item">
+        <div class="tw-price">
+          <div class="tier">Tier name</div>
+          <div class="amount">$0,000</div>
+          <div class="start">Starting at</div>
+          <ul><li>Supporting detail line</li><li>Supporting detail line</li><li>Supporting detail line</li></ul>
+        </div>
+        <div class="cap"><strong>Pricing card — standard</strong>Soft gradient ground, green display-size figure, left-aligned detail list. <em>Sample values shown — pull live figures from the source.</em></div>
+        <span class="prov site">Marketing site</span>
+      </div>
+
+      <div class="lib-item">
+        <div class="tw-price featured">
+          <div class="tier" style="color:rgba(255,255,255,0.9)">Tier name</div>
+          <div class="amount">$0,000</div>
+          <div class="start">Starting at</div>
+          <ul><li>Supporting detail line</li><li>Supporting detail line</li><li>Supporting detail line</li></ul>
+        </div>
+        <div class="cap"><strong>Pricing card — featured</strong>Same structure on a full green ground to mark a recommended tier. One featured card per row, maximum.</div>
+        <span class="prov site">Marketing site</span>
+      </div>
+    </div>
+
+    <div class="consol-note">
+      <strong>Consolidation watch (for v2):</strong> the inventory shows three competing icon treatments (navy shield badge, green icon tab, green icon circle), two light grounds used interchangeably (flat white vs. soft gradient), and centered vs. left-aligned text without a clear rule. A likely v2 set is three canonical cards — <em>badge card</em> (centered, shield), <em>content card</em> (left-aligned, icon tab), and <em>panel card</em> (testimonial/pricing surfaces) — with ground and alignment decided by rule rather than per-page. Inventory first; decisions pending.
+    </div>
+
+    <h3 style="margin-top:64px">Marketing-site components</h3>
+    <p style="color:var(--tw-ink-muted); font-size:var(--tw-text-lg); max-width:68ch; margin-top:8px">Filling in the common patterns a real marketing site needs beyond the card inventory above. Same conventions throughout: 14px card radius, soft-gradient or white grounds, the shared focus ring from Accessibility, and no color-only signaling.</p>
+
+    <div class="comp-grid" style="gap:30px; margin-top:26px">
+      <div class="comp-block" style="grid-column:1/-1; max-width:360px">
+        <h4>Mobile navigation</h4>
+        <div class="mobile-nav-demo">
+          <div class="bar">
+            <div class="brand" style="font-size:var(--tw-text-lg)">THIS WAAY</div>
+            <button type="button" class="hamburger" aria-expanded="true" aria-controls="mobile-menu-demo" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+          </div>
+          <nav id="mobile-menu-demo" class="mobile-menu-panel" aria-label="Mobile">
+            <a href="#colors">Color</a><a href="#components">Components</a><a href="#voice">Voice</a>
+          </nav>
+        </div>
+        <p style="font-size:var(--tw-text-md); color:var(--tw-ink-muted); margin-top:12px">Collapses below the two-row desktop nav at narrow widths. The trigger is a real <code>&lt;button&gt;</code> with <code>aria-expanded</code>/<code>aria-controls</code> — never a bare icon with no accessible name.</p>
+      </div>
+
+      <div class="comp-block" style="grid-column:1/-1">
+        <h4>Form controls</h4>
+        <form novalidate style="background:#fff; border:1px solid #E4EDF2; border-radius:var(--tw-radius-card); box-shadow:var(--tw-shadow-card); padding:26px 28px; display:flex; gap:32px; flex-wrap:wrap">
+          <div>
+            <div class="field">
+              <label for="f-name">Name<span class="req-tag">(required)</span></label>
+              <input id="f-name" name="name" type="text" required>
+            </div>
+            <div class="field">
+              <label for="f-role">How can we help?</label>
+              <select id="f-role" name="role"><option>Product strategy</option><option>AI guidance</option><option>Usability testing</option></select>
+            </div>
+            <div class="check-row"><input id="f-updates" type="checkbox"><label for="f-updates">Send me occasional updates</label></div>
+          </div>
+          <div>
+            <div class="field error">
+              <label for="f-email">Email<span class="req-tag">(required)</span></label>
+              <input id="f-email" name="email" type="email" aria-describedby="f-email-err" aria-invalid="true">
+              <div class="err-msg" id="f-email-err" role="alert">⚠ Enter a valid email address</div>
+            </div>
+            <div class="field">
+              <label for="f-msg">Message</label>
+              <textarea id="f-msg" name="message" rows="3"></textarea>
+              <div class="hint">No character limit — say as much as you need to.</div>
+            </div>
+          </div>
+        </form>
+        <p style="font-size:var(--tw-text-md); color:var(--tw-ink-muted); margin-top:12px">Every field has a visible, associated <code>&lt;label&gt;</code>; required fields are marked with text, not an asterisk-only color cue; errors use <code>aria-describedby</code> + <code>role="alert"</code> so they're announced, not just colored red.</p>
+      </div>
+
+      <div class="comp-block">
+        <h4>FAQ / accordion</h4>
+        <div class="accordion">
+          <details class="accordion-item" open>
+            <summary>What does "structural readiness" mean?<span class="chev">⌄</span></summary>
+            <div class="panel">The system can absorb intelligence without breaking — validation checkpoints and clear boundaries are already in place.</div>
+          </details>
+          <details class="accordion-item">
+            <summary>Do you work with early-stage teams?<span class="chev">⌄</span></summary>
+            <div class="panel">Yes — the earlier the workflow clarity work happens, the less there is to unwind later.</div>
+          </details>
+        </div>
+        <p style="font-size:var(--tw-text-md); color:var(--tw-ink-muted); margin-top:12px">Built on native <code>&lt;details&gt;/&lt;summary&gt;</code> — keyboard and screen-reader support comes free, no ARIA to hand-roll.</p>
+      </div>
+
+      <div class="comp-block">
+        <h4>Tabs</h4>
+        <div class="tw-tabs">
+          <div class="tab-list" role="tablist" aria-label="Example tabs">
+            <button class="tab-btn" role="tab" id="tab-1" aria-selected="true" aria-controls="panel-1">Approach</button>
+            <button class="tab-btn" role="tab" id="tab-2" aria-selected="false" aria-controls="panel-2" tabindex="-1">Outcomes</button>
+          </div>
+          <div class="tab-panel" role="tabpanel" id="panel-1" aria-labelledby="tab-1">Workflow clarity, then structure, then intelligence — in that order.</div>
+          <div class="tab-panel" role="tabpanel" id="panel-2" aria-labelledby="tab-2" hidden>Fewer support escalations, faster onboarding, safer AI adoption.</div>
+        </div>
+        <p style="font-size:var(--tw-text-md); color:var(--tw-ink-muted); margin-top:12px">Arrow keys move between tabs (roving tabindex); only the active panel is in the DOM's visible tree (<code>hidden</code>, not <code>display:none</code> alone).</p>
+      </div>
+
+      <div class="comp-block">
+        <h4>Modal / dialog</h4>
+        <button type="button" class="btn btn-primary" id="modal-trigger">Open modal</button>
+        <dialog class="tw-modal" id="tw-modal-demo" aria-labelledby="modal-title">
+          <h4 id="modal-title">Confirm</h4>
+          <p>This is a native <code>&lt;dialog&gt;</code> — focus is trapped inside automatically, Esc closes it, and focus returns to the trigger button on close.</p>
+          <button type="button" class="btn btn-primary" id="modal-close">Close</button>
+        </dialog>
+        <p style="font-size:var(--tw-text-md); color:var(--tw-ink-muted); margin-top:12px">Native <code>&lt;dialog&gt;.showModal()</code> — don't hand-roll a modal with a styled <code>&lt;div&gt;</code>; the focus trap is the hard part it gives you for free.</p>
+      </div>
+
+      <div class="comp-block" style="grid-column:1/-1">
+        <h4>Alerts &amp; banners</h4>
+        <div class="alert info"><span class="ic" aria-hidden="true">ⓘ</span><span><strong>Heads up —</strong> this is an informational banner. Icon + copy carry the meaning, not the background color alone.</span></div>
+        <div class="alert success"><span class="ic" aria-hidden="true">✓</span><span><strong>Saved —</strong> your changes were applied.</span></div>
+        <div class="alert warning"><span class="ic" aria-hidden="true">⚠</span><span><strong>Check this —</strong> something needs your attention before you continue.</span></div>
+      </div>
+
+      <div class="comp-block">
+        <h4>Breadcrumb</h4>
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="#components">Home</a><span aria-hidden="true">/</span><a href="#components">Work</a><span aria-hidden="true">/</span><span aria-current="page">Vestige</span></nav>
+      </div>
+
+      <div class="comp-block">
+        <h4>Pagination</h4>
+        <nav aria-label="Pagination"><ul class="pagination"><li><a href="#components">‹</a></li><li><a href="#components" aria-current="page">1</a></li><li><a href="#components">2</a></li><li><a href="#components">3</a></li><li><a href="#components">›</a></li></ul></nav>
+      </div>
+
+      <div class="comp-block">
+        <h4>Tooltip</h4>
+        <span class="tooltip-wrap"><button type="button" class="btn btn-light" aria-describedby="tip-1">Hover or focus me</button><span role="tooltip" id="tip-1">Shows on hover and keyboard focus</span></span>
+      </div>
+
+      <div class="comp-block" style="grid-column:1/-1">
+        <h4>Logo cloud</h4>
+        <div class="logo-cloud"><span>Vestige</span><span>Gridmark</span><span>Jams Software</span><span>Northbeam</span></div>
+      </div>
+
+      <div class="comp-block" style="grid-column:1/-1">
+        <h4>Stats row</h4>
+        <div class="stats-row">
+          <div class="stat"><div class="num">40%</div><div class="lab">Fewer support escalations</div></div>
+          <div class="stat"><div class="num">3×</div><div class="lab">Faster onboarding</div></div>
+          <div class="stat"><div class="num">12</div><div class="lab">Enterprise engagements</div></div>
+        </div>
+      </div>
+
+      <div class="comp-block">
+        <h4>Blog / article card</h4>
+        <div class="article-card">
+          <div class="thumb"></div>
+          <div class="body">
+            <div class="meta">Product Strategy · 6 min read</div>
+            <h5>Why workflow clarity comes before AI</h5>
+            <p>Intelligence magnifies whatever structure already exists — good or bad.</p>
+            <a class="readmore" href="#voice">Read the piece →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="comp-block" style="grid-column:1/-1">
+        <h4>Expanded footer <span style="font-size:var(--tw-text-xs); color:var(--tw-ink-muted); text-transform:none; letter-spacing:normal; font-weight:var(--tw-weight-regular)">— preview only, not this page's live footer</span></h4>
+        <div class="footer-preview">
+          <div class="footer-cols">
+            <div><h6>Studio</h6><a href="#voice">About</a><a href="#components">Work</a><a href="#accessibility">Accessibility</a></div>
+            <div><h6>Services</h6><a href="#components">Product Strategy</a><a href="#components">AI Guidance</a><a href="#components">Usability Testing</a></div>
+            <div><h6>Connect</h6><a href="#components">Contact</a><a href="#components">LinkedIn</a></div>
+          </div>
+          <div class="footer-social">
+            <a href="#components" aria-label="This Waay on LinkedIn">in</a>
+            <a href="#components" aria-label="Email This Waay">@</a>
+          </div>
+          <form class="footer-newsletter" novalidate>
+            <label for="f-newsletter" class="visually-hidden">Email address</label>
+            <input id="f-newsletter" type="email" placeholder="you@company.com">
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SCREENSHOTS ================= -->
+<section id="screens" class="on-soft angle-top">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">10 · Application</div>
+      <h2>Screenshots &amp; product imagery</h2>
+      <p class="lede">The most-used visual in the studio's work — and the backbone of the AI Guidance case studies, the studio's key marketing asset. Product screenshots are never dropped in raw; they're always framed, grounded, and annotated in one of two canonical treatments.</p>
+    </div>
+
+    <div class="comp-grid" style="gap:30px">
+      <div class="comp-block">
+        <h4>Treatment A · Light ground</h4>
+        <div class="shot-frame-light">
+          <div class="shot">
+            <div class="bar"><i></i><i></i><i></i></div>
+            <div class="body">
+              <div class="nav-col"></div>
+              <div class="rows"><span style="width:70%"></span><span></span><span style="width:85%"></span><span style="width:55%"></span><span></span><span style="width:60%"></span></div>
+            </div>
+          </div>
+        </div>
+        <p style="font-size:var(--tw-text-md); color:#5C7185; margin-top:12px">Default for in-flow case-study and work-tile screenshots. Soft-gradient or white ground, 8px screenshot corners, soft navy shadow (<code>rgba(12,42,72,0.18)</code>). Real product aspect ratio — never stretched.</p>
+      </div>
+
+      <div class="comp-block">
+        <h4>Treatment B · Navy hero + callouts</h4>
+        <div class="shot-frame-navy">
+          <svg class="topo-bg" viewBox="0 0 300 200" preserveAspectRatio="none" aria-hidden="true"><g fill="none" stroke="#fff" stroke-width="1"><path d="M-10 60 Q 80 20 160 70 T 320 50"/><path d="M-10 100 Q 80 60 160 110 T 320 90"/><path d="M-10 140 Q 80 100 160 150 T 320 130"/></g></svg>
+          <div class="shot" style="position:relative">
+            <div class="bar"><i></i><i></i><i></i></div>
+            <div class="body">
+              <div class="nav-col"></div>
+              <div class="rows"><span style="width:70%"></span><span></span><span style="width:85%"></span><span style="width:55%"></span><span></span><span style="width:60%"></span></div>
+            </div>
+            <span class="callout-pill" style="top:34px; right:-10px">AI panel</span>
+            <div class="callout-box" style="top:52px; left:74px; right:14px; height:30px"></div>
+          </div>
+        </div>
+        <p style="font-size:var(--tw-text-md); color:#5C7185; margin-top:12px">For case-study heros and feature spotlights. Navy ground with faint topographic contour lines, screenshot floated with shadow, <strong>green callout pills and boxes</strong> marking the relevant UI region. Callouts are always Waay green — the only annotation color.</p>
+      </div>
+    </div>
+
+    <div class="dd-grid" style="margin-top:36px">
+      <div class="dd yes"><div class="tag">Do</div><ul>
+        <li>Frame every screenshot — light gradient ground or navy hero</li>
+        <li>Consistent 8px corner radius and one soft navy shadow</li>
+        <li>Annotate with green pills, boxes, and thin connector lines only</li>
+        <li>Use phone/browser mockup frames for mobile and responsive work</li>
+        <li>Preserve true product aspect ratio</li>
+      </ul></div>
+      <div class="dd no"><div class="tag">Don't</div><ul>
+        <li>Drop in raw, unframed, full-bleed screenshots</li>
+        <li>Use heavy black drop shadows or mismatched corner radii</li>
+        <li>Annotate in red, orange, or any non-brand color</li>
+        <li>Stretch, skew, or crop away meaningful product context</li>
+        <li>Stack more than 2–3 callouts on one screenshot</li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DATA VIZ ================= -->
+<section id="dataviz">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">11 · Application</div>
+      <h2>Data visualization</h2>
+      <p class="lede">Charts carry the studio's systems-and-AI credibility, so they have to look unmistakably composed — never the garish defaults a tool reaches for. One ordered color sequence, minimal chrome, Axiforma labels.</p>
+    </div>
+
+    <div class="comp-grid" style="gap:30px; align-items:start">
+      <div class="comp-block">
+        <h4>Series color order</h4>
+        <ul class="series-list">
+          <li><span class="sw" style="background:#54B987"></span><span class="nm">Waay Green</span><span class="ord">Series 1 · primary / single-series default</span></li>
+          <li><span class="sw" style="background:#0D698A"></span><span class="nm">Steel Blue</span><span class="ord">Series 2</span></li>
+          <li><span class="sw" style="background:#0BABAB"></span><span class="nm">Teal</span><span class="ord">Series 3</span></li>
+          <li><span class="sw" style="background:#0C2A48"></span><span class="nm">Navy</span><span class="ord">Series 4 · axes &amp; text</span></li>
+          <li><span class="sw" style="background:#8DA3B5"></span><span class="nm">Slate</span><span class="ord">Gridlines &amp; labels (low opacity)</span></li>
+        </ul>
+        <p style="font-size:var(--tw-text-md); color:#5C7185; margin-top:12px">Single-series charts are always Waay green. Add colors in order only as series multiply. Punch Green never appears in charts.</p>
+      </div>
+
+      <div class="comp-block">
+        <h4>Bar — single series</h4>
+        <div class="viz-card">
+          <h5>Workflow friction reduction</h5>
+          <svg viewBox="0 0 280 150" width="100%" aria-label="Bar chart example">
+            <g stroke="#8DA3B5" stroke-width="0.8" opacity="0.5"><line x1="36" y1="20" x2="270" y2="20"/><line x1="36" y1="55" x2="270" y2="55"/><line x1="36" y1="90" x2="270" y2="90"/><line x1="36" y1="125" x2="270" y2="125"/></g>
+            <g fill="#5C7185" font-family="Poppins, sans-serif" font-size="8"><text x="14" y="128">0</text><text x="10" y="58">50</text><text x="6" y="23">100</text></g>
+            <g fill="#54B987"><rect x="54" y="78" width="34" height="47" rx="3"/><rect x="108" y="58" width="34" height="67" rx="3"/><rect x="162" y="40" width="34" height="85" rx="3"/><rect x="216" y="30" width="34" height="95" rx="3"/></g>
+            <g fill="#0C2A48" font-family="Poppins, sans-serif" font-size="8" text-anchor="middle"><text x="71" y="138">Q1</text><text x="125" y="138">Q2</text><text x="179" y="138">Q3</text><text x="233" y="138">Q4</text></g>
+          </svg>
+        </div>
+      </div>
+
+      <div class="comp-block">
+        <h4>Line — multi series</h4>
+        <div class="viz-card">
+          <h5>Adoption vs. support load</h5>
+          <svg viewBox="0 0 280 150" width="100%" aria-label="Line chart: feature adoption rising, support tickets falling">
+            <g stroke="#8DA3B5" stroke-width="0.8" opacity="0.5"><line x1="30" y1="20" x2="270" y2="20"/><line x1="30" y1="60" x2="270" y2="60"/><line x1="30" y1="100" x2="270" y2="100"/><line x1="30" y1="125" x2="270" y2="125"/></g>
+            <polyline points="36,110 90,95 144,70 198,45 252,28" fill="none" stroke="#54B987" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <polyline points="36,55 90,62 144,80 198,98 252,115" fill="none" stroke="#0D698A" stroke-width="3" stroke-dasharray="7 5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="252" cy="28" r="4" fill="#54B987"/>
+            <rect x="248" y="111" width="8" height="8" fill="#0D698A"/>
+          </svg>
+          <div class="legend"><span><i style="background:#54B987"></i>Feature adoption — solid line, circle marker</span><span><i style="background:#0D698A"></i>Support tickets — dashed line, square marker</span></div>
+          <p style="font-size:var(--tw-text-sm); color:var(--tw-ink-muted); margin-top:8px">Never distinguish series by color alone (WCAG 1.4.1) — pair color with a line style and marker shape, as above, or label lines directly.</p>
+        </div>
+      </div>
+    </div>
+
+    <table class="spec-table" style="margin-top:30px">
+      <tr><td>Gridlines</td><td>#8DA3B5 @ 50%</td><td>Thin (0.8px), horizontal only where possible</td></tr>
+      <tr><td>Labels</td><td>Axiforma / Poppins</td><td>Slate for axes, navy for emphasis; 8–11px</td></tr>
+      <tr><td>Bar/line weight</td><td>3px, 3px radius</td><td>Rounded bar corners and line caps</td></tr>
+      <tr><td>Chrome</td><td>none</td><td>No 3D, no heavy borders, no chart-junk, no background fills</td></tr>
+      <tr><td>Ground</td><td>white / soft gradient</td><td>On navy, lighten series tints for contrast</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ================= DIAGRAMS & FRAMEWORKS ================= -->
+<section id="diagrams" class="on-soft angle-top">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">12 · Application</div>
+      <h2>Diagrams &amp; frameworks</h2>
+      <p class="lede">Structural thinking is the actual pitch, so the studio's diagrams should look unmistakably its own. Three recurring forms carry it: the double-diamond process, the shield principle badge, and the numbered step flow.</p>
+    </div>
+
+    <h3 style="margin-bottom:16px">Double-diamond process</h3>
+    <div style="background:#fff; border:1px solid #E4EDF2; border-radius:var(--tw-radius-card); box-shadow:var(--tw-shadow-card); padding:26px; margin-bottom:14px">
+      <div class="dd-flow">
+        <div class="dd-tri" style="background:#8DA3B5; color:#0C2A48; clip-path:polygon(0 50%, 100% 0, 100% 100%)">DISCOVER</div>
+        <div class="dd-tri" style="background:#0C2A48; clip-path:polygon(0 0, 100% 50%, 0 100%)">DEFINE</div>
+        <div class="dd-tri" style="background:#0D698A; clip-path:polygon(0 50%, 100% 0, 100% 100%)">CREATE</div>
+        <div class="dd-tri" style="background:#54B987; color:#0C2A48; clip-path:polygon(0 0, 100% 50%, 0 100%)">VALIDATE</div>
+      </div>
+      <div style="display:flex; justify-content:space-between; margin-top:10px; font-family:var(--tw-font-display); font-weight:var(--tw-weight-bold); font-size:var(--tw-text-xs); letter-spacing:var(--tw-tracking-wide); color:var(--tw-navy)"><span>PROBLEM</span><span>SOLUTION</span></div>
+    </div>
+    <p style="font-size:var(--tw-text-md); color:#5C7185; margin-bottom:38px; max-width:66ch">The canonical process model. Four triangles progressing <strong>slate → navy → steel → green</strong>, paired into Problem and Solution diamonds. Color sequence is fixed — it reads as moving from uncertainty (muted) toward resolution (green).</p>
+
+    <div class="comp-grid" style="gap:30px; align-items:start">
+      <div class="comp-block">
+        <h4>Shield principle badge</h4>
+        <div style="display:flex; gap:18px; align-items:center; background:#fff; border:1px solid #E4EDF2; border-radius:var(--tw-radius-card); box-shadow:var(--tw-shadow-card); padding:24px">
+          <svg width="56" height="62" viewBox="0 0 64 70" aria-hidden="true"><path d="M32 3 L59 13 V38 C59 53 46 63 32 67 C18 63 5 53 5 38 V13 Z" fill="#0C2A48" stroke="#54B987" stroke-width="2.5"/><path d="M22 35 l7 7 13 -14" stroke="#fff" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div style="font-size:var(--tw-text-md); color:#5C7185">Navy shield, green ring outline, white icon. The container for a principle, value, or pillar — used in "how we work" and approach rows.</div>
+        </div>
+      </div>
+      <div class="comp-block">
+        <h4>Numbered step flow</h4>
+        <div style="background:#fff; border:1px solid #E4EDF2; border-radius:var(--tw-radius-card); box-shadow:var(--tw-shadow-card); padding:24px">
+          <div class="step-flow">
+            <div class="step"><span class="num">1</span><span class="txt"><strong>Clarify the workflow</strong><span>Where work starts, breaks, and decisions are made</span></span></div>
+            <div class="step"><span class="num">2</span><span class="txt"><strong>Define validation</strong><span>Establish the checkpoints intelligence will respect</span></span></div>
+            <div class="step"><span class="num">3</span><span class="txt"><strong>Introduce AI</strong><span>Layer capability onto the prepared structure</span></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:32px; background:#fff; border:1px solid #E4EDF2; border-radius:var(--tw-radius-card); padding:22px 26px; font-size:var(--tw-text-lg); color:#3D5670">
+      <strong style="font-family:var(--tw-font-display); color:var(--tw-navy)">Shared diagram rules:</strong> bold navy outlines (≈3px), one flat green accent per element, thin navy connectors and arrows, generous whitespace. No gradients, no 3D, no decorative fills — diagrams read as clean structural thinking, the same restraint as the icon set.
+    </div>
+  </div>
+</section>
+
+<!-- ================= SLIDE DECKS ================= -->
+<section id="decks" class="on-soft angle-top">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">13 · Application</div>
+      <h2>Slide decks</h2>
+      <p class="lede">Six templates cover most decks: <strong>title, section divider, content, quote, chart, and closing.</strong> Gray deck headers, teal-ink subheads, green category labels, and Axiforma throughout — the same system as the rest of the brand, adapted for a projected 16:9 surface.</p>
+    </div>
+
+    <div class="deck-grid">
+      <figure>
+        <div class="deck-frame navy">
+          <div class="deck-eyebrow">This Waay · Product Design &amp; AI Strategy</div>
+          <div style="flex:1; display:flex; align-items:center"><div class="deck-title" style="font-size:var(--tw-text-3xl)">Structural readiness<br>for intelligent systems</div></div>
+          <div class="deck-sub" style="color:var(--tw-green)">Prepared for Gridmark Partners · July 2026</div>
+        </div>
+        <figcaption><strong style="color:var(--tw-navy)">Title / cover</strong> — navy ground, eyebrow, large display title, presenter/client line</figcaption>
+      </figure>
+
+      <figure>
+        <div class="deck-frame navy">
+          <div class="deck-eyebrow">02</div>
+          <div style="flex:1; display:flex; align-items:center"><div class="deck-title" style="font-size:var(--tw-text-2xl)">Where workflow breaks down</div></div>
+          <div class="deck-num">2 / 12</div>
+        </div>
+        <figcaption><strong style="color:var(--tw-navy)">Section divider</strong> — navy ground, numeral eyebrow, one line, slide number bottom-right</figcaption>
+      </figure>
+
+      <figure>
+        <div class="deck-frame">
+          <div class="deck-eyebrow">Findings</div>
+          <div class="deck-title" style="font-size:var(--tw-text-xl)">Three points of friction</div>
+          <ul style="margin-top:14px; padding-left:20px; font-size:var(--tw-text-md); color:#3D5670; line-height:var(--tw-leading-loose)">
+            <li>Manual handoffs between review and approval</li>
+            <li>No shared source of truth for status</li>
+            <li>Validation happens after the fact, not before</li>
+          </ul>
+          <div class="deck-num">3 / 12</div>
+        </div>
+        <figcaption><strong style="color:var(--tw-navy)">Content / bullet</strong> — white ground, gray header, short declarative bullets, generous whitespace</figcaption>
+      </figure>
+
+      <figure>
+        <div class="deck-frame">
+          <div style="flex:1; display:flex; flex-direction:column; justify-content:center">
+            <div style="font-family:Georgia,serif; font-size:var(--tw-text-4xl); color:var(--tw-green-ink); line-height:var(--tw-leading-glyph); margin-bottom:8px">"</div>
+            <div style="font-family:var(--tw-font-display); font-size:var(--tw-text-lg); font-style:italic; color:var(--tw-navy); max-width:80%">Working with This Waay was a wonderful collaboration where form and function seamlessly merged.</div>
+            <div class="deck-sub" style="margin-top:14px">Lucas Majewski, Vestige</div>
+          </div>
+          <div class="deck-num">4 / 12</div>
+        </div>
+        <figcaption><strong style="color:var(--tw-navy)">Quote</strong> — white ground, green-ink quote mark, italic Axiforma, teal-ink attribution</figcaption>
+      </figure>
+
+      <figure>
+        <div class="deck-frame">
+          <div class="deck-eyebrow">Data</div>
+          <div class="deck-title" style="font-size:var(--tw-text-lg)">Support load, trending down</div>
+          <div style="flex:1; display:flex; align-items:flex-end; gap:10px; padding:10px 0 4px">
+            <div style="flex:1; background:#54B987; height:70%; border-radius:3px 3px 0 0"></div>
+            <div style="flex:1; background:#54B987; height:52%; border-radius:3px 3px 0 0"></div>
+            <div style="flex:1; background:#54B987; height:38%; border-radius:3px 3px 0 0"></div>
+            <div style="flex:1; background:#54B987; height:22%; border-radius:3px 3px 0 0"></div>
+          </div>
+          <div class="deck-num">5 / 12</div>
+        </div>
+        <figcaption><strong style="color:var(--tw-navy)">Chart / data</strong> — same series rules as Data visualization, scaled up for legibility at a distance</figcaption>
+      </figure>
+
+      <figure>
+        <div class="deck-frame navy">
+          <div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center">
+            <div class="deck-title" style="font-size:var(--tw-text-2xl)">Thank you</div>
+            <div class="deck-sub" style="color:var(--tw-green); margin-top:10px">hello@thiswaay.com</div>
+          </div>
+        </div>
+        <figcaption><strong style="color:var(--tw-navy)">Closing</strong> — navy ground, centered, one line of contact information, no slide number</figcaption>
+      </figure>
+    </div>
+
+    <h3 style="margin:44px 0 16px">Deck rules</h3>
+    <table class="spec-table" style="margin-bottom:30px">
+      <tr><td>Aspect ratio</td><td>16:9</td><td>Safe area: keep text ≥5% inset from every edge for projector/crop tolerance</td></tr>
+      <tr><td>Slide numbering</td><td>bottom-right</td><td>Omit on title and closing slides</td></tr>
+      <tr><td>Presenter notes</td><td>below the slide, never on it</td><td>Speaker context and talk track live in the notes field, not on-slide</td></tr>
+      <tr><td>Minimum text size</td><td>~18px equivalent at 1080p</td><td>Projected/shared-screen contexts need larger minimums than web body text</td></tr>
+      <tr><td>Contrast</td><td>same as web</td><td>WCAG 2.2 AA still applies — see Accessibility</td></tr>
+      <tr><td>Transitions</td><td>fade or cut only</td><td>No per-slide novelty transitions; advance is always presenter-controlled — see Motion</td></tr>
+    </table>
+    <p style="font-size:var(--tw-text-md); color:var(--tw-ink-muted); max-width:68ch">Any chart or diagram embedded in a deck needs the same alt text/description discipline as on the web — if the deck is shared as a PDF or read aloud, the data still needs to be conveyed in words somewhere (a takeaway line, a table, presenter notes).</p>
+  </div>
+</section>
+
+<!-- ================= VOICE ================= -->
+<section id="voice" class="on-soft angle-top">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">14 · Language</div>
+      <h2>Voice &amp; messaging</h2>
+      <p class="lede">Composed, observational, structural. This Waay speaks upward — to operating partners and product leadership — and earns authority through specificity, not volume.</p>
+    </div>
+    <div class="pillars">
+      <div class="pillar">Intelligence magnifies structure<span>AI exposes system quality; it doesn't fix it</span></div>
+      <div class="pillar">AI is a systems decision<span>Not a feature decision</span></div>
+      <div class="pillar">Governance builds trust<span>Boundaries make adoption possible</span></div>
+      <div class="pillar">Validation reduces risk<span>Explicit review before automation</span></div>
+      <div class="pillar">Architecture enables scale<span>Foundations before capabilities</span></div>
+    </div>
+    <div class="dd-grid">
+      <div class="dd yes"><div class="tag">Sounds like us</div><ul>
+        <li>"We didn't add AI. We prepared the system for intelligence."</li>
+        <li>"AI doesn't resolve these things. It exposes them."</li>
+        <li>Short declarative sentences. Observational cadence. Restraint.</li>
+        <li>"Structural readiness. Operational clarity. Governed intelligence."</li>
+      </ul></div>
+      <div class="dd no"><div class="tag">Never</div><ul>
+        <li>Hype language: "revolutionary," "game-changing," "supercharge"</li>
+        <li>Trend commentary or reactive takes</li>
+        <li>"We implement AI features"</li>
+        <li>Exclamation points in professional contexts</li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= AI USAGE ================= -->
+<section id="ai">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">15 · Operations</div>
+      <h2>How AI tools should use this guide</h2>
+    </div>
+    <div class="ai-note">
+      <strong style="font-family:var(--tw-font-display)">Instructions for AI assistants generating This Waay assets:</strong>
+      <ol>
+        <li>Use the CSS custom properties in this file's <code>:root</code> block as canonical tokens — never approximate brand colors from memory.</li>
+        <li><strong>One green:</strong> #54B987 is the only green for buttons, labels, icons, and recurring UI on any ground. Punch Green (#3DD68C) may appear at most once per asset, as a deliberate emphasis moment — if in doubt, don't use it. (This page uses its one punch on the hero headline.)</li>
+        <li>For any illustration or image prompt, start from the <strong>base style block</strong> in section 04 and modify only the scene variables. Never generate the deprecated isometric style.</li>
+        <li>Headlines in sentence case; at most one green/teal highlight per headline; eyebrows are the only uppercase element.</li>
+        <li>Typography is <strong>Axiforma</strong> in all assets; substitute <strong>Poppins</strong> only when Axiforma is unavailable. Never introduce a second family.</li>
+        <li>Apply the voice rules in section 06 to all copy. When in doubt: shorter, calmer, more structural.</li>
+        <li>Slides follow the deck system: gray headers (#595959), teal subheads, green category labels, white or navy grounds — set in Axiforma going forward (legacy deck face is deprecated).</li>
+        <li>Paper plane motif: use the exact SVG paths embedded in section 05; wing gradient is #62D38C → #30737B (nose → tail), body navy on light / white on navy. Flight trails are round white or navy dots with at least one loop — never straight, never dashed.</li>
+        <li>Charts use the fixed series order (green, steel, teal, navy, slate); single-series is always Waay green; no chart-junk, 3D, or non-brand colors.</li>
+        <li>Screenshots are always framed — light gradient ground or navy hero with topographic lines — with 8px corners and a soft navy shadow; annotate only in Waay green.</li>
+        <li>Spacing follows the 8px scale; content maxes at 1080px; sections alternate navy/soft on shallow angled breaks with a centered eyebrow-H2-lede header.</li>
+        <li>Diagrams use bold navy outlines, one green accent each, and the fixed double-diamond color order (slate, navy, steel, green).</li>
+        <li>Coral (#F2A08D) appears only inside illustrations — never in UI, charts, or text.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 This Waay · Product design &amp; AI strategy consultancy · Sacramento, California</div>
+    <div>Style guide v2.3 — living document; update on brand decisions (v2.3: chapters realigned to the shared spine with the Gridmark sibling system)</div>
+  </div>
+</footer>
+
+<script>
+  // Click-to-copy for swatches (native <button> gives keyboard operability for free)
+  var copyStatus = document.getElementById('copy-status');
+  document.querySelectorAll('.swatch').forEach(function (sw) {
+    sw.addEventListener('click', function () {
+      navigator.clipboard.writeText(sw.dataset.hex).then(function () {
+        sw.classList.add('copied');
+        if (copyStatus) copyStatus.textContent = 'Copied ' + sw.dataset.hex + ' to clipboard';
+        setTimeout(function () { sw.classList.remove('copied'); }, 1200);
+      });
+    });
+  });
+  // Copy buttons for prompts
+  document.querySelectorAll('.copy-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var text = document.getElementById(btn.dataset.copy).innerText;
+      navigator.clipboard.writeText(text).then(function () {
+        var orig = btn.textContent;
+        btn.textContent = 'Copied ✓';
+        if (copyStatus) copyStatus.textContent = 'Copied prompt to clipboard';
+        setTimeout(function () { btn.textContent = orig; }, 1400);
+      });
+    });
+  });
+
+  // Primary nav — section/subsection disclosure menus. Click-triggered (never hover-only, per
+  // the Accessibility rules this page itself documents); Escape and outside-click close; only
+  // one group open at a time.
+  var navGroups = Array.prototype.slice.call(document.querySelectorAll('.nav-group'));
+  function closeNavGroup(group) {
+    var btn = group.querySelector('.nav-group-btn');
+    var panel = group.querySelector('.nav-subnav');
+    btn.setAttribute('aria-expanded', 'false');
+    panel.hidden = true;
+  }
+  function closeAllNavGroups(except) {
+    navGroups.forEach(function (group) { if (group !== except) closeNavGroup(group); });
+  }
+  navGroups.forEach(function (group) {
+    var btn = group.querySelector('.nav-group-btn');
+    var panel = group.querySelector('.nav-subnav');
+    btn.addEventListener('click', function () {
+      var expanded = btn.getAttribute('aria-expanded') === 'true';
+      closeAllNavGroups();
+      btn.setAttribute('aria-expanded', String(!expanded));
+      panel.hidden = expanded;
+    });
+    panel.addEventListener('click', function (e) { if (e.target.tagName === 'A') closeAllNavGroups(); });
+    group.addEventListener('focusout', function (e) {
+      if (!group.contains(e.relatedTarget)) closeNavGroup(group);
+    });
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Escape') return;
+    var openGroup = navGroups.find(function (group) { return group.querySelector('.nav-group-btn').getAttribute('aria-expanded') === 'true'; });
+    if (openGroup) { closeNavGroup(openGroup); openGroup.querySelector('.nav-group-btn').focus(); }
+  });
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('.nav-group')) closeAllNavGroups();
+  });
+
+  // Mobile nav demo — toggle aria-expanded/hidden
+  var hamburger = document.querySelector('.hamburger');
+  var mobileMenu = document.getElementById('mobile-menu-demo');
+  if (hamburger && mobileMenu) {
+    hamburger.addEventListener('click', function () {
+      var expanded = hamburger.getAttribute('aria-expanded') === 'true';
+      hamburger.setAttribute('aria-expanded', String(!expanded));
+      mobileMenu.hidden = expanded;
+    });
+  }
+
+  // Tabs — WAI-ARIA APG tabs pattern: roving tabindex, arrow-key navigation, automatic activation
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab-btn'));
+  function activateTab(tab) {
+    tabs.forEach(function (t) {
+      var selected = t === tab;
+      t.setAttribute('aria-selected', String(selected));
+      t.tabIndex = selected ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !selected;
+    });
+    tab.focus();
+  }
+  tabs.forEach(function (tab, i) {
+    tab.addEventListener('click', function () { activateTab(tab); });
+    tab.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') activateTab(tabs[(i + 1) % tabs.length]);
+      if (e.key === 'ArrowLeft') activateTab(tabs[(i - 1 + tabs.length) % tabs.length]);
+    });
+  });
+
+  // Modal — native <dialog>, focus returns to the trigger on close
+  var modalTrigger = document.getElementById('modal-trigger');
+  var modal = document.getElementById('tw-modal-demo');
+  var modalClose = document.getElementById('modal-close');
+  if (modalTrigger && modal) {
+    modalTrigger.addEventListener('click', function () { modal.showModal(); });
+    modalClose.addEventListener('click', function () { modal.close(); });
+    modal.addEventListener('close', function () { modalTrigger.focus(); });
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 200" role="img" aria-label="Gridmark Partners, a This Waay company">
+<!-- GRIDMARK ENDORSEMENT LOCKUP v1.0 · footers, co-branding · self-grounded on Deep Navy -->
+<defs><style>
+  .gm{font-family:'Axiforma','Poppins','Segoe UI',sans-serif;font-weight:600;font-size:40px;fill:#FFFFFF}
+  .pt{font-family:'Axiforma','Poppins','Segoe UI',sans-serif;font-weight:400;font-size:16px;fill:#FFFFFF}
+  .en{font-family:'Axiforma','Poppins','Segoe UI',sans-serif;font-weight:400;font-size:12px;fill:#8DA3B5}
+</style></defs>
+<rect width="420" height="200" fill="#0C2A48"/>
+<text class="gm" x="85" y="82" textLength="250" lengthAdjust="spacing">GRIDMARK</text>
+<line x1="85" y1="96" x2="322" y2="96" stroke="#FFFFFF" stroke-width="1" opacity="0.55"/>
+<rect x="325" y="93" width="10" height="6" fill="#C8A46B"/>
+<text class="pt" x="85" y="124" textLength="250" lengthAdjust="spacing">PARTNERS</text>
+<text class="en" x="210" y="160" text-anchor="middle">A This Waay Company</text>
+</svg>
