@@ -197,16 +197,17 @@
   .flight-path { position: absolute; left: 0; bottom: 30px; width: 100%; opacity: 0.65; pointer-events: none; }
 
   /* ---------- Swatches ---------- */
-  .swatch-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 18px; }
+  .swatch-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 18px; grid-auto-rows: 1fr; }
   .swatch {
     border-radius: var(--tw-radius-card); overflow: hidden; cursor: pointer;
     box-shadow: var(--tw-shadow-card); background: #fff; border: 1px solid #E4EDF2;
     transition: transform 0.18s ease; text-align: left; width: 100%; font: inherit;
+    display: flex; flex-direction: column;
   }
   .swatch:hover { transform: translateY(-3px); }
   @media (prefers-reduced-motion: reduce) { .swatch:hover { transform: none; } }
-  .swatch .chipcolor { height: 86px; position: relative; }
-  .swatch .info { padding: 13px 15px 15px; }
+  .swatch .chipcolor { height: 86px; position: relative; flex: 0 0 auto; }
+  .swatch .info { padding: 13px 15px 15px; flex: 1 1 auto; }
   .swatch .name { font-family: var(--tw-font-display); font-weight: var(--tw-weight-semibold); font-size: var(--tw-text-lg); }
   .swatch .hex { font-size: var(--tw-text-md); color: var(--tw-ink-muted); letter-spacing: var(--tw-tracking-normal); }
   .swatch .use { font-size: var(--tw-text-md); color: var(--tw-ink-muted); margin-top: 5px; line-height: var(--tw-leading-snug-md); }
