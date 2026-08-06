@@ -2,17 +2,23 @@
 
 > **For AI tools:** Usage rules for the This Waay logo and paper-plane mark. Compiled from `STYLE.md` (Motifs & iconography, Typography). Fields marked *to be defined* are not yet specified — treat them as undefined rather than inventing values. Modeled on the Gridmark logo spec (`../gridmark-partners/Logos/gridmark-brand-assets/README.md`) for parity.
 >
-> v0.1 (draft) · July 2026
+> v0.2 (draft) · July 2026 — full asset set mirrored from Figma (*Branding Elements → Logos*)
 
 ## Assets
 
-**Master source (canonical):** the This Waay logos are maintained in the studio's design files. The SVGs in this repo are official exports — lift them verbatim; never redraw.
+**Master source (canonical):** the This Waay logos are maintained in the studio's design files (Figma: *Branding Elements → Logos*). The SVGs in this repo are official exports — lift them verbatim; never redraw.
 
 | File | Use |
 |---|---|
-| `assets/This-Waay-Logo-White-Mark.svg` | White mark for navy/dark grounds |
-| *(to be exported)* | Navy/dark variant for light grounds — not yet mirrored into this repo |
-| *(to be exported)* | Favicon / small-size mark |
+| `assets/This-Waay-Logo-White.svg` | Stacked lockup (plane + wordmark + "Product Design Studio"), white on navy ground — for navy/dark surfaces |
+| `assets/This-Waay-Logo-Blue.svg` | Stacked lockup, navy on white ground — for light surfaces |
+| `assets/This-Waay-Logo-White-Horizontal.svg` | Horizontal wordmark lockup, white, transparent background — nav bars/footers on dark grounds |
+| `assets/This-Waay-Logo-Blue-Horizontal.svg` | Horizontal wordmark lockup, navy, transparent background — the primary logo for light grounds |
+| `assets/This-Waay-Logo-White-Mark.svg` | Plane-only mark, white on navy ground |
+| `assets/This-Waay-Logo-Blue-Mark.svg` | Plane-only mark, navy on white ground |
+| *(to be exported)* | Favicon / small-size mark (dedicated cut — the plane marks above can stand in meanwhile) |
+
+> **Note (July 2026):** `This-Waay-Logo-White-Mark.svg` previously contained a mis-export (the full stacked lockup squeezed into a 100×100 frame). It now holds the plane-only mark, matching its name and the master file.
 
 **Always use the official SVG paths — never redraw the plane geometry** (STYLE.md rule).
 
