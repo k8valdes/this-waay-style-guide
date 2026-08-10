@@ -320,6 +320,19 @@
   .d-shield { position: relative; width: 44px; height: 52px; filter: drop-shadow(0 5px 7px rgba(8,25,45,.4)); }
   .d-shield svg.f { position: absolute; inset: 0; width: 100%; height: 100%; }
   .d-shield svg.i { position: absolute; top: 42%; left: 50%; transform: translate(-50%,-50%); width: 18px; height: 18px; color: #fff; }
+  .d-shield--lg { width: 84px; height: 100px; }
+  .d-shield--lg svg.i { width: 34px; height: 34px; }
+  .d-shield2 { position: relative; width: 84px; height: 100px; filter: drop-shadow(0 6px 10px rgba(8,25,45,.22)); }
+  .d-shield2 svg.f { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .d-shield2 svg.i { position: absolute; top: 43%; left: 50%; transform: translate(-50%,-50%); width: 34px; height: 34px; color: #fff; }
+
+  /* segment card v2 — 2026-08 exploration; see vm-note for status vs. live production */
+  .d-seg2-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 28px; max-width: 960px; margin: 0 auto; position: relative; z-index: 2; }
+  .d-seg2 { position: relative; background: linear-gradient(160deg, #fff 0%, #F4F9FA 100%); border-radius: var(--tw-radius-card); padding: 34px 22px 26px; text-align: left; box-shadow: var(--tw-shadow-card); }
+  .d-seg2__tag { position: absolute; top: -16px; left: 22px; width: 52px; height: 44px; border-radius: 10px; background: linear-gradient(135deg, var(--tw-green), var(--tw-green-bright)); display: grid; place-items: center; transform: skew(-8deg); box-shadow: 0 10px 18px rgba(20,60,45,.3); }
+  .d-seg2__tag svg { width: 22px; height: 22px; color: #fff; transform: skew(8deg); }
+  .d-seg2__title { margin: 22px 0 10px; font-family: var(--tw-font-display); font-weight: var(--tw-weight-bold); font-size: var(--tw-text-lg); color: var(--tw-navy); line-height: 1.3; }
+  .d-seg2__body { margin: 0; font-size: var(--tw-text-sm); color: var(--tw-ink-muted); line-height: 1.6; }
 
   /* placement demos */
   .d-place { position: relative; background: #fff; border-radius: 8px; padding: 16px; box-shadow: var(--tw-shadow-card); min-height: 96px; }
@@ -1889,6 +1902,31 @@
       <symbol id="vm-trend" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M15.2 6.3a.9.9 0 0 1 1.15-.5l5.4 2a.9.9 0 0 1 .52 1.16l-2 5.4a.9.9 0 1 1-1.68-.62l1.25-3.4-1 .46a12 12 0 0 0-5.4 5.1.9.9 0 0 1-1.42.2L9 12.9l-5.86 5.86a.9.9 0 1 1-1.28-1.27l6.5-6.5a.9.9 0 0 1 1.28 0l3.35 3.35a13.8 13.8 0 0 1 5.3-4.4l1-.46-3.4-1.25a.9.9 0 0 1-.5-1.15Z"/></symbol>
       <symbol id="vm-database" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></symbol>
       <symbol id="vm-doublecheck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 13l4 4 8-10"/><path d="M10 17l.6.7L22 4"/></symbol>
+      <!-- vectorized approximation of the production raster shields (image26–28.webp) — solid offset shadow shape, dark navy rim, teal-navy face -->
+      <symbol id="vm-shield2" viewBox="0 0 120 140">
+        <path transform="translate(4,4)" d="M60 5 L104 21 C107.5 22.3 109 24.5 109 28 L109 66 C109 99 87.5 121 60 135 C32.5 121 11 99 11 66 L11 28 C11 24.5 12.5 22.3 16 21 Z" fill="#081527"/>
+        <path d="M60 5 L104 21 C107.5 22.3 109 24.5 109 28 L109 66 C109 99 87.5 121 60 135 C32.5 121 11 99 11 66 L11 28 C11 24.5 12.5 22.3 16 21 Z" fill="#0A2038"/>
+        <path d="M60 14 L98 28 C100 28.7 101 30 101 32 L101 65 C101 93 84 113 60 124 C36 113 19 93 19 65 L19 32 C19 30 20 28.7 22 28 Z" fill="#2F5B72"/>
+        <g fill="#fff"><circle cx="33" cy="40" r="1" opacity=".55"/><circle cx="88" cy="46" r="1.2" opacity=".5"/><circle cx="74" cy="36" r=".7" opacity=".55"/><circle cx="40" cy="92" r=".9" opacity=".5"/><circle cx="94" cy="70" r="1" opacity=".45"/><circle cx="55" cy="100" r=".8" opacity=".4"/><circle cx="66" cy="58" r=".6" opacity=".4"/><circle cx="45" cy="55" r=".7" opacity=".4"/></g>
+        <path d="M24 32 C40 20, 82 20, 96 33 C96 45, 88 42, 60 42 C34 42, 24 44, 24 32 Z" fill="#fff" opacity=".14"/>
+      </symbol>
+      <symbol id="vm-shootingstar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 20c3-5 6-8 11-11"/>
+        <path d="M15 9.5l1.6-.4M15 9.5l.4-1.6"/>
+        <path d="M18.5 5.2l1.3.5-1.3.5-.5 1.3-.5-1.3-1.3-.5 1.3-.5.5-1.3Z" fill="currentColor" stroke="none"/>
+      </symbol>
+      <symbol id="vm-handgift" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="9" cy="6.4" r="3"/>
+        <path d="M4 16.2c0-1.6 1.2-2.7 2.7-2.7h1.9c.8 0 1.6.2 2.3.7l2.7 1.7"/>
+        <path d="M4 16.2v2.6c0 .7.5 1.2 1.2 1.2h6.9c1 0 2-.3 2.8-.9l4.7-3.4c.6-.4.6-1.3 0-1.7-.5-.4-1.2-.4-1.7 0l-3.5 2.4"/>
+      </symbol>
+      <symbol id="vm-forkpaths" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 21v-8"/>
+        <path d="M12 13 7.2 6.4"/>
+        <path d="M12 13l4.8-6.6"/>
+        <path d="M7.2 6.4l-2 .5M7.2 6.4l.5-2"/>
+        <path d="M16.8 6.4l2 .5M16.8 6.4l-.5-2"/>
+      </symbol>
     </defs></svg>
 
     <!-- ===== CARD GROUNDS ===== -->
@@ -2004,31 +2042,74 @@
       <div class="vm-note"><strong>Placement is a real axis, not styling.</strong> "Floating above" is the signature — the figure overlaps the panel/card top edge rather than sitting inside it.</div>
     </div>
 
+    <!-- ===== SHIELD ROSTER — STYLE EXPLORATION (pending decision) ===== -->
+    <div class="vmatrix">
+      <div class="vm-head">
+        <h4>Shield roster — style exploration <span style="font-size:var(--tw-text-xs); color:var(--tw-green-ink); font-weight:var(--tw-weight-regular)">proposal — pending decision</span></h4>
+        <div class="vm-axes"><span class="vm-axis">direction <b>2</b></span></div>
+      </div>
+      <div style="padding:20px 20px 4px">
+        <div style="font-size:var(--tw-text-md); font-weight:var(--tw-weight-semibold); color:var(--tw-navy); margin-bottom:14px">V1 — current bezel, larger scale <span style="font-weight:var(--tw-weight-regular); color:var(--tw-ink-muted)">(same silver/navy shield already in the library, same 8 icons — just bigger)</span></div>
+        <div style="display:flex; flex-wrap:wrap; gap:22px">
+          <div style="text-align:center; width:110px"><span class="d-shield d-shield--lg" style="display:inline-block"><svg class="f" viewBox="0 0 120 140"><use href="#vm-shield"/></svg><svg class="i" viewBox="0 0 24 24"><use href="#vm-crosshair"/></svg></span><div style="font-size:var(--tw-text-xs); color:var(--tw-ink-muted); margin-top:8px; line-height:1.3">Product Strategy &amp; UXR</div></div>
+          <div style="text-align:center; width:110px"><span class="d-shield d-shield--lg" style="display:inline-block"><svg class="f" viewBox="0 0 120 140"><use href="#vm-shield"/></svg><svg class="i" viewBox="0 0 24 24"><use href="#vm-ruler"/></svg></span><div style="font-size:var(--tw-text-xs); color:var(--tw-ink-muted); margin-top:8px; line-height:1.3">Product Design &amp; UX</div></div>
+          <div style="text-align:center; width:110px"><span class="d-shield d-shield--lg" style="display:inline-block"><svg class="f" viewBox="0 0 120 140"><use href="#vm-shield"/></svg><svg class="i" viewBox="0 0 24 24"><use href="#vm-spark"/></svg></span><div style="font-size:var(--tw-text-xs); color:var(--tw-ink-muted); margin-top:8px; line-height:1.3">AI Guidance &amp; Enablement</div></div>
+          <div style="text-align:center; width:110px"><span class="d-shield d-shield--lg" style="display:inline-block"><svg class="f" viewBox="0 0 120 140"><use href="#vm-shield"/></svg><svg class="i" viewBox="0 0 24 24"><use href="#vm-squares"/></svg></span><div style="font-size:var(--tw-text-xs); color:var(--tw-ink-muted); margin-top:8px; line-height:1.3">Structural Readiness</div></div>
+          <div style="text-align:center; width:110px"><span class="d-shield d-shield--lg" style="display:inline-block"><svg class="f" viewBox="0 0 120 140"><use href="#vm-shield"/></svg><svg class="i" viewBox="0 0 24 24"><use href="#vm-userplus"/></svg></span><div style="font-size:var(--tw-text-xs); color:var(--tw-ink-muted); margin-top:8px; line-height:1.3">User Enablement</div></div>
+          <div style="text-align:center; width:110px"><span class="d-shield d-shield--lg" style="display:inline-block"><svg class="f" viewBox="0 0 120 140"><use href="#vm-shield"/></svg><svg class="i" viewBox="0 0 24 24"><use href="#vm-trend"/></svg></span><div style="font-size:var(--tw-text-xs); color:var(--tw-ink-muted); margin-top:8px; line-height:1.3">Business Advantage</div></div>
+          <div style="text-align:center; width:110px"><span class="d-shield d-shield--lg" style="display:inline-block"><svg class="f" viewBox="0 0 120 140"><use href="#vm-shield"/></svg><svg class="i" viewBox="0 0 24 24"><use href="#vm-database"/></svg></span><div style="font-size:var(--tw-text-xs); color:var(--tw-ink-muted); margin-top:8px; line-height:1.3">Data Access</div></div>
+          <div style="text-align:center; width:110px"><span class="d-shield d-shield--lg" style="display:inline-block"><svg class="f" viewBox="0 0 120 140"><use href="#vm-shield"/></svg><svg class="i" viewBox="0 0 24 24"><use href="#vm-doublecheck"/></svg></span><div style="font-size:var(--tw-text-xs); color:var(--tw-ink-muted); margin-top:8px; line-height:1.3">Quality / This&nbsp;Waay mark</div></div>
+        </div>
+      </div>
+      <div style="padding:20px 20px 20px; border-top:1px solid #DCE6EE; margin-top:16px">
+        <div style="font-size:var(--tw-text-md); font-weight:var(--tw-weight-semibold); color:var(--tw-navy); margin-bottom:14px">V2 — production-matched bezel <span style="font-weight:var(--tw-weight-regular); color:var(--tw-ink-muted)">(vectorized from <code>image26–28.webp</code>: solid dark-navy rim, offset drop-shadow shape, teal-navy face — applied to all 8)</span></div>
+        <div style="display:flex; flex-wrap:wrap; gap:22px">
+          <div style="text-align:center; width:110px"><span class="d-shield2" style="display:inline-block"><svg class="f" viewBox="0 0 120 140"><use href="#vm-shield2"/></svg><svg class="i" viewBox="0 0 24 24"><use href="#vm-crosshair"/></svg></span><div style="font-size:var(--tw-text-xs); color:var(--tw-ink-muted); margin-top:8px; line-height:1.3">Product Strategy &amp; UXR</div></div>
+          <div style="text-align:center; width:110px"><span class="d-shield2" style="display:inline-block"><svg class="f" viewBox="0 0 120 140"><use href="#vm-shield2"/></svg><svg class="i" viewBox="0 0 24 24"><use href="#vm-ruler"/></svg></span><div style="font-size:var(--tw-text-xs); color:var(--tw-ink-muted); margin-top:8px; line-height:1.3">Product Design &amp; UX</div></div>
+          <div style="text-align:center; width:110px"><span class="d-shield2" style="display:inline-block"><svg class="f" viewBox="0 0 120 140"><use href="#vm-shield2"/></svg><svg class="i" viewBox="0 0 24 24"><use href="#vm-spark"/></svg></span><div style="font-size:var(--tw-text-xs); color:var(--tw-ink-muted); margin-top:8px; line-height:1.3">AI Guidance &amp; Enablement</div></div>
+          <div style="text-align:center; width:110px"><span class="d-shield2" style="display:inline-block"><svg class="f" viewBox="0 0 120 140"><use href="#vm-shield2"/></svg><svg class="i" viewBox="0 0 24 24"><use href="#vm-squares"/></svg></span><div style="font-size:var(--tw-text-xs); color:var(--tw-ink-muted); margin-top:8px; line-height:1.3">Structural Readiness</div></div>
+          <div style="text-align:center; width:110px"><span class="d-shield2" style="display:inline-block"><svg class="f" viewBox="0 0 120 140"><use href="#vm-shield2"/></svg><svg class="i" viewBox="0 0 24 24"><use href="#vm-userplus"/></svg></span><div style="font-size:var(--tw-text-xs); color:var(--tw-ink-muted); margin-top:8px; line-height:1.3">User Enablement</div></div>
+          <div style="text-align:center; width:110px"><span class="d-shield2" style="display:inline-block"><svg class="f" viewBox="0 0 120 140"><use href="#vm-shield2"/></svg><svg class="i" viewBox="0 0 24 24"><use href="#vm-trend"/></svg></span><div style="font-size:var(--tw-text-xs); color:var(--tw-ink-muted); margin-top:8px; line-height:1.3">Business Advantage</div></div>
+          <div style="text-align:center; width:110px"><span class="d-shield2" style="display:inline-block"><svg class="f" viewBox="0 0 120 140"><use href="#vm-shield2"/></svg><svg class="i" viewBox="0 0 24 24"><use href="#vm-database"/></svg></span><div style="font-size:var(--tw-text-xs); color:var(--tw-ink-muted); margin-top:8px; line-height:1.3">Data Access</div></div>
+          <div style="text-align:center; width:110px"><span class="d-shield2" style="display:inline-block"><svg class="f" viewBox="0 0 120 140"><use href="#vm-shield2"/></svg><svg class="i" viewBox="0 0 24 24"><use href="#vm-doublecheck"/></svg></span><div style="font-size:var(--tw-text-xs); color:var(--tw-ink-muted); margin-top:8px; line-height:1.3">Quality / This&nbsp;Waay mark</div></div>
+        </div>
+      </div>
+      <div class="vm-note"><strong>Decision needed:</strong> V1 keeps the shipped silver/navy bezel — already reused in the AI Practice overlap cards — at a scale that reads better standalone. V2 vectorizes the actual production shield artwork (<code>image26–28.webp</code>: solid dark-navy rim, offset drop-shadow shape rather than a CSS blur, teal-navy face) and extends that treatment to the 5 category pairings that only exist as concept icons today. Choosing V2 would close the "ships as raster, vectorizing is an open task" gap noted above; choosing V1 keeps one fewer shield style in play. Kate to pick a direction before either replaces the roster above.</div>
+    </div>
+
     <!-- ===== SEGMENT CARD — "Who We Serve" ===== -->
     <div class="vmatrix">
       <div class="vm-head">
         <h4>Segment card <span style="font-size:var(--tw-text-xs); color:var(--tw-ink-muted); font-weight:var(--tw-weight-regular)">"Who We Serve" — the three homepage audience segments</span></h4>
       </div>
-      <div style="padding:28px 20px; background:var(--tw-navy)">
-        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:56px 24px; max-width:920px; margin:0 auto">
-          <div class="d-seg">
-            <img class="d-seg__fig" alt="" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96' fill='none'%3E%3Ccircle cx='48' cy='48' r='44' fill='%230C2A48' stroke='%2354B987' stroke-width='3'/%3E%3Crect x='32' y='26' width='32' height='42' rx='4' stroke='%23fff' stroke-width='4.5'/%3E%3Crect x='42' y='20' width='12' height='8' rx='2' stroke='%23fff' stroke-width='3.5'/%3E%3Cpath d='M39 38 H57' stroke='%23fff' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M39 47 H57' stroke='%23fff' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M39 56 H51' stroke='%23fff' stroke-width='3' stroke-linecap='round'/%3E%3Ccircle cx='62' cy='64' r='11' fill='%2354B987'/%3E%3Cpath d='M57 64 L61 68 L68 58' stroke='%23fff' stroke-width='3.2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
-            <div class="d-seg__title">Scaling &amp; Emerging Technology Teams</div>
-            <p class="d-seg__body">We help growing product and technology teams clarify workflows, strengthen usability, and build systems that scale with greater confidence.</p>
+      <div style="padding:56px 20px 44px; background:var(--tw-navy); position:relative; overflow:hidden">
+        <svg class="flight-path" viewBox="0 0 1200 90" fill="none" aria-hidden="true" preserveAspectRatio="none" style="opacity:.5; top:18px; bottom:auto; height:80px">
+          <path d="M0 60 C 150 24, 280 70, 380 48 C 430 38, 446 10, 420 12 C 396 14, 414 48, 470 44 C 600 35, 720 14, 860 40 C 960 58, 1080 52, 1200 24" stroke="#FFFFFF" stroke-width="3" stroke-dasharray="0.1 9" stroke-linecap="round"/>
+        </svg>
+        <div style="text-align:center; max-width:620px; margin:0 auto 40px; position:relative; z-index:2">
+          <span style="display:block; font-size:var(--tw-text-xs); font-weight:var(--tw-weight-bold); letter-spacing:var(--tw-tracking-widest); text-transform:uppercase; color:var(--tw-green); margin-bottom:10px">Who we serve</span>
+          <h3 style="color:#fff; font-family:var(--tw-font-display); font-weight:var(--tw-weight-bold); font-size:var(--tw-text-h2); margin:0 0 12px">Leaders navigating complex systems</h3>
+          <p style="color:#C5D3DD; font-size:var(--tw-text-md); margin:0">We partner with product, technology, and operational leaders working in high-stakes environments where system clarity, workflow design, and thoughtful evolution have real organizational impact.</p>
+        </div>
+        <div class="d-seg2-grid">
+          <div class="d-seg2">
+            <span class="d-seg2__tag"><svg viewBox="0 0 24 24"><use href="#vm-shootingstar"/></svg></span>
+            <h4 class="d-seg2__title">Scaling &amp; Emerging Technology Teams</h4>
+            <p class="d-seg2__body">We help growing product and technology teams clarify workflows, strengthen usability, and build systems that scale with greater confidence.</p>
           </div>
-          <div class="d-seg">
-            <img class="d-seg__fig" alt="" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96' fill='none'%3E%3Ccircle cx='48' cy='48' r='44' fill='%230C2A48' stroke='%2354B987' stroke-width='3'/%3E%3Cpath d='M30 24 H54 L66 36 V68 A4 4 0 0 1 62 72 H34 A4 4 0 0 1 30 68 Z' stroke='%23fff' stroke-width='4.5' stroke-linejoin='round'/%3E%3Cpath d='M54 24 V36 H66' stroke='%23fff' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M37 46 H58' stroke='%23fff' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M37 54 H58' stroke='%23fff' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M37 62 H50' stroke='%23fff' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M73 26 L66.5 23.5 L64 17 L61.5 23.5 L55 26 L61.5 28.5 L64 35 L66.5 28.5 Z' fill='%2354B987'/%3E%3C/svg%3E">
-            <div class="d-seg__title">Investors &amp; Portfolio Operators</div>
-            <p class="d-seg__body">We help investors and operators assess product maturity, surface workflow and UX opportunities, and support portfolio transformation.</p>
+          <div class="d-seg2">
+            <span class="d-seg2__tag"><svg viewBox="0 0 24 24"><use href="#vm-handgift"/></svg></span>
+            <h4 class="d-seg2__title">Investors &amp; Portfolio Operators</h4>
+            <p class="d-seg2__body">We help investors and operators assess product maturity, surface workflow and UX opportunities, and support portfolio transformation.</p>
           </div>
-          <div class="d-seg">
-            <img class="d-seg__fig" alt="" style="max-height:56px" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='138' height='80' viewBox='0 0 138 80' fill='none'%3E%3Crect width='130.856' height='68.3352' rx='10' transform='matrix(0.996452 -0.0841652 0.0984252 0.995144 0 11.0137)' fill='%2372B68A'/%3E%3Cpath d='M64.9593 38.4598L62.356 41.0632C61.1093 39.7982 59.8993 38.1665 59.0743 35.6732L62.631 34.7748C63.2176 36.4065 64.0426 37.5248 64.9593 38.4598ZM67.196 28.9998L59.8626 21.6665L52.5293 28.9998H58.066C58.1026 30.4848 58.2126 31.8232 58.4143 32.9782L61.971 32.0798C61.8426 31.1998 61.751 30.1548 61.7326 28.9998H67.196ZM85.5293 28.9998L78.196 21.6665L70.8626 28.9998H76.3443C76.161 35.7465 73.9976 37.7082 71.6876 39.7798C70.771 40.5865 69.836 41.4665 69.0293 42.6215C68.406 41.7232 67.691 41.0082 66.9576 40.3482L64.3726 42.9332C66.0776 44.4915 67.196 45.7565 67.196 49.1665V58.3332H70.8626V49.1665C70.8626 45.4632 72.1643 44.2898 74.1443 42.5115C76.6743 40.2382 79.791 37.4148 80.011 28.9998H85.5293Z' fill='white'/%3E%3C/svg%3E">
-            <div class="d-seg__title">Government &amp; Public Sector Systems</div>
-            <p class="d-seg__body">We help public-sector teams improve tools, workflows, and digital systems so they are clearer, more usable, and better aligned to real-world operations.</p>
+          <div class="d-seg2">
+            <span class="d-seg2__tag"><svg viewBox="0 0 24 24"><use href="#vm-forkpaths"/></svg></span>
+            <h4 class="d-seg2__title">Government &amp; Public Sector Systems</h4>
+            <p class="d-seg2__body">We help public-sector teams improve tools, workflows, and digital systems so they are clearer, more usable, and better aligned to real-world operations.</p>
           </div>
         </div>
       </div>
-      <div class="vm-note"><strong>The figure is asset-driven, not a fixed shape.</strong> These are the three real production icons (<code>icon07.svg</code>, <code>icon09.svg</code>, <code>icon06.svg</code>), embedded here verbatim — not a "badge type" template. Two happen to be navy-circle icons; the third is a green skewed rectangle sharing the float-panel card's skew motif at icon scale. Corrected 2026-08 — previously documented as a uniform circular badge, which only described two of the three.</div>
+      <div class="vm-note"><strong>Updated 2026-08.</strong> Replaces the circle-badge / centered layout previously documented here. New anatomy: a light card (not the soft aqua-to-sand gradient), left-aligned copy, and a small <strong>skewed green icon tag overlapping the card's top-left corner</strong> — the float-panel skew motif at badge scale instead of card scale. <strong>Sync note:</strong> as of this writing, thiswaay.com's <code>.we-serve-section .box</code> CSS still ships the previous centered/circle-badge version — this preview documents the target direction, flagging it here so the two get reconciled rather than silently diverging.</div>
     </div>
 
     <!-- ===== LISTS ===== -->
