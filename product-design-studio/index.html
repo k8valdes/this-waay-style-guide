@@ -18,13 +18,13 @@
   :root {
     /* Core palette */
     --tw-navy:        #0C2A48;  /* Primary dark. Hero + section backgrounds, logo plane body */
-    --tw-navy-deep:   #081F37;  /* Footer / deepest surfaces */
+    --tw-navy-deep:   #05203A;  /* Footer / deepest surfaces (v3: was #081F37) */
     --tw-teal:        #0BABAB;  /* Subheads, links, accents (deck heritage color) */
     --tw-green:       #54B987;  /* THE brand green. All actions, labels, highlights — light or dark grounds */
     --tw-green-bright:#3DD68C;  /* Punch accent ONLY. One intentional moment per page/asset, max. Never default */
     --tw-steel:       #0D698A;  /* Secondary blue. Charts, supporting UI */
     --tw-slate:       #8DA3B5;  /* Muted blue-gray. Borders, gridlines, decorative use, and text on DARK grounds only — fails AA as text on light (2.6:1). Use --tw-ink-muted for text on light. */
-    --tw-gray:        #595959;  /* Deck headers / body text on light */
+    --tw-gray:        #595959;  /* DECKS ONLY — slide headers / body on white. Never on the marketing site */
 
     /* Accessible "ink" text variants — WCAG 2.2 AA (4.5:1+) for TEXT on light grounds.
        The saturated brand hues above stay as fills/large surfaces/dark-ground text, where they already pass.
@@ -39,12 +39,19 @@
     --tw-coral:       #F2A08D;  /* Glowing path/node accent in illustrations. NOT a UI color */
 
     /* Surfaces */
-    --tw-mint:        #EEF8EC;  /* Gradient stop A — warm mint */
-    --tw-ice:         #F2FBFB;  /* Gradient stop B — cool ice */
+    --tw-mint:        #E8FEFB;  /* Gradient stop A (0%) — cool aqua (v3: was #EEF8EC) */
+    --tw-ice:         #F2FBFB;  /* Gradient stop B (55%) — ice */
+    --tw-sand:        #FDF5E8;  /* Gradient stop C (100%) — the WARM stop (v3 addition) */
     --tw-white:       #FFFFFF;
 
+    /* On-dark card surface — translucent-white cards on navy (e.g. track/plan cards). Needs a navy backdrop to read; not self-contained. */
+    --tw-card-fill-dark:   rgba(255,255,255,0.04);
+    --tw-card-border-dark: rgba(255,255,255,0.1);
+    --tw-text-on-dark-body: rgba(255,255,255,0.72);  /* body copy, list items on navy — ~9:1, passes AA */
+    --tw-text-on-dark-meta: rgba(255,255,255,0.6);   /* de-emphasized meta text on navy — floor is 60%; 45% measures ~4.1:1 and fails AA, 60% clears 4.5:1 */
+
     /* Gradients */
-    --tw-grad-soft:   linear-gradient(135deg, #EEF8EC 0%, #F2FBFB 100%);
+    --tw-grad-soft:   linear-gradient(135deg, #E8FEFB 0%, #F2FBFB 55%, #FDF5E8 100%);
     --tw-grad-green:  linear-gradient(135deg, #54B987 0%, #3DD68C 100%);  /* Counts as a punch usage — same one-per-asset rule */
     --tw-grad-wing:   linear-gradient(90deg, #30737B 0%, #62D38C 100%);   /* Official wing stops (tail → nose), from master logo. Motif use only */
 
@@ -103,8 +110,13 @@
     --tw-leading-loose:   1.7;   /* body copy */
 
     /* Shape & rhythm */
-    --tw-radius-card: 14px;
-    --tw-radius-pill: 999px;
+    --tw-measure:       68ch;  /* body copy measure */
+    --tw-measure-tight: 46ch;  /* lede / card copy */
+    --tw-measure-head:  22ch;  /* display headlines */
+    --tw-radius-card: 8px;    /* v3: production is 8px (was 14px) */
+    --tw-radius-track: 14px;  /* the ONE 14px exception — on-navy track card */
+    --tw-radius-pill: 25px;   /* v3: production is 25px (was 999px) */
+    --tw-radius-input: 2px;   /* form fields are nearly square */
     --tw-shadow-card: 0 10px 30px rgba(12, 42, 72, 0.10);
     --tw-section-pad: clamp(56px, 8vw, 110px);
   }
@@ -235,9 +247,114 @@
   }
   .btn:hover { filter: brightness(1.06); transform: translateY(-1px); }
   @media (prefers-reduced-motion: reduce) { .btn:hover { transform: none; } }
-  .btn-primary { background: var(--tw-green); color: var(--tw-navy); } /* white-on-green was 2.4:1, fails AA; navy-on-green is 6:1 */
+  .btn-primary { background: var(--tw-green); color: #fff; } /* DECIDED 2026-08 (Kate): white on green, matching production. Measures ~2.4:1 — see the accessibility note on the Button matrix. */
   .btn-ghost-dark { background: transparent; color: var(--tw-green); border: 1.5px solid var(--tw-green); } /* green passes ~6:1 on the navy ground this variant is always used on */
   .btn-light { background: #fff; color: var(--tw-teal-ink); box-shadow: var(--tw-shadow-card); }
+  /* size axis */
+  .btn-lg { padding: 13px 30px 11px; font-size: var(--tw-text-lg); }
+  .btn-md { padding: 10px 22px 9px; font-size: var(--tw-text-md); }
+  .btn-sm { padding: 7px 16px 6px; font-size: var(--tw-text-sm); }
+  /* tag style + states */
+  .btn-tag { background: transparent; color: var(--tw-green-ink); border: 2px solid var(--tw-green); border-radius: 2px; padding: 5px 10px; font-size: var(--tw-text-xs); }
+  .btn[disabled], .btn.is-disabled { opacity: .45; cursor: not-allowed; filter: none; transform: none; }
+  .btn.is-focus { outline: 3px solid var(--tw-green-ink); outline-offset: 3px; }
+  .btn.is-hover { filter: brightness(1.06); }
+
+  /* ---------- Variant matrix (the pattern for documenting component variations) ---------- */
+  .vmatrix { border: 1px solid #DCE6EE; border-radius: var(--tw-radius-card); overflow: hidden; margin-bottom: 34px; background: #fff; }
+  .vm-head { display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; align-items: center; padding: 15px 20px; background: #F7FAFC; border-bottom: 1px solid #DCE6EE; }
+  .vm-head h4 { margin: 0; font-size: var(--tw-text-xl); font-family: var(--tw-font-display); font-weight: var(--tw-weight-bold); color: var(--tw-navy); text-transform: none; letter-spacing: 0; }
+  .vm-axes { display: flex; gap: 7px; flex-wrap: wrap; }
+  .vm-axis { font-size: var(--tw-text-2xs); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; background: #fff; border: 1px solid #DCE6EE; border-radius: 99px; padding: 4px 10px; color: var(--tw-ink-muted); }
+  .vm-axis b { color: var(--tw-green-ink); font-weight: var(--tw-weight-bold); }
+  .vm-scroll { overflow-x: auto; }
+  .vm-table { border-collapse: collapse; width: 100%; min-width: 580px; }
+  .vm-table th, .vm-table td { border-bottom: 1px solid #EDF2F6; padding: 14px 16px; text-align: left; vertical-align: middle; }
+  .vm-table tr:last-child th, .vm-table tr:last-child td { border-bottom: none; }
+  .vm-table thead th { font-size: var(--tw-text-2xs); text-transform: uppercase; letter-spacing: var(--tw-tracking-wide); color: var(--tw-ink-muted); background: #FBFDFE; font-weight: var(--tw-weight-semibold); }
+  .vm-table th[scope="row"] { font-size: var(--tw-text-md); color: var(--tw-navy); font-weight: var(--tw-weight-semibold); white-space: nowrap; }
+  .vm-table th[scope="row"] span { display: block; font-size: var(--tw-text-2xs); font-weight: var(--tw-weight-regular); color: var(--tw-ink-muted); text-transform: none; letter-spacing: 0; margin-top: 3px; }
+  .vm-cell code { display: block; margin-top: 8px; font-size: 10px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--tw-ink-muted); }
+  .vm-onnavy { background: var(--tw-navy); }
+  .vm-onnavy th[scope="row"] { color: #fff; }
+  .vm-onnavy th[scope="row"] span, .vm-onnavy .vm-cell code { color: rgba(255,255,255,.6); }
+  .vm-onnavy th, .vm-onnavy td { border-color: rgba(255,255,255,.12); }
+  .vm-note { padding: 14px 20px; background: #FFF8E8; border-top: 1px solid #F0E2C0; font-size: var(--tw-text-md); color: #6B5A2E; }
+
+  /* ---------- Demo primitives for the variant matrices (production geometry) ---------- */
+  .d-card { border-radius: 8px; padding: 16px 18px; min-height: 92px; }
+  .d-card h6 { margin: 0 0 5px; font-family: var(--tw-font-display); font-weight: var(--tw-weight-bold); font-size: var(--tw-text-lg); color: var(--tw-navy); letter-spacing: 0; text-transform: none; }
+  .d-card p { margin: 0; font-size: var(--tw-text-md); color: rgba(12,42,72,.65); }
+  .g-white { background: #fff; box-shadow: var(--tw-shadow-card); }
+  .g-soft { background: linear-gradient(135deg,#E8FEFB 0,#F2FBFB 55%,#FDF5E8 100%); }
+  .g-softwarm { background: linear-gradient(135deg,#F5F7EC 0,#EAFDFA 20%,#F2FBFB 80%,#F8F7F0 100%); }
+  .g-green { background: #54B987; }
+  .g-green h6 { color: #fff; } .g-green p { color: rgba(255,255,255,.9); }
+  .g-stroke { background: #fff; border: 1.5px solid #D7E3EC; }
+  .g-translucent { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1); }
+  .g-translucent h6 { color: #fff; } .g-translucent p { color: rgba(255,255,255,.72); }
+
+  /* float-panel card — the signature */
+  .d-float { position: relative; z-index: 1; padding: 44px 14px 22px; text-align: center; }
+  .d-float::before { content: ''; position: absolute; left: 0; right: 0; bottom: 0; top: var(--fp-top, 56px); border-radius: 8px; background: var(--fp-panel, #54B987); transform: skewY(-10deg); z-index: -1; }
+  .d-float .fig { display: grid; place-items: center; height: var(--fp-fig, 56px); margin: 0 auto 10px; }
+  .d-float h6 { margin: 0 0 4px; font-family: var(--tw-font-display); font-weight: var(--tw-weight-bold); font-size: var(--tw-text-md); color: var(--fp-title, var(--tw-navy)); letter-spacing: 0; text-transform: none; }
+  .d-float p { margin: 0; font-size: var(--tw-text-xs); color: var(--fp-body, rgba(12,42,72,.65)); }
+
+  /* segment card — "Who We Serve". Figure is asset-driven, not a fixed shape:
+     the component only enforces the -40px overlap, not what fills it. */
+  .d-seg { height: 100%; padding: 0 22px 22px; border-radius: 8px; background: linear-gradient(135deg,#E8FEFB 0%,#F2FBFB 55%,#FDF5E8 100%); text-align: center; }
+  .d-seg__fig { margin-top: -40px; max-height: 84px; width: auto; display: inline-block; }
+  .d-seg__title { color: var(--tw-navy); font-size: var(--tw-text-lg); font-family: var(--tw-font-display); font-weight: var(--tw-weight-bold); margin: 55px 0 8px; }
+  .d-seg__body { color: var(--tw-navy); font-size: var(--tw-text-sm); font-family: var(--tw-font-body); opacity: .65; margin: 0; }
+
+  /* badges */
+  .d-badge { display: inline-grid; place-items: center; }
+  .d-tile { width: 44px; height: 44px; border-radius: 10px; background: #54B987; color: #fff; }
+  .d-tile.circ { border-radius: 50%; }
+  .d-tile.punch { background: linear-gradient(135deg,#54B987 0,#3DD68C 100%); }
+  .d-pill { display: inline-block; background: #54B987; color: #fff; font-family: var(--tw-font-display); font-weight: var(--tw-weight-semibold); font-size: var(--tw-text-xs); padding: 6px 16px; border-radius: 25px; }
+  .d-tagchip { display: inline-block; border: 2px solid #54B987; color: var(--tw-green-ink); font-size: var(--tw-text-2xs); padding: 4px 9px; border-radius: 2px; }
+  .d-price { display: inline-block; position: relative; background: #54B987; color: #fff; padding: 9px 15px; border-radius: 8px; transform: skewX(-6deg); font-family: var(--tw-font-display); font-weight: var(--tw-weight-bold); font-size: var(--tw-text-md); }
+  .d-price span { display: block; transform: skewX(6deg); }
+  .d-shield { position: relative; width: 44px; height: 52px; filter: drop-shadow(0 5px 7px rgba(8,25,45,.4)); }
+  .d-shield svg.f { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .d-shield svg.i { position: absolute; top: 42%; left: 50%; transform: translate(-50%,-50%); width: 18px; height: 18px; color: #fff; }
+
+  /* placement demos */
+  .d-place { position: relative; background: #fff; border-radius: 8px; padding: 16px; box-shadow: var(--tw-shadow-card); min-height: 96px; }
+  .d-place .b { width: 34px; height: 34px; border-radius: 8px; background: #54B987; display: grid; place-items: center; color: #fff; }
+  .p-tl .b { margin: 0 0 9px; }
+  .p-tc { text-align: center; } .p-tc .b { margin: 0 auto 9px; }
+  .p-tr .b { position: absolute; top: 14px; right: 14px; }
+  .p-fa { margin-top: 20px; } .p-fa .b { margin: -32px 0 9px; }
+  .p-fs { margin-left: 20px; } .p-fs .b { position: absolute; top: 16px; left: -17px; box-shadow: 0 5px 12px rgba(12,42,72,.25); } .p-fs h6 { padding-left: 24px; }
+  .p-cn .b { position: absolute; top: -7px; right: 12px; width: auto; height: auto; padding: 7px 11px; transform: skewX(-6deg); font-size: var(--tw-text-2xs); font-weight: var(--tw-weight-bold); }
+
+  /* list markers */
+  .d-list { list-style: none; margin: 0; padding: 0; }
+  .d-list li { position: relative; padding-left: 24px; margin: 0 0 8px; font-size: var(--tw-text-md); color: rgba(12,42,72,.65); }
+  .l-plane li::before { content: ''; position: absolute; left: 0; top: 3px; width: 14px; height: 14px; background: no-repeat center/contain; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 11.5L21 3L14.5 21L11 13L3 11.5Z' fill='%2354b987'/%3E%3C/svg%3E"); }
+  .l-check li::before { content: ''; position: absolute; left: 0; top: 2px; width: 15px; height: 15px; border-radius: 50%; border: 2px solid #54B987; }
+  .l-check li::after { content: ''; position: absolute; left: 4.5px; top: 6px; width: 6px; height: 3px; border-left: 2px solid #54B987; border-bottom: 2px solid #54B987; transform: rotate(-45deg); }
+  .l-dot li::before { content: ''; position: absolute; left: 5px; top: 7px; width: 6px; height: 6px; border-radius: 50%; background: #54B987; }
+  .d-steps { counter-reset: s; list-style: none; margin: 0; padding: 0; }
+  .d-steps li { counter-increment: s; position: relative; padding-left: 42px; margin: 0 0 12px; font-size: var(--tw-text-md); color: rgba(12,42,72,.65); min-height: 30px; }
+  .d-steps li::before { content: counter(s); position: absolute; left: 0; top: -4px; font-family: var(--tw-font-display); font-weight: var(--tw-weight-bold); font-size: 30px; color: #54B987; line-height: 1; }
+  .d-conn li { position: relative; padding-left: 24px; margin: 0 0 14px; font-size: var(--tw-text-md); color: rgba(12,42,72,.65); list-style: none; }
+  .d-conn li::before { content: ''; position: absolute; left: 3px; top: 5px; width: 8px; height: 8px; border-radius: 50%; background: #54B987; }
+  .d-conn li:not(:last-child)::after { content: ''; position: absolute; left: 6px; top: 15px; bottom: -12px; border-left: 2px dotted #9FC9B4; }
+
+  /* hero demos */
+  .d-hero { border-radius: 8px; padding: 22px 20px; min-height: 128px; position: relative; overflow: hidden; }
+  .d-hero .eb { font-size: var(--tw-text-2xs); letter-spacing: var(--tw-tracking-widest); text-transform: uppercase; color: #54B987; font-weight: var(--tw-weight-bold); display: block; margin-bottom: 7px; }
+  .d-hero h6 { margin: 0 0 8px; font-family: var(--tw-font-display); font-weight: var(--tw-weight-semibold); font-size: var(--tw-text-xl); letter-spacing: 0; text-transform: none; line-height: 1.2; }
+  .d-hero p { margin: 0 0 12px; font-size: var(--tw-text-xs); }
+  .h-navy { background: var(--tw-navy); } .h-navy h6 { color: #54B987; } .h-navy p { color: rgba(255,255,255,.85); }
+  .h-navy-white h6 { color: #fff; }
+  .h-tex { background: var(--tw-navy); background-image: repeating-linear-gradient(0deg,transparent 0 23px,rgba(255,255,255,.04) 23px 24px), repeating-linear-gradient(90deg,transparent 0 23px,rgba(255,255,255,.04) 23px 24px); }
+  .h-tex h6 { color: #fff; } .h-tex p { color: rgba(255,255,255,.85); }
+  .h-soft { background: linear-gradient(135deg,#E8FEFB 0,#F2FBFB 55%,#FDF5E8 100%); } .h-soft h6 { color: var(--tw-navy); } .h-soft p { color: rgba(12,42,72,.65); }
 
   .cat-label {
     display: inline-block; background: var(--tw-green); color: var(--tw-navy); text-align: center; /* was white-on-green, 2.4:1 — fails AA */
@@ -279,7 +396,10 @@
 
   .tw-service-wrap { position: relative; padding-top: 32px; }
   .tw-service-wrap .badge-shield { position: absolute; top: 0; left: 50%; transform: translateX(-50%); z-index: 2; }
-  .tw-service { background: var(--tw-green); color: #fff; border-radius: 10px; padding: 52px 22px 26px; text-align: center; clip-path: polygon(0 8%, 100% 0, 100% 100%, 0 100%); }
+  /* Float-panel construction: a skewed panel BEHIND the content, not a clipped card.
+     Matches production (.artifacts-section .box) and the Variants matrix. */
+  .tw-service { position: relative; z-index: 1; background: transparent; color: #fff; padding: 46px 22px 26px; text-align: center; }
+  .tw-service::before { content: ''; position: absolute; top: 12px; right: 0; bottom: 0; left: 0; background: var(--tw-green); border-radius: 8px; transform: skewY(-10deg); z-index: -1; }
   .tw-service h5 { font-family: var(--tw-font-display); font-weight: var(--tw-weight-bold); color: var(--tw-navy); margin-bottom: 8px; font-size: var(--tw-text-lg); }
   .tw-service p { font-size: var(--tw-text-md); }
 
@@ -317,6 +437,24 @@
   .tw-price.featured .tier, .tw-price.featured .start { color: var(--tw-navy); } /* white-on-green was ~2.4:1, fails */
   .tw-price.featured .amount { color: var(--tw-navy); }
   .tw-price.featured ul { color: var(--tw-navy); }
+
+  /* Track card — on-dark plan/pricing card. Navy ground only; the translucent fill needs the dark backdrop to read. */
+  .track-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; }
+  .tw-track {
+    background: var(--tw-card-fill-dark); border: 1px solid var(--tw-card-border-dark);
+    border-radius: var(--tw-radius-card); box-shadow: var(--tw-shadow-card);
+    padding: 32px; display: flex; flex-direction: column; gap: 14px; text-align: left;
+  }
+  .tw-track .track-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .tw-track .track-head h5 { font-family: var(--tw-font-display); font-weight: var(--tw-weight-semibold); font-size: var(--tw-text-lg); color: #fff; }
+  .tw-track .track-price { font-family: var(--tw-font-display); font-weight: var(--tw-weight-bold); font-size: var(--tw-text-2xl); color: var(--tw-green); } /* raw green passes ~6:1 on navy */
+  .tw-track .track-meta { font-size: var(--tw-text-sm); color: var(--tw-text-on-dark-meta); }
+  .tw-track .track-desc { font-size: var(--tw-text-md); line-height: var(--tw-leading-relaxed); color: var(--tw-text-on-dark-body); }
+  .tw-track .track-includes { border-top: 1px solid var(--tw-card-border-dark); padding-top: 16px; display: flex; flex-direction: column; gap: 12px; }
+  .tw-track .track-includes .label { font-family: var(--tw-font-display); font-weight: var(--tw-weight-bold); font-size: var(--tw-text-xs); letter-spacing: var(--tw-tracking-wide-md); text-transform: uppercase; color: var(--tw-green); }
+  .tw-track .track-includes ul { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+  .tw-track .track-includes li { display: flex; gap: 11px; align-items: flex-start; padding: 3px 0; font-size: var(--tw-text-sm); line-height: var(--tw-leading-relaxed-sm); color: var(--tw-text-on-dark-body); }
+  .tw-track .track-includes li::before { content: ''; flex: none; width: 5px; height: 5px; margin-top: 7px; border-radius: 50%; background: var(--tw-green); }
 
   .consol-note { margin-top: 40px; background: #fff; border: 1px dashed #B7CCBE; border-radius: var(--tw-radius-card); padding: 24px 28px; font-size: var(--tw-text-lg); color: #3D5670; }
   .consol-note strong { font-family: var(--tw-font-display); color: var(--tw-navy); }
@@ -449,7 +587,10 @@
   .archetype .seg { padding: 14px 18px; font-family: var(--tw-font-display); font-weight: var(--tw-weight-semibold); font-size: var(--tw-text-md); }
   .archetype .navy { background: var(--tw-navy); color: #fff; }
   .archetype .soft { background: var(--tw-grad-soft); color: var(--tw-navy); }
-  .archetype .ang { clip-path: polygon(0 30%, 100% 0, 100% 100%, 0 100%); margin-top: -10px; }
+  .archetype .white { background: #fff; color: var(--tw-navy); }
+  .archetype .ang { clip-path: polygon(0 30%, 100% 0, 100% 100%, 0 100%); margin-top: -10px; padding-top: 30px; }
+  .archetype .seg small { display: block; font-weight: var(--tw-weight-regular); font-size: var(--tw-text-2xs); opacity: .7; margin-top: 2px; }
+  .grp { display: inline-block; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: var(--tw-text-2xs); border: 1px solid currentColor; border-radius: 99px; padding: 1px 7px; opacity: .65; margin-left: 6px; vertical-align: middle; }
 
   /* ---------- Screenshots ---------- */
   .shot-frame-light { background: var(--tw-grad-soft); border-radius: var(--tw-radius-card); padding: 26px; }
@@ -687,6 +828,7 @@
         <button type="button" class="nav-group-btn" aria-expanded="false" aria-controls="nav-sub-system">System<span class="chev" aria-hidden="true">⌄</span></button>
         <ul class="nav-subnav" id="nav-sub-system" hidden>
           <li><a href="#components">Core components</a></li>
+          <li><a href="#variants">Variants</a></li>
         </ul>
       </div>
       <div class="nav-group">
@@ -695,7 +837,16 @@
           <li><a href="#screens">Screenshots</a></li>
           <li><a href="#dataviz">Data visualization</a></li>
           <li><a href="#diagrams">Diagrams &amp; frameworks</a></li>
-          <li><a href="#decks">Slide decks</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button type="button" class="nav-group-btn" aria-expanded="false" aria-controls="nav-sub-decks">Decks<span class="chev" aria-hidden="true">⌄</span></button>
+        <ul class="nav-subnav" id="nav-sub-decks" hidden>
+          <li><a href="#decks">Deck system</a></li>
+          <li><a href="#deck-foundations">Deck color &amp; type</a></li>
+          <li><a href="#deck-templates">Templates</a></li>
+          <li><a href="#deck-components">Deck components</a></li>
+          <li><a href="#deck-rules">Deck rules</a></li>
         </ul>
       </div>
       <div class="nav-group">
@@ -721,7 +872,7 @@
     <path d="M300 230 L560 40 L330 320 Z" fill="#ffffff" opacity="0.6"/>
   </svg>
   <div class="wrap">
-    <div class="eyebrow" style="color:var(--tw-green)">Living Style Guide · v2.3 · July 2026 · Public-safe edition</div>
+    <div class="eyebrow" style="color:var(--tw-green)">Living Style Guide · v3.0 · August 2026 · Public-safe edition</div>
     <h1 style="margin-top:14px">Guiding complex products<br>with a <span class="hl">consistent visual language</span></h1>
     <p class="lede">The single source of truth for This Waay's brand — colors, type, components, illustration prompts, and voice. Built to be read by humans and used as context by AI tools.</p>
     <div class="hero-meta">
@@ -751,7 +902,7 @@
       <div class="when">Value → use, no alias hop. Representative declarations from this page's <strong style="color:#CFE3DA">:root</strong>:</div>
       <pre id="token-arch-spec">--tw-navy: #0C2A48;              /* color primitive — used directly */
 --tw-green-ink: #2C6D4D;         /* accessible text variant of green — 6.2:1 on white */
---tw-grad-soft: linear-gradient(135deg, #EEF8EC 0%, #F2FBFB 100%);  /* standard light surface */
+--tw-grad-soft: linear-gradient(135deg, #E8FEFB 0%, #F2FBFB 55%, #FDF5E8 100%);  /* standard light surface */
 --tw-text-md: 0.85rem;           /* step 4 of the 10-step UI text scale */
 --tw-radius-card: 14px;          /* card and panel corners */
 --tw-section-pad: clamp(56px, 8vw, 110px);  /* section rhythm */</pre>
@@ -767,27 +918,41 @@
     <div class="sec-head">
       <div class="eyebrow">02 · Foundations</div>
       <h2>Color system</h2>
-      <p class="lede">Navy is the ground; <strong>Waay Green is the action — everywhere, on every surface</strong>. Punch Green exists for rare, deliberate emphasis. Teal is heritage — it carries hierarchy in documents and decks. Click any swatch to copy its hex.</p>
+      <p class="lede">Navy and white are the two grounds the page alternates between; <strong>Waay Green is the action — everywhere, on every surface</strong>. Punch Green exists for rare, deliberate emphasis. Secondary colors support charts, documents, and illustration but never lead. Click any swatch to copy its hex.</p>
     </div>
     <h3 style="margin-bottom:18px">Primary</h3>
     <div class="swatch-grid" style="margin-bottom:40px">
-      <button type="button" class="swatch" data-hex="#0C2A48" aria-label="Deep Navy, hex 0 C 2 A 4 8. Press to copy hex code."><div class="chipcolor" style="background:#0C2A48" aria-hidden="true"><span class="copied-tag">Copied</span></div><div class="info" aria-hidden="true"><div class="name">Deep Navy</div><div class="hex">#0C2A48</div><div class="use">Hero &amp; section backgrounds, card bodies, logo plane. The brand's ground state.</div></div></button>
+      <button type="button" class="swatch" data-hex="#0C2A48" aria-label="Navy, hex 0 C 2 A 4 8. Press to copy hex code."><div class="chipcolor" style="background:#0C2A48" aria-hidden="true"><span class="copied-tag">Copied</span></div><div class="info" aria-hidden="true"><div class="name">Navy</div><div class="hex">#0C2A48</div><div class="use">The brand's ground state — hero &amp; section backgrounds, card bodies, body text, logo plane.</div></div></button>
+      <button type="button" class="swatch" data-hex="#05203A" aria-label="Deep Navy, hex 0 5 2 0 3 A. Press to copy hex code."><div class="chipcolor" style="background:#05203A" aria-hidden="true"><span class="copied-tag">Copied</span></div><div class="info" aria-hidden="true"><div class="name">Deep Navy</div><div class="hex">#05203A</div><div class="use">The deepest surface — footer and lowest layer. Sits beneath Navy, never beside it as a peer.</div></div></button>
+      <button type="button" class="swatch" data-hex="#FFFFFF" aria-label="White, hex F F F F F F. Press to copy hex code."><div class="chipcolor" style="background:#FFFFFF; border-bottom:1px solid #E4EDF2" aria-hidden="true"><span class="copied-tag">Copied</span></div><div class="info" aria-hidden="true"><div class="name">White</div><div class="hex">#FFFFFF</div><div class="use">A primary ground, not an absence — alternating white sections carry half the page rhythm. Also the plane body on navy.</div></div></button>
       <button type="button" class="swatch" data-hex="#54B987" aria-label="Waay Green, hex 5 4 B 9 8 7. Press to copy hex code."><div class="chipcolor" style="background:#54B987" aria-hidden="true"><span class="copied-tag">Copied</span></div><div class="info" aria-hidden="true"><div class="name">Waay Green</div><div class="hex">#54B987</div><div class="use">The brand green. All actions, labels, highlights, and accents — on light and dark grounds alike. Default to this.</div></div></button>
       <button type="button" class="swatch" data-hex="#3DD68C" aria-label="Punch Green, hex 3 D D 6 8 C. Press to copy hex code."><div class="chipcolor" style="background:#3DD68C" aria-hidden="true"><span class="copied-tag">Copied</span></div><div class="info" aria-hidden="true"><div class="name">Punch Green</div><div class="hex">#3DD68C</div><div class="use">Sparing, intentional emphasis only — at most one moment per page or asset (e.g., a single highlighted headline word). Never for buttons, labels, or recurring UI.</div></div></button>
-      <button type="button" class="swatch" data-hex="#0BABAB" aria-label="Teal, hex 0 B A B A B. Press to copy hex code."><div class="chipcolor" style="background:#0BABAB" aria-hidden="true"><span class="copied-tag">Copied</span></div><div class="info" aria-hidden="true"><div class="name">Teal</div><div class="hex">#0BABAB</div><div class="use">Subheads, links, mid-sentence callouts in decks and documents.</div></div></button>
     </div>
-    <h3 style="margin-bottom:18px">Supporting &amp; surfaces</h3>
-    <div class="swatch-grid">
+    <h3 style="margin-bottom:18px">Secondary</h3>
+    <div class="swatch-grid" style="margin-bottom:40px">
+      <button type="button" class="swatch" data-hex="#0BABAB" aria-label="Teal, hex 0 B A B A B. Press to copy hex code."><div class="chipcolor" style="background:#0BABAB" aria-hidden="true"><span class="copied-tag">Copied</span></div><div class="info" aria-hidden="true"><div class="name">Teal</div><div class="hex">#0BABAB</div><div class="use">Heritage accent — subheads, links, and mid-sentence callouts in documents. Not a site UI color.</div></div></button>
       <button type="button" class="swatch" data-hex="#0D698A" aria-label="Steel Blue, hex 0 D 6 9 8 A. Press to copy hex code."><div class="chipcolor" style="background:#0D698A" aria-hidden="true"><span class="copied-tag">Copied</span></div><div class="info" aria-hidden="true"><div class="name">Steel Blue</div><div class="hex">#0D698A</div><div class="use">Charts, diagrams, secondary data series.</div></div></button>
-      <button type="button" class="swatch" data-hex="#595959" aria-label="Deck Gray, hex 5 9 5 9 5 9. Press to copy hex code."><div class="chipcolor" style="background:#595959" aria-hidden="true"><span class="copied-tag">Copied</span></div><div class="info" aria-hidden="true"><div class="name">Deck Gray</div><div class="hex">#595959</div><div class="use">Slide headers and body text on white (deck system).</div></div></button>
-      <button type="button" class="swatch" data-hex="#8DA3B5" aria-label="Slate, hex 8 D A 3 B 5. Press to copy hex code."><div class="chipcolor" style="background:#8DA3B5" aria-hidden="true"><span class="copied-tag">Copied</span></div><div class="info" aria-hidden="true"><div class="name">Slate</div><div class="hex">#8DA3B5</div><div class="use">Muted labels, captions, secondary text.</div></div></button>
-      <button type="button" class="swatch" data-hex="#EEF8EC" aria-label="Mint, hex E E F 8 E C. Press to copy hex code."><div class="chipcolor" style="background:#EEF8EC; border-bottom:1px solid #E4EDF2" aria-hidden="true"><span class="copied-tag">Copied</span></div><div class="info" aria-hidden="true"><div class="name">Mint</div><div class="hex">#EEF8EC</div><div class="use">Gradient stop A. Soft card and panel surfaces.</div></div></button>
-      <button type="button" class="swatch" data-hex="#F2FBFB" aria-label="Ice, hex F 2 F B F B. Press to copy hex code."><div class="chipcolor" style="background:#F2FBFB; border-bottom:1px solid #E4EDF2" aria-hidden="true"><span class="copied-tag">Copied</span></div><div class="info" aria-hidden="true"><div class="name">Ice</div><div class="hex">#F2FBFB</div><div class="use">Gradient stop B. Pairs with Mint at 135°.</div></div></button>
+      <button type="button" class="swatch" data-hex="#8DA3B5" aria-label="Slate, hex 8 D A 3 B 5. Press to copy hex code."><div class="chipcolor" style="background:#8DA3B5" aria-hidden="true"><span class="copied-tag">Copied</span></div><div class="info" aria-hidden="true"><div class="name">Slate</div><div class="hex">#8DA3B5</div><div class="use">Muted labels, captions, borders, chart gridlines.</div></div></button>
       <button type="button" class="swatch" data-hex="#F2A08D" aria-label="Path Coral, hex F 2 A 0 8 D. Press to copy hex code."><div class="chipcolor" style="background:#F2A08D" aria-hidden="true"><span class="copied-tag">Copied</span></div><div class="info" aria-hidden="true"><div class="name">Path Coral</div><div class="hex">#F2A08D</div><div class="use">Illustration only — the glowing route/node accent. Never a UI color.</div></div></button>
     </div>
+    <h3 style="margin-bottom:8px">Surfaces</h3>
+    <p style="color:var(--tw-ink-muted); font-size:var(--tw-text-lg); max-width:72ch; margin-bottom:18px">The soft ground is a <strong style="color:var(--tw-navy)">gradient, not a set of colors</strong>. Its three stops have no independent life — never fill a surface with one of them alone. Use the gradient, or use white.</p>
     <div id="copy-status" class="visually-hidden" role="status" aria-live="polite"></div>
+    <div style="margin-bottom:16px">
+      <div style="height:74px; border-radius:var(--tw-radius-card) var(--tw-radius-card) 0 0; background:linear-gradient(135deg, #E8FEFB 0%, #F2FBFB 55%, #FDF5E8 100%); border:1px solid #DCEDE4; border-bottom:none"></div>
+      <div style="display:flex; justify-content:space-between; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:var(--tw-text-xs); color:var(--tw-ink-muted); background:#fff; border:1px solid #DCEDE4; border-top:none; border-radius:0 0 var(--tw-radius-card) var(--tw-radius-card); padding:8px 14px">
+        <span>#E8FEFB · 0%</span><span>#F2FBFB · 55%</span><span>#FDF5E8 · 100%</span>
+      </div>
+    </div>
+    <div style="margin-bottom:26px">
+      <div style="height:56px; border-radius:var(--tw-radius-card) var(--tw-radius-card) 0 0; background:linear-gradient(135deg, #F5F7EC 0%, #EAFDFA 20%, #F2FBFB 80%, #F8F7F0 100%); border:1px solid #DCEDE4; border-bottom:none"></div>
+      <div style="display:flex; justify-content:space-between; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:var(--tw-text-xs); color:var(--tw-ink-muted); background:#fff; border:1px solid #DCEDE4; border-top:none; border-radius:0 0 var(--tw-radius-card) var(--tw-radius-card); padding:8px 14px">
+        <span>#F5F7EC · 0%</span><span>#EAFDFA · 20%</span><span>#F2FBFB · 80%</span><span>#F8F7F0 · 100%</span>
+      </div>
+      <div style="font-size:var(--tw-text-md); color:var(--tw-ink-muted); margin-top:8px"><strong style="color:var(--tw-navy)">Warm variant</strong> — behind the why-us float-panel cards. Warm at both ends.</div>
+    </div>
     <div style="margin-top:34px; background:var(--tw-grad-soft); border-radius:var(--tw-radius-card); padding:22px 26px; font-size:var(--tw-text-lg); color:#3D5670; border:1px solid #DCEDE4">
-      <strong style="font-family:var(--tw-font-display)">Soft gradient:</strong> <code>linear-gradient(135deg, #EEF8EC 0%, #F2FBFB 100%)</code> — the standard light surface for testimonial panels, expanded cards, and alternating page sections. This panel is rendered with it.
+      <strong style="font-family:var(--tw-font-display)">Soft gradient:</strong> <code>linear-gradient(135deg, #E8FEFB 0%, #F2FBFB 55%, #FDF5E8 100%)</code> — the standard light surface for testimonial panels, expanded cards, and alternating page sections. This panel is rendered with it.
     </div>
   </div>
 </section>
@@ -798,11 +963,15 @@
     <div class="sec-head">
       <div class="eyebrow">03 · Foundations</div>
       <h2>Typography</h2>
-      <p class="lede"><strong>Axiforma</strong> is the brand typeface — a single geometric sans family carrying every role, with weight doing the hierarchy work. It's what gives the marketing site its rounded-but-precise character, and it now supersedes the legacy deck typography. <strong>Poppins</strong> is the approved free fallback when the license isn't available (this page renders Axiforma if installed, Poppins otherwise).</p>
+      <p class="lede"><strong>Axiforma</strong> is the brand typeface — a geometric sans that gives the marketing site its rounded-but-precise character. <strong>Poppins</strong> is the approved free fallback when the license isn't available (this page renders Axiforma if installed, Poppins otherwise).</p>
+      <div style="background:#FFF8E8; border-left:3px solid #D8A93A; border-radius:0 8px 8px 0; padding:16px 20px; margin:18px 0 8px; max-width:74ch">
+        <strong style="color:var(--tw-navy)">⚠️ The marketing site does not use <code>font-weight</code>.</strong>
+        <p style="margin:8px 0 0; color:var(--tw-ink-muted); font-size:var(--tw-text-md)">Production ships <strong>five separately-named, self-hosted families</strong> — <code>AxiformaRegular</code> / <code>Medium</code> / <code>SemiBold</code> / <code>Bold</code> / <code>ExtraBold</code> — each declared at <code>font-weight: normal</code>, with hierarchy selected by family <em>name</em>. Setting <code>font-weight: 700</code> against a family that has no bold produces a synthesized fake bold. <strong style="color:var(--tw-navy)">AxiformaExtraBold carries every H2 and card title</strong> and was missing from this guide before v3.0. The weight ladder below describes <em>this style-guide page's</em> own type system — use the named families for site work.</p>
+      </div>
     </div>
     <div class="spec"><div class="label">Display · Axiforma Bold 700 · −0.015em tracking</div><p class="h1-demo" style="color:var(--tw-navy)">Designing system evolution with intention</p></div>
     <div class="spec"><div class="label">H2 · Axiforma Bold 700</div><h2 style="color:var(--tw-navy)">We operate where clarity matters most</h2></div>
-    <div class="spec"><div class="label">Teal subhead · Axiforma SemiBold 600 · decks &amp; documents</div><div class="teal-sub">Initial summary of findings</div></div>
+    <div class="spec"><div class="label">Teal subhead · Axiforma SemiBold 600 · documents &amp; reports <span style="opacity:.7">(deck usage → Decks)</span></div><div class="teal-sub">Initial summary of findings</div></div>
     <div class="spec"><div class="label">Body · Axiforma Regular 400 · 16px · 1.7 line height</div><p style="max-width:64ch">We help product and technology teams align workflows, strengthen product foundations, and apply AI in ways that support real business and user outcomes. Body copy stays calm and unornamented — emphasis comes from <span style="color:var(--tw-teal-ink); font-weight:var(--tw-weight-bold)">teal mid-sentence callouts</span>, never from underlines or italics.</p></div>
     <div class="spec"><div class="label">Eyebrow · Axiforma Bold 700 · 0.22em tracking · uppercase</div><div class="eyebrow">Why work with us</div></div>
 
@@ -894,23 +1063,71 @@
     </div>
     <h3 style="margin-bottom:8px">Layout tokens</h3>
     <table class="spec-table" style="margin-bottom:34px">
-      <tr><td>Content width</td><td>max 1080px</td><td>Centered container; 28px side gutters on mobile</td></tr>
-      <tr><td>Text measure</td><td>62–66ch</td><td>Body and lede line length cap for readability</td></tr>
-      <tr><td>Card radius</td><td>14px</td><td>All cards and panels (<code>--tw-radius-card</code>)</td></tr>
-      <tr><td>Pill radius</td><td>999px</td><td>Buttons, chips, category labels</td></tr>
-      <tr><td>Card grid</td><td>minmax(255–300px, 1fr)</td><td>Auto-fill responsive columns, 30–34px gap</td></tr>
-      <tr><td>Section pad</td><td>clamp(56px, 8vw, 110px)</td><td>Vertical breathing room (<code>--tw-section-pad</code>)</td></tr>
-      <tr><td>Angle break</td><td>2–4° diagonal</td><td>Section transitions; echoes the plane wing</td></tr>
+      <tr><td>Layout engine</td><td><strong>Bootstrap 5.0.2</strong></td><td><strong>Do not re-author the grid.</strong> Use <code>container</code> / <code>row</code> / <code>col-lg-*</code>; components never set their own width or breakpoints</td></tr>
+      <tr><td>Container</td><td>540 / 720 / 960 / <strong>1140</strong> / 1320px</td><td>Bootstrap steps at 576 / 768 / 992 / 1200 / 1400px</td></tr>
+      <tr><td>Card row</td><td><code>.row</code> + 3 × <code>.col-lg-4</code></td><td>Three-up cards collapse at <strong>992px</strong>, not a custom breakpoint</td></tr>
+      <tr><td>Card radius</td><td><strong>8px</strong></td><td>All cards and panels (<code>--tw-radius-card</code>). <em>v3 fix — was 14px</em></td></tr>
+      <tr><td>Track radius</td><td>14px</td><td>The one exception — on-navy track/pricing card</td></tr>
+      <tr><td>Pill radius</td><td><strong>25px</strong></td><td>Buttons. <em>v3 fix — was 999px</em></td></tr>
+      <tr><td>Input radius</td><td>2px</td><td>Form fields — nearly square, a deliberate contrast to the round buttons</td></tr>
+      <tr><td>Card gap</td><td>30px</td><td>Bootstrap default gutter — inherited, not set by components</td></tr>
+      <tr><td>Section pad</td><td>60–170px (varies)</td><td>No single token in production; each section ships its own. ⬦ Proposed for new work: <code>clamp(60px, 8vw, 130px)</code></td></tr>
+      <tr><td>Skew — section</td><td><strong>−2°</strong></td><td>Section breaks and hero band — the default</td></tr>
+      <tr><td>Skew — card</td><td><strong>−10°</strong></td><td>Card panels (float-panel motif) — most characteristic</td></tr>
+      <tr><td>Skew — other</td><td>−3° / −5° / −6°</td><td>Pricing panel / contact panel / corner price tag</td></tr>
     </table>
-    <h3 style="margin-bottom:14px">Page archetype</h3>
-    <p style="color:#5C7185; font-size:var(--tw-text-lg); margin-bottom:18px; max-width:64ch">Every This Waay page follows the same skeleton: a navy hero, then alternating navy and soft-gradient sections joined by shallow angled breaks. Each section opens with the same centered header lockup — eyebrow, H2, lede.</p>
+    <p style="color:var(--tw-ink-muted); font-size:var(--tw-text-md); margin:-22px 0 34px"><strong>Note:</strong> this page's own container is 1080px — that is <em>this guide's</em> layout, not the brand's. The marketing site is Bootstrap at 1140px. Don't copy 1080px into site work.</p>
+    <h3 style="margin-bottom:14px">Page rhythm</h3>
+    <p style="color:#5C7185; font-size:var(--tw-text-lg); margin-bottom:10px; max-width:70ch"><strong style="color:var(--tw-navy)">There is no fixed page template.</strong> Pages open on navy and close on navy. In between, the ground changes between <strong style="color:var(--tw-navy)">navy</strong> and a light ground (<strong style="color:var(--tw-navy)">white</strong> or <strong style="color:var(--tw-navy)">soft gradient</strong>) — but the sequence is driven by <em>the content</em>, not by a repeating pattern.</p>
+    <p style="color:#5C7185; font-size:var(--tw-text-lg); margin-bottom:18px; max-width:70ch">Sections that belong together share a ground and run consecutively; the ground changes when the subject does. So consecutive navy sections and long white runs are both correct and common. What is consistent is the section's internal lockup — <strong style="color:var(--tw-navy)">eyebrow → H2 → lede</strong>, centered — and that every ground change is carried by an angled break.</p>
     <div class="archetype">
-      <div class="seg navy">Navy hero — eyebrow · headline (one punch highlight) · lede · CTA</div>
-      <div class="seg soft ang">Soft section — centered header lockup, then card grid</div>
-      <div class="seg navy ang">Navy section — angled break, alternating ground</div>
-      <div class="seg soft ang">Soft section — continues the rhythm</div>
-      <div class="seg navy ang" style="border-radius:0 0 var(--tw-radius-card) var(--tw-radius-card)">Navy footer — contact + nav</div>
+      <div class="seg navy">Navy hero<small>eyebrow · headline (one punch highlight) · lede · CTA</small></div>
+      <div class="seg white ang">White — logo cloud<small>trusted-by</small></div>
+      <div class="seg white">White — why work with us<span class="grp">grouped ×2</span></div>
+      <div class="seg navy ang">Navy — who we serve<small>audience segments</small></div>
+      <div class="seg navy">Navy — our services<span class="grp">grouped ×2</span></div>
+      <div class="seg white ang">White — our work</div>
+      <div class="seg white">White — studio perspective</div>
+      <div class="seg white">White — testimonials</div>
+      <div class="seg white">White — our approach<span class="grp">grouped ×4</span></div>
+      <div class="seg navy ang" style="border-radius:0 0 var(--tw-radius-card) var(--tw-radius-card)">Navy — contact + footer<small>navy + maze texture, then deep navy footer</small></div>
     </div>
+    <p style="color:#5C7185; font-size:var(--tw-text-md); margin-top:12px; max-width:70ch">↑ The <strong style="color:var(--tw-navy)">actual homepage</strong>, in DOM order. Note that navy runs twice consecutively, and white runs <em>four</em> times — because those sections belong together, not because a template said so.</p>
+
+    <h4 style="margin:34px 0 10px; font-size:var(--tw-text-xl); font-family:var(--tw-font-display); color:var(--tw-navy); text-transform:none; letter-spacing:0">Angled section breaks</h4>
+    <p style="color:#5C7185; font-size:var(--tw-text-lg); max-width:70ch; margin-bottom:16px">A ground change is carried by a shallow diagonal, echoing the plane wing. The angle lives on a <code>::before</code> pseudo-element <em>behind</em> the content — never on the content itself, which would shear the type.</p>
+    <table class="spec-table" style="margin-bottom:8px">
+      <tr><td>Section break</td><td><strong>−2°</strong></td><td>The default — every ground change and the hero band</td></tr>
+      <tr><td>Card panel</td><td><strong>−10°</strong></td><td>The float-panel motif — steepest and most characteristic</td></tr>
+      <tr><td>Pricing panel</td><td>−3°</td><td></td></tr>
+      <tr><td>Contact panel</td><td>−5°</td><td></td></tr>
+      <tr><td>Price tag</td><td>−6°</td><td><code>skewX</code>, not <code>skewY</code></td></tr>
+    </table>
+    <p style="color:#5C7185; font-size:var(--tw-text-md); max-width:70ch">Not every boundary gets an angle — consecutive same-ground sections (the four white ones above) simply run together with no break at all. <strong style="color:var(--tw-navy)">The angle marks a change, so it only appears where the ground actually changes.</strong></p>
+
+    <h4 style="margin:34px 0 10px; font-size:var(--tw-text-xl); font-family:var(--tw-font-display); color:var(--tw-navy); text-transform:none; letter-spacing:0">Building the break correctly</h4>
+    <p style="color:#5C7185; font-size:var(--tw-text-lg); max-width:72ch; margin-bottom:14px">Two failures show up every time this is rebuilt from scratch. Both have the same cause: <strong style="color:var(--tw-navy)">a skewed element rotates about its own centre, so its far corners lift out of its box.</strong></p>
+    <table class="spec-table" style="margin-bottom:14px">
+      <tr><td>Must be flush</td><td>no third colour</td><td>No sliver of the page background between the two grounds</td></tr>
+      <tr><td>Must be full-bleed</td><td>edge to edge</td><td>A skew that stops at the container leaves a visible notch at the viewport edges</td></tr>
+      <tr><td>Fix</td><td><strong>overshoot</strong></td><td>The skewed ground is a <code>::before</code> extending <code>-8vw</code> horizontally (so the diagonal always reaches both edges) and <code>~2.2vw</code> vertically (so consecutive sections overlap rather than gap)</td></tr>
+    </table>
+    <div style="background:#FFF8E8; border-left:3px solid #D8A93A; border-radius:0 8px 8px 0; padding:16px 20px; max-width:74ch">
+      <strong style="color:var(--tw-navy)">⚠️ Clearance rule — the most common defect when this is rebuilt.</strong>
+      <p style="margin:8px 0 0; color:var(--tw-ink-muted); font-size:var(--tw-text-md)">The diagonal rises above the section's own box by roughly <code>(width ÷ 2) × tan 2°</code> ≈ <strong>26px</strong> at desktop, plus the overshoot. <strong style="color:var(--tw-navy)">A section on either side of a break needs ≥ 90px of vertical padding</strong> — less than that and its last line of copy slides under the neighbouring ground.</p>
+    </div>
+
+    <h4 style="margin:34px 0 10px; font-size:var(--tw-text-xl); font-family:var(--tw-font-display); color:var(--tw-navy); text-transform:none; letter-spacing:0">Measure &amp; rag</h4>
+    <p style="color:#5C7185; font-size:var(--tw-text-lg); max-width:72ch; margin-bottom:14px">Every block of running text is capped. Headings get a <em>much</em> shorter measure than body copy on purpose — it forces them to break on meaning rather than at the container edge, which is what prevents stranded words in display type.</p>
+    <table class="spec-table" style="margin-bottom:14px">
+      <tr><td><code>--tw-measure</code></td><td><strong>68ch</strong></td><td>Body copy — the default for running text</td></tr>
+      <tr><td><code>--tw-measure-tight</code></td><td>46ch</td><td>Lede, intro, card copy</td></tr>
+      <tr><td><code>--tw-measure-head</code></td><td>22ch</td><td>Display headlines (H1 / large H2)</td></tr>
+      <tr><td><code>text-wrap: balance</code></td><td>headings, ledes</td><td>Evens line lengths on <strong>short</strong> text in <strong>wide</strong> containers</td></tr>
+      <tr><td><code>text-wrap: pretty</code></td><td>paragraphs, lists</td><td>Fixes the last-line widow on <strong>long</strong> text</td></tr>
+      <tr><td><code>hyphens: none</code></td><td>all headings</td><td>Display type never hyphenates</td></tr>
+    </table>
+    <p style="color:#5C7185; font-size:var(--tw-text-md); max-width:72ch"><strong style="color:var(--tw-navy)">Pitfall:</strong> <code>balance</code> is wrong in a narrow column — in a <code>col-lg-3</code> card it shortens every line and the rag goes stubby. <strong style="color:var(--tw-navy)">Balance short text in wide containers; pretty long text in narrow ones.</strong></p>
   </div>
 </section>
 
@@ -956,7 +1173,7 @@
 
     <h3 style="margin-bottom:16px">Reduced motion — the contract</h3>
     <p style="color:var(--tw-ink-muted); font-size:var(--tw-text-lg); max-width:70ch; margin-bottom:12px">This page's global reset removes animation/transition duration for <code>prefers-reduced-motion: reduce</code>. Every <em>new</em> animated component adds its own explicit fallback next to the animation itself (see <code>.swatch:hover</code>, <code>.btn:hover</code>, and <code>.flight-draw</code> above) — don't rely on the blanket reset alone, since a future removal of the global rule shouldn't silently break anyone's accessibility.</p>
-    <p style="color:var(--tw-ink-muted); font-size:var(--tw-text-lg); max-width:70ch"><strong style="color:var(--tw-navy)">Slide-deck note:</strong> transitions between slides are a simple fade or cut only — no per-slide novelty transitions. Advance is always presenter-controlled; never auto-advance a deck. Full deck templates are in <a href="#decks" style="color:var(--tw-green-ink); font-weight:var(--tw-weight-semibold)">Slide decks</a>.</p>
+    <p style="color:var(--tw-ink-muted); font-size:var(--tw-text-lg); max-width:70ch">Motion guidance on this page covers the <strong style="color:var(--tw-navy)">marketing site and product surfaces</strong>. Slide-deck transition rules live in <a href="#decks" style="color:var(--tw-green-ink); font-weight:var(--tw-weight-semibold)">Decks</a>.</p>
   </div>
 </section>
 
@@ -1208,7 +1425,7 @@
           <div style="height:54px; background:var(--tw-grad-soft)"></div>
           <div style="height:64px; background:var(--tw-navy); clip-path:polygon(0 38%, 100% 0, 100% 100%, 0 100%); margin-top:-22px"></div>
         </div>
-        <p style="font-size:var(--tw-text-md); color:#5C7185; margin-top:12px">Sections meet on a shallow diagonal (2–4°), alternating navy and soft-gradient surfaces. Echoes the plane's wing line.</p>
+        <p style="font-size:var(--tw-text-md); color:#5C7185; margin-top:12px">Sections meet on a shallow <strong>−2°</strong> diagonal wherever the ground changes. Echoes the plane's wing line. See <a href="#spacing" style="color:var(--tw-green-ink); font-weight:var(--tw-weight-semibold)">Page rhythm</a> — the angle marks a <em>change</em>, so consecutive same-ground sections have no break.</p>
       </div>
     </div>
   </div>
@@ -1283,7 +1500,7 @@
     </div>
     <div class="comp-grid">
       <div class="comp-block">
-        <h4>Buttons</h4>
+        <h4>Buttons <span style="text-transform:none; letter-spacing:0; font-weight:var(--tw-weight-regular)">— see the full variant matrix below</span></h4>
         <p style="margin-bottom:14px"><button class="btn btn-primary">Start a conversation</button></p>
         <p style="background:var(--tw-navy); display:inline-block; padding:18px; border-radius:12px; margin-bottom:14px"><button class="btn btn-ghost-dark">Explore services</button></p>
         <p><button class="btn btn-light">Contact us</button></p>
@@ -1293,24 +1510,7 @@
         <span class="cat-label">Discovery</span>
         <span class="cat-label">AI Guidance</span>
         <span class="cat-label teal">Usability Testing</span>
-        <p style="font-size:var(--tw-text-md); color:#5C7185; margin-top:12px">Green is current standard; teal variant persists in legacy deck slides. New work: use green.</p>
-      </div>
-      <div class="comp-block">
-        <h4>Expanded card</h4>
-        <div class="card-dark">
-          <div class="ic">🎯</div>
-          <h5>Follow Ups</h5>
-          <div class="card-body">We're pushing the conversation forward</div>
-        </div>
-        <span class="prov deck">Client deck</span>
-      </div>
-      <div class="comp-block">
-        <h4>Service text block</h4>
-        <div class="card-green">
-          <h5>Workflow clarity</h5>
-          <p>Understanding how real operational work flows through a platform and identifying where friction emerges.</p>
-        </div>
-        <span class="prov deck">Client deck</span>
+        <p style="font-size:var(--tw-text-md); color:#5C7185; margin-top:12px">Green is the current standard. A teal variant survives in legacy deck slides — see <a href="#decks" style="color:var(--tw-green-ink); font-weight:var(--tw-weight-semibold)">Decks</a>. New work: use green.</p>
       </div>
     </div>
 
@@ -1406,6 +1606,42 @@
         <div class="cap"><strong>Pricing card — featured</strong>Same structure on a full green ground to mark a recommended tier. One featured card per row, maximum.</div>
         <span class="prov site">Marketing site</span>
       </div>
+
+      <div class="lib-item" style="grid-column: 1 / -1">
+        <div style="background:var(--tw-navy); border-radius:var(--tw-radius-card); padding:28px;">
+          <div class="track-grid">
+            <div class="tw-track">
+              <div class="track-head"><h5>Track A</h5><span class="track-price">$15K</span></div>
+              <p class="track-meta">4 weeks · Materials ready</p>
+              <p class="track-desc">You bring existing design artifacts — personas, JTBD, journey maps, and user stories. We review, assess, and deliver findings.</p>
+              <div class="track-includes">
+                <div class="label">Includes</div>
+                <ul>
+                  <li>Stakeholder kick-off + workflow prioritization</li>
+                  <li>Product demos and workflow walkthroughs</li>
+                  <li>12-dimension scored assessment</li>
+                  <li>Results readout with AI Opportunity Brief</li>
+                </ul>
+              </div>
+            </div>
+            <div class="tw-track">
+              <div class="track-head"><h5>Track B</h5><span class="track-price">$20K</span></div>
+              <p class="track-meta">5 weeks · Materials generation included</p>
+              <p class="track-desc">We facilitate the production of foundational design artifacts as part of the engagement. You leave with both the artifacts and the full evaluation.</p>
+              <div class="track-includes">
+                <div class="label">Everything in Track A, plus</div>
+                <ul>
+                  <li>Facilitated artifact sprint — personas, JTBD, journey maps</li>
+                  <li>Structured review + stakeholder alignment session</li>
+                  <li>Artifacts are yours to keep independent of the evaluation</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cap"><strong>Track card (new)</strong>On-dark plan/pricing card for tiered-offer sections (e.g. the Assessment page) — navy ground only, the translucent white fill needs the dark backdrop to read. Header row pairs a title with a green price; a divider separates the description from an "Includes" checklist. Used in pairs. Not part of the pending light-ground consolidation above — this pattern is already canonical.</div>
+        <span class="prov site">Marketing site — Assessment page</span>
+      </div>
     </div>
 
     <div class="consol-note">
@@ -1413,7 +1649,7 @@
     </div>
 
     <h3 style="margin-top:64px">Marketing-site components</h3>
-    <p style="color:var(--tw-ink-muted); font-size:var(--tw-text-lg); max-width:68ch; margin-top:8px">Filling in the common patterns a real marketing site needs beyond the card inventory above. Same conventions throughout: 14px card radius, soft-gradient or white grounds, the shared focus ring from Accessibility, and no color-only signaling.</p>
+    <p style="color:var(--tw-ink-muted); font-size:var(--tw-text-lg); max-width:68ch; margin-top:8px">Filling in the common patterns a real marketing site needs beyond the card inventory above. Same conventions throughout: 8px card radius, soft-gradient or white grounds, the shared focus ring from Accessibility, and no color-only signaling.</p>
 
     <div class="comp-grid" style="gap:30px; margin-top:26px">
       <div class="comp-block" style="grid-column:1/-1; max-width:360px">
@@ -1567,6 +1803,306 @@
           </form>
         </div>
       </div>
+    </div>
+
+    <!-- ============ VARIANT MATRICES ============ -->
+    <h3 id="variants" style="margin:56px 0 8px; scroll-margin-top:150px">Variants</h3>
+    <p style="color:var(--tw-ink-muted); font-size:var(--tw-text-lg); max-width:74ch; margin-bottom:8px">The catalog above shows <em>what</em> each component is. This shows <strong style="color:var(--tw-navy)">every variation it can take</strong>, organized by <strong style="color:var(--tw-navy)">axis</strong>.</p>
+    <p style="color:var(--tw-ink-muted); font-size:var(--tw-text-md); max-width:74ch; margin-bottom:26px">Axes matter because they translate: an axis here becomes a <strong style="color:var(--tw-navy)">Figma component property</strong>, and a CSS modifier class in code. Declared in <code>tokens.json → components.*.variantAxes</code>; rendered live here.</p>
+
+    <div class="vmatrix">
+      <div class="vm-head">
+        <h4>Button</h4>
+        <div class="vm-axes"><span class="vm-axis">style <b>4</b></span><span class="vm-axis">size <b>3</b></span><span class="vm-axis">state <b>4</b></span></div>
+      </div>
+      <div class="vm-scroll">
+        <table class="vm-table">
+          <caption class="visually-hidden">Button variants by style and size</caption>
+          <thead><tr><th scope="col">Style</th><th scope="col">Large</th><th scope="col">Medium</th><th scope="col">Small</th></tr></thead>
+          <tbody>
+            <tr>
+              <th scope="row">Primary<span>Default action</span></th>
+              <td class="vm-cell"><button class="btn btn-primary btn-lg">Start a conversation</button><code>.btn-primary.btn-lg</code></td>
+              <td class="vm-cell"><button class="btn btn-primary btn-md">Learn more</button><code>.btn-primary.btn-md</code></td>
+              <td class="vm-cell"><button class="btn btn-primary btn-sm">Details</button><code>.btn-primary.btn-sm</code></td>
+            </tr>
+            <tr>
+              <th scope="row">White<span>On navy grounds</span></th>
+              <td class="vm-cell"><button class="btn btn-light btn-lg">Contact us</button><code>.btn-light.btn-lg</code></td>
+              <td class="vm-cell"><button class="btn btn-light btn-md">Contact</button><code>.btn-light.btn-md</code></td>
+              <td class="vm-cell"><button class="btn btn-light btn-sm">Go</button><code>.btn-light.btn-sm</code></td>
+            </tr>
+            <tr>
+              <th scope="row">Tag<span>2px radius, outline</span></th>
+              <td class="vm-cell"><button class="btn btn-tag">Discovery</button><code>.btn-tag</code></td>
+              <td class="vm-cell" style="color:var(--tw-ink-muted); font-size:var(--tw-text-md)">single size</td>
+              <td class="vm-cell" style="color:var(--tw-ink-muted); font-size:var(--tw-text-md)">single size</td>
+            </tr>
+          </tbody>
+          <tbody class="vm-onnavy">
+            <tr>
+              <th scope="row">Ghost<span>Navy grounds only</span></th>
+              <td class="vm-cell"><button class="btn btn-ghost-dark btn-lg">Explore services</button><code>.btn-ghost-dark.btn-lg</code></td>
+              <td class="vm-cell"><button class="btn btn-ghost-dark btn-md">Explore</button><code>.btn-ghost-dark.btn-md</code></td>
+              <td class="vm-cell"><button class="btn btn-ghost-dark btn-sm">More</button><code>.btn-ghost-dark.btn-sm</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="vm-scroll" style="border-top:1px solid #DCE6EE">
+        <table class="vm-table">
+          <caption class="visually-hidden">Button states</caption>
+          <thead><tr><th scope="col">State</th><th scope="col">Default</th><th scope="col">Hover</th><th scope="col">Focus</th><th scope="col">Disabled</th></tr></thead>
+          <tbody>
+            <tr>
+              <th scope="row">Primary</th>
+              <td class="vm-cell"><button class="btn btn-primary btn-md">Send</button><code>:default</code></td>
+              <td class="vm-cell"><button class="btn btn-primary btn-md is-hover">Send</button><code>:hover</code></td>
+              <td class="vm-cell"><button class="btn btn-primary btn-md is-focus">Send</button><code>:focus-visible</code></td>
+              <td class="vm-cell"><button class="btn btn-primary btn-md" disabled>Send</button><code>[disabled]</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="vm-note">
+        <strong>✔ Decided (Aug 2026):</strong> the primary button is <strong>green fill with white text</strong>, matching production. This closes the previously-open white-vs-navy question — new work uses white.
+        <br><br><strong>Accessibility footnote:</strong> white-on-green measures ~2.4:1, below the WCAG AA 4.5:1 threshold for normal text. It clears <strong>3:1 for large text</strong>, so at the shipped 16px Bold it is borderline. If a future audit needs AA on this element, the lever is darkening the green behind white text (not switching the text to navy) — that would preserve the decision while fixing contrast.
+        <br><br><strong>Production geometry:</strong> radius <code>25px</code> · <code>AxiformaBold 16px/24px</code> · padding <code>13px 30px 11px</code> · hover <em>inverts</em> fill and text rather than darkening. Only the large size ships today; medium and small are proposed additions.
+      </div>
+    </div>
+
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+      <linearGradient id="vm-silver" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eef3f7"/><stop offset=".4" stop-color="#b9c4cf"/><stop offset=".75" stop-color="#798593"/><stop offset="1" stop-color="#4a5563"/></linearGradient>
+      <linearGradient id="vm-navy" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1c3e61"/><stop offset=".55" stop-color="#0c2a48"/><stop offset="1" stop-color="#071d33"/></linearGradient>
+      <symbol id="vm-shield" viewBox="0 0 120 140">
+        <path d="M60 5 L104 21 C107.5 22.3 109 24.5 109 28 L109 66 C109 99 87.5 121 60 135 C32.5 121 11 99 11 66 L11 28 C11 24.5 12.5 22.3 16 21 Z" fill="url(#vm-silver)"/>
+        <path d="M60 13 L99.5 27 C101.5 27.7 102.5 29 102.5 31 L102.5 65.5 C102.5 95 84 114.5 60 126 C36 114.5 17.5 95 17.5 65.5 L17.5 31 C17.5 29 18.5 27.7 20.5 27 Z" fill="url(#vm-navy)"/>
+        <g fill="#fff"><circle cx="33" cy="40" r="1" opacity=".5"/><circle cx="88" cy="46" r="1.2" opacity=".45"/><circle cx="74" cy="36" r=".7" opacity=".5"/><circle cx="40" cy="92" r=".9" opacity=".45"/><circle cx="94" cy="70" r="1" opacity=".4"/></g>
+        <ellipse cx="60" cy="37" rx="38" ry="13" fill="#fff" opacity=".13"/>
+      </symbol>
+      <symbol id="vm-spark" viewBox="0 0 24 24"><path d="M12 3.2l1.9 5.3a3.8 3.8 0 0 0 2.6 2.6l5.3 1.9-5.3 1.9a3.8 3.8 0 0 0-2.6 2.6L12 22.8l-1.9-5.3a3.8 3.8 0 0 0-2.6-2.6L2.2 13l5.3-1.9a3.8 3.8 0 0 0 2.6-2.6Z" fill="currentColor"/></symbol>
+      <symbol id="vm-bolt" viewBox="0 0 24 24"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" fill="currentColor"/></symbol>
+      <symbol id="vm-crosshair" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="3.2"/><path d="M12 3v3.2M12 17.8V21M3 12h3.2M17.8 12H21"/></symbol>
+      <symbol id="vm-ruler" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20 16 8"/><path d="M14 6l4 4 2-2-4-4Z"/><path d="M4 20l-1-4 4 1Z"/><path d="M9 11l1.5 1.5M12 8l1.5 1.5"/></symbol>
+      <symbol id="vm-squares" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="8" height="8" rx="2.5"/><rect x="13" y="3" width="8" height="8" rx="2.5"/><rect x="3" y="13" width="8" height="8" rx="2.5"/><rect x="13" y="13" width="8" height="8" rx="2.5"/></symbol>
+      <symbol id="vm-userplus" viewBox="0 0 24 24" fill="currentColor"><circle cx="10" cy="8" r="4"/><path d="M2.5 20a7.5 7.5 0 0 1 15 0 .9.9 0 0 1-.45.8A13 13 0 0 1 10 22.5 13 13 0 0 1 2.95 20.8.9.9 0 0 1 2.5 20Z"/><path d="M19.25 7.5a.75.75 0 0 0-1.5 0v2.25H15.5a.75.75 0 0 0 0 1.5h2.25v2.25a.75.75 0 0 0 1.5 0v-2.25h2.25a.75.75 0 0 0 0-1.5h-2.25Z"/></symbol>
+      <symbol id="vm-trend" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M15.2 6.3a.9.9 0 0 1 1.15-.5l5.4 2a.9.9 0 0 1 .52 1.16l-2 5.4a.9.9 0 1 1-1.68-.62l1.25-3.4-1 .46a12 12 0 0 0-5.4 5.1.9.9 0 0 1-1.42.2L9 12.9l-5.86 5.86a.9.9 0 1 1-1.28-1.27l6.5-6.5a.9.9 0 0 1 1.28 0l3.35 3.35a13.8 13.8 0 0 1 5.3-4.4l1-.46-3.4-1.25a.9.9 0 0 1-.5-1.15Z"/></symbol>
+      <symbol id="vm-database" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></symbol>
+      <symbol id="vm-doublecheck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 13l4 4 8-10"/><path d="M10 17l.6.7L22 4"/></symbol>
+    </defs></svg>
+
+    <!-- ===== CARD GROUNDS ===== -->
+    <div class="vmatrix">
+      <div class="vm-head">
+        <h4>Card — ground</h4>
+        <div class="vm-axes"><span class="vm-axis">ground <b>6</b></span></div>
+      </div>
+      <div class="vm-scroll">
+        <table class="vm-table">
+          <caption class="visually-hidden">Card ground variants</caption>
+          <thead><tr><th scope="col">Ground</th><th scope="col">Rendered</th><th scope="col">Where it ships</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">White<span>+ soft shadow</span></th><td class="vm-cell" style="width:280px"><div class="d-card g-white"><h6>Deliverable</h6><p>Neutral ground for dense or image-led content.</p></div><code>.g-white</code></td><td style="font-size:var(--tw-text-md); color:var(--tw-ink-muted)">Deliverable cards, blog cards, work captions</td></tr>
+            <tr><th scope="row">Soft<span>the default</span></th><td class="vm-cell"><div class="d-card g-soft"><h6>Segment</h6><p>The canonical light surface — cool aqua into warm sand.</p></div><code>.g-soft</code></td><td style="font-size:var(--tw-text-md); color:var(--tw-ink-muted)">Segment cards, testimonials, pricing, service primary</td></tr>
+            <tr><th scope="row">Soft warm<span>4-stop</span></th><td class="vm-cell"><div class="d-card g-softwarm"><h6>Why us</h6><p>Warm at both ends, cool through the middle.</p></div><code>.g-softwarm</code></td><td style="font-size:var(--tw-text-md); color:var(--tw-ink-muted)">Why-us float panels</td></tr>
+            <tr><th scope="row">Green<span>solid</span></th><td class="vm-cell"><div class="d-card g-green"><h6>Centered</h6><p>Solid brand fill — used on navy sections.</p></div><code>.g-green</code></td><td style="font-size:var(--tw-text-md); color:var(--tw-ink-muted)">Services + approach float panels, green centered cards</td></tr>
+            <tr><th scope="row">Stroke<span>outline only</span></th><td class="vm-cell"><div class="d-card g-stroke"><h6>Outline</h6><p>Quietest option — structure without weight.</p></div><code>.g-stroke</code></td><td style="font-size:var(--tw-text-md); color:var(--tw-ink-muted)">Secondary/supporting content</td></tr>
+          </tbody>
+          <tbody class="vm-onnavy">
+            <tr><th scope="row">Translucent<span>on-navy only</span></th><td class="vm-cell"><div class="d-card g-translucent"><h6>Track</h6><p>Needs the navy backdrop to read — not self-contained.</p></div><code>.g-translucent</code></td><td style="font-size:var(--tw-text-md); color:rgba(255,255,255,.72)">Track/pricing cards on navy. <strong>14px radius</strong> — the one exception</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="vm-note"><strong>Invariant:</strong> radius <code>8px</code> on every ground (track card is the sole <code>14px</code> exception). Ground is an <em>axis</em> — any card type can take any ground its section supports.</div>
+    </div>
+
+    <!-- ===== FLOAT-PANEL CARD ===== -->
+    <div class="vmatrix">
+      <div class="vm-head">
+        <h4>Float-panel card <span style="font-size:var(--tw-text-xs); color:var(--tw-green-ink); font-weight:var(--tw-weight-regular)">★ signature</span></h4>
+        <div class="vm-axes"><span class="vm-axis">panel ground <b>2</b></span><span class="vm-axis">panel top <b>3</b></span><span class="vm-axis">figure height <b>3</b></span></div>
+      </div>
+      <div class="vm-scroll">
+        <table class="vm-table">
+          <caption class="visually-hidden">Float-panel card variants</caption>
+          <thead><tr><th scope="col">Variant</th><th scope="col">Rendered</th><th scope="col">Panel top</th><th scope="col">Figure</th><th scope="col">Body</th></tr></thead>
+          <tbody>
+            <tr>
+              <th scope="row">Why-us<span>softWarm panel</span></th>
+              <td class="vm-cell" style="width:230px"><div class="d-float" style="--fp-panel:linear-gradient(135deg,#F5F7EC 0,#EAFDFA 20%,#F2FBFB 80%,#F8F7F0 100%); --fp-top:46px; --fp-fig:46px"><span class="fig"><span class="d-shield" style="width:36px;height:43px"><svg class="f" viewBox="0 0 120 140"><use href="#vm-shield"/></svg><svg class="i" viewBox="0 0 24 24"><use href="#vm-spark"/></svg></span></span><h6>Trusted in critical environments</h6></div><code>.tw-float--why</code></td>
+              <td style="font-size:var(--tw-text-md)"><code>60px</code></td><td style="font-size:var(--tw-text-md)"><code>120px</code></td><td style="font-size:var(--tw-text-md); color:var(--tw-ink-muted)">none · 18px title</td>
+            </tr>
+            <tr>
+              <th scope="row">Services<span>green panel</span></th>
+              <td class="vm-cell"><div class="d-float" style="--fp-panel:#54B987; --fp-top:52px; --fp-fig:52px; --fp-body:rgba(255,255,255,.92)"><span class="fig"><span class="d-shield"><svg class="f" viewBox="0 0 120 140"><use href="#vm-shield"/></svg><svg class="i" viewBox="0 0 24 24"><use href="#vm-spark"/></svg></span></span><h6>AI Guidance</h6><p>Introducing intelligence responsibly.</p></div><code>.tw-float--services</code></td>
+              <td style="font-size:var(--tw-text-md)"><code>90px</code></td><td style="font-size:var(--tw-text-md)"><code>190px</code></td><td style="font-size:var(--tw-text-md); color:var(--tw-ink-muted)">14px white</td>
+            </tr>
+            <tr>
+              <th scope="row">Approach<span>green panel</span></th>
+              <td class="vm-cell"><div class="d-float" style="--fp-panel:#54B987; --fp-top:48px; --fp-fig:48px; --fp-body:rgba(255,255,255,.92)"><span class="fig"><svg width="44" height="44" viewBox="0 0 96 96" fill="none"><circle cx="48" cy="48" r="44" fill="#0C2A48" stroke="#54B987" stroke-width="3"/><path d="M52 24 36 52h12l-4 22 20-30H50l2-20Z" fill="#fff"/></svg></span><h6>Clarify workflows</h6><p>Understand how work moves.</p></div><code>.tw-float--approach</code></td>
+              <td style="font-size:var(--tw-text-md)"><code>80px</code></td><td style="font-size:var(--tw-text-md)"><code>173px</code></td><td style="font-size:var(--tw-text-md); color:var(--tw-ink-muted)">16px white</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="vm-note"><strong>Anatomy:</strong> a transparent box whose <code>::before</code> is a <code>skewY(-10°)</code> panel starting <em>partway down</em>, with the figure floating above and <strong>overlapping the panel's top edge</strong>. That overlap is the brand's most recognizable card gesture — lose it and the card stops reading as This Waay.</div>
+    </div>
+
+    <!-- ===== BADGES ===== -->
+    <div class="vmatrix">
+      <div class="vm-head">
+        <h4>Badge</h4>
+        <div class="vm-axes"><span class="vm-axis">type <b>6</b></span><span class="vm-axis">placement <b>6</b></span></div>
+      </div>
+      <div class="vm-scroll">
+        <table class="vm-table">
+          <caption class="visually-hidden">Badge types</caption>
+          <thead><tr><th scope="col">Type</th><th scope="col">Rendered</th><th scope="col">Notes</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Shield<span>proprietary</span></th><td class="vm-cell" style="width:150px"><span class="d-shield"><svg class="f" viewBox="0 0 120 140"><use href="#vm-shield"/></svg><svg class="i" viewBox="0 0 24 24"><use href="#vm-spark"/></svg></span></td><td style="font-size:var(--tw-text-md); color:var(--tw-ink-muted)">Metallic rim, star-field navy face, white icon. <strong>Ships as raster</strong> (<code>image26–31.webp</code>) — vectorizing is an open task</td></tr>
+            <tr><th scope="row">Icon tile</th><td class="vm-cell"><span class="d-badge d-tile"><svg width="22" height="22"><use href="#vm-bolt"/></svg></span> <span class="d-badge d-tile circ"><svg width="22" height="22"><use href="#vm-spark"/></svg></span> <span class="d-badge d-tile punch"><svg width="22" height="22"><use href="#vm-bolt"/></svg></span></td><td style="font-size:var(--tw-text-md); color:var(--tw-ink-muted)">Square · circle · punch-gradient. Slots any library icon</td></tr>
+            <tr><th scope="row">Category pill</th><td class="vm-cell"><span class="d-pill">Discovery</span></td><td style="font-size:var(--tw-text-md); color:var(--tw-ink-muted)">Green fill, 25px radius</td></tr>
+            <tr><th scope="row">Tag chip</th><td class="vm-cell"><span class="d-tagchip">Usability</span></td><td style="font-size:var(--tw-text-md); color:var(--tw-ink-muted)">2px outline, 2px radius — squarest element in the system</td></tr>
+            <tr><th scope="row">Price tag</th><td class="vm-cell"><span class="d-price"><span>from $15K</span></span></td><td style="font-size:var(--tw-text-md); color:var(--tw-ink-muted)"><code>skewX(-6°)</code>, corner-anchored</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="padding:18px 20px; border-top:1px solid #DCE6EE; background:#FBFDFE">
+        <div style="font-size:var(--tw-text-md); font-weight:var(--tw-weight-semibold); color:var(--tw-navy); margin-bottom:12px">Shield roster — 8 pairings in current use</div>
+        <div style="display:flex; flex-wrap:wrap; gap:22px">
+          <div style="text-align:center; width:106px"><span class="d-shield" style="display:inline-block;width:44px;height:52px"><svg class="f" viewBox="0 0 120 140"><use href="#vm-shield"/></svg><svg class="i" viewBox="0 0 24 24"><use href="#vm-crosshair"/></svg></span><div style="font-size:var(--tw-text-xs); color:var(--tw-ink-muted); margin-top:8px; line-height:1.3">Product Strategy &amp; UXR</div></div>
+          <div style="text-align:center; width:106px"><span class="d-shield" style="display:inline-block;width:44px;height:52px"><svg class="f" viewBox="0 0 120 140"><use href="#vm-shield"/></svg><svg class="i" viewBox="0 0 24 24"><use href="#vm-ruler"/></svg></span><div style="font-size:var(--tw-text-xs); color:var(--tw-ink-muted); margin-top:8px; line-height:1.3">Product Design &amp; UX</div></div>
+          <div style="text-align:center; width:106px"><span class="d-shield" style="display:inline-block;width:44px;height:52px"><svg class="f" viewBox="0 0 120 140"><use href="#vm-shield"/></svg><svg class="i" viewBox="0 0 24 24"><use href="#vm-spark"/></svg></span><div style="font-size:var(--tw-text-xs); color:var(--tw-ink-muted); margin-top:8px; line-height:1.3">AI Guidance &amp; Enablement</div></div>
+          <div style="text-align:center; width:106px"><span class="d-shield" style="display:inline-block;width:44px;height:52px"><svg class="f" viewBox="0 0 120 140"><use href="#vm-shield"/></svg><svg class="i" viewBox="0 0 24 24"><use href="#vm-squares"/></svg></span><div style="font-size:var(--tw-text-xs); color:var(--tw-ink-muted); margin-top:8px; line-height:1.3">Structural Readiness</div></div>
+          <div style="text-align:center; width:106px"><span class="d-shield" style="display:inline-block;width:44px;height:52px"><svg class="f" viewBox="0 0 120 140"><use href="#vm-shield"/></svg><svg class="i" viewBox="0 0 24 24"><use href="#vm-userplus"/></svg></span><div style="font-size:var(--tw-text-xs); color:var(--tw-ink-muted); margin-top:8px; line-height:1.3">User Enablement</div></div>
+          <div style="text-align:center; width:106px"><span class="d-shield" style="display:inline-block;width:44px;height:52px"><svg class="f" viewBox="0 0 120 140"><use href="#vm-shield"/></svg><svg class="i" viewBox="0 0 24 24"><use href="#vm-trend"/></svg></span><div style="font-size:var(--tw-text-xs); color:var(--tw-ink-muted); margin-top:8px; line-height:1.3">Business Advantage</div></div>
+          <div style="text-align:center; width:106px"><span class="d-shield" style="display:inline-block;width:44px;height:52px"><svg class="f" viewBox="0 0 120 140"><use href="#vm-shield"/></svg><svg class="i" viewBox="0 0 24 24"><use href="#vm-database"/></svg></span><div style="font-size:var(--tw-text-xs); color:var(--tw-ink-muted); margin-top:8px; line-height:1.3">Data Access</div></div>
+          <div style="text-align:center; width:106px"><span class="d-shield" style="display:inline-block;width:44px;height:52px"><svg class="f" viewBox="0 0 120 140"><use href="#vm-shield"/></svg><svg class="i" viewBox="0 0 24 24"><use href="#vm-doublecheck"/></svg></span><div style="font-size:var(--tw-text-xs); color:var(--tw-ink-muted); margin-top:8px; line-height:1.3">Quality / This&nbsp;Waay mark</div></div>
+        </div>
+        <p style="font-size:var(--tw-text-md); color:var(--tw-ink-muted); margin:14px 0 0">Same shield frame every time — only the inner icon changes. Icon at ~40% of shield width, centered ~43% down.</p>
+      </div>
+      <div class="vm-scroll" style="border-top:1px solid #DCE6EE">
+        <table class="vm-table">
+          <caption class="visually-hidden">Badge placements</caption>
+          <thead><tr><th scope="col">Placement</th><th scope="col">Rendered</th><th scope="col">Placement</th><th scope="col">Rendered</th></tr></thead>
+          <tbody>
+            <tr>
+              <th scope="row">Top left</th><td class="vm-cell" style="width:210px"><div class="d-place p-tl"><span class="b"><svg width="17" height="17"><use href="#vm-bolt"/></svg></span><h6 style="margin:0;font-size:var(--tw-text-md);color:var(--tw-navy)">Inside</h6></div><code>inside</code></td>
+              <th scope="row">Top center</th><td class="vm-cell" style="width:210px"><div class="d-place p-tc"><span class="b"><svg width="17" height="17"><use href="#vm-spark"/></svg></span><h6 style="margin:0;font-size:var(--tw-text-md);color:var(--tw-navy)">Centered</h6></div><code>margin:0 auto</code></td>
+            </tr>
+            <tr>
+              <th scope="row">Top right</th><td class="vm-cell"><div class="d-place p-tr"><span class="b"><svg width="17" height="17"><use href="#vm-bolt"/></svg></span><h6 style="margin:0;font-size:var(--tw-text-md);color:var(--tw-navy)">Corner</h6></div><code>position:absolute</code></td>
+              <th scope="row">Floating above ★</th><td class="vm-cell"><div class="d-place p-fa"><span class="b"><svg width="17" height="17"><use href="#vm-spark"/></svg></span><h6 style="margin:0;font-size:var(--tw-text-md);color:var(--tw-navy)">Signature</h6></div><code>margin-top:-32px</code></td>
+            </tr>
+            <tr>
+              <th scope="row">Floating side</th><td class="vm-cell"><div class="d-place p-fs"><span class="b"><svg width="17" height="17"><use href="#vm-bolt"/></svg></span><h6 style="margin:0;font-size:var(--tw-text-md);color:var(--tw-navy)">Edge</h6></div><code>left:-17px</code></td>
+              <th scope="row">Corner tag</th><td class="vm-cell"><div class="d-place p-cn"><span class="b">$8K</span><h6 style="margin:0;font-size:var(--tw-text-md);color:var(--tw-navy)">Priced</h6></div><code>skewX(-6°)</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="vm-note"><strong>Placement is a real axis, not styling.</strong> "Floating above" is the signature — the figure overlaps the panel/card top edge rather than sitting inside it.</div>
+    </div>
+
+    <!-- ===== SEGMENT CARD — "Who We Serve" ===== -->
+    <div class="vmatrix">
+      <div class="vm-head">
+        <h4>Segment card <span style="font-size:var(--tw-text-xs); color:var(--tw-ink-muted); font-weight:var(--tw-weight-regular)">"Who We Serve" — the three homepage audience segments</span></h4>
+      </div>
+      <div style="padding:28px 20px; background:var(--tw-navy)">
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:56px 24px; max-width:920px; margin:0 auto">
+          <div class="d-seg">
+            <img class="d-seg__fig" alt="" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96' fill='none'%3E%3Ccircle cx='48' cy='48' r='44' fill='%230C2A48' stroke='%2354B987' stroke-width='3'/%3E%3Crect x='32' y='26' width='32' height='42' rx='4' stroke='%23fff' stroke-width='4.5'/%3E%3Crect x='42' y='20' width='12' height='8' rx='2' stroke='%23fff' stroke-width='3.5'/%3E%3Cpath d='M39 38 H57' stroke='%23fff' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M39 47 H57' stroke='%23fff' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M39 56 H51' stroke='%23fff' stroke-width='3' stroke-linecap='round'/%3E%3Ccircle cx='62' cy='64' r='11' fill='%2354B987'/%3E%3Cpath d='M57 64 L61 68 L68 58' stroke='%23fff' stroke-width='3.2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+            <div class="d-seg__title">Scaling &amp; Emerging Technology Teams</div>
+            <p class="d-seg__body">We help growing product and technology teams clarify workflows, strengthen usability, and build systems that scale with greater confidence.</p>
+          </div>
+          <div class="d-seg">
+            <img class="d-seg__fig" alt="" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96' fill='none'%3E%3Ccircle cx='48' cy='48' r='44' fill='%230C2A48' stroke='%2354B987' stroke-width='3'/%3E%3Cpath d='M30 24 H54 L66 36 V68 A4 4 0 0 1 62 72 H34 A4 4 0 0 1 30 68 Z' stroke='%23fff' stroke-width='4.5' stroke-linejoin='round'/%3E%3Cpath d='M54 24 V36 H66' stroke='%23fff' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M37 46 H58' stroke='%23fff' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M37 54 H58' stroke='%23fff' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M37 62 H50' stroke='%23fff' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M73 26 L66.5 23.5 L64 17 L61.5 23.5 L55 26 L61.5 28.5 L64 35 L66.5 28.5 Z' fill='%2354B987'/%3E%3C/svg%3E">
+            <div class="d-seg__title">Investors &amp; Portfolio Operators</div>
+            <p class="d-seg__body">We help investors and operators assess product maturity, surface workflow and UX opportunities, and support portfolio transformation.</p>
+          </div>
+          <div class="d-seg">
+            <img class="d-seg__fig" alt="" style="max-height:56px" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='138' height='80' viewBox='0 0 138 80' fill='none'%3E%3Crect width='130.856' height='68.3352' rx='10' transform='matrix(0.996452 -0.0841652 0.0984252 0.995144 0 11.0137)' fill='%2372B68A'/%3E%3Cpath d='M64.9593 38.4598L62.356 41.0632C61.1093 39.7982 59.8993 38.1665 59.0743 35.6732L62.631 34.7748C63.2176 36.4065 64.0426 37.5248 64.9593 38.4598ZM67.196 28.9998L59.8626 21.6665L52.5293 28.9998H58.066C58.1026 30.4848 58.2126 31.8232 58.4143 32.9782L61.971 32.0798C61.8426 31.1998 61.751 30.1548 61.7326 28.9998H67.196ZM85.5293 28.9998L78.196 21.6665L70.8626 28.9998H76.3443C76.161 35.7465 73.9976 37.7082 71.6876 39.7798C70.771 40.5865 69.836 41.4665 69.0293 42.6215C68.406 41.7232 67.691 41.0082 66.9576 40.3482L64.3726 42.9332C66.0776 44.4915 67.196 45.7565 67.196 49.1665V58.3332H70.8626V49.1665C70.8626 45.4632 72.1643 44.2898 74.1443 42.5115C76.6743 40.2382 79.791 37.4148 80.011 28.9998H85.5293Z' fill='white'/%3E%3C/svg%3E">
+            <div class="d-seg__title">Government &amp; Public Sector Systems</div>
+            <p class="d-seg__body">We help public-sector teams improve tools, workflows, and digital systems so they are clearer, more usable, and better aligned to real-world operations.</p>
+          </div>
+        </div>
+      </div>
+      <div class="vm-note"><strong>The figure is asset-driven, not a fixed shape.</strong> These are the three real production icons (<code>icon07.svg</code>, <code>icon09.svg</code>, <code>icon06.svg</code>), embedded here verbatim — not a "badge type" template. Two happen to be navy-circle icons; the third is a green skewed rectangle sharing the float-panel card's skew motif at icon scale. Corrected 2026-08 — previously documented as a uniform circular badge, which only described two of the three.</div>
+    </div>
+
+    <!-- ===== LISTS ===== -->
+    <div class="vmatrix">
+      <div class="vm-head">
+        <h4>List</h4>
+        <div class="vm-axes"><span class="vm-axis">marker <b>5</b></span></div>
+      </div>
+      <div class="vm-scroll">
+        <table class="vm-table">
+          <caption class="visually-hidden">List marker variants</caption>
+          <thead><tr><th scope="col">Marker</th><th scope="col">Rendered</th><th scope="col">Use</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Paper plane</th><td class="vm-cell" style="width:290px"><ul class="d-list l-plane"><li>Workflow analysis</li><li>Stakeholder alignment</li></ul><code>.tw-list--plane</code></td><td style="font-size:var(--tw-text-md); color:var(--tw-ink-muted)">The brand-motif bullet — feature and service lists</td></tr>
+            <tr><th scope="row">Circle check</th><td class="vm-cell"><ul class="d-list l-check"><li>Research synthesis</li><li>Opportunity mapping</li></ul><code>.tw-list--check</code></td><td style="font-size:var(--tw-text-md); color:var(--tw-ink-muted)">Inclusions and deliverables — "what you get"</td></tr>
+            <tr><th scope="row">Plain dot</th><td class="vm-cell"><ul class="d-list l-dot"><li>Manual handoffs</li><li>No shared source of truth</li></ul><code>.tw-list--dot</code></td><td style="font-size:var(--tw-text-md); color:var(--tw-ink-muted)">Neutral enumeration where the marker shouldn't speak</td></tr>
+            <tr><th scope="row">Numbered step</th><td class="vm-cell"><ol class="d-steps"><li>Clarify real-world workflows</li><li>Design with technical reality</li></ol><code>.tw-step</code></td><td style="font-size:var(--tw-text-md); color:var(--tw-ink-muted)">Sequences only — where order carries meaning</td></tr>
+            <tr><th scope="row">Dotted connector</th><td class="vm-cell"><ul class="d-conn"><li>Discovery</li><li>Design</li><li>Validation</li></ul><code>.tw-list--conn</code></td><td style="font-size:var(--tw-text-md); color:var(--tw-ink-muted)">Process flows — echoes the flight path</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="vm-note"><strong>Pick the marker for what it means:</strong> numbered steps imply sequence, circle-checks imply completeness, plane bullets are brand-flavored neutral. Don't number a non-sequence.</div>
+    </div>
+
+    <!-- ===== HERO ===== -->
+    <div class="vmatrix">
+      <div class="vm-head">
+        <h4>Hero</h4>
+        <div class="vm-axes"><span class="vm-axis">ground <b>3</b></span><span class="vm-axis">H1 color <b>2</b></span><span class="vm-axis">CTA count <b>2</b></span></div>
+      </div>
+      <div class="vm-scroll">
+        <table class="vm-table">
+          <caption class="visually-hidden">Hero variants</caption>
+          <thead><tr><th scope="col">Variant</th><th scope="col">Rendered</th><th scope="col">Ground</th><th scope="col">H1</th><th scope="col">CTA</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Home</th><td class="vm-cell" style="width:290px"><div class="d-hero h-navy"><h6>Guiding complex products toward intelligent systems</h6><p>Align workflows, strengthen foundations.</p><button class="btn btn-primary btn-sm">Start a conversation</button></div></td><td style="font-size:var(--tw-text-md)">navy</td><td style="font-size:var(--tw-text-md)">green</td><td style="font-size:var(--tw-text-md)">1</td></tr>
+            <tr><th scope="row">Assessment</th><td class="vm-cell"><div class="d-hero h-navy h-navy-white"><span class="eb">Workflow Intelligence</span><h6>See where the work actually breaks</h6><button class="btn btn-primary btn-sm">Book</button></div></td><td style="font-size:var(--tw-text-md)">navy</td><td style="font-size:var(--tw-text-md)">white</td><td style="font-size:var(--tw-text-md)">1</td></tr>
+            <tr><th scope="row">AI Practice</th><td class="vm-cell"><div class="d-hero h-tex"><span class="eb">AI Guidance</span><h6>Intelligence integrated where work happens</h6><button class="btn btn-primary btn-sm">Talk to us</button> <button class="btn btn-ghost-dark btn-sm">Read more</button></div></td><td style="font-size:var(--tw-text-md)">navy + maze</td><td style="font-size:var(--tw-text-md)">white</td><td style="font-size:var(--tw-text-md)">2</td></tr>
+            <tr><th scope="row">About</th><td class="vm-cell"><div class="d-hero h-soft"><span class="eb" style="color:var(--tw-green-ink)">Studio perspective</span><h6>Led by product systems strategist, Kate Valdes</h6><p>Enterprise software to PE-backed teams.</p></div></td><td style="font-size:var(--tw-text-md)">soft</td><td style="font-size:var(--tw-text-md)">navy</td><td style="font-size:var(--tw-text-md)">0</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="vm-note"><strong>Invariant:</strong> every hero uses the <code>skew(0deg, -2°)</code> section break. Ground, H1 color, and CTA count are the axes that vary.</div>
+    </div>
+
+    <!-- ===== CARD TYPES ===== -->
+    <div class="vmatrix">
+      <div class="vm-head">
+        <h4>Card — type</h4>
+        <div class="vm-axes"><span class="vm-axis">type <b>13</b></span></div>
+      </div>
+      <div class="vm-scroll">
+        <table class="vm-table">
+          <caption class="visually-hidden">The thirteen shipped card types</caption>
+          <thead><tr><th scope="col">Type</th><th scope="col">Ground</th><th scope="col">Distinguishing feature</th></tr></thead>
+          <tbody style="font-size:var(--tw-text-md)">
+            <tr><th scope="row">Content</th><td>any</td><td style="color:var(--tw-ink-muted)">The base — ExtraBold title + muted body</td></tr>
+            <tr><th scope="row">Skewed accent</th><td>green</td><td style="color:var(--tw-ink-muted)"><code>skewY(-10°)</code> colored pseudo-panel</td></tr>
+            <tr><th scope="row">Float-panel ★</th><td>softWarm / green</td><td style="color:var(--tw-ink-muted)">Figure overlaps a skewed panel — <em>matrix above</em></td></tr>
+            <tr><th scope="row">Segment</th><td>soft</td><td style="color:var(--tw-ink-muted)">Circle badge pulled up 40px through the top edge</td></tr>
+            <tr><th scope="row">Service primary</th><td>soft</td><td style="color:var(--tw-ink-muted)">Tall, image at bottom, corner price tag</td></tr>
+            <tr><th scope="row">Flip</th><td>navy → green</td><td style="color:var(--tw-ink-muted)"><code>rotateY(180°)</code> on hover/focus — work cards</td></tr>
+            <tr><th scope="row">Testimonial</th><td>soft</td><td style="color:var(--tw-ink-muted)">Quote glyph, logo, green role line</td></tr>
+            <tr><th scope="row">Carousel</th><td>green</td><td style="color:var(--tw-ink-muted)">Circle arrows + elongating pill dots</td></tr>
+            <tr><th scope="row">Deliverable</th><td>white</td><td style="color:var(--tw-ink-muted)">Top-bleed icon, soft shadow</td></tr>
+            <tr><th scope="row">Quote</th><td>white</td><td style="color:var(--tw-ink-muted)">Hover-lift, green focus edge</td></tr>
+            <tr><th scope="row">Green centered</th><td>green</td><td style="color:var(--tw-ink-muted)">Centered icon + title, no body</td></tr>
+            <tr><th scope="row">Track pricing</th><td>translucent</td><td style="color:var(--tw-ink-muted)">On-navy, <strong>14px radius</strong>, dotted includes list</td></tr>
+            <tr><th scope="row">Tall pricing</th><td>soft / green</td><td style="color:var(--tw-ink-muted)">48px green price; green <em>featured</em> variant</td></tr>
+            <tr><th scope="row">Banner</th><td>navy</td><td style="color:var(--tw-ink-muted)">Full-width, green accent bar, CTA</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="vm-note"><strong>Consolidation target ⬦:</strong> these 13 should resolve to <em>(base card × ground × badge placement)</em> rather than 13 unrelated patterns. Tabled rather than rendered — 13 types × 6 grounds is 78 combinations, most of which have never shipped. Render the ones you actually need.</div>
     </div>
   </div>
 </section>
@@ -1745,10 +2281,40 @@
 <section id="decks" class="on-soft angle-top">
   <div class="wrap">
     <div class="sec-head">
-      <div class="eyebrow">13 · Application</div>
-      <h2>Slide decks</h2>
-      <p class="lede">Six templates cover most decks: <strong>title, section divider, content, quote, chart, and closing.</strong> Gray deck headers, teal-ink subheads, green category labels, and Axiforma throughout — the same system as the rest of the brand, adapted for a projected 16:9 surface.</p>
+      <div class="eyebrow">13 · Decks</div>
+      <h2>Deck system</h2>
+      <p class="lede">A <strong>separate surface with its own rules.</strong> Decks are projected, read at a distance, and often shared as PDFs — so they carry their own color, type minimums, and motion constraints. Everything deck-specific lives here; nothing on the other tabs assumes a slide.</p>
     </div>
+
+    <div style="background:var(--tw-navy); color:#fff; border-radius:var(--tw-radius-card); padding:22px 26px; margin-bottom:38px">
+      <div style="font-family:var(--tw-font-display); font-weight:var(--tw-weight-bold); margin-bottom:10px">How decks differ from the marketing site</div>
+      <table class="spec-table" style="margin:0; --tw-navy:#fff">
+        <tr><td style="color:#fff">Ground</td><td style="color:rgba(255,255,255,.85)">White or navy</td><td style="color:rgba(255,255,255,.72)">No soft-gradient grounds — they wash out when projected</td></tr>
+        <tr><td style="color:#fff">Header color</td><td style="color:rgba(255,255,255,.85)">Deck Gray <code style="color:#54B987">#595959</code></td><td style="color:rgba(255,255,255,.72)">Deck-only. Never used on the marketing site</td></tr>
+        <tr><td style="color:#fff">Minimum text</td><td style="color:rgba(255,255,255,.85)">~18px @ 1080p</td><td style="color:rgba(255,255,255,.72)">Larger than web minimums — distance legibility</td></tr>
+        <tr><td style="color:#fff">Motion</td><td style="color:rgba(255,255,255,.85)">Fade or cut only</td><td style="color:rgba(255,255,255,.72)">The site's scroll reveals and draw-on have no deck equivalent</td></tr>
+        <tr><td style="color:#fff">Aspect</td><td style="color:rgba(255,255,255,.85)">Fixed 16:9</td><td style="color:rgba(255,255,255,.72)">Not responsive — a fixed canvas, not a breakpoint system</td></tr>
+      </table>
+    </div>
+
+    <h3 id="deck-foundations" style="margin-bottom:8px; scroll-margin-top:150px">Deck color &amp; type</h3>
+    <p style="color:var(--tw-ink-muted); font-size:var(--tw-text-lg); max-width:70ch; margin-bottom:20px">Decks draw from the brand palette but add one color of their own and lean on different roles. <strong style="color:var(--tw-navy)">Deck Gray is deck-only</strong> — it is deliberately absent from the marketing-site palette.</p>
+    <div class="swatch-grid" style="margin-bottom:14px">
+      <button type="button" class="swatch" data-hex="#595959" aria-label="Deck Gray, hex 5 9 5 9 5 9. Press to copy hex code."><div class="chipcolor" style="background:#595959" aria-hidden="true"><span class="copied-tag">Copied</span></div><div class="info" aria-hidden="true"><div class="name">Deck Gray</div><div class="hex">#595959</div><div class="use"><strong>Deck-only.</strong> Slide headers and body text on white.</div></div></button>
+      <button type="button" class="swatch" data-hex="#0C2A48" aria-label="Navy, hex 0 C 2 A 4 8. Press to copy hex code."><div class="chipcolor" style="background:#0C2A48" aria-hidden="true"><span class="copied-tag">Copied</span></div><div class="info" aria-hidden="true"><div class="name">Navy</div><div class="hex">#0C2A48</div><div class="use">Title, divider, and closing slide grounds.</div></div></button>
+      <button type="button" class="swatch" data-hex="#077373" aria-label="Teal Ink, hex 0 7 7 3 7 3. Press to copy hex code."><div class="chipcolor" style="background:#077373" aria-hidden="true"><span class="copied-tag">Copied</span></div><div class="info" aria-hidden="true"><div class="name">Teal — Ink</div><div class="hex">#077373</div><div class="use">Subheads and attribution. The deck heritage accent.</div></div></button>
+      <button type="button" class="swatch" data-hex="#54B987" aria-label="Waay Green, hex 5 4 B 9 8 7. Press to copy hex code."><div class="chipcolor" style="background:#54B987" aria-hidden="true"><span class="copied-tag">Copied</span></div><div class="info" aria-hidden="true"><div class="name">Waay Green</div><div class="hex">#54B987</div><div class="use">Category labels, chart series, the presenter line.</div></div></button>
+    </div>
+    <table class="spec-table" style="margin-bottom:38px">
+      <tr><td>Slide header</td><td>Axiforma SemiBold · Deck Gray</td><td>The workhorse — content and chart slides</td></tr>
+      <tr><td>Display title</td><td>Axiforma Bold · white on navy</td><td>Title, divider, and closing slides</td></tr>
+      <tr><td>Subhead</td><td>Axiforma SemiBold · Teal-Ink</td><td>Summary lines, attribution</td></tr>
+      <tr><td>Body / bullets</td><td>Axiforma Regular · ~18px min</td><td>Short declarative lines — never paragraphs</td></tr>
+      <tr><td>Micro-eyebrow</td><td>Axiforma Bold · uppercase</td><td>Slide category or numeral, top-left</td></tr>
+    </table>
+
+    <h3 id="deck-templates" style="margin:0 0 6px; scroll-margin-top:150px">Templates</h3>
+    <p style="color:var(--tw-ink-muted); font-size:var(--tw-text-lg); max-width:70ch; margin-bottom:22px">Six templates cover most decks: <strong style="color:var(--tw-navy)">title, section divider, content, quote, chart, and closing.</strong></p>
 
     <div class="deck-grid">
       <figure>
@@ -1821,14 +2387,44 @@
       </figure>
     </div>
 
-    <h3 style="margin:44px 0 16px">Deck rules</h3>
+    <h3 id="deck-components" style="margin:44px 0 6px; scroll-margin-top:150px">Deck components</h3>
+    <p style="color:var(--tw-ink-muted); font-size:var(--tw-text-lg); max-width:72ch; margin-bottom:22px">On-slide building blocks. These originated in client decks and belong to the deck system — <strong style="color:var(--tw-navy)">they are not marketing-site components</strong>. The teal category label below is legacy: new decks use green.</p>
+    <div class="comp-grid">
+      <div class="comp-block">
+        <h4>Expanded card</h4>
+        <div class="card-dark">
+          <div class="ic">🎯</div>
+          <h5>Follow Ups</h5>
+          <div class="card-body">We're pushing the conversation forward</div>
+        </div>
+        <p style="font-size:var(--tw-text-md); color:#5C7185; margin-top:12px">Navy card for on-slide grouping — icon, title, one supporting line.</p>
+      </div>
+      <div class="comp-block">
+        <h4>Service text block</h4>
+        <div class="card-green">
+          <h5>Workflow clarity</h5>
+          <p>Understanding how real operational work flows through a platform and identifying where friction emerges.</p>
+        </div>
+        <p style="font-size:var(--tw-text-md); color:#5C7185; margin-top:12px">Green panel for a single service or capability statement.</p>
+      </div>
+      <div class="comp-block">
+        <h4>Category labels (deck)</h4>
+        <span class="cat-label">Discovery</span>
+        <span class="cat-label teal">Usability Testing</span>
+        <p style="font-size:var(--tw-text-md); color:#5C7185; margin-top:12px"><strong>Legacy teal variant</strong> persists in older decks. New decks use green, matching the site.</p>
+      </div>
+    </div>
+
+    <h3 id="deck-rules" style="margin:44px 0 16px; scroll-margin-top:150px">Deck rules</h3>
     <table class="spec-table" style="margin-bottom:30px">
       <tr><td>Aspect ratio</td><td>16:9</td><td>Safe area: keep text ≥5% inset from every edge for projector/crop tolerance</td></tr>
       <tr><td>Slide numbering</td><td>bottom-right</td><td>Omit on title and closing slides</td></tr>
       <tr><td>Presenter notes</td><td>below the slide, never on it</td><td>Speaker context and talk track live in the notes field, not on-slide</td></tr>
       <tr><td>Minimum text size</td><td>~18px equivalent at 1080p</td><td>Projected/shared-screen contexts need larger minimums than web body text</td></tr>
       <tr><td>Contrast</td><td>same as web</td><td>WCAG 2.2 AA still applies — see Accessibility</td></tr>
-      <tr><td>Transitions</td><td>fade or cut only</td><td>No per-slide novelty transitions; advance is always presenter-controlled — see Motion</td></tr>
+      <tr><td>Transitions</td><td><strong>fade or cut only</strong></td><td>No per-slide novelty transitions. Advance is <strong>always presenter-controlled</strong> — never auto-advance a deck</td></tr>
+      <tr><td>Grounds</td><td>white or navy only</td><td>No soft-gradient grounds — they wash out when projected</td></tr>
+      <tr><td>Illustration</td><td>paper-cut style only</td><td>The isometric flat-icon style from older deck templates is <strong>deprecated</strong> — see Illustration</td></tr>
     </table>
     <p style="font-size:var(--tw-text-md); color:var(--tw-ink-muted); max-width:68ch">Any chart or diagram embedded in a deck needs the same alt text/description discipline as on the web — if the deck is shared as a PDF or read aloud, the data still needs to be conveyed in words somewhere (a takeaway line, a table, presenter notes).</p>
   </div>
@@ -1886,7 +2482,7 @@
         <li>Paper plane motif: use the exact SVG paths embedded in section 05; wing gradient is #62D38C → #30737B (nose → tail), body navy on light / white on navy. Flight trails are round white or navy dots with at least one loop — never straight, never dashed.</li>
         <li>Charts use the fixed series order (green, steel, teal, navy, slate); single-series is always Waay green; no chart-junk, 3D, or non-brand colors.</li>
         <li>Screenshots are always framed — light gradient ground or navy hero with topographic lines — with 8px corners and a soft navy shadow; annotate only in Waay green.</li>
-        <li>Spacing follows the 8px scale; content maxes at 1080px; sections alternate navy/soft on shallow angled breaks with a centered eyebrow-H2-lede header.</li>
+        <li>Spacing follows the 8px scale. <strong>Layout is Bootstrap 5.0.2</strong> — use <code>container</code>/<code>row</code>/<code>col-lg-*</code> and never re-author the grid; the container maxes at 1140px. Sections alternate navy/white/soft on shallow angled breaks (−2°) with a centered eyebrow-H2-lede header.</li>
         <li>Diagrams use bold navy outlines, one green accent each, and the fixed double-diamond color order (slate, navy, steel, green).</li>
         <li>Coral (#F2A08D) appears only inside illustrations — never in UI, charts, or text.</li>
       </ol>
@@ -1899,7 +2495,7 @@
 <footer>
   <div class="wrap">
     <div>© 2026 This Waay · Product design &amp; AI strategy consultancy · Sacramento, California</div>
-    <div>Style guide v2.3 — living document; update on brand decisions (v2.3: chapters realigned to the shared spine with the Gridmark sibling system)</div>
+    <div>Style guide v3.0 — living document; update on brand decisions (v3.0: reconciled to the production marketing site as source of truth — corrected card radius, container width, pill radius, body size, and the soft gradient, which now carries its warm third stop)</div>
   </div>
 </footer>
 
