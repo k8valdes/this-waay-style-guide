@@ -885,7 +885,7 @@
     <path d="M300 230 L560 40 L330 320 Z" fill="#ffffff" opacity="0.6"/>
   </svg>
   <div class="wrap">
-    <div class="eyebrow" style="color:var(--tw-green)">Living Style Guide · v3.0 · August 2026 · Public-safe edition</div>
+    <div class="eyebrow" style="color:var(--tw-green)">Living Style Guide · v3.1 · August 2026 · Public-safe edition</div>
     <h1 style="margin-top:14px">Guiding complex products<br>with a <span class="hl">consistent visual language</span></h1>
     <p class="lede">The single source of truth for This Waay's brand — colors, type, components, illustration prompts, and voice. Built to be read by humans and used as context by AI tools.</p>
     <div class="hero-meta">
@@ -995,7 +995,7 @@
       <div style="font-weight:var(--tw-weight-medium); font-size:var(--tw-text-2xl); margin-bottom:8px">Medium 500 — emphasis within body, nav links <span style="font-weight:var(--tw-weight-regular); font-size:var(--tw-text-md); color:var(--tw-ink-muted)">Aa Bb Cc 0123</span></div>
       <div style="font-weight:var(--tw-weight-regular); font-size:var(--tw-text-2xl)">Regular 400 — body copy, captions <span style="font-size:var(--tw-text-md); color:var(--tw-ink-muted)">Aa Bb Cc 0123</span></div>
     </div>
-    <p style="font-size:var(--tw-text-md); color:#5C7185; margin-top:16px; max-width:70ch"><strong>Licensing &amp; fallbacks:</strong> Axiforma (Kastelov) requires a license per use — confirm web-embedding coverage before self-hosting woff2 files. Stack: <code>'Axiforma', 'Poppins', 'Segoe UI', sans-serif</code>. In tools where neither loads (some slide/AI environments), Poppins is the only acceptable substitute. The legacy deck face is retired with the next template refresh.</p>
+    <p style="font-size:var(--tw-text-md); color:#5C7185; margin-top:16px; max-width:70ch"><strong>Licensing — resolved 2026-08 by Kate:</strong> Axiforma (Kastelov) ships <code>fsType 4</code> on every cut — Preview &amp; Print embedding only, verified from the OS/2 table of all 20 supplied OTFs. That permits PDF embedding and read-only PPTX embedding (distribute decks as PDF — PowerPoint only embeds fonts on Windows), but NOT editable PPTX embedding and NOT a self-hosted webfont (<code>@font-face</code> would need a separate Kastelov webfont license, not purchased). So: Axiforma is used where the license permits — PDF and deck generation — while the <strong>web stack stays as shipped</strong>: <code>'Axiforma', 'Poppins', 'Segoe UI', sans-serif</code>, no self-hosted woff2. Poppins remains the only acceptable substitute where neither loads. Ship only the five cuts actually used (Regular/Medium/SemiBold/Bold/ExtraBold) — the rest are unnecessary license surface, and don't commit the OTF files to this repo if it's public. The legacy deck face is retired with the next template refresh.</p>
 
     <h3 style="margin:44px 0 16px">Type size scale</h3>
     <p style="color:var(--tw-ink-muted); font-size:var(--tw-text-lg); max-width:70ch; margin-bottom:18px">Ten fixed steps carry every font-size in the system — display and body copy sit outside the scale as their own dedicated tokens. This consolidates what had accumulated into ~36 unrelated one-off values; every element in this page now points at one of the tokens below, so a future size change happens in one place.</p>
@@ -1072,7 +1072,7 @@
       <div class="scale-row"><span class="lab">32px</span><span class="bar" style="width:32px"></span><span class="role">Card-to-card grid gap</span></div>
       <div class="scale-row"><span class="lab">48px</span><span class="bar" style="width:48px"></span><span class="role">Section-header to content</span></div>
       <div class="scale-row"><span class="lab">64px</span><span class="bar" style="width:64px"></span><span class="role">Sub-block separation within a section</span></div>
-      <div class="scale-row"><span class="lab">96px+</span><span class="bar" style="width:96px"></span><span class="role">Vertical section padding (clamped 56–110px responsive)</span></div>
+      <div class="scale-row"><span class="lab">96px+</span><span class="bar" style="width:96px"></span><span class="role">Vertical section padding — varies per section, 60–170px in production. No single clamped token; see Layout tokens below.</span></div>
     </div>
     <h3 style="margin-bottom:8px">Layout tokens</h3>
     <table class="spec-table" style="margin-bottom:34px">
@@ -1196,7 +1196,7 @@
     <div class="sec-head">
       <div class="eyebrow">06 · Foundations</div>
       <h2>Accessibility</h2>
-      <p class="lede"><strong>WCAG 2.2 AA is the baseline for every This Waay and client deliverable</strong> — not a follow-up pass. It's applied here, in the guide itself, so every rule below is demonstrated live rather than just described. A few of the studio's own signature colors fail AA contrast when used as text on light grounds — the fixes are documented as tokens below and used consistently throughout this page.</p>
+      <p class="lede"><strong>WCAG 2.2 AA is the baseline for every This Waay and client deliverable</strong> — not a follow-up pass. It's applied here, in the guide itself, so every rule below is demonstrated live rather than just described. A few of the studio's own signature colors fail AA contrast when used as text on light grounds — the fixes are documented as tokens below and used consistently throughout this page. Where a deviation from that baseline is deliberate rather than an oversight, it's dated and measured rather than left unstated — see the primary button's accepted deviation in <a href="#variants" style="color:var(--tw-green-ink); font-weight:var(--tw-weight-semibold)">Variants</a>.</p>
     </div>
 
     <h3 style="margin-bottom:16px">Color &amp; contrast</h3>
@@ -1879,7 +1879,7 @@
       </div>
       <div class="vm-note">
         <strong>✔ Decided (Aug 2026):</strong> the primary button is <strong>green fill with white text</strong>, matching production. This closes the previously-open white-vs-navy question — new work uses white.
-        <br><br><strong>Accessibility footnote:</strong> white-on-green measures ~2.4:1, below the WCAG AA 4.5:1 threshold for normal text. It clears <strong>3:1 for large text</strong>, so at the shipped 16px Bold it is borderline. If a future audit needs AA on this element, the lever is darkening the green behind white text (not switching the text to navy) — that would preserve the decision while fixing contrast.
+        <br><br><strong>Accessibility footnote — accepted deviation, not borderline:</strong> white-on-green measures <strong>2.42:1</strong>, against a <strong>4.5:1</strong> requirement — the button's 16px Bold does not meet the large-text exception (≥18.66px bold), so this is a clear WCAG 2.2 AA 1.4.3 failure, not a close call. Navy-on-green measures 6.02:1 and would pass at zero cost; it was rejected 2026-08 by Kate in favor of brand consistency with the shipped white-text button. If a future audit needs AA on this element, the lever is darkening the green behind white text (not switching the text to navy) — the first hue/saturation-preserving value reaching 4.5:1 is <code>#36845D</code> (lightness 52.7% → 36.5%).
         <br><br><strong>Production geometry:</strong> radius <code>25px</code> · <code>AxiformaBold 16px/24px</code> · padding <code>13px 30px 11px</code> · hover <em>inverts</em> fill and text rather than darkening. Only the large size ships today; medium and small are proposed additions.
       </div>
     </div>
@@ -2561,7 +2561,7 @@
         <li>Apply the voice rules in section 06 to all copy. When in doubt: shorter, calmer, more structural.</li>
         <li>Slides follow the deck system: gray headers (#595959), teal subheads, green category labels, white or navy grounds — set in Axiforma going forward (legacy deck face is deprecated).</li>
         <li>Paper plane motif: use the exact SVG paths embedded in section 05; wing gradient is #62D38C → #30737B (nose → tail), body navy on light / white on navy. Flight trails are round white or navy dots with at least one loop — never straight, never dashed.</li>
-        <li>Charts use the fixed series order (green, steel, teal, navy, slate); single-series is always Waay green; no chart-junk, 3D, or non-brand colors.</li>
+        <li>Charts use the fixed series order (green, steel, teal, navy — navy doubles as axes/text); slate is gridlines/labels only, never a series color; single-series is always Waay green; no chart-junk, 3D, or non-brand colors.</li>
         <li>Screenshots are always framed — light gradient ground or navy hero with topographic lines — with 8px corners and a soft navy shadow; annotate only in Waay green.</li>
         <li>Spacing follows the 8px scale. <strong>Layout is Bootstrap 5.0.2</strong> — use <code>container</code>/<code>row</code>/<code>col-lg-*</code> and never re-author the grid; the container maxes at 1140px. Sections alternate navy/white/soft on shallow angled breaks (−2°) with a centered eyebrow-H2-lede header.</li>
         <li>Diagrams use bold navy outlines, one green accent each, and the fixed double-diamond color order (slate, navy, steel, green).</li>
@@ -2576,7 +2576,7 @@
 <footer>
   <div class="wrap">
     <div>© 2026 This Waay · Product design &amp; AI strategy consultancy · Sacramento, California</div>
-    <div>Style guide v3.0 — living document; update on brand decisions (v3.0: reconciled to the production marketing site as source of truth — corrected card radius, container width, pill radius, body size, and the soft gradient, which now carries its warm third stop)</div>
+    <div>Style guide v3.1 — living document; update on brand decisions (v3.1 — 2026-08 spec reconciliation: the primary button's white-on-green contrast reclassified from open gap to a dated, measured accepted deviation with a remediation lever; retired section-padding clamp and the duplicate text-measure block removed from the docs; weightEquivalents promoted to production with a named familyName field per cut (the numeric-weight-only path silently drops to the wrong Axiforma cut); Axiforma licensing resolved — PDF/deck only, web stack unchanged. v3.0: reconciled to the production marketing site as source of truth — corrected card radius, container width, pill radius, body size, and the soft gradient, which now carries its warm third stop)</div>
   </div>
 </footer>
 

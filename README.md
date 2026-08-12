@@ -18,7 +18,11 @@ Each brand's design-system document is maintained independently, with its own em
 
 ## Licensing note
 
-Both brand docs use **Axiforma** (Kastelov) as their primary typeface, with Poppins as the approved free fallback. Axiforma requires a license per use — confirm web-embedding coverage before self-hosting any woff2 files. No font files are hosted in this repo; both docs load Poppins from Google Fonts and reference Axiforma via `local()` only.
+Both brand docs use **Axiforma** (Kastelov) as their primary typeface, with Poppins as the approved free fallback. **Resolved 2026-08 by Kate:** Axiforma's license covers Preview & Print embedding only (`fsType 4`, verified from the OS/2 table) — permitting PDF and read-only PPTX generation, but not a self-hosted webfont. The web stack stays as shipped: `'Axiforma', 'Poppins', 'Segoe UI', sans-serif`, no self-hosted woff2, no webfont license purchase at this time. See `product-design-studio/tokens.json` → `typography.family.primary.licensing` for the full permitted/not-permitted breakdown. No font files are hosted in this repo; both docs load Poppins from Google Fonts and reference Axiforma via `local()` only.
+
+## Validating the spec
+
+`scripts/validate-spec.py` lints `tokens.json` for internal contradictions (a value or rule stated differently in two places, including against its HTML guide) and can scan a file of generated output for off-brand hex colors. Run `python3 scripts/validate-spec.py --help` for usage.
 
 ## Scope
 

@@ -1,0 +1,8 @@
+/* Test fixture for validate-spec.py Check B.
+   #54b886 is a documented one-digit typo of Waay Green (#54B987) —
+   see product-design-studio/tokens.json -> color.green.knownTypo.
+   It is genuinely present in shipped production CSS
+   (site/public/assets/css/theme.min.css). This fixture reproduces the
+   pattern so Check B's off-token detection has a known, repeatable case. */
+.c-btn.btn-white { background-color: #fff; color: #54b886; border: 1px solid #fff; }
+.c-btn.btn-white:hover { background-color: #54b886; color: #fff; }
