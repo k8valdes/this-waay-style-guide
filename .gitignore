@@ -7,3 +7,13 @@ ThisWaay_Voice_Tone_Guidelines_v2.pdf
 
 # Local working examples/templates — not brand-system content, never public
 Examples/
+
+# Font binaries — Axiforma (Kastelov) is fsType 4 (Preview & Print embedding only).
+# Redistribution is not licensed, and a public repo IS redistribution. NEVER commit
+# these. Belt-and-suspenders: ignore the local font drop-folder AND all font globs
+# anywhere in the tree, so no `git add -A` can ever sweep one in.
+axiforma/
+*.otf
+*.ttf
+*.woff
+*.woff2
