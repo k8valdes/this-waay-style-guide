@@ -901,12 +901,17 @@
 <main id="main">
 
 <!-- ================= TOKEN ARCHITECTURE ================= -->
+<!-- superseded by tiered tokens (tokens.json v4.0, three-tier DTCG 2025.10); this section describes the retired flat model and is regenerated in Phase 3b from the resolver. Values on this page are unchanged and remain truthful; only the "flat, no alias layers" architecture claim below is superseded. -->
 <section id="tokens">
   <div class="wrap">
     <div class="sec-head">
       <div class="eyebrow">01 · Architecture</div>
       <h2>Token architecture</h2>
-      <p class="lede">One flat layer, on purpose. Every brand value is a single <strong>--tw-*</strong> custom property, declared once in this page's stylesheet and mirrored one-to-one in <strong>tokens.json</strong> — color (with its accessible ink text variants), gradients, type family, weight, the 10-step size scale, tracking, leading, the 8px spacing rhythm, radii, shadows, and section padding. Components reference tokens directly; there are no semantic or component alias layers.</p>
+      <div style="background:#FFF8E8; border-left:3px solid #D8A93A; border-radius:0 8px 8px 0; padding:14px 18px; margin-bottom:16px; max-width:74ch">
+        <strong style="color:var(--tw-navy)">⬦ Superseded — regenerated in Phase 3b.</strong>
+        <span style="color:var(--tw-ink-muted); font-size:var(--tw-text-md)"> The machine-readable <code>tokens.json</code> migrated to a <strong>three-tier</strong> structure (primitive → semantic → component, DTCG 2025.10, v4.0). The description below reflects the retired <em>flat</em> model. Every <em>value</em> shown on this page is unchanged and still correct; this page will be regenerated from the tiered file by the Phase 3b resolver rather than hand-mirrored.</span>
+      </div>
+      <p class="lede">This page's own stylesheet still uses a single flat <strong>--tw-*</strong> custom-property layer — color (with its accessible ink text variants), gradients, type family, weight, the 10-step size scale, tracking, leading, the 8px spacing rhythm, radii, shadows, and section padding. <strong>The canonical <code>tokens.json</code> is now three-tier</strong> (semantic roles like <code>color.text.accent</code> reference primitives like <code>color.green.600</code>; components reference roles) — see the migration note in <code>tokens.json</code> and <code>references/</code>.</p>
     </div>
 
     <div class="prompt-card">

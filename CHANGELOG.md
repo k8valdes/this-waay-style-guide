@@ -2,6 +2,21 @@
 
 This tracks version milestones for the unified `Branding/` home itself — not each brand's own internal changelog. See `product-design-studio/index.html` (footer living-document note) and `gridmark-partners/gridmark-design-system-v3.html` (Governance & versioning) for brand-level changelogs.
 
+## Unified v1.4 — 2026-08-13 — Phase 3a tiered-schema migration (branch: schema-migration)
+
+Migrated `product-design-studio/tokens.json` from the flat v3.1 shape to the three-tier
+DTCG-2025.10 structure defined in `brand-schema.md` (primitive → semantic → component). Structural
+migration only — every shipped value survives unchanged; only primitive step *names* were re-seated
+from measured CIE L\*. On the `schema-migration` branch; `main` stays v3.1 (the served spec) until merge.
+
+- **tokens.json → v4.0.** `$schema` = the DTCG 2025.10 URL; colors are object-form (`colorSpace`/`components`/`hex`, components derived from hex); dimensions are `{value, unit}`; references are `{group.token}` aliases. `meta.extensionsNamespace: "x.brandkit"` single-sources the provisional namespace (Decision 1 — rename target).
+- **Primitives re-seated by measured L\*** (Decision 2 — the schema doc's step numbers were eyeballed and were not reused): green fill `.500→.400`, green ink `.700→.600`, teal `.500→.400`/`.700→.600`, punch/coral `→.300`, red fill `→.500`, gray `→.700`; navy/steel/slate unchanged. Every step carries its computed L\* rationale in `$extensions`.
+- **The anti-drift rules are now structure, not prose:** no `text.*` role can reach a fill primitive (text.accent → green.600 ink, never the green.400 fill); no `surface.*` role can reach a gradient stop; the fake-bold pairing is unrepresentable (boldFlag→fontWeight, 700 only on the real-bold `Axiforma` base). The standard semantic vocabulary (Decision 3, lean+4) and the four new proposed roles are wired.
+- **Component tier full, with a governed status ledger** (Decision 5): survivors `production`, retiring card/gradient variants `deprecated` + `supersededBy` from the first commit (the anti-`#8CA7B9` rule), genuinely-undecided mappings `proposed`. The accepted deviation lives on `button.primary.label` with all five fields.
+- **Non-token content relocated to `product-design-studio/references/`** (`layout-mechanics.md`, `components.md`, `illustration.md`, `voice.md`, `assets-inventory.md`, `README.md`) — engineering rules, component anatomy, motifs, and the motif-only wing/segment colours that were never UI tokens.
+- Added `scripts/verify-schema.py` — an 11-check pass/fail gate (structure, the rules-as-structure invariants, governance, preservation). **All 11 pass.** A value-preservation audit confirms every v3.1 hex/dimension survives across `tokens.json` + `references/`.
+- The HTML guide's "Token architecture" section is marked **superseded** (it described the retired flat model); values on the page are unchanged. Full regeneration is Phase 3b's resolver, not a hand-remirror.
+
 ## Unified v1.3 — 2026-08-13 — Phase 2 structured templates & themes
 
 Turned `product-design-studio/tokens.json` into two deterministic Office artifacts so generated decks and documents inherit the brand instead of re-deriving it from prose. Consumes the spec; does not author it (no `tokens.json` change this pass).
