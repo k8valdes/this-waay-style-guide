@@ -366,14 +366,187 @@ def run_check_b(brand, output_path):
     return offenders
 
 
+# ---------------------------------------------------------------------------
+# Template checks (--template) — for the Phase 2 .potx / .docx artifacts.
+# Read-only regex scan over the package's XML parts; stdlib only (no XML DOM,
+# so no defusedxml dependency — the build scripts do the parsing that warrants
+# it; here we only pattern-match text).
+# ---------------------------------------------------------------------------
+
+import zipfile  # noqa: E402
+
+STOCK_OFFICE_HEX = {"4472C4", "ED7D31", "A5A5A5", "FFC000", "5B9BD5", "70AD47",
+                    "4F81BD", "C0504D", "1F497D", "EEECE1"}
+STOCK_OFFICE_FONTS = {"Arial", "Calibri", "Cambria"}
+# 000000 is the standard shadow colour in a theme fmtScheme — structural, not a
+# brand content colour. It is the only allowed non-token hex.
+STRUCTURAL_ALLOW_HEX = {"000000"}
+APPROVED_FONTS = {"Axiforma", "Axiforma Medium", "Axiforma SemiBold",
+                  "Axiforma ExtraBold", "Poppins"}
+# families with no bold member — bolding them synthesizes a fake bold
+NO_BOLD_FAMILIES = {"Axiforma Medium", "Axiforma SemiBold", "Axiforma ExtraBold"}
+
+
+def _bare(h):
+    """'#0C2A48' or '0c2a48' -> '0C2A48' (OOXML hexes carry no leading #)."""
+    return h.lstrip("#").upper()
+
+
+def token_hex_set(brand):
+    tokens = load_tokens(BRANDS[brand]["tokens"])
+    known = set()
+    for _, value in walk_leaves(tokens):
+        if isinstance(value, str):
+            for h in HEX_RE.findall(value):
+                known.add(_bare(h))
+    # exclude documented typos (same logic as Check B)
+    for path, value in walk_leaves(tokens):
+        if not (isinstance(value, str) and path and path[-1] == "knownTypo"):
+            continue
+        node = tokens
+        for seg in path[:-1]:
+            node = node[seg] if isinstance(node, dict) else node[int(seg)]
+        correct = None
+        if isinstance(node, dict) and isinstance(node.get("value"), str):
+            m = HEX_RE.findall(node["value"])
+            correct = _bare(m[0]) if m else None
+        for h in HEX_RE.findall(value):
+            if _bare(h) != correct:
+                known.discard(_bare(h))
+    return known
+
+
+def _xml_parts(path):
+    z = zipfile.ZipFile(path)
+    return {n: z.read(n).decode("utf-8", "replace")
+            for n in z.namelist() if n.endswith(".xml")}
+
+
+def check_template(path, brand):
+    parts = _xml_parts(path)
+    is_pptx = any(n.startswith("ppt/") for n in parts)
+    results = []  # (name, passed, details[])
+
+    # 1. theme populated — no stock Office value anywhere in a theme part
+    theme_parts = {n: t for n, t in parts.items() if "/theme/" in n}
+    stock_hits = []
+    for n, t in theme_parts.items():
+        up = t.upper()
+        for h in STOCK_OFFICE_HEX:
+            if h in up:
+                stock_hits.append(f"{h} in {n}")
+        for f in STOCK_OFFICE_FONTS:
+            if re.search(r'typeface="' + f + r'"', t) or re.search(r'w:val="' + f + r'"', t) \
+               or re.search(r'"' + f + r'"', t):
+                stock_hits.append(f"{f} in {n}")
+    results.append(("1. theme populated (no stock Office values)", not stock_hits, stock_hits))
+
+    # 2. off-token colour — every srgbClr / w:color resolves to a token value
+    known = token_hex_set(brand)
+    offenders = {}
+    for n, t in parts.items():
+        for h in re.findall(r'srgbClr val="([0-9A-Fa-f]{6})"', t) + \
+                 re.findall(r'w:color w:val="([0-9A-Fa-f]{6})"', t):
+            H = h.upper()
+            if H not in known and H not in STRUCTURAL_ALLOW_HEX:
+                offenders[H] = offenders.get(H, 0) + 1
+    results.append(("2. off-token colour (every hex resolves to tokens.json)",
+                    not offenders,
+                    [f"{h} x{c}" for h, c in sorted(offenders.items())]))
+
+    # 3. font integrity — approved families only, and no fake-bold
+    bad_fonts = set()
+    for t in parts.values():
+        for f in re.findall(r'<a:latin typeface="([^"]*)"', t) + \
+                 re.findall(r'w:ascii="([^"]+)"', t) + \
+                 re.findall(r'w:hAnsi="([^"]+)"', t) + \
+                 re.findall(r'w:cs="([^"]+)"', t):
+            if f and f not in APPROVED_FONTS:
+                bad_fonts.add(f)
+    fake_bold = []
+    for n, t in parts.items():
+        # pptx: an rPr/defRPr that both sets b="1" and names a no-bold family
+        for m in re.finditer(r'<a:(?:rPr|defRPr)\b[^>]*\bb="1"[^>]*>.*?</a:(?:rPr|defRPr)>', t, re.DOTALL):
+            for fam in re.findall(r'<a:latin typeface="([^"]+)"', m.group(0)):
+                if fam in NO_BOLD_FAMILIES:
+                    fake_bold.append(f"{fam} bold in {n}")
+        # docx: an rPr that both has <w:b> (not val=0) and a no-bold family
+        for m in re.finditer(r'<w:rPr>.*?</w:rPr>', t, re.DOTALL):
+            blk = m.group(0)
+            if re.search(r'<w:b(?!Cs)\b(?![^>]*w:val="0")', blk):
+                for fam in re.findall(r'w:ascii="([^"]+)"', blk):
+                    if fam in NO_BOLD_FAMILIES:
+                        fake_bold.append(f"{fam} <w:b> in {n}")
+    font_details = ([f"unapproved font: {f}" for f in sorted(bad_fonts)] + sorted(set(fake_bold)))
+    results.append(("3. font integrity (approved families, no fake-bold)",
+                    not font_details, font_details))
+
+    # 4. deck rules (pptx/potx only)
+    if is_pptx:
+        deck = []
+        for n, t in parts.items():
+            if "<p:transition" in t:
+                deck.append(f"transition element in {n}")
+            if re.search(r'\badvTm="', t) or re.search(r'\badvClick="0"', t):
+                deck.append(f"auto-advance timing in {n}")
+        # text placeholders below 14pt (sz in hundredths of a point)
+        for n, t in parts.items():
+            for m in re.finditer(r'<a:(?:rPr|defRPr)\b[^>]*\bsz="(\d+)"', t):
+                if int(m.group(1)) < 1400:
+                    deck.append(f"text < 14pt ({int(m.group(1))/100:.0f}pt) in {n}")
+        # layouts must not use lt2 or a soft-gradient ground
+        ice_hex = None
+        _tok = load_tokens(BRANDS[brand]["tokens"])
+        if "ice" in _tok["color"]:
+            ice_hex = _tok["color"]["ice"]["value"].lstrip("#").upper()
+        for n, t in parts.items():
+            if "slideLayout" not in n:
+                continue
+            bg = re.search(r'<p:bg>.*?</p:bg>', t, re.DOTALL)
+            if not bg:
+                continue
+            b = bg.group(0)
+            if "<a:gradFill" in b:
+                deck.append(f"gradient ground in {n}")
+            if 'schemeClr val="lt2"' in b:
+                deck.append(f"lt2 ground in {n}")
+            if ice_hex and ice_hex in b.upper():
+                deck.append(f"ice ({ice_hex}) ground in {n}")
+        results.append(("4. deck rules (no transition/auto-advance, >=14pt, white/navy grounds)",
+                        not deck, deck))
+
+    # report
+    print(f"Template check — {path}  (brand: {brand})")
+    print("-" * 70)
+    all_pass = True
+    for name, passed, details in results:
+        tag = "PASS" if passed else "FAIL"
+        if not passed:
+            all_pass = False
+        print(f"[{tag}] {name}")
+        for d in details[:12]:
+            print(f"        - {d}")
+        if len(details) > 12:
+            print(f"        … and {len(details) - 12} more")
+    print("-" * 70)
+    print(f"{sum(1 for _, p, _ in results if p)}/{len(results)} checks passed — "
+          f"{'ALL PASS' if all_pass else 'FAILURES PRESENT'}")
+    return all_pass
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--brand", required=True, choices=sorted(BRANDS.keys()))
     ap.add_argument("--check-output", metavar="FILE",
                      help="run Check B on this generated CSS/HTML/SVG file instead of Check A")
+    ap.add_argument("--template", metavar="FILE",
+                     help="run the Phase 2 template checks on this .potx/.pptx/.docx")
     args = ap.parse_args()
 
-    if args.check_output:
+    if args.template:
+        ok = check_template(args.template, args.brand)
+        sys.exit(0 if ok else 1)
+    elif args.check_output:
         offenders = run_check_b(args.brand, args.check_output)
         sys.exit(1 if offenders else 0)
     else:

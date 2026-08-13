@@ -2,6 +2,15 @@
 
 This tracks version milestones for the unified `Branding/` home itself — not each brand's own internal changelog. See `product-design-studio/index.html` (footer living-document note) and `gridmark-partners/gridmark-design-system-v3.html` (Governance & versioning) for brand-level changelogs.
 
+## Unified v1.3 — 2026-08-13 — Phase 2 structured templates & themes
+
+Turned `product-design-studio/tokens.json` into two deterministic Office artifacts so generated decks and documents inherit the brand instead of re-deriving it from prose. Consumes the spec; does not author it (no `tokens.json` change this pass).
+
+- Added `assets/templates/this-waay-deck.potx` — a real `.potx` template with a brand OOXML theme (clrScheme/fontScheme generated from tokens) and exactly six named layouts (Title / Cover, Section Divider, Content / Bullet, Quote, Chart / Data, Closing). 16:9, ≥5% safe areas, white/navy grounds only, ≥14pt text, slide numbers on all but Title/Closing, a notes master, and no transitions. `accent1–4` are `dataViz.seriesOrder` in order, so native charts inherit the brand series sequence with zero config. Deck Gray `#595959` headers, Axiforma SemiBold/ExtraBold set explicitly on placeholders (theme major/minor = `Axiforma`; `b=1` never applied to a no-bold cut).
+- Added `assets/templates/this-waay-reference.docx` — the branded letterhead transformed: named styles (Title/Subtitle/Heading1–6/Normal/Hyperlink) redefined against tokens (teal is the document accent), a real brand theme written over the Office-2007 defaults (was Calibri/Cambria, accent1 #4F81BD), specimen body text stripped, off-brand `#374151`/`#1155CC` replaced, header/footer + logo relationship preserved. All embedded font binaries stripped — the doc references Axiforma by name only.
+- Added `scripts/build_theme.py`, `scripts/build_deck.py`, `scripts/build_reference_docx.py` (theme is stdlib-only; the deck/docx builders are stdlib zip authoring). No font binary is embedded in either package — Axiforma is `fsType 4`, and the local `axiforma/` OTF folder is now git-ignored so no `git add -A` can ever commit a font.
+- Extended `scripts/validate-spec.py` with a `--template` mode: (1) no stock Office theme values, (2) every package hex resolves to a token (000000 shadow allowed), (3) approved font families only + no fake-bold on a no-bold cut, (4) deck rules (no transition/auto-advance, ≥14pt, white/navy grounds). Both templates pass; a negative test confirms it catches injected `#8CA7B9`/stock-Office/fake-bold/transition/sub-14pt defects. Render QA via macOS QuickLook (installed Axiforma) confirmed Deck Gray headers read grey (not navy) and Axiforma resolves rather than falling back.
+
 ## Unified v1.2b — 2026-08-13 — Phase 0 verification gate + string cleanup
 
 Follow-up to v1.2. The v1.2 reconciliation landed in substance, but left the exact literal
