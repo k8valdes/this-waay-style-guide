@@ -30,4 +30,4 @@ This repo contains **visual brand expression only** — colors, type, spacing, m
 
 ## Status
 
-Published via GitHub Pages at [k8valdes.github.io/this-waay-design-system](https://k8valdes.github.io/this-waay-design-system/). The site is link-only: pages carry `noindex` and are meant to be shared directly, not discovered via search.
+Published via GitHub Pages at [k8valdes.github.io/this-waay-style-guide](https://k8valdes.github.io/this-waay-style-guide/). The site is link-only: pages carry `noindex` and are meant to be shared directly, not discovered via search.

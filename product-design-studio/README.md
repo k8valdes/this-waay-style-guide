@@ -15,7 +15,7 @@ This folder lives inside `Branding/`, the shared home for both This Waay brands.
 ## Using this in another AI project
 
 - **Most reliable:** paste the contents of `STYLE.md` (and `tokens.json` if values matter) directly into the project's context or system prompt.
-- **By URL:** point a web-fetching tool at the raw file URL, e.g. `https://raw.githubusercontent.com/k8valdes/this-waay-design-system/main/product-design-studio/STYLE.md`.
+- **By URL:** point a web-fetching tool at the raw file URL, e.g. `https://raw.githubusercontent.com/k8valdes/this-waay-style-guide/main/product-design-studio/STYLE.md`.
 
 ## Scope
 
