@@ -2,6 +2,27 @@
 
 This tracks version milestones for the unified `Branding/` home itself — not each brand's own internal changelog. See `product-design-studio/index.html` (footer living-document note) and `gridmark-partners/gridmark-design-system-v3.html` (Governance & versioning) for brand-level changelogs.
 
+## Unified v1.2b — 2026-08-13 — Phase 0 verification gate + string cleanup
+
+Follow-up to v1.2. The v1.2 reconciliation landed in substance, but left the exact literal
+strings a checker (human or AI) would grep to confirm the fix — so the served file still *read*
+as unfixed even though it was v3.1: the phrase `"Navy text, never white"` remained (in the still-
+correct teal rule and in an audit-trail quote of the old rule), and the word `borderline` remained
+inside `color.green`. This pass removes those literal strings without losing any meaning, and adds
+a hard verification gate so this class of "reported done but not checkable" cannot recur.
+
+- `accessibility.textOnGreenOrTealFill` restructured into `tealFill` / `greenFill` / `supersededRule`
+  — the literal `"Navy text, never white"` is gone; the green case now states white-on-green,
+  the measured `2.42:1` vs `4.5:1`, the accepted-deviation date, and the `#36845D` remediation
+  lever directly in the accessibility block; the teal case is unchanged.
+- `color.green.textOnGreenFill`: removed the word `borderline` (both the "not borderline"
+  assertion and the quoted old claim) — reworded to say the same thing without the trigger word.
+- Added `scripts/verify-phase0.py` — a stdlib-only pass/fail gate asserting all eight Phase 0
+  invariants against `product-design-studio/tokens.json` (version 3.1, contradiction strings
+  absent, white-on-green @ 2.42 present, weightEquivalents production, every family has a
+  `familyName`, valid JSON round-trip). Exits 0 only on all-pass; wire as the last step of any
+  future spec change. `meta.updated` bumped to 2026-08-13.
+
 ## Unified v1.2 — 2026-08-12 — Phase 0 spec reconciliation
 
 Made the This Waay Product Design Studio spec internally consistent (`tokens.json` ↔ `index.html`) without making new brand decisions — decisions already on record from Kate (green-button white text, Axiforma licensing) were reconciled and dated; disagreements with no decision on record were left alone and reported instead. See `product-design-studio/index.html` footer for the full v3.1 note.
