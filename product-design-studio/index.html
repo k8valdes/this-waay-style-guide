@@ -15,108 +15,284 @@
      Machine-readable source of truth. AI tools: read these
      custom properties as the canonical brand values.
      ============================================================ */
-  :root {
-    /* Core palette */
-    --tw-navy:        #0C2A48;  /* Primary dark. Hero + section backgrounds, logo plane body */
-    --tw-navy-deep:   #05203A;  /* Footer / deepest surfaces (v3: was #081F37) */
-    --tw-teal:        #0BABAB;  /* Subheads, links, accents (deck heritage color) */
-    --tw-green:       #54B987;  /* THE brand green. All actions, labels, highlights — light or dark grounds */
-    --tw-green-bright:#3DD68C;  /* Punch accent ONLY. One intentional moment per page/asset, max. Never default */
-    --tw-steel:       #0D698A;  /* Secondary blue. Charts, supporting UI */
-    --tw-slate:       #8DA3B5;  /* Muted blue-gray. Borders, gridlines, decorative use, and text on DARK grounds only — fails AA as text on light (2.6:1). Use --tw-ink-muted for text on light. */
-    --tw-gray:        #595959;  /* DECKS ONLY — slide headers / body on white. Never on the marketing site */
+    :root {
+    /* GENERATED from tokens.json v4.0 by scripts/emit_css.py — DO NOT HAND-EDIT these token values.
+       Regenerate with the Phase 3b resolver pipeline. */
+    --color-navy-900: #0C2A48;
+    --color-navy-950: #05203A;
+    --color-green-300: #3DD68C;
+    --color-green-400: #54B987;
+    --color-green-600: #2C6D4D;
+    --color-teal-400: #0BABAB;
+    --color-teal-600: #077373;
+    --color-steel-600: #0D698A;
+    --color-slate-400: #8DA3B5;
+    --color-slate-600: #5C7185;
+    --color-slate-300: #B9CBDC;
+    --color-coral-300: #F2A08D;
+    --color-red-500: #D86A5A;
+    --color-red-700: #A53727;
+    --color-gray-700: #595959;
+    --color-white: #FFFFFF;
+    --color-overlay-muted-ink: rgba(12,42,72,0.65);
+    --color-overlay-on-dark-body: rgba(255,255,255,0.72);
+    --color-overlay-on-dark-meta: rgba(255,255,255,0.6);
+    --color-overlay-on-dark-fill: rgba(255,255,255,0.04);
+    --color-overlay-on-dark-border: rgba(255,255,255,0.1);
+    --color-overlay-nav-border: rgba(255,255,255,0.08);
+    --color-gradient-stops-mint: #E8FEFB;
+    --color-gradient-stops-ice: #F2FBFB;
+    --color-gradient-stops-sand: #FDF5E8;
+    --color-gradient-stops-linen: #F5F7EC;
+    --color-gradient-stops-frost: #EAFDFA;
+    --color-gradient-stops-shell: #F8F7F0;
+    --color-surface-ground: #0C2A48;
+    --color-surface-ground-deep: #05203A;
+    --color-surface-ground-light: #FFFFFF;
+    --color-fill-action: #54B987;
+    --color-fill-accent: #0BABAB;
+    --color-fill-emphasis: #3DD68C;
+    --color-fill-info: #0D698A;
+    --color-fill-danger: #D86A5A;
+    --color-text-body: #0C2A48;
+    --color-text-on-ground: #FFFFFF;
+    --color-text-accent: #2C6D4D;
+    --color-text-accent-alt: #077373;
+    --color-text-link: #077373;
+    --color-text-muted: #5C7185;
+    --color-text-on-fill: #0C2A48;
+    --color-text-danger: #A53727;
+    --color-border-subtle: #8DA3B5;
+    --dimension-space-1: 4px;
+    --dimension-space-2: 8px;
+    --dimension-space-3: 16px;
+    --dimension-space-4: 24px;
+    --dimension-space-5: 32px;
+    --dimension-space-6: 48px;
+    --dimension-space-7: 64px;
+    --dimension-space-8: 96px;
+    --dimension-radius-card: 8px;
+    --dimension-radius-track: 14px;
+    --dimension-radius-pill: 25px;
+    --dimension-radius-input: 2px;
+    --dimension-text-size-2xs: 0.62rem;
+    --dimension-text-size-xs: 0.72rem;
+    --dimension-text-size-sm: 0.78rem;
+    --dimension-text-size-md: 0.85rem;
+    --dimension-text-size-lg: 0.95rem;
+    --dimension-text-size-xl: 1.08rem;
+    --dimension-text-size-2xl: 1.2rem;
+    --dimension-text-size-3xl: 1.7rem;
+    --dimension-text-size-4xl: 2.2rem;
+    --dimension-text-size-5xl: 2.6rem;
+    --dimension-tracking-tightest: -0.015em;
+    --dimension-tracking-tighter: -0.01em;
+    --dimension-tracking-normal: 0.04em;
+    --dimension-tracking-wide-2xs: 0.06em;
+    --dimension-tracking-wide-xs: 0.1em;
+    --dimension-tracking-wide: 0.12em;
+    --dimension-tracking-wide-md: 0.14em;
+    --dimension-tracking-wider: 0.16em;
+    --dimension-tracking-wide-lg: 0.18em;
+    --dimension-tracking-widest: 0.22em;
+    --dimension-tracking-widest-lg: 0.3em;
+    --font-family-regular: Axiforma, Poppins, 'Segoe UI', sans-serif;
+    --font-family-medium: 'Axiforma Medium', Poppins, 'Segoe UI', sans-serif;
+    --font-family-semibold: 'Axiforma SemiBold', Poppins, 'Segoe UI', sans-serif;
+    --font-family-extrabold: 'Axiforma ExtraBold', Poppins, 'Segoe UI', sans-serif;
+    --angle-diagonal: 135;
+    --angle-horizontal: 90;
+    --angle-skew-section: -2;
+    --angle-skew-pricing: -3;
+    --angle-skew-contact: -5;
+    --angle-skew-price-tag: -6;
+    --angle-skew-card: -10;
+    --leading-glyph: 0.6;
+    --leading-heading: 1.22;
+    --leading-snug: 1.4;
+    --leading-snug-md: 1.45;
+    --leading-normal: 1.5;
+    --leading-relaxed-sm: 1.55;
+    --leading-relaxed: 1.6;
+    --leading-loose: 1.7;
+    --shadow-card: 0px 10px 30px 0px rgba(12,42,72,0.1);
+    --shadow-screenshot: 0px 12px 30px 0px rgba(12,42,72,0.18);
+    --gradient-soft: linear-gradient(135deg, #E8FEFB 0%, #F2FBFB 55%, #FDF5E8 100%);
+    --gradient-soft-warm: linear-gradient(135deg, #F5F7EC 0%, #EAFDFA 20%, #F2FBFB 80%, #F8F7F0 100%);
+    --gradient-green: linear-gradient(135deg, #54B987 0%, #3DD68C 100%);
+    --typography-hero-h1-font-family: 'Axiforma SemiBold', Poppins, 'Segoe UI', sans-serif;
+    --typography-hero-h1-font-weight: 400;
+    --typography-hero-h1-font-size: 46px;
+    --typography-hero-h1-line-height: 1.3;
+    --typography-hero-h1-letter-spacing: -0.015em;
+    --typography-h2-font-family: 'Axiforma ExtraBold', Poppins, 'Segoe UI', sans-serif;
+    --typography-h2-font-weight: 400;
+    --typography-h2-font-size: 40px;
+    --typography-h2-line-height: 1.2;
+    --typography-h2-letter-spacing: -0.01em;
+    --typography-h3-font-family: 'Axiforma ExtraBold', Poppins, 'Segoe UI', sans-serif;
+    --typography-h3-font-weight: 400;
+    --typography-h3-font-size: 32px;
+    --typography-h3-line-height: 1.2;
+    --typography-h4-font-family: 'Axiforma ExtraBold', Poppins, 'Segoe UI', sans-serif;
+    --typography-h4-font-weight: 400;
+    --typography-h4-font-size: 20px;
+    --typography-h4-line-height: 1.2;
+    --typography-h5-font-family: 'Axiforma ExtraBold', Poppins, 'Segoe UI', sans-serif;
+    --typography-h5-font-weight: 400;
+    --typography-h5-font-size: 20px;
+    --typography-h5-line-height: 1.2;
+    --typography-body-font-family: Axiforma, Poppins, 'Segoe UI', sans-serif;
+    --typography-body-font-weight: 400;
+    --typography-body-font-size: 15px;
+    --typography-body-line-height: 1.2;
+    --typography-card-body-font-family: 'Axiforma Medium', Poppins, 'Segoe UI', sans-serif;
+    --typography-card-body-font-weight: 400;
+    --typography-card-body-font-size: 14px;
+    --typography-card-body-line-height: 1.2;
+    --typography-button-font-family: Axiforma, Poppins, 'Segoe UI', sans-serif;
+    --typography-button-font-weight: 700;
+    --typography-button-font-size: 16px;
+    --typography-button-line-height: 1.5;
+    --typography-eyebrow-font-family: Axiforma, Poppins, 'Segoe UI', sans-serif;
+    --typography-eyebrow-font-weight: 700;
+    --typography-eyebrow-font-size: 12px;
+    --typography-eyebrow-line-height: 1.2;
+    --typography-eyebrow-letter-spacing: 2.76px;
+    --button-primary-background: #54B987;
+    --button-primary-label: #FFFFFF;
+    --button-primary-radius: 25px;
+    --button-secondary-border: #54B987;
+    --button-secondary-label: #2C6D4D;
+    --button-secondary-radius: 25px;
+    --button-on-navy-background: #FFFFFF;
+    --button-on-navy-label: #2C6D4D;
+    --button-on-navy-radius: 25px;
+    --button-tag-border: #54B987;
+    --button-tag-label: #2C6D4D;
+    --button-tag-radius: 2px;
+    --card-content-background: #FFFFFF;
+    --card-content-radius: 8px;
+    --card-content-title-font-family: 'Axiforma ExtraBold', Poppins, 'Segoe UI', sans-serif;
+    --card-content-title-font-weight: 400;
+    --card-content-title-font-size: 20px;
+    --card-content-title-line-height: 1.2;
+    --card-panel-background: #FFFFFF;
+    --card-panel-radius: 8px;
+    --card-panel-title-font-family: 'Axiforma ExtraBold', Poppins, 'Segoe UI', sans-serif;
+    --card-panel-title-font-weight: 400;
+    --card-panel-title-font-size: 20px;
+    --card-panel-title-line-height: 1.2;
+    --card-badge-background: #FFFFFF;
+    --card-badge-radius: 8px;
+    --card-badge-title-font-family: 'Axiforma ExtraBold', Poppins, 'Segoe UI', sans-serif;
+    --card-badge-title-font-weight: 400;
+    --card-badge-title-font-size: 20px;
+    --card-badge-title-line-height: 1.2;
+    --card-track-radius: 14px;
+    --card-track-title-font-family: 'Axiforma ExtraBold', Poppins, 'Segoe UI', sans-serif;
+    --card-track-title-font-weight: 400;
+    --card-track-title-font-size: 20px;
+    --card-track-title-line-height: 1.2;
+    --card-float-panel-radius: 8px;
+    --card-float-panel-title-font-family: 'Axiforma ExtraBold', Poppins, 'Segoe UI', sans-serif;
+    --card-float-panel-title-font-weight: 400;
+    --card-float-panel-title-font-size: 20px;
+    --card-float-panel-title-line-height: 1.2;
+    --card-segment-background: #FFFFFF;
+    --card-segment-radius: 8px;
+    --card-segment-title-font-family: 'Axiforma ExtraBold', Poppins, 'Segoe UI', sans-serif;
+    --card-segment-title-font-weight: 400;
+    --card-segment-title-font-size: 20px;
+    --card-segment-title-line-height: 1.2;
+    --badge-shield-face: #0C2A48;
+    --badge-shield-icon: #FFFFFF;
+    --badge-icon-tile-radius: 8px;
+    --badge-category-pill-background: #54B987;
+    --badge-category-pill-radius: 25px;
+    --badge-tag-chip-border: #54B987;
+    --badge-tag-chip-radius: 2px;
+    --badge-price-tag-background: #54B987;
+    --badge-price-tag-label: #0C2A48;
 
-    /* Accessible "ink" text variants — WCAG 2.2 AA (4.5:1+) for TEXT on light grounds.
-       The saturated brand hues above stay as fills/large surfaces/dark-ground text, where they already pass.
-       Never approximate these — they were tuned and verified against a contrast formula, not eyeballed. */
-    --tw-green-ink:   #2C6D4D;  /* Eyebrows, links, inline emphasis on light grounds. ~6.2:1 on white. Same hue/family as Waay Green. */
-    --tw-teal-ink:    #077373;  /* Subheads, links, inline callouts on light grounds. ~5.7:1 on white. Same hue/family as Teal. */
-    --tw-ink-muted:   #5C7185;  /* Captions, secondary labels, chart axis text on light grounds. ~5.1:1 on white. */
-    --tw-no:          #D86A5A;  /* "Don't" / error fill and borders — decorative use only, ~3.4:1 as text so never for labels */
-    --tw-no-ink:      #A53727;  /* "Don't" tags, form error text/messages on light grounds. ~6.6:1 on white. */
+    /* Legacy --tw-* compatibility shim: this guide's markup still references --tw-*;
+       each is aliased to the generated tokens above, so nothing is hand-mirrored. */
+    --tw-navy: var(--color-navy-900);
+    --tw-navy-deep: var(--color-navy-950);
+    --tw-teal: var(--color-teal-400);
+    --tw-green: var(--color-green-400);
+    --tw-green-bright: var(--color-green-300);
+    --tw-steel: var(--color-steel-600);
+    --tw-slate: var(--color-slate-400);
+    --tw-gray: var(--color-gray-700);
+    --tw-green-ink: var(--color-green-600);
+    --tw-teal-ink: var(--color-teal-600);
+    --tw-ink-muted: var(--color-slate-600);
+    --tw-no: var(--color-red-500);
+    --tw-no-ink: var(--color-red-700);
+    --tw-coral: var(--color-coral-300);
+    --tw-mint: var(--color-gradient-stops-mint);
+    --tw-ice: var(--color-gradient-stops-ice);
+    --tw-sand: var(--color-gradient-stops-sand);
+    --tw-white: var(--color-white);
+    --tw-card-fill-dark: var(--color-overlay-on-dark-fill);
+    --tw-card-border-dark: var(--color-overlay-on-dark-border);
+    --tw-text-on-dark-body: var(--color-overlay-on-dark-body);
+    --tw-text-on-dark-meta: var(--color-overlay-on-dark-meta);
+    --tw-grad-soft: var(--gradient-soft);
+    --tw-grad-green: var(--gradient-green);
+    --tw-font-display: var(--font-family-regular);
+    --tw-font-body: var(--font-family-regular);
+    --tw-text-2xs: var(--dimension-text-size-2xs);
+    --tw-text-xs: var(--dimension-text-size-xs);
+    --tw-text-sm: var(--dimension-text-size-sm);
+    --tw-text-md: var(--dimension-text-size-md);
+    --tw-text-lg: var(--dimension-text-size-lg);
+    --tw-text-xl: var(--dimension-text-size-xl);
+    --tw-text-2xl: var(--dimension-text-size-2xl);
+    --tw-text-3xl: var(--dimension-text-size-3xl);
+    --tw-text-4xl: var(--dimension-text-size-4xl);
+    --tw-text-5xl: var(--dimension-text-size-5xl);
+    --tw-tracking-tightest: var(--dimension-tracking-tightest);
+    --tw-tracking-tighter: var(--dimension-tracking-tighter);
+    --tw-tracking-normal: var(--dimension-tracking-normal);
+    --tw-tracking-wide-2xs: var(--dimension-tracking-wide-2xs);
+    --tw-tracking-wide-xs: var(--dimension-tracking-wide-xs);
+    --tw-tracking-wide: var(--dimension-tracking-wide);
+    --tw-tracking-wide-md: var(--dimension-tracking-wide-md);
+    --tw-tracking-wider: var(--dimension-tracking-wider);
+    --tw-tracking-wide-lg: var(--dimension-tracking-wide-lg);
+    --tw-tracking-widest: var(--dimension-tracking-widest);
+    --tw-tracking-widest-lg: var(--dimension-tracking-widest-lg);
+    --tw-leading-glyph: var(--leading-glyph);
+    --tw-leading-heading: var(--leading-heading);
+    --tw-leading-snug: var(--leading-snug);
+    --tw-leading-snug-md: var(--leading-snug-md);
+    --tw-leading-normal: var(--leading-normal);
+    --tw-leading-relaxed-sm: var(--leading-relaxed-sm);
+    --tw-leading-relaxed: var(--leading-relaxed);
+    --tw-leading-loose: var(--leading-loose);
+    --tw-radius-card: var(--dimension-space-2);
+    --tw-radius-track: var(--dimension-radius-track);
+    --tw-radius-pill: var(--dimension-radius-pill);
+    --tw-radius-input: var(--dimension-radius-input);
 
-    /* Illustration accent (new canonical style only) */
-    --tw-coral:       #F2A08D;  /* Glowing path/node accent in illustrations. NOT a UI color */
-
-    /* Surfaces */
-    --tw-mint:        #E8FEFB;  /* Gradient stop A (0%) — cool aqua (v3: was #EEF8EC) */
-    --tw-ice:         #F2FBFB;  /* Gradient stop B (55%) — ice */
-    --tw-sand:        #FDF5E8;  /* Gradient stop C (100%) — the WARM stop (v3 addition) */
-    --tw-white:       #FFFFFF;
-
-    /* On-dark card surface — translucent-white cards on navy (e.g. track/plan cards). Needs a navy backdrop to read; not self-contained. */
-    --tw-card-fill-dark:   rgba(255,255,255,0.04);
-    --tw-card-border-dark: rgba(255,255,255,0.1);
-    --tw-text-on-dark-body: rgba(255,255,255,0.72);  /* body copy, list items on navy — ~9:1, passes AA */
-    --tw-text-on-dark-meta: rgba(255,255,255,0.6);   /* de-emphasized meta text on navy — floor is 60%; 45% measures ~4.1:1 and fails AA, 60% clears 4.5:1 */
-
-    /* Gradients */
-    --tw-grad-soft:   linear-gradient(135deg, #E8FEFB 0%, #F2FBFB 55%, #FDF5E8 100%);
-    --tw-grad-green:  linear-gradient(135deg, #54B987 0%, #3DD68C 100%);  /* Counts as a punch usage — same one-per-asset rule */
-    --tw-grad-wing:   linear-gradient(90deg, #30737B 0%, #62D38C 100%);   /* Official wing stops (tail → nose), from master logo. Motif use only */
-
-    /* Type — Axiforma is the licensed production family (Kastelov).
-       Poppins is the approved free fallback for environments without the license. */
-    --tw-font-display: 'Axiforma', 'Poppins', 'Segoe UI', sans-serif;
-    --tw-font-body:    'Axiforma', 'Poppins', 'Segoe UI', sans-serif;
-
-    /* Weight scale — the four steps used anywhere in the system. Weight alone carries hierarchy. */
-    --tw-weight-regular:  400;
-    --tw-weight-medium:   500;
+    /* Guide-page display styling + relocated mechanics (NOT brand tokens): the page's own
+       hero clamps, the measure/section-pad rules (now in references/layout-mechanics.md),
+       the motif wing (references/illustration.md), and numeric font-weights (v4.0 carries
+       weight by family NAME, not number — these are page-render values only). */
+    --tw-grad-wing: linear-gradient(90deg, #30737B 0%, #62D38C 100%);
+    --tw-weight-regular: 400;
+    --tw-weight-medium: 500;
     --tw-weight-semibold: 600;
-    --tw-weight-bold:     700;
-
-    /* Display sizes — fluid, used only by H1/H2. Distinct from the fixed UI scale below. */
-    --tw-text-h1:   clamp(2.05rem, 4.8vw, 3.05rem);
-    --tw-text-h2:   clamp(1.55rem, 3.3vw, 2.1rem);
-    --tw-text-body: 16px;   /* the root/reading size — everything else is relative to this */
+    --tw-weight-bold: 700;
+    --tw-text-h1: clamp(2.05rem, 4.8vw, 3.05rem);
+    --tw-text-h2: clamp(1.55rem, 3.3vw, 2.1rem);
+    --tw-text-body: 16px;
     --tw-text-lede: 1.08rem;
-
-    /* UI text scale — every other font-size in the system snaps to one of these 10 steps.
-       Consolidated from ~36 ad-hoc values (0.6rem–2.6rem) that had accumulated with no
-       shared scale; deltas from any single historical value are sub-pixel (<=0.15rem). */
-    --tw-text-2xs: 0.62rem;  /* finest print — nav tagline, deck micro-eyebrow, tiny badges */
-    --tw-text-xs:  0.72rem;  /* fine meta text — slide numbers, breadcrumb, footer links */
-    --tw-text-sm:  0.78rem;  /* small labels — eyebrows, category-ish small text */
-    --tw-text-md:  0.85rem;  /* the dominant secondary/caption size across cards and captions */
-    --tw-text-lg:  0.95rem;  /* near-body UI text — buttons, form fields, list copy */
-    --tw-text-xl:  1.08rem;  /* card titles, sub-headings (matches --tw-text-lede) */
-    --tw-text-2xl: 1.2rem;   /* h3, teal subheads, prominent specimens */
-    --tw-text-3xl: 1.7rem;   /* large decorative glyphs/icons */
-    --tw-text-4xl: 2.2rem;   /* stat numbers, big display figures */
-    --tw-text-5xl: 2.6rem;   /* the largest decorative glyph (testimonial quote mark) */
-
-    /* Letter-spacing scale */
-    --tw-tracking-tightest: -0.015em; /* H1 */
-    --tw-tracking-tighter:  -0.01em;  /* H2 */
-    --tw-tracking-normal:    0.04em;
-    --tw-tracking-wide-2xs:  0.06em;
-    --tw-tracking-wide-xs:   0.1em;
-    --tw-tracking-wide:      0.12em;
-    --tw-tracking-wide-md:   0.14em;
-    --tw-tracking-wider:     0.16em;
-    --tw-tracking-wide-lg:   0.18em;
-    --tw-tracking-widest:    0.22em;  /* eyebrows */
-    --tw-tracking-widest-lg: 0.3em;
-
-    /* Line-height scale */
-    --tw-leading-glyph:   0.6;   /* vertical squeeze for oversized quote-mark glyphs only */
-    --tw-leading-heading: 1.22;  /* h1–h4 */
-    --tw-leading-snug:    1.4;
-    --tw-leading-snug-md: 1.45;
-    --tw-leading-normal:  1.5;
-    --tw-leading-relaxed-sm: 1.55;
-    --tw-leading-relaxed: 1.6;
-    --tw-leading-loose:   1.7;   /* body copy */
-
-    /* Shape & rhythm */
-    --tw-measure:       68ch;  /* body copy measure */
-    --tw-measure-tight: 46ch;  /* lede / card copy */
-    --tw-measure-head:  22ch;  /* display headlines */
-    --tw-radius-card: 8px;    /* v3: production is 8px (was 14px) */
-    --tw-radius-track: 14px;  /* the ONE 14px exception — on-navy track card */
-    --tw-radius-pill: 25px;   /* v3: production is 25px (was 999px) */
-    --tw-radius-input: 2px;   /* form fields are nearly square */
+    --tw-measure: 68ch;
+    --tw-measure-tight: 46ch;
+    --tw-measure-head: 22ch;
     --tw-shadow-card: 0 10px 30px rgba(12, 42, 72, 0.10);
     --tw-section-pad: clamp(56px, 8vw, 110px);
   }
@@ -885,7 +1061,7 @@
     <path d="M300 230 L560 40 L330 320 Z" fill="#ffffff" opacity="0.6"/>
   </svg>
   <div class="wrap">
-    <div class="eyebrow" style="color:var(--tw-green)">Living Style Guide · v3.1 · August 2026 · Public-safe edition</div>
+    <div class="eyebrow" style="color:var(--tw-green)">Living Style Guide · v4.0 · August 2026 · Public-safe edition</div>
     <h1 style="margin-top:14px">Guiding complex products<br>with a <span class="hl">consistent visual language</span></h1>
     <p class="lede">The single source of truth for This Waay's brand — colors, type, components, illustration prompts, and voice. Built to be read by humans and used as context by AI tools.</p>
     <div class="hero-meta">
@@ -901,17 +1077,13 @@
 <main id="main">
 
 <!-- ================= TOKEN ARCHITECTURE ================= -->
-<!-- superseded by tiered tokens (tokens.json v4.0, three-tier DTCG 2025.10); this section describes the retired flat model and is regenerated in Phase 3b from the resolver. Values on this page are unchanged and remain truthful; only the "flat, no alias layers" architecture claim below is superseded. -->
+<!-- Token architecture: three-tier DTCG 2025.10 (tokens.json v4.0). This page's :root is GENERATED from the resolver (scripts/emit_css.py) — no hand-mirror. -->
 <section id="tokens">
   <div class="wrap">
     <div class="sec-head">
       <div class="eyebrow">01 · Architecture</div>
       <h2>Token architecture</h2>
-      <div style="background:#FFF8E8; border-left:3px solid #D8A93A; border-radius:0 8px 8px 0; padding:14px 18px; margin-bottom:16px; max-width:74ch">
-        <strong style="color:var(--tw-navy)">⬦ Superseded — regenerated in Phase 3b.</strong>
-        <span style="color:var(--tw-ink-muted); font-size:var(--tw-text-md)"> The machine-readable <code>tokens.json</code> migrated to a <strong>three-tier</strong> structure (primitive → semantic → component, DTCG 2025.10, v4.0). The description below reflects the retired <em>flat</em> model. Every <em>value</em> shown on this page is unchanged and still correct; this page will be regenerated from the tiered file by the Phase 3b resolver rather than hand-mirrored.</span>
-      </div>
-      <p class="lede">This page's own stylesheet still uses a single flat <strong>--tw-*</strong> custom-property layer — color (with its accessible ink text variants), gradients, type family, weight, the 10-step size scale, tracking, leading, the 8px spacing rhythm, radii, shadows, and section padding. <strong>The canonical <code>tokens.json</code> is now three-tier</strong> (semantic roles like <code>color.text.accent</code> reference primitives like <code>color.green.600</code>; components reference roles) — see the migration note in <code>tokens.json</code> and <code>references/</code>.</p>
+      <p class="lede"><strong>Three tiers, each referencing the one below.</strong> Primitives hold the raw values (<code>color.green.400</code> = #54B987); semantic roles name what a colour <em>means</em> (<code>color.text.accent</code> → <code>color.green.600</code>, the accessible ink — never the fill); components name what a use <em>requires</em> (<code>button.primary.label</code>). This turns the studio's anti-drift rules from prose into structure: a generator asked for an accent <em>text</em> colour is structurally incapable of reaching the vivid fill that fails contrast. The canonical source is <code>tokens.json</code> (DTCG 2025.10, v4.0); <strong>this page's <code>:root</code> is generated from it by the resolver</strong> (<code>scripts/emit_css.py</code>) — no hand-mirror. Engineering rules, component anatomy, and motifs live in <code>references/</code>.</p>
     </div>
 
     <div class="prompt-card">

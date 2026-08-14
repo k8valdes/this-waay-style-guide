@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 build_reference_docx.py — assemble this-waay-reference.docx from the existing
-branded letterhead + tokens.json + build_theme.py.
+branded letterhead + tokens.json via the resolver (emit_docx).
 
 Transforms the letterhead (keeping its header/footer structure and logo
 relationship) rather than authoring a new document:
@@ -37,21 +37,16 @@ import zipfile
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-import build_theme  # noqa: E402
+import emit_docx  # noqa: E402  (Phase 3b: resolver-driven theme + style colors)
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_LETTERHEAD = REPO_ROOT / "Examples" / "Branded Letterhead - (Make a Copy).docx"
 OUT = REPO_ROOT / "assets" / "templates" / "this-waay-reference.docx"
 
-tokens = build_theme.load_tokens()
-build_theme.assert_version(tokens)
-
-
-def hexof(key):
-    return build_theme.color_value(tokens, key).lstrip("#").upper()
-
-
-NAVY, TEALINK, INKMUTED = hexof("navy"), hexof("tealInk"), hexof("inkMuted")
+# Named-style colours come from the resolver via emit_docx — teal is the
+# document accent. Same resolved source the other emitters read.
+NAVY, TEALINK, INKMUTED = (emit_docx.style_hex("navy"), emit_docx.style_hex("tealInk"),
+                           emit_docx.style_hex("inkMuted"))
 
 # styleId -> (font family, colour hex). Families with no bold member never get <w:b>.
 STYLE_MAP = {
@@ -191,9 +186,9 @@ def build(letterhead):
     # 1. styles
     items["word/styles.xml"] = redefine_styles(items["word/styles.xml"].decode()).encode()
 
-    # 2. theme — brand clrScheme + fontScheme spliced in
-    items["word/theme/theme1.xml"] = build_theme.splice_into_theme(
-        items["word/theme/theme1.xml"].decode(), tokens).encode()
+    # 2. theme — brand clrScheme + fontScheme spliced in (resolver-driven)
+    items["word/theme/theme1.xml"] = emit_docx.splice_into_theme(
+        items["word/theme/theme1.xml"].decode()).encode()
 
     # 3. document + headers + footers — strip specimens, recolor, refont
     doc = strip_specimens(items["word/document.xml"].decode())

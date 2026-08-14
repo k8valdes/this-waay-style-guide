@@ -399,17 +399,31 @@ def token_hex_set(brand):
         if isinstance(value, str):
             for h in HEX_RE.findall(value):
                 known.add(_bare(h))
-    # exclude documented typos (same logic as Check B)
+    # exclude documented typos. The "correct" hex is the containing token's own
+    # value; handles BOTH the flat v3.1 shape (node["value"]="#54B987") and the
+    # tiered v4.0 shape (walk up to the nearest ancestor with $value.hex).
+    def _nav(p):
+        node = tokens
+        for seg in p:
+            node = node[seg] if isinstance(node, dict) else node[int(seg)]
+        return node
+
     for path, value in walk_leaves(tokens):
         if not (isinstance(value, str) and path and path[-1] == "knownTypo"):
             continue
-        node = tokens
-        for seg in path[:-1]:
-            node = node[seg] if isinstance(node, dict) else node[int(seg)]
         correct = None
-        if isinstance(node, dict) and isinstance(node.get("value"), str):
-            m = HEX_RE.findall(node["value"])
-            correct = _bare(m[0]) if m else None
+        for cut in range(len(path) - 1, 0, -1):
+            anc = _nav(path[:cut])
+            if isinstance(anc, dict):
+                # flat: {"value": "#54B987"}   tiered: {"$value": {"hex": "#54B987"}}
+                if isinstance(anc.get("value"), str):
+                    m = HEX_RE.findall(anc["value"])
+                    correct = _bare(m[0]) if m else None
+                    break
+                v = anc.get("$value")
+                if isinstance(v, dict) and isinstance(v.get("hex"), str):
+                    correct = _bare(v["hex"])
+                    break
         for h in HEX_RE.findall(value):
             if _bare(h) != correct:
                 known.discard(_bare(h))

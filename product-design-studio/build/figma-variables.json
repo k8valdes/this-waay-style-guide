@@ -1,0 +1,1824 @@
+{
+  "$meta": {
+    "generatedFrom": "tokens.json v4.0",
+    "note": "GENERATED — do not hand-edit"
+  },
+  "collections": {
+    "Primitives": {
+      "color": {
+        "navy": {
+          "900": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.047,
+                0.165,
+                0.282
+              ],
+              "hex": "#0C2A48"
+            },
+            "$description": "The brand's ground state — hero/section backgrounds, card bodies, body text. The LIGHTER of the two navies."
+          },
+          "950": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.02,
+                0.125,
+                0.227
+              ],
+              "hex": "#05203A"
+            },
+            "$description": "Footer and deepest surfaces."
+          }
+        },
+        "green": {
+          "300": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.239,
+                0.839,
+                0.549
+              ],
+              "hex": "#3DD68C"
+            },
+            "$description": "Punch accent ONLY. At most one intentional emphasis per page/asset. Never buttons, labels, charts, recurring UI."
+          },
+          "400": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.329,
+                0.725,
+                0.529
+              ],
+              "hex": "#54B987"
+            },
+            "$description": "THE brand green. Buttons, eyebrows, fills, icons, highlights on any ground; large surfaces."
+          },
+          "600": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.173,
+                0.427,
+                0.302
+              ],
+              "hex": "#2C6D4D"
+            },
+            "$description": "ACCESSIBLE TEXT variant of green — eyebrows, links, inline emphasis on light grounds. ~6.2:1 on white, passes AA. Same hue family as green.400."
+          }
+        },
+        "teal": {
+          "400": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.043,
+                0.671,
+                0.671
+              ],
+              "hex": "#0BABAB"
+            },
+            "$description": "Heritage accent. Fills, dark-ground text, data-viz series 3. NOT text on light grounds (2.8:1) — use teal.600."
+          },
+          "600": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.027,
+                0.451,
+                0.451
+              ],
+              "hex": "#077373"
+            },
+            "$description": "ACCESSIBLE TEXT variant of teal — subheads, links, callouts on light grounds. ~5.7:1 on white, passes AA."
+          }
+        },
+        "steel": {
+          "600": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.051,
+                0.412,
+                0.541
+              ],
+              "hex": "#0D698A"
+            },
+            "$description": "Secondary blue. Data-viz series 2, supporting UI, diagrams. Passes AA as text on white (6.2:1)."
+          }
+        },
+        "slate": {
+          "400": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.553,
+                0.639,
+                0.71
+              ],
+              "hex": "#8DA3B5"
+            },
+            "$description": "Muted blue-gray. Borders, gridlines, decorative use, text on DARK grounds only. NOT text on light (2.6:1) — use slate.600. Fill/border-only hue."
+          },
+          "600": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.361,
+                0.443,
+                0.522
+              ],
+              "hex": "#5C7185"
+            },
+            "$description": "ACCESSIBLE TEXT variant of slate — captions, secondary labels, chart axis text on light grounds. ~5.1:1 on white, passes AA."
+          },
+          "300": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.725,
+                0.796,
+                0.863
+              ],
+              "hex": "#B9CBDC"
+            },
+            "$description": "Lightest slate — navigation link text on the navy bar. On dark grounds only."
+          }
+        },
+        "coral": {
+          "300": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.949,
+                0.627,
+                0.553
+              ],
+              "hex": "#F2A08D"
+            },
+            "$description": "ILLUSTRATION ONLY — the glowing path/node accent in paper-cut scenes. Never a UI, chart, or text color."
+          }
+        },
+        "red": {
+          "500": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.847,
+                0.416,
+                0.353
+              ],
+              "hex": "#D86A5A"
+            },
+            "$description": "\"Don't\"/error fill and borders — decorative only. NOT text (3.4:1) — use red.700."
+          },
+          "700": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.647,
+                0.216,
+                0.153
+              ],
+              "hex": "#A53727"
+            },
+            "$description": "ACCESSIBLE TEXT variant — \"don't\" tags, form error text on light grounds. ~6.6:1 on white, passes AA."
+          }
+        },
+        "gray": {
+          "700": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.349,
+                0.349,
+                0.349
+              ],
+              "hex": "#595959"
+            },
+            "$description": "DECK SYSTEM ONLY — slide headers/body on white. Deliberately absent from the marketing-site palette; never on the website."
+          }
+        },
+        "white": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "hex": "#FFFFFF"
+          },
+          "$description": "A PRIMARY GROUND, not an absence. The page alternates navy and white; white carries half the section rhythm. Also the logo plane body on navy grounds."
+        },
+        "overlay": {
+          "muted-ink": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.047,
+                0.165,
+                0.282
+              ],
+              "hex": "#0C2A48",
+              "alpha": 0.65
+            },
+            "$description": "Body/secondary copy on light grounds — the site's workhorse muted text: navy at 65%, not a separate grey."
+          },
+          "on-dark-body": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "hex": "#FFFFFF",
+              "alpha": 0.72
+            },
+            "$description": "Body copy / list items on navy — ~9:1, passes AA."
+          },
+          "on-dark-meta": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "hex": "#FFFFFF",
+              "alpha": 0.6
+            },
+            "$description": "De-emphasized meta text on navy. Floor is 60% (45% ~4.1:1 fails; 60% clears 4.5:1)."
+          },
+          "on-dark-fill": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "hex": "#FFFFFF",
+              "alpha": 0.04
+            },
+            "$description": "Translucent card fill on navy grounds."
+          },
+          "on-dark-border": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "hex": "#FFFFFF",
+              "alpha": 0.1
+            },
+            "$description": "Card border / internal dividers on navy grounds."
+          },
+          "nav-border": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "hex": "#FFFFFF",
+              "alpha": 0.08
+            },
+            "$description": "Sticky-nav bottom border on the navy bar."
+          }
+        },
+        "_gradientStops": {
+          "mint": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.91,
+                0.996,
+                0.984
+              ],
+              "hex": "#E8FEFB"
+            },
+            "$description": "Soft-gradient stop A (0%). Cool aqua."
+          },
+          "ice": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.949,
+                0.984,
+                0.984
+              ],
+              "hex": "#F2FBFB"
+            },
+            "$description": "Soft-gradient stop B (55%). The midpoint of the soft ground."
+          },
+          "sand": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.992,
+                0.961,
+                0.91
+              ],
+              "hex": "#FDF5E8"
+            },
+            "$description": "Soft-gradient stop C (100%). The WARM stop giving This Waay grounds their cool-to-warm shift."
+          },
+          "linen": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.961,
+                0.969,
+                0.925
+              ],
+              "hex": "#F5F7EC"
+            },
+            "$description": "soft-warm stop (0%) — warm pale."
+          },
+          "frost": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.918,
+                0.992,
+                0.98
+              ],
+              "hex": "#EAFDFA"
+            },
+            "$description": "soft-warm stop (20%) — cool pale."
+          },
+          "shell": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.973,
+                0.969,
+                0.941
+              ],
+              "hex": "#F8F7F0"
+            },
+            "$description": "soft-warm stop (100%) — warm pale."
+          }
+        }
+      },
+      "dimension": {
+        "space": {
+          "1": {
+            "$type": "dimension",
+            "$value": {
+              "value": 4,
+              "unit": "px"
+            }
+          },
+          "2": {
+            "$type": "dimension",
+            "$value": {
+              "value": 8,
+              "unit": "px"
+            }
+          },
+          "3": {
+            "$type": "dimension",
+            "$value": {
+              "value": 16,
+              "unit": "px"
+            }
+          },
+          "4": {
+            "$type": "dimension",
+            "$value": {
+              "value": 24,
+              "unit": "px"
+            }
+          },
+          "5": {
+            "$type": "dimension",
+            "$value": {
+              "value": 32,
+              "unit": "px"
+            }
+          },
+          "6": {
+            "$type": "dimension",
+            "$value": {
+              "value": 48,
+              "unit": "px"
+            }
+          },
+          "7": {
+            "$type": "dimension",
+            "$value": {
+              "value": 64,
+              "unit": "px"
+            }
+          },
+          "8": {
+            "$type": "dimension",
+            "$value": {
+              "value": 96,
+              "unit": "px"
+            }
+          }
+        },
+        "radius": {
+          "card": {
+            "$type": "dimension",
+            "$value": {
+              "value": 8,
+              "unit": "px"
+            }
+          },
+          "track": {
+            "$type": "dimension",
+            "$value": {
+              "value": 14,
+              "unit": "px"
+            }
+          },
+          "pill": {
+            "$type": "dimension",
+            "$value": {
+              "value": 25,
+              "unit": "px"
+            }
+          },
+          "input": {
+            "$type": "dimension",
+            "$value": {
+              "value": 2,
+              "unit": "px"
+            }
+          }
+        },
+        "text-size": {
+          "2xs": {
+            "$type": "dimension",
+            "$value": {
+              "value": 0.62,
+              "unit": "rem"
+            }
+          },
+          "xs": {
+            "$type": "dimension",
+            "$value": {
+              "value": 0.72,
+              "unit": "rem"
+            }
+          },
+          "sm": {
+            "$type": "dimension",
+            "$value": {
+              "value": 0.78,
+              "unit": "rem"
+            }
+          },
+          "md": {
+            "$type": "dimension",
+            "$value": {
+              "value": 0.85,
+              "unit": "rem"
+            }
+          },
+          "lg": {
+            "$type": "dimension",
+            "$value": {
+              "value": 0.95,
+              "unit": "rem"
+            }
+          },
+          "xl": {
+            "$type": "dimension",
+            "$value": {
+              "value": 1.08,
+              "unit": "rem"
+            }
+          },
+          "2xl": {
+            "$type": "dimension",
+            "$value": {
+              "value": 1.2,
+              "unit": "rem"
+            }
+          },
+          "3xl": {
+            "$type": "dimension",
+            "$value": {
+              "value": 1.7,
+              "unit": "rem"
+            }
+          },
+          "4xl": {
+            "$type": "dimension",
+            "$value": {
+              "value": 2.2,
+              "unit": "rem"
+            }
+          },
+          "5xl": {
+            "$type": "dimension",
+            "$value": {
+              "value": 2.6,
+              "unit": "rem"
+            }
+          }
+        },
+        "tracking": {
+          "tightest": {
+            "$type": "dimension",
+            "$value": {
+              "value": -0.015,
+              "unit": "em"
+            }
+          },
+          "tighter": {
+            "$type": "dimension",
+            "$value": {
+              "value": -0.01,
+              "unit": "em"
+            }
+          },
+          "normal": {
+            "$type": "dimension",
+            "$value": {
+              "value": 0.04,
+              "unit": "em"
+            }
+          },
+          "wide-2xs": {
+            "$type": "dimension",
+            "$value": {
+              "value": 0.06,
+              "unit": "em"
+            }
+          },
+          "wide-xs": {
+            "$type": "dimension",
+            "$value": {
+              "value": 0.1,
+              "unit": "em"
+            }
+          },
+          "wide": {
+            "$type": "dimension",
+            "$value": {
+              "value": 0.12,
+              "unit": "em"
+            }
+          },
+          "wide-md": {
+            "$type": "dimension",
+            "$value": {
+              "value": 0.14,
+              "unit": "em"
+            }
+          },
+          "wider": {
+            "$type": "dimension",
+            "$value": {
+              "value": 0.16,
+              "unit": "em"
+            }
+          },
+          "wide-lg": {
+            "$type": "dimension",
+            "$value": {
+              "value": 0.18,
+              "unit": "em"
+            }
+          },
+          "widest": {
+            "$type": "dimension",
+            "$value": {
+              "value": 0.22,
+              "unit": "em"
+            }
+          },
+          "widest-lg": {
+            "$type": "dimension",
+            "$value": {
+              "value": 0.3,
+              "unit": "em"
+            }
+          }
+        }
+      },
+      "fontFamily": {
+        "regular": {
+          "$type": "fontFamily",
+          "$value": [
+            "Axiforma",
+            "Poppins",
+            "Segoe UI",
+            "sans-serif"
+          ],
+          "$description": "Body copy, hero body, captions, footer links. The base family — the ONLY one with a real Bold member (reached via fontWeight 700)."
+        },
+        "medium": {
+          "$type": "fontFamily",
+          "$value": [
+            "Axiforma Medium",
+            "Poppins",
+            "Segoe UI",
+            "sans-serif"
+          ],
+          "$description": "Card body copy, form labels, muted secondary text. Own family; no bold member."
+        },
+        "semibold": {
+          "$type": "fontFamily",
+          "$value": [
+            "Axiforma SemiBold",
+            "Poppins",
+            "Segoe UI",
+            "sans-serif"
+          ],
+          "$description": "Hero H1. Own family; no bold member."
+        },
+        "extrabold": {
+          "$type": "fontFamily",
+          "$value": [
+            "Axiforma ExtraBold",
+            "Poppins",
+            "Segoe UI",
+            "sans-serif"
+          ],
+          "$description": "H2 headings and every card title — the dominant heading cut. Own family; no bold member."
+        }
+      },
+      "angle": {
+        "diagonal": {
+          "$type": "number",
+          "$value": 135,
+          "$description": "degrees clockwise from vertical — the soft-gradient and section-break diagonal."
+        },
+        "horizontal": {
+          "$type": "number",
+          "$value": 90,
+          "$description": "degrees clockwise from vertical — the paper-plane wing sweep."
+        },
+        "skew-section": {
+          "$type": "number",
+          "$value": -2,
+          "$description": "skew degrees — section (mechanics in references/layout-mechanics.md)."
+        },
+        "skew-pricing": {
+          "$type": "number",
+          "$value": -3,
+          "$description": "skew degrees — pricing (mechanics in references/layout-mechanics.md)."
+        },
+        "skew-contact": {
+          "$type": "number",
+          "$value": -5,
+          "$description": "skew degrees — contact (mechanics in references/layout-mechanics.md)."
+        },
+        "skew-price-tag": {
+          "$type": "number",
+          "$value": -6,
+          "$description": "skew degrees — price-tag (mechanics in references/layout-mechanics.md)."
+        },
+        "skew-card": {
+          "$type": "number",
+          "$value": -10,
+          "$description": "skew degrees — card (mechanics in references/layout-mechanics.md)."
+        }
+      },
+      "leading": {
+        "glyph": {
+          "$type": "number",
+          "$value": 0.6
+        },
+        "heading": {
+          "$type": "number",
+          "$value": 1.22
+        },
+        "snug": {
+          "$type": "number",
+          "$value": 1.4
+        },
+        "snug-md": {
+          "$type": "number",
+          "$value": 1.45
+        },
+        "normal": {
+          "$type": "number",
+          "$value": 1.5
+        },
+        "relaxed-sm": {
+          "$type": "number",
+          "$value": 1.55
+        },
+        "relaxed": {
+          "$type": "number",
+          "$value": 1.6
+        },
+        "loose": {
+          "$type": "number",
+          "$value": 1.7,
+          "$description": "Body copy — the reading default."
+        }
+      },
+      "shadow": {
+        "card": {
+          "$type": "shadow",
+          "$value": {
+            "color": {
+              "colorSpace": "srgb",
+              "components": [
+                0.047,
+                0.165,
+                0.282
+              ],
+              "alpha": 0.1,
+              "hex": "#0C2A48"
+            },
+            "offsetX": {
+              "value": 0,
+              "unit": "px"
+            },
+            "offsetY": {
+              "value": 10,
+              "unit": "px"
+            },
+            "blur": {
+              "value": 30,
+              "unit": "px"
+            },
+            "spread": {
+              "value": 0,
+              "unit": "px"
+            }
+          },
+          "$description": "Standard card shadow."
+        },
+        "screenshot": {
+          "$type": "shadow",
+          "$value": {
+            "color": {
+              "colorSpace": "srgb",
+              "components": [
+                0.047,
+                0.165,
+                0.282
+              ],
+              "alpha": 0.18,
+              "hex": "#0C2A48"
+            },
+            "offsetX": {
+              "value": 0,
+              "unit": "px"
+            },
+            "offsetY": {
+              "value": 12,
+              "unit": "px"
+            },
+            "blur": {
+              "value": 30,
+              "unit": "px"
+            },
+            "spread": {
+              "value": 0,
+              "unit": "px"
+            }
+          },
+          "$description": "Framed screenshot shadow — deeper."
+        }
+      }
+    },
+    "Semantic": {
+      "color": {
+        "surface": {
+          "ground": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.047,
+                0.165,
+                0.282
+              ],
+              "hex": "#0C2A48"
+            },
+            "$description": "Primary dark ground — heroes, sections, card bodies."
+          },
+          "ground-deep": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.02,
+                0.125,
+                0.227
+              ],
+              "hex": "#05203A"
+            },
+            "$description": "Footer, deepest layer."
+          },
+          "ground-light": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "hex": "#FFFFFF"
+            },
+            "$description": "The other primary ground — carries half the page rhythm."
+          }
+        },
+        "fill": {
+          "action": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.329,
+                0.725,
+                0.529
+              ],
+              "hex": "#54B987"
+            },
+            "$description": "THE action fill — buttons, labels, icons, on any ground."
+          },
+          "accent": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.043,
+                0.671,
+                0.671
+              ],
+              "hex": "#0BABAB"
+            },
+            "$description": "Heritage accent fill."
+          },
+          "emphasis": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.239,
+                0.839,
+                0.549
+              ],
+              "hex": "#3DD68C"
+            },
+            "$description": "Punch. One moment per asset. This is its ONLY role."
+          },
+          "info": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.051,
+                0.412,
+                0.541
+              ],
+              "hex": "#0D698A"
+            },
+            "$description": "Informational fill."
+          },
+          "danger": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.847,
+                0.416,
+                0.353
+              ],
+              "hex": "#D86A5A"
+            },
+            "$description": "Error/\"don't\" fill and borders — decorative."
+          }
+        },
+        "text": {
+          "body": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.047,
+                0.165,
+                0.282
+              ],
+              "hex": "#0C2A48"
+            },
+            "$description": "Default reading color on light grounds."
+          },
+          "on-ground": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "hex": "#FFFFFF"
+            },
+            "$description": "Text on the dark ground."
+          },
+          "accent": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.173,
+                0.427,
+                0.302
+              ],
+              "hex": "#2C6D4D"
+            },
+            "$description": "Accessible green for TEXT — ~6.2:1. References green.600 (the ink), NOT the green.400 fill. THIS is the enforcement."
+          },
+          "accent-alt": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.027,
+                0.451,
+                0.451
+              ],
+              "hex": "#077373"
+            },
+            "$description": "Accessible teal for text — ~5.7:1."
+          },
+          "link": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.027,
+                0.451,
+                0.451
+              ],
+              "hex": "#077373"
+            },
+            "$description": "Interactive text — split from decorative text.accent. Wired to an accessible ink (teal.600) so links inherit contrast safety by default."
+          },
+          "muted": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.361,
+                0.443,
+                0.522
+              ],
+              "hex": "#5C7185"
+            },
+            "$description": "Captions, secondary labels — ~5.1:1."
+          },
+          "on-fill": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.047,
+                0.165,
+                0.282
+              ],
+              "hex": "#0C2A48"
+            },
+            "$description": "Default text ON a color fill: navy. Passes AA on green (6.02:1) and teal (5.2:1). Components override at their own risk — see button.primary.label."
+          },
+          "danger": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.647,
+                0.216,
+                0.153
+              ],
+              "hex": "#A53727"
+            },
+            "$description": "Error text."
+          }
+        },
+        "border": {
+          "subtle": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.553,
+                0.639,
+                0.71
+              ],
+              "hex": "#8DA3B5"
+            },
+            "$description": "Borders, gridlines. Fill-only hue — never used as text."
+          }
+        }
+      },
+      "gradient": {
+        "soft": {
+          "$type": "gradient",
+          "$value": {
+            "stops": [
+              {
+                "color": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.91,
+                    0.996,
+                    0.984
+                  ],
+                  "hex": "#E8FEFB"
+                },
+                "position": 0
+              },
+              {
+                "color": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.949,
+                    0.984,
+                    0.984
+                  ],
+                  "hex": "#F2FBFB"
+                },
+                "position": 0.55
+              },
+              {
+                "color": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.992,
+                    0.961,
+                    0.91
+                  ],
+                  "hex": "#FDF5E8"
+                },
+                "position": 1
+              }
+            ]
+          },
+          "$extensions": {
+            "angle": 135
+          },
+          "$description": "THE canonical light surface — segment/service/testimonial/pricing cards, alternating sections. Cool aqua into warm sand."
+        },
+        "soft-warm": {
+          "$type": "gradient",
+          "$value": {
+            "stops": [
+              {
+                "color": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.961,
+                    0.969,
+                    0.925
+                  ],
+                  "hex": "#F5F7EC"
+                },
+                "position": 0
+              },
+              {
+                "color": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.918,
+                    0.992,
+                    0.98
+                  ],
+                  "hex": "#EAFDFA"
+                },
+                "position": 0.2
+              },
+              {
+                "color": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.949,
+                    0.984,
+                    0.984
+                  ],
+                  "hex": "#F2FBFB"
+                },
+                "position": 0.8
+              },
+              {
+                "color": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.973,
+                    0.969,
+                    0.941
+                  ],
+                  "hex": "#F8F7F0"
+                },
+                "position": 1
+              }
+            ]
+          },
+          "$extensions": {
+            "angle": 135
+          },
+          "$description": "4-stop variant behind why-us float-panel cards. Warm at BOTH ends, cool through the middle."
+        },
+        "green": {
+          "$type": "gradient",
+          "$value": {
+            "stops": [
+              {
+                "color": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.329,
+                    0.725,
+                    0.529
+                  ],
+                  "hex": "#54B987"
+                },
+                "position": 0
+              },
+              {
+                "color": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.239,
+                    0.839,
+                    0.549
+                  ],
+                  "hex": "#3DD68C"
+                },
+                "position": 1
+              }
+            ]
+          },
+          "$extensions": {
+            "angle": 135
+          },
+          "$description": "Green fill gradient. Counts as a punch usage — same one-per-asset rule."
+        }
+      },
+      "typography": {
+        "hero-h1": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": [
+              "Axiforma SemiBold",
+              "Poppins",
+              "Segoe UI",
+              "sans-serif"
+            ],
+            "fontWeight": 400,
+            "fontSize": {
+              "value": 46,
+              "unit": "px"
+            },
+            "lineHeight": 1.3,
+            "letterSpacing": {
+              "value": -0.015,
+              "unit": "em"
+            }
+          },
+          "$description": "Homepage hero headline — the one place SemiBold leads and green leads at display size."
+        },
+        "h2": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": [
+              "Axiforma ExtraBold",
+              "Poppins",
+              "Segoe UI",
+              "sans-serif"
+            ],
+            "fontWeight": 400,
+            "fontSize": {
+              "value": 40,
+              "unit": "px"
+            },
+            "lineHeight": 1.2,
+            "letterSpacing": {
+              "value": -0.01,
+              "unit": "em"
+            }
+          },
+          "$description": "Section headings. Navy on light, white on navy."
+        },
+        "h3": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": [
+              "Axiforma ExtraBold",
+              "Poppins",
+              "Segoe UI",
+              "sans-serif"
+            ],
+            "fontWeight": 400,
+            "fontSize": {
+              "value": 32,
+              "unit": "px"
+            },
+            "lineHeight": 1.2
+          },
+          "$description": "Sub-headings."
+        },
+        "h4": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": [
+              "Axiforma ExtraBold",
+              "Poppins",
+              "Segoe UI",
+              "sans-serif"
+            ],
+            "fontWeight": 400,
+            "fontSize": {
+              "value": 20,
+              "unit": "px"
+            },
+            "lineHeight": 1.2
+          },
+          "$description": "Minor headings."
+        },
+        "h5": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": [
+              "Axiforma ExtraBold",
+              "Poppins",
+              "Segoe UI",
+              "sans-serif"
+            ],
+            "fontWeight": 400,
+            "fontSize": {
+              "value": 20,
+              "unit": "px"
+            },
+            "lineHeight": 1.2
+          },
+          "$description": "EVERY card title — the most-used heading in the system."
+        },
+        "body": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": [
+              "Axiforma",
+              "Poppins",
+              "Segoe UI",
+              "sans-serif"
+            ],
+            "fontWeight": 400,
+            "fontSize": {
+              "value": 15,
+              "unit": "px"
+            },
+            "lineHeight": 1.2
+          },
+          "$description": "Body copy. Production ships line-height:normal (~1.2)."
+        },
+        "card-body": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": [
+              "Axiforma Medium",
+              "Poppins",
+              "Segoe UI",
+              "sans-serif"
+            ],
+            "fontWeight": 400,
+            "fontSize": {
+              "value": 14,
+              "unit": "px"
+            },
+            "lineHeight": 1.2
+          },
+          "$description": "Card and segment copy — Medium at muted navy."
+        },
+        "button": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": [
+              "Axiforma",
+              "Poppins",
+              "Segoe UI",
+              "sans-serif"
+            ],
+            "fontWeight": 700,
+            "fontSize": {
+              "value": 16,
+              "unit": "px"
+            },
+            "lineHeight": 1.5
+          },
+          "$description": "Button label."
+        },
+        "eyebrow": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": [
+              "Axiforma",
+              "Poppins",
+              "Segoe UI",
+              "sans-serif"
+            ],
+            "fontWeight": 700,
+            "fontSize": {
+              "value": 12,
+              "unit": "px"
+            },
+            "lineHeight": 1.2,
+            "letterSpacing": {
+              "value": 2.76,
+              "unit": "px"
+            }
+          },
+          "$description": "Uppercase eyebrow/category label."
+        }
+      }
+    },
+    "Component": {
+      "button": {
+        "primary": {
+          "background": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.329,
+                0.725,
+                0.529
+              ],
+              "hex": "#54B987"
+            },
+            "$description": "green.400 fill."
+          },
+          "label": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "hex": "#FFFFFF"
+            },
+            "$description": "OVERRIDES the safe default (color.text.on-fill = navy) with white. This is the deviation."
+          },
+          "radius": {
+            "$type": "dimension",
+            "$value": {
+              "value": 25,
+              "unit": "px"
+            }
+          }
+        },
+        "secondary": {
+          "border": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.329,
+                0.725,
+                0.529
+              ],
+              "hex": "#54B987"
+            }
+          },
+          "label": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.173,
+                0.427,
+                0.302
+              ],
+              "hex": "#2C6D4D"
+            }
+          },
+          "radius": {
+            "$type": "dimension",
+            "$value": {
+              "value": 25,
+              "unit": "px"
+            }
+          }
+        },
+        "on-navy": {
+          "background": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "hex": "#FFFFFF"
+            }
+          },
+          "label": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.173,
+                0.427,
+                0.302
+              ],
+              "hex": "#2C6D4D"
+            }
+          },
+          "radius": {
+            "$type": "dimension",
+            "$value": {
+              "value": 25,
+              "unit": "px"
+            }
+          }
+        },
+        "tag": {
+          "border": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.329,
+                0.725,
+                0.529
+              ],
+              "hex": "#54B987"
+            }
+          },
+          "label": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.173,
+                0.427,
+                0.302
+              ],
+              "hex": "#2C6D4D"
+            }
+          },
+          "radius": {
+            "$type": "dimension",
+            "$value": {
+              "value": 2,
+              "unit": "px"
+            }
+          }
+        }
+      },
+      "card": {
+        "content": {
+          "background": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "hex": "#FFFFFF"
+            }
+          },
+          "radius": {
+            "$type": "dimension",
+            "$value": {
+              "value": 8,
+              "unit": "px"
+            }
+          },
+          "title": {
+            "$type": "typography",
+            "$value": {
+              "fontFamily": [
+                "Axiforma ExtraBold",
+                "Poppins",
+                "Segoe UI",
+                "sans-serif"
+              ],
+              "fontWeight": 400,
+              "fontSize": {
+                "value": 20,
+                "unit": "px"
+              },
+              "lineHeight": 1.2
+            }
+          }
+        },
+        "panel": {
+          "background": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "hex": "#FFFFFF"
+            }
+          },
+          "radius": {
+            "$type": "dimension",
+            "$value": {
+              "value": 8,
+              "unit": "px"
+            }
+          },
+          "title": {
+            "$type": "typography",
+            "$value": {
+              "fontFamily": [
+                "Axiforma ExtraBold",
+                "Poppins",
+                "Segoe UI",
+                "sans-serif"
+              ],
+              "fontWeight": 400,
+              "fontSize": {
+                "value": 20,
+                "unit": "px"
+              },
+              "lineHeight": 1.2
+            }
+          }
+        },
+        "badge": {
+          "background": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "hex": "#FFFFFF"
+            }
+          },
+          "radius": {
+            "$type": "dimension",
+            "$value": {
+              "value": 8,
+              "unit": "px"
+            }
+          },
+          "title": {
+            "$type": "typography",
+            "$value": {
+              "fontFamily": [
+                "Axiforma ExtraBold",
+                "Poppins",
+                "Segoe UI",
+                "sans-serif"
+              ],
+              "fontWeight": 400,
+              "fontSize": {
+                "value": 20,
+                "unit": "px"
+              },
+              "lineHeight": 1.2
+            }
+          }
+        },
+        "track": {
+          "radius": {
+            "$type": "dimension",
+            "$value": {
+              "value": 14,
+              "unit": "px"
+            }
+          },
+          "title": {
+            "$type": "typography",
+            "$value": {
+              "fontFamily": [
+                "Axiforma ExtraBold",
+                "Poppins",
+                "Segoe UI",
+                "sans-serif"
+              ],
+              "fontWeight": 400,
+              "fontSize": {
+                "value": 20,
+                "unit": "px"
+              },
+              "lineHeight": 1.2
+            }
+          }
+        },
+        "float-panel": {
+          "radius": {
+            "$type": "dimension",
+            "$value": {
+              "value": 8,
+              "unit": "px"
+            }
+          },
+          "title": {
+            "$type": "typography",
+            "$value": {
+              "fontFamily": [
+                "Axiforma ExtraBold",
+                "Poppins",
+                "Segoe UI",
+                "sans-serif"
+              ],
+              "fontWeight": 400,
+              "fontSize": {
+                "value": 20,
+                "unit": "px"
+              },
+              "lineHeight": 1.2
+            }
+          }
+        },
+        "segment": {
+          "background": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "hex": "#FFFFFF"
+            }
+          },
+          "radius": {
+            "$type": "dimension",
+            "$value": {
+              "value": 8,
+              "unit": "px"
+            }
+          },
+          "title": {
+            "$type": "typography",
+            "$value": {
+              "fontFamily": [
+                "Axiforma ExtraBold",
+                "Poppins",
+                "Segoe UI",
+                "sans-serif"
+              ],
+              "fontWeight": 400,
+              "fontSize": {
+                "value": 20,
+                "unit": "px"
+              },
+              "lineHeight": 1.2
+            }
+          }
+        }
+      },
+      "badge": {
+        "shield": {
+          "face": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.047,
+                0.165,
+                0.282
+              ],
+              "hex": "#0C2A48"
+            }
+          },
+          "icon": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "hex": "#FFFFFF"
+            }
+          }
+        },
+        "icon-tile": {
+          "radius": {
+            "$type": "dimension",
+            "$value": {
+              "value": 8,
+              "unit": "px"
+            }
+          }
+        },
+        "category-pill": {
+          "background": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.329,
+                0.725,
+                0.529
+              ],
+              "hex": "#54B987"
+            }
+          },
+          "radius": {
+            "$type": "dimension",
+            "$value": {
+              "value": 25,
+              "unit": "px"
+            }
+          }
+        },
+        "tag-chip": {
+          "border": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.329,
+                0.725,
+                0.529
+              ],
+              "hex": "#54B987"
+            }
+          },
+          "radius": {
+            "$type": "dimension",
+            "$value": {
+              "value": 2,
+              "unit": "px"
+            }
+          }
+        },
+        "price-tag": {
+          "background": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.329,
+                0.725,
+                0.529
+              ],
+              "hex": "#54B987"
+            }
+          },
+          "label": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.047,
+                0.165,
+                0.282
+              ],
+              "hex": "#0C2A48"
+            }
+          }
+        }
+      }
+    }
+  }
+}

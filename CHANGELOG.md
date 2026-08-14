@@ -2,6 +2,17 @@
 
 This tracks version milestones for the unified `Branding/` home itself — not each brand's own internal changelog. See `product-design-studio/index.html` (footer living-document note) and `gridmark-partners/gridmark-design-system-v3.html` (Governance & versioning) for brand-level changelogs.
 
+## Unified v1.5 — 2026-08-14 — Phase 3b resolver & build pipeline
+
+Built the tooling that *consumes* the v4.0 tiered spec: one resolver that flattens the tiers, five emitters that are pure functions of it, and a production-only validator — so every generated format reads one resolved source and cannot disagree. Merged together with Phase 3a (v4.0 goes live in the same step; no half-migrated window).
+
+- `scripts/resolve_tokens.py` — follows `{group.token}` aliases (component → semantic → primitive) to literals, detects cycles/dangling, resolves colours to the object form, typography composites (fontFamily stack + fontWeight, never synthesizing bold), and gradients to stops + resolved angle. The **production-only filter** exposes only `status:production` tokens to emitters (148 of 174); the 15 deprecated/proposed ledger items are readable but structurally un-generatable. Namespace read from `meta.extensionsNamespace`, never hardcoded.
+- Five emitters, each a pure function of the resolved set: `emit_css.py` (CSS custom properties — replaces the hand-mirrored `:root`), `emit_pptx.py` (the deck theme, now driving Phase 2's `build_deck.py`), `emit_docx.py` (the reference-doc theme + named-style colours), `emit_figma.py` (variables JSON in 3 tier collections), `emit_dtcg.py` (flat resolved DTCG 2025.10 export). `build_theme.py` is now a deprecation shim re-pointed at `emit_pptx`.
+- `scripts/validate.py` — unified resolver-aware validator: **production-only** (no ledger item in any artifact — proven non-vacuous: 15/15 caught if leaked, 0 in production), off-token colour, rules-as-structure re-run on the resolved *output*, stock-Office/fake-bold in the emitted theme. `validate-spec.py`'s typo logic made tiered-aware so the Phase 2 template checks pass on v4.0 (deck 4/4, docx 3/3).
+- Regenerated every downstream artifact from the resolver: `build/tokens.css`, `build/figma-variables.json`, `build/tokens.flat.dtcg.json`, the deck `.potx`, the reference `.docx`, and the style guide's `:root` (generated + a value-matched legacy `--tw-*` alias shim — no hand-mirror). The guide's Token-architecture section now describes the tiered structure; the 3a superseded marker is removed; guide → v4.0. Re-render QA (QuickLook + installed Axiforma): no regression.
+- `scripts/verify-phase3b.py` — 6-check gate (resolver / determinism / production-only / round-trip / no-regression / guide-non-contradiction). **All 6 pass.**
+- Value-match proof: 63/73 old `:root` values reproduce verbatim; the 10 that don't are 5 deliberate 3a relocations (measure, wing, retired section-pad clamp), 3 formatting-only differences, and 2 latent drifts the automation *exposed* (the guide's hero `clamp()` sizes contradicted the spec's fixed px).
+
 ## Unified v1.4 — 2026-08-13 — Phase 3a tiered-schema migration (branch: schema-migration)
 
 Migrated `product-design-studio/tokens.json` from the flat v3.1 shape to the three-tier

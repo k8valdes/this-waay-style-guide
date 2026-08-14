@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
-build_deck.py — assemble this-waay-deck.potx from tokens.json + build_theme.py.
+build_deck.py — assemble this-waay-deck.potx from tokens.json via the resolver (emit_pptx).
 
 Authors the OOXML package directly (no python-pptx layout scaffolding) so the
 template carries EXACTLY the six named layouts the deck spec calls for and no
 stray Office defaults. The theme (clrScheme + fontScheme) comes from
-build_theme.py; every colour and font below is read from tokens.json.
+emit_pptx (resolver-driven); every colour and font is read from the resolved set.
 
 Output: assets/templates/this-waay-deck.potx  (a real .potx template part type)
 
@@ -21,7 +21,7 @@ Design rules enforced here (from slideDeck + accessibility in tokens.json):
   - no <p:transition>, no auto-advance timing
   - notes available via a real notes master (below the slide, never on it)
 
-Standard library + build_theme (local). No font binaries are embedded — the
+Standard library + emit_pptx/resolver (local). No font binaries are embedded — the
 template references Axiforma by name only, so the package never redistributes a
 font (Axiforma is fsType 4, Preview & Print only).
 """
@@ -31,7 +31,7 @@ import zipfile
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-import build_theme  # noqa: E402
+import emit_pptx  # noqa: E402 (Phase 3b: resolver-driven theme)
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 OUT = REPO_ROOT / "assets" / "templates" / "this-waay-deck.potx"
@@ -47,18 +47,12 @@ A_NS = "http://schemas.openxmlformats.org/drawingml/2006/main"
 P_NS = "http://schemas.openxmlformats.org/presentationml/2006/main"
 R_NS = "http://schemas.openxmlformats.org/officeDocument/2006/relationships"
 
-tokens = build_theme.load_tokens()
-build_theme.assert_version(tokens)
-
-
-def hexof(key):
-    return build_theme.color_value(tokens, key).lstrip("#").upper()
-
-
-C = {k: hexof(k) for k in
+# Colors + theme now come from the resolver via emit_pptx (Phase 3b) — the
+# same resolved set every other emitter reads, so the deck cannot disagree.
+C = {k: emit_pptx.hexof_named(k) for k in
      ["navy", "navyDeep", "white", "green", "greenPunch", "greenInk",
       "teal", "tealInk", "steel", "slate", "inkMuted"]}
-DECK_GRAY = tokens["slideDeck"]["deckOnlyColors"]["deckGray"]["value"].lstrip("#").upper()
+DECK_GRAY = emit_pptx.hexof_named("deckGray")
 
 # ---- run / paragraph / textbody builders ---------------------------------
 # Font-family guardrail: families with no bold member must never get b="1".
@@ -395,7 +389,7 @@ APP = (
 
 def build():
     layouts = build_layouts()
-    theme1 = build_theme.full_theme_xml(tokens)
+    theme1 = emit_pptx.full_theme_xml()
 
     parts = {
         "[Content_Types].xml": CONTENT_TYPES,
