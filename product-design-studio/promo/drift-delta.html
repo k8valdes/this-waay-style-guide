@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Drift-delta — before / after</title>
+
+<!-- The AFTER column reads the SAME generated tokens the product ships, so this
+     demo cannot drift from the thing it demonstrates. The BEFORE column carries
+     the real off-token values this project measured (evidence, not styling). -->
+<link rel="stylesheet" href="../build/tokens.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  @font-face { font-family:'Axiforma';           src:local('Axiforma'); }
+  @font-face { font-family:'Axiforma ExtraBold';  src:local('Axiforma ExtraBold'); }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  body{ font-family:var(--typography-body-font-family); color:var(--color-text-body);
+        background:var(--color-surface-ground-light); padding:24px; }
+  .head{ display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; margin-bottom:20px; }
+  .eyebrow{ font-family:var(--typography-eyebrow-font-family); font-size:var(--typography-eyebrow-font-size);
+            letter-spacing:var(--dimension-tracking-widest); text-transform:uppercase; color:var(--color-text-accent); }
+  .head h3{ font-family:var(--typography-h3-font-family); font-size:var(--dimension-text-size-2xl); color:var(--color-text-body); }
+  .toggle{ display:inline-flex; align-items:center; gap:9px; font-size:var(--dimension-text-size-md);
+           color:var(--color-text-muted); cursor:pointer; user-select:none; }
+  .switch{ width:42px; height:24px; border-radius:var(--dimension-radius-pill); background:var(--color-border-subtle); position:relative; transition:background .2s; }
+  .switch.on{ background:var(--color-fill-action); }
+  .switch::after{ content:''; position:absolute; top:3px; left:3px; width:18px; height:18px; border-radius:50%; background:var(--color-white); transition:left .2s; }
+  .switch.on::after{ left:21px; }
+
+  .panels{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+  .panel{ border:1px solid var(--color-border-subtle); border-radius:var(--dimension-radius-card); overflow:hidden; }
+  .panel .cap{ padding:12px 16px; font-family:var(--typography-eyebrow-font-family); font-size:var(--dimension-text-size-sm);
+               letter-spacing:var(--dimension-tracking-wide); text-transform:uppercase; }
+  .panel.before .cap{ background:var(--color-red-500); color:var(--color-white); }
+  .panel.after  .cap{ background:var(--color-fill-action); color:var(--color-white); }
+  .rows{ padding:8px 16px 16px; }
+  .row{ display:flex; align-items:center; gap:14px; padding:14px 0; border-bottom:1px solid var(--color-border-subtle); }
+  .row:last-child{ border-bottom:none; }
+  .sw{ width:44px; height:44px; border-radius:8px; flex:none; border:1px solid var(--color-border-subtle); }
+  .meta .k{ font-size:var(--dimension-text-size-md); color:var(--color-text-body); font-family:var(--typography-card-body-font-family); }
+  .meta .v{ font-size:var(--dimension-text-size-sm); color:var(--color-text-muted); margin-top:2px; }
+  .type-sw{ width:44px; height:44px; display:flex; align-items:center; justify-content:center; font-size:26px; flex:none;
+            border-radius:8px; border:1px solid var(--color-border-subtle); color:var(--color-text-body); }
+  .verdict{ margin-top:14px; padding:12px 16px; border-radius:var(--dimension-radius-card); font-size:var(--dimension-text-size-md);
+            display:flex; align-items:center; gap:10px; }
+  .verdict.fail{ background:var(--color-red-500); color:var(--color-white); }
+  .verdict.pass{ background:var(--color-fill-action); color:var(--color-white); }
+  .verdict b{ font-family:var(--typography-eyebrow-font-family); }
+  .foot{ margin-top:16px; font-size:var(--dimension-text-size-sm); color:var(--color-text-muted); max-width:70ch; }
+  @media (max-width:640px){ .panels{ grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+const { useState } = React;
+
+// read the resolved value of a token straight out of the linked tokens.css —
+// so the AFTER column literally shows what the product ships.
+const rv = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+
+// BEFORE = real off-token values this project measured. AFTER = a token var name.
+const SLOTS = [
+  { kind:'color', label:'Muted blue-grey',
+    before:'#8CA7B9', beforeNote:'off-token · used 207×', afterVar:'--color-border-subtle', afterNote:'slate.400 — the approved token' },
+  { kind:'color', label:'Soft-gradient stop',
+    before:'#EEF8EC', beforeNote:'retired v2.x value · still used 22×', afterVar:'--color-gradient-stops-mint', afterNote:'the shipped cool-aqua stop' },
+  { kind:'color', label:'Accent as text on white',
+    before:'#54B987', beforeNote:'2.4:1 — fails WCAG AA', afterVar:'--color-text-accent', afterNote:'green.600 ink — 6.2:1, passes' },
+  { kind:'green',  label:'Brand vs punch green',
+    before:'#3DD68C', beforeNote:'punch used as the brand green (inverted)', afterVar:'--color-fill-action', afterNote:'green.400 — the actual brand green' },
+  { kind:'type',   label:'Heading typeface',
+    before:'Open Sans', beforeFont:'Open Sans, sans-serif', beforeNote:'1 of 12 faces measured', afterVar:'--typography-h2-font-family', afterNote:'Axiforma ExtraBold, resolved' },
+];
+
+function Swatch({ isColor, bg, font }) {
+  if (font) return <div className="type-sw" style={{ fontFamily: font }}>Aa</div>;
+  return <div className="sw" style={{ background: bg }} />;
+}
+
+function Row({ slot, side }) {
+  const isAfter = side === 'after';
+  if (slot.kind === 'type') {
+    const font = isAfter ? rv(slot.afterVar) : slot.beforeFont;
+    const shown = isAfter ? (rv(slot.afterVar).split(',')[0].replace(/['"]/g,'')) : slot.before;
+    return (
+      <div className="row">
+        <Swatch font={font} />
+        <div className="meta"><div className="k">{slot.label}</div>
+          <div className="v">{shown} — {isAfter ? slot.afterNote : slot.beforeNote}</div></div>
+      </div>
+    );
+  }
+  const bg = isAfter ? `var(${slot.afterVar})` : slot.before;
+  const shown = isAfter ? rv(slot.afterVar) : slot.before;
+  return (
+    <div className="row">
+      <Swatch bg={bg} />
+      <div className="meta"><div className="k">{slot.label}</div>
+        <div className="v">{shown} — {isAfter ? slot.afterNote : slot.beforeNote}</div></div>
+    </div>
+  );
+}
+
+function Panel({ side, showVerdict }) {
+  const isAfter = side === 'after';
+  return (
+    <div className={`panel ${side}`}>
+      <div className="cap">{isAfter ? 'After — resolved from tokens.css' : 'Before — hand-maintained'}</div>
+      <div className="rows">
+        {SLOTS.map((s, i) => <Row key={i} slot={s} side={side} />)}
+        {showVerdict && (
+          isAfter
+            ? <div className="verdict pass"><b>PASS</b> 0 off-token colors · 1 typeface · validator-enforced</div>
+            : <div className="verdict fail"><b>FAIL</b> 229 off-token colors · 12 typefaces · unvalidated</div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function App() {
+  const [showVerdict, setShowVerdict] = useState(false);
+  return (
+    <div>
+      <div className="head">
+        <div>
+          <div className="eyebrow">Drift-delta</div>
+          <h3>The same slots, before and after the pipeline</h3>
+        </div>
+        <div className="toggle" onClick={() => setShowVerdict(v => !v)} role="button" tabIndex="0"
+             onKeyDown={e => (e.key === 'Enter' || e.key === ' ') && setShowVerdict(v => !v)}>
+          <span>Show validator verdict</span>
+          <span className={`switch ${showVerdict ? 'on' : ''}`} />
+        </div>
+      </div>
+      <div className="panels">
+        <Panel side="before" showVerdict={showVerdict} />
+        <Panel side="after" showVerdict={showVerdict} />
+      </div>
+      <p className="foot">The <b>After</b> swatches are rendered from <code>build/tokens.css</code> and their hex is read live from the resolved variables — so this demo can't drift from the product. The <b>Before</b> values are the real measured off-token figures from this project's own audit.</p>
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>

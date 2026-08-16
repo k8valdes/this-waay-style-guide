@@ -2,6 +2,32 @@
 
 This tracks version milestones for the unified `Branding/` home itself — not each brand's own internal changelog. See `product-design-studio/index.html` (footer living-document note) and `gridmark-partners/gridmark-design-system-v3.html` (Governance & versioning) for brand-level changelogs.
 
+## Unified v1.6 — 2026-08-16 — Phase 3c promo page + drift-delta proof (branch: promo-page)
+
+A marketing page for the AI-ready brand-system offering, built as the first real **page recipe**
+(the Phase 5 seed) and consuming only `build/tokens.css` — so the page is itself proof the pipeline
+works. On the `promo-page` branch, **not merged**: the tier prices are placeholders, so it must not
+auto-publish to the live Pages until confirmed.
+
+- `product-design-studio/promo/index.html` — the static promo page, matching the assessment page's
+  grammar (eyebrow→H2→lede lockup, navy/white rhythm, angled breaks) but with the materially
+  different content the offering needs: an outcome-first hero, the **with/without-designer** usage
+  split (the core differentiator, shown before the method is explained), the affirmative argument set
+  ("why it matters", AI-tool proliferation leading), the drift-delta proof, deliverables, and a
+  scoping CTA. **No hex is hand-typed** — every colour/type/spacing value resolves through the
+  generated tokens; the only hexes in the source are the off-token *evidence* figures in the proof.
+- `product-design-studio/promo/drift-delta.html` — interactive before/after: the After column reads
+  each hex live from `build/tokens.css`, so the demo can't drift from the product; a toggle shows the
+  validator PASS/FAIL per side. Real measured figures only.
+- `product-design-studio/promo/tier-explorer.html` — three cumulative rungs (each contains the one
+  below; inherited items ticked-grey, new items green) + the component-library add-on shown
+  separately + the reconcile-vs-greenfield note. All prices are placeholders.
+- `product-design-studio/recipes/brand-system-page.md` — the reusable recipe: block sequence, ground
+  per section, where angled breaks fall, the components, and a real-vs-placeholder figures ledger.
+- Drift-delta figures are all real, sourced from this project's own audit/validator (12→1 typefaces,
+  `#8CA7B9`×207 / `#EEF8EC`×22 off-token, punch/brand inverted, the 2 latent `clamp()` bugs Phase 3b
+  caught, the 2.42:1 accepted deviation). Prices/duration are placeholdered, never invented.
+
 ## Unified v1.5 — 2026-08-14 — Phase 3b resolver & build pipeline
 
 Built the tooling that *consumes* the v4.0 tiered spec: one resolver that flattens the tiers, five emitters that are pure functions of it, and a production-only validator — so every generated format reads one resolved source and cannot disagree. Merged together with Phase 3a (v4.0 goes live in the same step; no half-migrated window).

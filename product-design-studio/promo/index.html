@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>The AI-ready brand system — This Waay</title>
+
+<!-- Brand values come ONLY from the generated, resolved token surface.
+     No hex is hand-typed anywhere in this page — that is the proof: a page
+     built against generated tokens cannot drift from the brand. -->
+<link rel="stylesheet" href="../build/tokens.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* Axiforma resolves from the installed family names carried in the token
+     stacks; Poppins is the licensed-free fallback. No self-hosted woff2. */
+  @font-face { font-family:'Axiforma';           src:local('Axiforma'), local('Axiforma-Regular'); }
+  @font-face { font-family:'Axiforma Medium';    src:local('Axiforma Medium'); }
+  @font-face { font-family:'Axiforma SemiBold';  src:local('Axiforma SemiBold'); }
+  @font-face { font-family:'Axiforma ExtraBold'; src:local('Axiforma ExtraBold'); }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+
+  body{
+    font-family:var(--typography-body-font-family);
+    font-size:var(--typography-body-font-size);
+    line-height:var(--leading-loose);
+    color:var(--color-text-body);
+    background:var(--color-surface-ground-light);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{ max-width:1140px; margin:0 auto; padding:0 24px; }
+  section{ padding:var(--dimension-space-8) 0; position:relative; }
+
+  /* ---- grounds (pageRhythm: open + close on navy; ground changes carry an angled break) ---- */
+  .on-navy{ background:var(--color-surface-ground); color:var(--color-text-on-ground); }
+  .on-navy-deep{ background:var(--color-surface-ground-deep); color:var(--color-text-on-ground); }
+  .on-soft{ background:var(--gradient-soft); }
+  .angle-top{ clip-path:polygon(0 2.6vw, 100% 0, 100% 100%, 0 100%); margin-top:-2.6vw; padding-top:calc(var(--dimension-space-8) + 2.6vw); }
+
+  /* ---- lockup: eyebrow -> heading -> lede ---- */
+  .eyebrow{
+    font-family:var(--typography-eyebrow-font-family);
+    font-weight:var(--typography-eyebrow-font-weight);
+    font-size:var(--typography-eyebrow-font-size);
+    letter-spacing:var(--dimension-tracking-widest);
+    text-transform:uppercase;
+    color:var(--color-text-accent);           /* accessible green ink on light */
+    margin-bottom:var(--dimension-space-3);
+  }
+  .on-navy .eyebrow, .on-navy-deep .eyebrow{ color:var(--color-fill-action); } /* green passes on navy */
+
+  h1{
+    font-family:var(--typography-hero-h1-font-family);
+    font-size:clamp(2rem, 1.4rem + 2.6vw, var(--typography-hero-h1-font-size));
+    line-height:var(--typography-hero-h1-line-height);
+    letter-spacing:var(--typography-hero-h1-letter-spacing);
+    color:var(--color-text-on-ground);
+    max-width:20ch;
+  }
+  h1 .accent{ color:var(--color-fill-action); }  /* green on navy — 6:1, punchy AND accessible */
+
+  h2{
+    font-family:var(--typography-h2-font-family);
+    font-size:clamp(1.6rem, 1.2rem + 1.4vw, var(--typography-h2-font-size));
+    line-height:var(--typography-h2-line-height);
+    letter-spacing:var(--typography-h2-letter-spacing);
+    color:var(--color-text-body);
+    max-width:22ch;
+  }
+  .on-navy h2, .on-navy-deep h2{ color:var(--color-text-on-ground); }
+  h3{ font-family:var(--typography-h3-font-family); font-size:var(--typography-h3-font-size); color:var(--color-text-body); line-height:var(--typography-h3-line-height); }
+  .on-navy h3{ color:var(--color-text-on-ground); }
+  h4,h5{ font-family:var(--typography-h5-font-family); font-size:var(--typography-h5-font-size); color:var(--color-text-body); line-height:1.25; }
+  .on-navy h4, .on-navy h5{ color:var(--color-text-on-ground); }
+
+  .lede{ font-size:var(--dimension-text-size-xl); line-height:var(--leading-relaxed); color:var(--color-overlay-muted-ink); max-width:62ch; margin-top:var(--dimension-space-3); }
+  .on-navy .lede, .on-navy-deep .lede{ color:var(--color-overlay-on-dark-body); }
+  p{ max-width:65ch; }
+
+  .sec-head{ margin-bottom:var(--dimension-space-6); }
+  .sec-head.center{ text-align:center; margin-left:auto; margin-right:auto; }
+  .sec-head.center h2, .sec-head.center .lede{ margin-left:auto; margin-right:auto; }
+
+  /* ---- buttons (ghost/primary/text) ---- */
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:var(--typography-button-font-family); font-weight:var(--typography-button-font-weight);
+    font-size:var(--typography-button-font-size); line-height:1;
+    border-radius:var(--button-primary-radius); padding:15px 30px 13px; text-decoration:none;
+    border:2px solid transparent; cursor:pointer; transition:all .25s ease;
+  }
+  .btn-primary{ background:var(--color-fill-action); color:var(--color-white); }   /* accepted deviation: white on green */
+  .btn-primary:hover{ background:var(--color-white); color:var(--color-text-accent); border-color:var(--color-fill-action); }
+  .btn-ghost{ background:transparent; color:var(--color-text-on-ground); border-color:var(--color-white); }
+  .btn-ghost:hover{ background:var(--color-white); color:var(--color-text-body); }
+
+  /* ---- one-line strip ---- */
+  .strip{ display:flex; flex-wrap:wrap; gap:10px 22px; align-items:center; margin-top:var(--dimension-space-5);
+    font-family:var(--typography-eyebrow-font-family); font-size:var(--dimension-text-size-md);
+    letter-spacing:var(--dimension-tracking-wide-2xs); color:var(--color-fill-action); }
+  .strip span{ color:var(--color-overlay-on-dark-meta); }
+  .strip b{ color:var(--color-fill-action); font-weight:normal; }
+
+  /* ---- two-column with/without ---- */
+  .two-col{ display:grid; grid-template-columns:1fr 1fr; gap:var(--dimension-space-5); margin-top:var(--dimension-space-6); }
+  .col-card{ background:var(--color-surface-ground-light); border:1px solid var(--color-border-subtle); border-radius:var(--dimension-radius-card); padding:var(--dimension-space-6); box-shadow:var(--shadow-card); }
+  .col-card .tag{ display:inline-block; font-family:var(--typography-eyebrow-font-family); font-size:var(--dimension-text-size-sm); letter-spacing:var(--dimension-tracking-wide); text-transform:uppercase; color:var(--color-text-accent-alt); margin-bottom:var(--dimension-space-3); }
+  .col-card h3{ font-size:var(--dimension-text-size-2xl); }
+  .col-card > p{ color:var(--color-overlay-muted-ink); margin-top:var(--dimension-space-3); font-size:var(--dimension-text-size-lg); line-height:var(--leading-relaxed); }
+  .moments{ list-style:none; margin-top:var(--dimension-space-4); border-top:1px solid var(--color-border-subtle); padding-top:var(--dimension-space-4); display:flex; flex-direction:column; gap:12px; }
+  .moments li{ display:flex; gap:11px; font-size:var(--dimension-text-size-md); color:var(--color-overlay-muted-ink); line-height:var(--leading-relaxed-sm); }
+  .moments li::before{ content:''; flex:none; width:6px; height:6px; margin-top:8px; border-radius:50%; background:var(--color-fill-action); }
+
+  /* ---- governs grid ---- */
+  .grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:var(--dimension-space-4); margin-top:var(--dimension-space-6); }
+  .cell{ background:var(--color-surface-ground-light); border-radius:var(--dimension-radius-card); padding:var(--dimension-space-5); box-shadow:var(--shadow-card); }
+  .cell .ic{ width:44px; height:44px; border-radius:var(--dimension-radius-card); background:var(--gradient-soft); display:flex; align-items:center; justify-content:center; margin-bottom:var(--dimension-space-3); color:var(--color-text-accent); }
+  .cell h5{ font-size:var(--dimension-text-size-xl); margin-bottom:6px; }
+  .cell p{ font-family:var(--typography-card-body-font-family); font-size:var(--typography-card-body-font-size); color:var(--color-overlay-muted-ink); line-height:var(--leading-relaxed); }
+
+  /* ---- why-it-matters blocks (on navy) ---- */
+  .why{ display:grid; grid-template-columns:repeat(2,1fr); gap:var(--dimension-space-5) var(--dimension-space-6); margin-top:var(--dimension-space-6); }
+  .why .lead{ grid-column:1/-1; border-left:3px solid var(--color-fill-action); padding-left:var(--dimension-space-4); }
+  .why h4{ font-size:var(--dimension-text-size-2xl); color:var(--color-fill-action); margin-bottom:8px; }
+  .why p{ color:var(--color-overlay-on-dark-body); font-size:var(--dimension-text-size-lg); line-height:var(--leading-relaxed); }
+
+  /* ---- delta table ---- */
+  .delta{ width:100%; border-collapse:collapse; margin-top:var(--dimension-space-5); font-size:var(--dimension-text-size-lg); }
+  .delta th, .delta td{ text-align:left; padding:14px 16px; border-bottom:1px solid var(--color-border-subtle); }
+  .delta thead th{ font-family:var(--typography-eyebrow-font-family); font-size:var(--dimension-text-size-sm); letter-spacing:var(--dimension-tracking-wide); text-transform:uppercase; color:var(--color-text-muted); }
+  .delta td:first-child{ color:var(--color-text-body); font-family:var(--typography-card-body-font-family); }
+  .delta .before{ color:var(--color-text-danger); }
+  .delta .after{ color:var(--color-text-accent); font-family:var(--typography-card-body-font-family); }
+
+  /* ---- embedded component frames ---- */
+  .embed{ width:100%; border:1px solid var(--color-border-subtle); border-radius:var(--dimension-radius-card); box-shadow:var(--shadow-card); background:var(--color-surface-ground-light); margin-top:var(--dimension-space-5); }
+  .on-navy .embed{ border-color:var(--color-overlay-on-dark-border); }
+
+  /* ---- deliverables cards ---- */
+  .deliv{ display:grid; grid-template-columns:repeat(2,1fr); gap:var(--dimension-space-5); margin-top:var(--dimension-space-6); }
+  .deliv .card{ background:var(--color-card-content-background); border-radius:var(--dimension-radius-card); padding:var(--dimension-space-6); box-shadow:var(--shadow-card); }
+  .deliv .card .tag{ font-family:var(--typography-eyebrow-font-family); font-size:var(--dimension-text-size-sm); letter-spacing:var(--dimension-tracking-wide); text-transform:uppercase; color:var(--color-text-accent-alt); }
+  .deliv .card h5{ margin:8px 0; }
+  .deliv .card p{ color:var(--color-overlay-muted-ink); font-size:var(--dimension-text-size-lg); }
+
+  /* ---- after / cta ---- */
+  .after-grid{ display:grid; grid-template-columns:1.1fr .9fr; gap:var(--dimension-space-6); align-items:start; }
+  .after-grid ul{ margin:var(--dimension-space-3) 0 0 0; padding-left:20px; color:var(--color-overlay-muted-ink); }
+  .after-grid li{ margin-bottom:12px; line-height:var(--leading-relaxed); }
+  .cta{ text-align:center; }
+  .cta h2{ margin:0 auto var(--dimension-space-3); }
+
+  /* ---- nav / footer ---- */
+  .nav{ background:var(--color-surface-ground); border-bottom:1px solid var(--color-overlay-nav-border); position:sticky; top:0; z-index:50; }
+  .nav .wrap{ display:flex; align-items:center; gap:22px; padding-top:14px; padding-bottom:14px; }
+  .nav .brand{ font-family:var(--typography-eyebrow-font-family); letter-spacing:var(--dimension-tracking-wide-2xs); color:var(--color-white); text-decoration:none; font-size:var(--dimension-text-size-md); margin-right:auto; }
+  .nav a{ color:var(--color-slate-300); text-decoration:none; font-size:var(--dimension-text-size-md); font-family:var(--typography-body-font-family); }
+  .nav a:hover{ color:var(--color-fill-action); }
+  footer{ background:var(--color-surface-ground-deep); color:var(--color-overlay-on-dark-meta); }
+  footer .wrap{ padding-top:var(--dimension-space-6); padding-bottom:var(--dimension-space-6); display:flex; flex-wrap:wrap; gap:16px; justify-content:space-between; align-items:center; font-size:var(--dimension-text-size-md); }
+  footer a{ color:var(--color-slate-300); text-decoration:none; }
+
+  .note{ font-size:var(--dimension-text-size-md); color:var(--color-text-muted); margin-top:var(--dimension-space-4); max-width:70ch; }
+  .on-navy .note{ color:var(--color-overlay-on-dark-meta); }
+
+  @media (max-width:820px){
+    .two-col,.grid,.why,.deliv,.after-grid{ grid-template-columns:1fr; }
+    .nav a{ display:none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV (matches the live site chrome) ============ -->
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="/">THIS WAAY</a>
+    <a href="#usage">How teams use it</a>
+    <a href="#governs">What it governs</a>
+    <a href="#proof">The proof</a>
+    <a href="#tiers">Tiers</a>
+    <a href="#cta">Book a call</a>
+  </div>
+</nav>
+
+<!-- ============ 1. HERO (navy, outcome-first) ============ -->
+<header class="on-navy">
+  <div class="wrap">
+    <div class="eyebrow">The AI-ready brand system</div>
+    <h1>Every asset stays on-brand — <span class="accent">without a designer in the loop.</span></h1>
+    <p class="lede">Your brand becomes a machine-readable system: one source of truth that every tool, teammate, and AI reads and can't drift from. Decks, documents, web pages, and anything an AI produces come out consistent by construction — not by a person policing them afterward.</p>
+    <!-- 2. one-line strip -->
+    <div class="strip">
+      <b>{{DURATION}}</b><span>·</span><b>{{PRICE}}</b><span>·</span><b>Spec · templates · validator · Skill</b><span>·</span><b>Scoping call to start</b>
+    </div>
+    <div style="margin-top:var(--dimension-space-6); display:flex; gap:14px; flex-wrap:wrap">
+      <a class="btn btn-primary" href="#cta">Book a scoping call</a>
+      <a class="btn btn-ghost" href="#usage">See how teams use it</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ 3. HOW TEAMS ACTUALLY USE THIS (the core differentiator) ============ -->
+<section id="usage">
+  <div class="wrap">
+    <div class="sec-head center">
+      <div class="eyebrow">How teams actually use this</div>
+      <h2>See it working before we explain what it is</h2>
+      <p class="lede">"A machine-readable brand system" means nothing until you see it in use. It does one of two jobs depending on your team — and it's the same system either way.</p>
+    </div>
+    <div class="two-col">
+      <div class="col-card">
+        <span class="tag">Teams with a designer</span>
+        <h3>It multiplies your designer</h3>
+        <p>The system becomes the source of truth your designer maintains and enforces — instead of policing drift by hand across every deck, doc, and page. One designer now covers an organization that generates faster than any person can review.</p>
+        <ul class="moments">
+          <li>The designer updates one token; every downstream artifact — decks, docs, web — inherits it automatically.</li>
+          <li>The validator catches an off-brand hex before it ships, with no manual review pass.</li>
+          <li>Their judgment is captured once, then applied everywhere, at machine speed.</li>
+        </ul>
+      </div>
+      <div class="col-card">
+        <span class="tag">Teams without a designer</span>
+        <h3>It <em>is</em> the designer</h3>
+        <p>The judgment a designer would apply — which green is accessible, which weight is a real bold, what a button may and may not do — is baked into the spec. A marketer, a founder, or an AI tool produces on-brand work with no designer in the loop.</p>
+        <ul class="moments">
+          <li>Open the deck template — it's already correct, nothing to style.</li>
+          <li>Prompt any AI tool with the spec — it stays on-brand instead of guessing.</li>
+          <li>Hand a freelancer the system instead of a PDF they'll skim once.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. WHAT THIS GOVERNS (grid) ============ -->
+<section id="governs" class="on-soft angle-top">
+  <div class="wrap">
+    <div class="sec-head center">
+      <div class="eyebrow">What this governs</div>
+      <h2>The drift the system controls</h2>
+      <p class="lede">Six places a brand quietly comes apart across tools and hands. Each becomes a rule the system enforces, not a habit someone has to remember.</p>
+    </div>
+    <div class="grid">
+      <div class="cell"><div class="ic">Aa</div><h5>Typeface consistency</h5><p>One resolved font stack everywhere. No more twelve faces creeping in across decks and docs because each tool defaulted to its own.</p></div>
+      <div class="cell"><div class="ic">◧</div><h5>Color-token adherence</h5><p>Every color resolves to an approved token. Off-brand hexes — the near-miss greys and greens — are caught before they ship, not after.</p></div>
+      <div class="cell"><div class="ic">✓</div><h5>Accessibility documentation</h5><p>Contrast decisions are dated, measured, and recorded — including the ones you deliberately accept — so nothing is an unstated liability.</p></div>
+      <div class="cell"><div class="ic">B</div><h5>Heading-weight fidelity</h5><p>The right weight is a real cut, not a synthesized fake bold. Headings render as designed on every surface a generator touches.</p></div>
+      <div class="cell"><div class="ic">▤</div><h5>Cross-surface alignment</h5><p>Web, deck, and document all read from one resolved source — so the three can't disagree the way hand-maintained files always eventually do.</p></div>
+      <div class="cell"><div class="ic">⌘</div><h5>Multi-brand governance</h5><p>Run more than one brand? Each stays its own system with shared structure — deliberate differences kept, accidental drift caught.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5. WHY IT MATTERS (affirmative arguments, on navy) ============ -->
+<section id="why" class="on-navy angle-top">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Why it matters</div>
+      <h2>The positive case, not just the pain</h2>
+    </div>
+    <div class="why">
+      <div class="lead">
+        <h4>Every AI tool stays on-brand</h4>
+        <p>Your team is already using Claude, ChatGPT, Gamma, Canva AI — each independently, each guessing at your brand. One machine-readable spec means every current and future AI tool produces the same brand instead of five interpretations. This is the problem we built the system to solve for ourselves first.</p>
+      </div>
+      <div><h4>Replaces a hire you haven't made</h4><p>A senior brand or design hire is $120K+ loaded. This delivers the enforcement layer of that role — the part that keeps everything consistent — at a fraction of it, once.</p></div>
+      <div><h4>Survives turnover</h4><p>Without a designer, brand knowledge lives in one person's head. A spec file is the thing that survives a resignation — the judgment stays even when the person leaves.</p></div>
+      <div><h4>Holds every vendor to one standard</h4><p>Freelancers and agencies each interpret a PDF guideline differently. A machine-readable system holds them to a contract instead of a suggestion.</p></div>
+      <div><h4>Investor-ready by default</h4><p>Materials read as more mature than your headcount. The deck this pipeline produces is doing real work in a raise — consistency signals operational rigor.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. DRIFT-DELTA PROOF ============ -->
+<section id="proof" class="angle-top">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">The proof</div>
+      <h2>We ran it on our own brand and found bugs we didn't know we had</h2>
+      <p class="lede">The pipeline, run on This Waay's own brand, caught <strong>two drift bugs that had been live and invisible</strong>: the style guide's H1 and H2 were fluid <code>clamp()</code> sizes silently contradicting the spec's fixed 46px / 40px. Nobody spotted them by eye. The validator did — which is the most credible proof there is that it catches what humans miss.</p>
+    </div>
+
+    <table class="delta">
+      <thead><tr><th></th><th>Before</th><th>After</th></tr></thead>
+      <tbody>
+        <tr><td>Typefaces</td><td class="before">12 (no Axiforma)</td><td class="after">1 — Axiforma, Poppins fallback</td></tr>
+        <tr><td>Off-token colors</td><td class="before">#8CA7B9 × 207 · #EEF8EC × 22</td><td class="after">0 — validator-enforced</td></tr>
+        <tr><td>Brand vs punch green</td><td class="before">inverted (punch 21 : brand 9)</td><td class="after">correct, structural</td></tr>
+        <tr><td>Latent drift bugs</td><td class="before">2 live, undetected</td><td class="after">0 — caught by the pipeline</td></tr>
+        <tr><td>Accessibility</td><td class="before">undocumented gap</td><td class="after">dated, measured, accepted deviation</td></tr>
+      </tbody>
+    </table>
+    <p class="note">Every figure above is measured output from this project's own audit and validator runs — no synthetic example.</p>
+
+    <!-- interactive drift-delta demo -->
+    <iframe class="embed" src="drift-delta.html" title="Interactive drift-delta demo" style="height:560px" loading="lazy"></iframe>
+  </div>
+</section>
+
+<!-- ============ 7. DELIVERABLES ============ -->
+<section class="on-soft angle-top">
+  <div class="wrap">
+    <div class="sec-head center">
+      <div class="eyebrow">What you receive</div>
+      <h2>The system, in four parts</h2>
+    </div>
+    <div class="deliv">
+      <div class="card"><span class="tag">Source of truth</span><h5>Machine-readable brand spec</h5><p>Your colors, type, spacing, and components as a resolved token system — the single source every tool and teammate reads. Human-readable and machine-consumable at once.</p></div>
+      <div class="card"><span class="tag">Generated, not hand-built</span><h5>Document &amp; deck pipeline</h5><p>A branded <code>.potx</code> deck template and <code>.docx</code> reference document, generated from the spec so they're correct the moment you open them — and stay correct when the spec changes.</p></div>
+      <div class="card"><span class="tag">Any team, any tool</span><h5>The Skill packaging</h5><p>The system packaged so any teammate or AI tool produces on-brand work — the judgment travels with the spec instead of living in one person's head.</p></div>
+      <div class="card"><span class="tag">Design handoff</span><h5>Figma variables export</h5><p>The same tokens your generators use, imported into Figma as variables — so a designer works from exactly what production ships, not a parallel copy.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 8. TIER EXPLORER ============ -->
+<section id="tiers" class="on-navy angle-top">
+  <div class="wrap">
+    <div class="sec-head center">
+      <div class="eyebrow">Pricing that matches the need</div>
+      <h2>Start with the source of truth. Add what you need.</h2>
+      <p class="lede">Each tier contains the one below it. Click a rung to see what's included and who it's for.</p>
+    </div>
+    <iframe class="embed" src="tier-explorer.html" title="Interactive tier explorer" style="height:720px" loading="lazy"></iframe>
+    <p class="note">Prices shown are indicative ranges, not final quotes — confirmed at scoping. An existing brand to reconcile is more work than a greenfield build; that's a scope factor on any rung, not a separate line.</p>
+  </div>
+</section>
+
+<!-- ============ 9. WHAT HAPPENS AFTER + CTA ============ -->
+<section class="angle-top">
+  <div class="wrap">
+    <div class="after-grid">
+      <div>
+        <div class="eyebrow">What happens after</div>
+        <h3>The system stands on its own</h3>
+        <p style="color:var(--color-overlay-muted-ink); margin-top:var(--dimension-space-3)">You leave with a working system your team runs without us. When you want more, we're here to help you extend it.</p>
+        <ul>
+          <li><strong>Extend the surfaces</strong> — new page recipes, additional document types, more generated artifacts as your needs grow.</li>
+          <li><strong>Ongoing governance</strong> — we stay involved at whatever level fits: keeping the spec current, onboarding new tools, or advising as your brand evolves.</li>
+        </ul>
+        <p style="color:var(--color-overlay-muted-ink); margin-top:var(--dimension-space-3)">There's no obligation to continue — but when there's clear work to do, you'll already have a partner who knows your system.</p>
+      </div>
+      <div>
+        <div class="col-card" style="border-color:var(--color-fill-action)">
+          <span class="tag" style="color:var(--color-text-accent)">Reconcile vs. greenfield</span>
+          <h3 style="font-size:var(--dimension-text-size-2xl)">Already have a brand?</h3>
+          <p>Most teams arrive with an overgrown system — twelve fonts, near-miss colors, rules living in a PDF. Untangling that into a clean, enforced spec is more work than starting fresh, and we scope it honestly. It's the exact work you saw us do to our own brand in the proof above.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cta" class="on-navy angle-top cta">
+  <div class="wrap">
+    <div class="eyebrow" style="text-align:center">Ready when you are</div>
+    <h2>Turn your brand into a system your tools can't break.</h2>
+    <p class="lede" style="margin:0 auto">A scoping conversation takes 30 minutes. You'll leave knowing whether this is the right starting point and roughly what it takes for your brand.</p>
+    <div style="margin-top:var(--dimension-space-6)">
+      <a class="btn btn-primary" href="/contact-us/">Book a scoping call</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>This Waay — Product design &amp; AI strategy, Sacramento CA</div>
+    <div><a href="/">thiswaay.com</a> · <a href="/contact-us/">Contact</a></div>
+  </div>
+</footer>
+
+<!-- PREVIEW HARNESS NOTE: brand values are consumed from ../build/tokens.css only.
+     No hex is hand-typed in this page — grep the source: every color is var(--color-*),
+     every gradient var(--gradient-*), every angle var(--angle-*). A page built against
+     the generated tokens cannot drift from the brand by construction. -->
+</body>
+</html>

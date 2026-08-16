@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tier explorer</title>
+<link rel="stylesheet" href="../build/tokens.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  @font-face { font-family:'Axiforma'; src:local('Axiforma'); }
+  @font-face { font-family:'Axiforma ExtraBold'; src:local('Axiforma ExtraBold'); }
+  @font-face { font-family:'Axiforma SemiBold'; src:local('Axiforma SemiBold'); }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  body{ font-family:var(--typography-body-font-family); color:var(--color-text-body);
+        background:var(--color-surface-ground-light); padding:24px; }
+  .eyebrow{ font-family:var(--typography-eyebrow-font-family); font-size:var(--typography-eyebrow-font-size);
+            letter-spacing:var(--dimension-tracking-widest); text-transform:uppercase; color:var(--color-text-accent); margin-bottom:8px; }
+
+  .rungs{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+  .rung{ text-align:left; cursor:pointer; border:2px solid var(--color-border-subtle); border-radius:var(--dimension-radius-card);
+         background:var(--color-surface-ground-light); padding:18px; transition:all .18s; position:relative; }
+  .rung:hover{ border-color:var(--color-fill-action); }
+  .rung.sel{ border-color:var(--color-fill-action); box-shadow:var(--shadow-card); }
+  .rung .badge{ position:absolute; top:-10px; right:14px; font-family:var(--typography-eyebrow-font-family);
+                font-size:var(--dimension-text-size-2xs); letter-spacing:var(--dimension-tracking-wide); text-transform:uppercase;
+                background:var(--color-fill-emphasis); color:var(--color-text-on-fill); padding:4px 9px; border-radius:var(--dimension-radius-pill); }
+  .rung .rname{ font-family:var(--typography-h5-font-family); font-size:var(--dimension-text-size-lg); color:var(--color-text-body); }
+  .rung .rprice{ font-family:var(--typography-h3-font-family); font-size:var(--dimension-text-size-2xl); color:var(--color-text-accent); margin:8px 0 2px; }
+  .rung .rrange{ font-size:var(--dimension-text-size-sm); color:var(--color-text-muted); }
+
+  .detail{ margin-top:18px; border:1px solid var(--color-border-subtle); border-radius:var(--dimension-radius-card); padding:22px; background:var(--gradient-soft); }
+  .detail .for{ font-size:var(--dimension-text-size-lg); color:var(--color-overlay-muted-ink); line-height:var(--leading-relaxed); max-width:66ch; }
+  .group{ margin-top:16px; }
+  .group .glabel{ font-family:var(--typography-eyebrow-font-family); font-size:var(--dimension-text-size-sm);
+                  letter-spacing:var(--dimension-tracking-wide); text-transform:uppercase; color:var(--color-text-muted); margin-bottom:8px; }
+  .group.added .glabel{ color:var(--color-text-accent); }
+  ul{ list-style:none; display:flex; flex-direction:column; gap:8px; }
+  li{ display:flex; gap:11px; align-items:flex-start; font-size:var(--dimension-text-size-lg); }
+  li .mark{ flex:none; width:20px; height:20px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+            font-size:12px; margin-top:1px; }
+  li.inherited{ color:var(--color-text-muted); }
+  li.inherited .mark{ background:var(--color-border-subtle); color:var(--color-white); }
+  li.added{ color:var(--color-text-body); }
+  li.added .mark{ background:var(--color-fill-action); color:var(--color-white); }
+
+  .addon{ margin-top:16px; border:2px dashed var(--color-border-subtle); border-radius:var(--dimension-radius-card); padding:18px 22px; background:var(--color-surface-ground-light); }
+  .addon .tag{ font-family:var(--typography-eyebrow-font-family); font-size:var(--dimension-text-size-sm); letter-spacing:var(--dimension-tracking-wide);
+               text-transform:uppercase; color:var(--color-text-accent-alt); }
+  .addon h5{ font-family:var(--typography-h5-font-family); font-size:var(--dimension-text-size-xl); color:var(--color-text-body); margin:6px 0; }
+  .addon p{ font-size:var(--dimension-text-size-md); color:var(--color-overlay-muted-ink); line-height:var(--leading-relaxed); max-width:72ch; }
+  .addon .price{ font-family:var(--typography-eyebrow-font-family); color:var(--color-text-accent); font-size:var(--dimension-text-size-md); }
+  .foot{ margin-top:14px; font-size:var(--dimension-text-size-sm); color:var(--color-text-muted); max-width:76ch; line-height:var(--leading-relaxed); }
+  @media (max-width:640px){ .rungs{ grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+const { useState } = React;
+
+// prices are PLACEHOLDERS until confirmed at scoping — never shown as final.
+const RUNGS = [
+  { id:'entry', name:'Entry — Foundations', price:'{{ENTRY}}', range:'indicative ~$10–12K',
+    own:['Machine-readable brand spec (tokens)', 'The validator / drift guard'],
+    for:'For teams that want the source of truth and its enforcement, and will produce their own artifacts from it.' },
+  { id:'standard', name:'Standard — + Documents', price:'{{STANDARD}}', range:'indicative ~$15–18K', flag:'The differentiator',
+    own:['.potx deck template', '.docx reference template', 'Figma variables export'],
+    for:'For teams that want on-brand decks and documents generated, not hand-built. This is the tier most teams need.' },
+  { id:'premium', name:'Premium — + System', price:'{{PREMIUM}}', range:'indicative ~$22–25K',
+    own:['The Skill packaging — any team or AI tool stays on-brand', 'Website page recipes'],
+    for:'For teams that want the full any-team, any-tool system — the complete enforcement layer across every surface.' },
+];
+
+function App() {
+  const [sel, setSel] = useState(1); // default to the differentiator tier
+
+  return (
+    <div>
+      <div className="rungs">
+        {RUNGS.map((r, i) => (
+          <div key={r.id} className={`rung ${i === sel ? 'sel' : ''}`} onClick={() => setSel(i)}
+               role="button" tabIndex="0" onKeyDown={e => (e.key === 'Enter' || e.key === ' ') && setSel(i)}>
+            {r.flag && <span className="badge">{r.flag}</span>}
+            <div className="rname">{r.name}</div>
+            <div className="rprice">{r.price}</div>
+            <div className="rrange">{r.range}</div>
+          </div>
+        ))}
+      </div>
+
+      <div className="detail">
+        <p className="for">{RUNGS[sel].for}</p>
+        {RUNGS.slice(0, sel + 1).map((r, i) => (
+          <div key={r.id} className={`group ${i === sel ? 'added' : 'included'}`}>
+            <div className="glabel">{i === sel ? (i === 0 ? 'Included' : `Added at ${r.name.split(' — ')[0]}`) : `From ${r.name.split(' — ')[0]}`}</div>
+            <ul>
+              {r.own.map((item, j) => (
+                <li key={j} className={i === sel ? 'added' : 'inherited'}>
+                  <span className="mark">✓</span>{item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+        {sel > 0 && <p className="foot">Everything in the lower rungs is already ticked — each tier <b>contains</b> the one below it, so you're only ever paying up for what's genuinely new.</p>}
+      </div>
+
+      <div className="addon">
+        <span className="tag">Separate add-on — not a rung</span>
+        <h5>Product component library <span className="price">· scoped separately</span></h5>
+        <p>Application-UI component tokens plus developer handoff. This is a heavier, separate engagement — priced closer to a full design engagement because it is one. It sits outside the marketing-surface ladder above; add it to any rung when your product UI needs the same governance your brand surfaces get.</p>
+      </div>
+
+      <p className="foot"><b>Reconcile vs. greenfield:</b> an existing brand to untangle is more work than building from scratch — it's a scope factor on any rung, not a separate price. Every figure here is a placeholder range, confirmed at a scoping call, never presented as a final quote.</p>
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>
