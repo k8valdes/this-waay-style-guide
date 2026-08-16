@@ -417,4 +417,11 @@ def build():
 
 
 if __name__ == "__main__":
+    # SUPERSEDED by build_deck_atomic.py (Phase 2R): the atomic builder produces the
+    # full named-layout set. This 6-generic-layout builder is kept for reference only;
+    # it will not overwrite the shipped .potx unless run with --force.
+    import sys as _sys
+    if "--force" not in _sys.argv:
+        print("build_deck.py is superseded by build_deck_atomic.py (Phase 2R). Re-run with --force to use the old 6-generic-layout builder.")
+        _sys.exit(0)
     build()

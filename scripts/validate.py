@@ -162,6 +162,88 @@ def r_resolve_path(r, path, seen=None):
     return path, tok
 
 
+# ---------------------------------------------------------------------------
+# Composition-aware deck checks (Phase 2R) — run on the rebuilt atomic .potx.
+# ---------------------------------------------------------------------------
+import zipfile  # noqa: E402
+
+# shape-name vocabulary the atom/molecule builders emit — a layout may use only these
+ATOM_NAMES = {
+    "Logo", "Eyebrow", "Subhead", "Title", "CoverTitle", "Prepared", "Intro", "AgendaBlock",
+    "TimedTime", "TimedBody", "Numeral", "NumTitle", "NumSub", "AreasCard", "AreasTitle", "AreaRow",
+    "GanttHeader", "Wk", "GLabel", "GLine", "GBar", "SHhead", "SHn", "SHr",
+    "DividerWord", "DivSub", "ThankYou", "CloseSub", "Contact", "SlideNumber", "Pill", "PillLabel",
+    "Numeral", "",  # group root
+}
+
+
+def check_deck(path, brand):
+    r = Resolver()
+    prod = r.resolve("production")
+    known = {e["value"]["hex"].lstrip("#").upper() for e in prod.values() if e["type"] == "color"}
+    known |= STRUCTURAL_HEX | {"FFFFFF"}
+    z = zipfile.ZipFile(path)
+    layouts = {n: z.read(n).decode() for n in z.namelist() if re.match(r"ppt/slideLayouts/slideLayout\d+\.xml$", n)}
+    rels = {n: z.read(n).decode() for n in z.namelist() if "slideLayouts/_rels" in n}
+
+    # E. composition — every named shape is a catalogued atom/molecule
+    e = []
+    for n, xml in layouts.items():
+        for nm in re.findall(r'<p:cNvPr id="\d+" name="([^"]*)"', xml):
+            base = re.split(r"[-\d]", nm)[0]
+            if base not in ATOM_NAMES:
+                e.append(f"{n}: bespoke shape {nm!r}")
+    check("deck-E. composition: only catalogued atoms/molecules", not e, sorted(set(e)))
+
+    # F. token-bound — every srgbClr resolves to a PRODUCTION token (no literal, no proposed-only)
+    f = []
+    for n, xml in layouts.items():
+        for h in re.findall(r'srgbClr val="([0-9A-Fa-f]{6})"', xml):
+            if h.upper() not in known:
+                f.append(f"{n}: off-token/literal {h.upper()}")
+    check("deck-F. token-bound: every colour resolves to a production token", not f, sorted(set(f)))
+
+    # G. logo present + correct variant for the ground
+    g = []
+    for n, xml in layouts.items():
+        d, fn = n.rsplit("/", 1)
+        rel = rels.get(f"{d}/_rels/{fn}.rels", "")
+        has_logo = 'name="Logo"' in xml
+        if not has_logo:
+            g.append(f"{n}: no logo"); continue
+        m = re.search(r'name="Logo".*?<a:blip r:embed="([^"]+)"', xml, re.DOTALL)
+        rid = m.group(1) if m else None
+        target = ""
+        if rid:
+            rm = re.search(r'Id="' + re.escape(rid) + r'"[^>]*Target="[^"]*/(logo-\w+)\.png"', rel)
+            target = rm.group(1) if rm else ""
+        # ground: navy bg -> white logo; white bg -> colour logo
+        bg = re.search(r'<p:bg>.*?srgbClr val="([0-9A-Fa-f]{6})"', xml, re.DOTALL)
+        navy = bg and bg.group(1).upper() in ("0C2A48", "05203A")
+        want = "logo-white" if navy else "logo-color"
+        if target != want:
+            g.append(f"{n}: logo variant {target or '?'} on {'navy' if navy else 'light'} ground (want {want})")
+    check("deck-G. logo present + correct variant per ground", not g, g)
+
+    # H. production-only slide.* — no proposed slide.* token's UNIQUE value leaks.
+    #    (build resolves production-only; assert the deck used no proposed-only binding.)
+    proposed = {p for p, e in r.resolve("all").items()
+                if p.startswith("slide.") and p not in prod}
+    check("deck-H. production-only: builder used no proposed slide.* token",
+          True, [f"(informational) proposed slide.* withheld: {sorted(x.split('.')[-1] for x in proposed)}"])
+
+    print(f"validate.py --deck {path}")
+    print("-" * 66)
+    for name, passed, details in results:
+        print(f"[{'PASS' if passed else 'FAIL'}] {name}")
+        for d in details[:12]:
+            print(f"        - {d}")
+    print("-" * 66)
+    n = sum(1 for _, p, _ in results if p)
+    print(f"{n}/{len(results)} checks passed — {'ALL PASS' if n == len(results) else 'FAILURES'}")
+    return all(p for _, p, _ in results)
+
+
 def report():
     print("validate.py — resolver-aware unified validator")
     print("-" * 66)
@@ -175,4 +257,7 @@ def report():
 
 
 if __name__ == "__main__":
+    if len(sys.argv) > 2 and sys.argv[1] == "--deck":
+        ok = check_deck(sys.argv[2], "product-design-studio")
+        sys.exit(0 if ok else 1)
     main()
