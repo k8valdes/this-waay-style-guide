@@ -35,7 +35,6 @@
     --color-coral-300: #F2A08D;
     --color-red-500: #D86A5A;
     --color-red-700: #A53727;
-    --color-gray-700: #595959;
     --color-white: #FFFFFF;
     --color-overlay-muted-ink: rgba(12,42,72,0.65);
     --color-overlay-on-dark-body: rgba(255,255,255,0.72);
@@ -227,7 +226,6 @@
     --tw-green-bright: var(--color-green-300);
     --tw-steel: var(--color-steel-600);
     --tw-slate: var(--color-slate-400);
-    --tw-gray: var(--color-gray-700);
     --tw-green-ink: var(--color-green-600);
     --tw-teal-ink: var(--color-teal-600);
     --tw-ink-muted: var(--color-slate-600);
@@ -376,16 +374,6 @@
   .hero { background: var(--tw-navy); color: #fff; padding: 90px 0 120px; overflow: hidden; position: relative; }
   .hero h1 .hl { color: var(--tw-green-bright); }
   .hero .lede { margin-top: 18px; }
-  .hero-meta { margin-top: 34px; display: flex; gap: 12px; flex-wrap: wrap; }
-  .chip {
-    font-family: var(--tw-font-display); font-size: var(--tw-text-md); font-weight: var(--tw-weight-semibold);
-    border: 1px solid rgba(255,255,255,0.25); color: #CFE3DA;
-    padding: 7px 16px; border-radius: var(--tw-radius-pill);
-  }
-  .plane-bg {
-    position: absolute; right: -6%; top: 8%; width: 56%; max-width: 640px;
-    opacity: 0.10; pointer-events: none;
-  }
   .flight-path { position: absolute; left: 0; bottom: 30px; width: 100%; opacity: 0.65; pointer-events: none; }
 
   /* ---------- Swatches ---------- */
@@ -948,8 +936,7 @@
   nav { background: var(--tw-navy); border-bottom: 1px solid rgba(255,255,255,0.08); position: sticky; top: 44px; z-index: 50; }
   nav .wrap { display: flex; flex-direction: column; align-items: flex-start; padding-top: 14px; padding-bottom: 14px; gap: 10px; }
   nav .nav-links { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
-  nav .brand { font-family: var(--tw-font-display); font-weight: var(--tw-weight-bold); color: #fff; letter-spacing: var(--tw-tracking-wide-2xs); }
-  nav .brand small { display: block; font-size: var(--tw-text-2xs); letter-spacing: var(--tw-tracking-widest-lg); color: var(--tw-green); font-weight: var(--tw-weight-semibold); }
+  nav .nav-logo { display: block; height: 26px; width: auto; } /* the real wordmark, left-aligned above the section links — replaces the former plain-text brand block */
   nav a { color: #B9CBDC; text-decoration: none; font-size: var(--tw-text-md); font-family: var(--tw-font-display); font-weight: var(--tw-weight-semibold); }
   nav a:hover { color: var(--tw-green); }
 
@@ -974,6 +961,62 @@
   .nav-subnav li + li { margin-top: 2px; }
   .nav-subnav a { display: block; padding: 8px 12px; border-radius: 6px; font-weight: var(--tw-weight-medium); }
   .nav-subnav a:hover { background: rgba(255,255,255,0.06); color: var(--tw-green); }
+
+  /* ================= ZONE 1 / ZONE 2 — presentation restructure (2026-08) =================
+     Additive only: reorganizes the page, does not touch Zone 3 substance. Every value below is
+     a --tw-* token (itself var(--color-*)/var(--dimension-*)) or plain layout px, matching this
+     file's existing convention — no hardcoded brand hex. */
+  .showcase-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 40px; align-items: center; } /* .hero's own padding (90px 0 120px) already applies — no override needed now that the hero is just these two elements */
+  .showcase-copy .lede { margin-top: 18px; color: var(--color-slate-300); } /* the global .lede is dark-on-light (#3D5670) — this hero is on navy, so use the same light tone as .on-dark .lede elsewhere in this file */
+  .showcase-art { position: relative; }
+  .showcase-plane {
+    display: block; width: 100%; max-width: 560px; height: auto; margin-left: auto;
+    transform: rotate(-2deg); /* the documented wing-line angle — see Spacing & layout, Page rhythm */
+    filter: drop-shadow(var(--tw-shadow-card)); /* reuses the existing card-shadow token as-is — its offset/blur/color syntax is valid for drop-shadow() directly */
+  }
+  @media (max-width: 900px) {
+    .showcase-grid { grid-template-columns: 1fr; }
+    .showcase-art { order: -1; }
+    .showcase-plane { max-width: 320px; margin: 0 auto; transform: rotate(-2deg); }
+  }
+
+  /* Zone 2 — use it + key assets */
+  .zone2 { padding: var(--tw-section-pad) 0; position: relative; }
+  .zone2-alt { background: var(--tw-grad-soft); }
+  .leverage-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; position: relative; z-index: 1; }
+  .leverage-card { background: var(--tw-white); border-radius: var(--tw-radius-card); box-shadow: var(--tw-shadow-card); padding: 26px 24px; }
+  .leverage-card h4 { font-family: var(--tw-font-display); font-size: var(--tw-text-xl); font-weight: var(--tw-weight-semibold); color: var(--tw-navy); margin: 0 0 8px; }
+  .leverage-card p { font-size: var(--tw-text-md); color: var(--tw-ink-muted); margin: 0; }
+  .leverage-more { margin-top: 26px; }
+  .leverage-more a { color: var(--tw-green-ink); font-weight: var(--tw-weight-semibold); }
+  .leverage-flourish { position: absolute; top: -6px; right: 0; width: 300px; height: auto; opacity: 0.9; pointer-events: none; z-index: 0; }
+  @media (max-width: 900px) { .leverage-grid { grid-template-columns: 1fr; } .leverage-flourish { display: none; } }
+
+  .asset-rail { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; padding: 0; margin: 0; }
+  .asset-rail a {
+    display: flex; flex-direction: column; gap: 4px; background: var(--tw-white); border-radius: var(--tw-radius-card);
+    box-shadow: var(--tw-shadow-card); padding: 16px 18px; font-family: var(--tw-font-display);
+    font-weight: var(--tw-weight-semibold); color: var(--tw-navy); text-decoration: none; font-size: var(--tw-text-md);
+    border: 1.5px solid transparent;
+  }
+  .asset-rail a:hover, .asset-rail a:focus-visible { border-color: var(--tw-green); }
+  .asset-rail a small { font-family: var(--tw-font-body); font-weight: var(--tw-weight-regular); color: var(--tw-ink-muted); font-size: var(--tw-text-xs); }
+  .asset-note { margin-top: 22px; font-size: var(--tw-text-sm); color: var(--tw-ink-muted); max-width: 74ch; }
+  @media (max-width: 900px) { .asset-rail { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .asset-rail { grid-template-columns: 1fr; } }
+
+  /* Zone 3 — progressive disclosure for the deepest variant matrices (content unchanged, collapsed by default) */
+  .vmatrix-details { margin-bottom: 0; }
+  .vmatrix-details > summary {
+    cursor: pointer; list-style: none; font-family: var(--tw-font-display); font-weight: var(--tw-weight-semibold);
+    font-size: var(--tw-text-lg); color: var(--tw-navy); padding: 14px 18px; background: var(--tw-white);
+    border: 1px solid var(--color-border-subtle); border-radius: var(--tw-radius-card); margin-bottom: 34px;
+  }
+  .vmatrix-details > summary::-webkit-details-marker { display: none; }
+  .vmatrix-details > summary::before { content: '▸ '; color: var(--tw-green-ink); }
+  .vmatrix-details[open] > summary::before { content: '▾ '; }
+  .vmatrix-details[open] > summary { border-radius: var(--tw-radius-card) var(--tw-radius-card) 0 0; border-bottom: none; margin-bottom: 0; }
+  .vmatrix-details[open] > summary + .vmatrix { border-top-left-radius: 0; border-top-right-radius: 0; }
 </style>
 </head>
 <body>
@@ -991,7 +1034,7 @@
 
 <nav aria-label="Style guide sections">
   <div class="wrap">
-    <div class="brand">THIS WAAY<small>PRODUCT DESIGN STUDIO</small></div>
+    <img class="nav-logo" src="assets/This-Waay-Logo-White-Horizontal.svg" alt="This Waay — Product Design Studio" width="170" height="28">
     <div class="nav-links">
       <div class="nav-group">
         <button type="button" class="nav-group-btn" aria-expanded="false" aria-controls="nav-sub-architecture">Architecture<span class="chev" aria-hidden="true">⌄</span></button>
@@ -1058,26 +1101,74 @@
 </nav>
 
 <!-- ================= HERO ================= -->
-<header class="hero">
-  <svg class="plane-bg" viewBox="0 0 600 360" fill="none" aria-hidden="true">
-    <path d="M20 200 L560 40 L300 230 Z" fill="#ffffff"/>
-    <path d="M300 230 L560 40 L330 320 Z" fill="#ffffff" opacity="0.6"/>
-  </svg>
-  <div class="wrap">
-    <div class="eyebrow" style="color:var(--tw-green)">Living Style Guide · v4.0 · August 2026 · Public-safe edition</div>
-    <h1 style="margin-top:14px">Guiding complex products<br>with a <span class="hl">consistent visual language</span></h1>
-    <p class="lede">The single source of truth for This Waay's brand — colors, type, components, illustration prompts, and voice. Built to be read by humans and used as context by AI tools.</p>
-    <div class="hero-meta">
-      <span class="chip">Drives: site · decks · social · case studies</span>
-      <span class="chip">Canonical illustration: paper-cut night landscapes</span>
+<!-- ================= ZONE 1 · SHOWCASE HERO (2026-08 presentation restructure, simplified) =================
+     Two elements, side by side: the original H1 + lede (unchanged copy, not rewritten) and the real
+     extracted plane asset (assets/motif/paper-plane-1.png — never redrawn). The wordmark now lives in
+     the persistent nav masthead instead of the hero (see below). -->
+<header class="hero showcase">
+  <div class="wrap showcase-grid">
+    <div class="showcase-copy">
+      <h1>Guiding complex products<br>with a <span class="hl">consistent visual language</span></h1>
+      <p class="lede">The single source of truth for This Waay's brand — colors, type, components, illustration prompts, and voice. Built to be read by humans and used as context by AI tools.</p>
+    </div>
+    <div class="showcase-art">
+      <img class="showcase-plane" src="assets/motif/paper-plane-1.png" alt="" aria-hidden="true" width="1400" height="740">
     </div>
   </div>
-  <svg class="flight-path" viewBox="0 0 1200 90" fill="none" aria-hidden="true" preserveAspectRatio="none">
-    <path d="M0 60 C 150 24, 280 70, 380 48 C 430 38, 446 10, 420 12 C 396 14, 414 48, 470 44 C 600 35, 720 14, 860 40 C 960 58, 1080 52, 1200 24" stroke="#FFFFFF" stroke-width="3" stroke-dasharray="0.1 9" stroke-linecap="round"/>
-  </svg>
 </header>
+<!-- ================= /ZONE 1 ================= -->
 
 <main id="main">
+
+<!-- ================= ZONE 2 · USE IT (2026-08 presentation restructure) =================
+     Promotes section 15's essence as a short, human-facing invitation — the full instruction
+     list stays intact, unedited, at #ai below; this is a companion, not a replacement. Surfaces
+     the assets people actually come for, above the reference layer instead of buried in it. -->
+<section id="leverage" class="zone2">
+  <div class="wrap">
+    <img class="leverage-flourish" src="assets/motif/paper-plane-7.png" alt="" aria-hidden="true" width="1157" height="953">
+    <div class="sec-head">
+      <div class="eyebrow">Start here</div>
+      <h2>Three ways to leverage this</h2>
+    </div>
+    <div class="leverage-grid">
+      <div class="leverage-card">
+        <h4>AI tools</h4>
+        <p>Point them at <code>tokens.json</code> and <code>build/tokens.css</code> — every tool reads one contract and stays on-brand.</p>
+      </div>
+      <div class="leverage-card">
+        <h4>Anyone making assets</h4>
+        <p>Grab a template — deck or doc — and fill it in. It's already on-brand. No designer needed.</p>
+      </div>
+      <div class="leverage-card">
+        <h4>Designers</h4>
+        <p>Pull the logo pack, Figma variables, and tokens. Build against the real system.</p>
+      </div>
+    </div>
+    <p class="leverage-more"><a href="#ai">Read the full AI-usage instructions ↓</a></p>
+  </div>
+</section>
+
+<section id="key-assets" class="zone2 zone2-alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Grab what you need</div>
+      <h2>Key assets</h2>
+    </div>
+    <ul class="asset-rail">
+      <li><a href="#type">Fonts — Axiforma<small>Licensing guidance (PDF/deck use) — not a download</small></a></li>
+      <li><a href="../assets/templates/this-waay-deck.potx">Deck template<small>this-waay-deck.potx</small></a></li>
+      <li><a href="../assets/templates/this-waay-reference.docx">Doc template<small>this-waay-reference.docx</small></a></li>
+      <li><a href="tokens.json">Tokens<small>tokens.json · DTCG 2025.10</small></a></li>
+      <li><a href="build/tokens.css">Tokens (CSS)<small>build/tokens.css</small></a></li>
+      <li><a href="assets/ASSETS.md">Logo pack<small>6 SVG variants — manifest</small></a></li>
+      <li><a href="build/figma-variables.json">Figma variables<small>build/figma-variables.json</small></a></li>
+      <li><a href="build/tokens.flat.dtcg.json">Flat DTCG export<small>build/tokens.flat.dtcg.json</small></a></li>
+    </ul>
+    <p class="asset-note">Axiforma ships <code>fsType 4</code> — Preview &amp; Print embedding only. The OTFs are not in this public repo and are not linked here; see <a href="#type">Typography</a> for the full licensing note and the approved web fallback (Poppins).</p>
+  </div>
+</section>
+<!-- ================= /ZONE 2 ================= -->
 
 <!-- ================= TOKEN ARCHITECTURE ================= -->
 <!-- Token architecture: three-tier DTCG 2025.10 (tokens.json v4.0). This page's :root is GENERATED from the resolver (scripts/emit_css.py) — no hand-mirror. -->
@@ -2003,6 +2094,7 @@
     <p style="color:var(--tw-ink-muted); font-size:var(--tw-text-lg); max-width:74ch; margin-bottom:8px">The catalog above shows <em>what</em> each component is. This shows <strong style="color:var(--tw-navy)">every variation it can take</strong>, organized by <strong style="color:var(--tw-navy)">axis</strong>.</p>
     <p style="color:var(--tw-ink-muted); font-size:var(--tw-text-md); max-width:74ch; margin-bottom:26px">Axes matter because they translate: an axis here becomes a <strong style="color:var(--tw-navy)">Figma component property</strong>, and a CSS modifier class in code. Declared in <code>tokens.json → components.*.variantAxes</code>; rendered live here.</p>
 
+    <details class="vmatrix-details"><summary>Button <span class="visually-hidden">— variant matrix, collapsed by default</span></summary>
     <div class="vmatrix">
       <div class="vm-head">
         <h4>Button</h4>
@@ -2063,6 +2155,7 @@
         <br><br><strong>Production geometry:</strong> radius <code>25px</code> · <code>AxiformaBold 16px/24px</code> · padding <code>13px 30px 11px</code> · hover <em>inverts</em> fill and text rather than darkening. Only the large size ships today; medium and small are proposed additions.
       </div>
     </div>
+    </details>
 
     <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
       <linearGradient id="vm-silver" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eef3f7"/><stop offset=".4" stop-color="#b9c4cf"/><stop offset=".75" stop-color="#798593"/><stop offset="1" stop-color="#4a5563"/></linearGradient>
@@ -2110,6 +2203,7 @@
     </defs></svg>
 
     <!-- ===== CARD GROUNDS ===== -->
+    <details class="vmatrix-details"><summary>Card — ground <span class="visually-hidden">— variant matrix, collapsed by default</span></summary>
     <div class="vmatrix">
       <div class="vm-head">
         <h4>Card — ground</h4>
@@ -2133,8 +2227,10 @@
       </div>
       <div class="vm-note"><strong>Invariant:</strong> radius <code>8px</code> on every ground (track card is the sole <code>14px</code> exception). Ground is an <em>axis</em> — any card type can take any ground its section supports.</div>
     </div>
+    </details>
 
     <!-- ===== FLOAT-PANEL CARD ===== -->
+    <details class="vmatrix-details"><summary>Float-panel card ★ signature <span class="visually-hidden">— variant matrix, collapsed by default</span></summary>
     <div class="vmatrix">
       <div class="vm-head">
         <h4>Float-panel card <span style="font-size:var(--tw-text-xs); color:var(--tw-green-ink); font-weight:var(--tw-weight-regular)">★ signature</span></h4>
@@ -2165,8 +2261,10 @@
       </div>
       <div class="vm-note"><strong>Anatomy:</strong> a transparent box whose <code>::before</code> is a <code>skewY(-10°)</code> panel starting <em>partway down</em>, with the figure floating above and <strong>overlapping the panel's top edge</strong>. That overlap is the brand's most recognizable card gesture — lose it and the card stops reading as This Waay.</div>
     </div>
+    </details>
 
     <!-- ===== BADGES ===== -->
+    <details class="vmatrix-details"><summary>Badge <span class="visually-hidden">— variant matrix, collapsed by default</span></summary>
     <div class="vmatrix">
       <div class="vm-head">
         <h4>Badge</h4>
@@ -2221,8 +2319,10 @@
       </div>
       <div class="vm-note"><strong>Placement is a real axis, not styling.</strong> "Floating above" is the signature — the figure overlaps the panel/card top edge rather than sitting inside it.</div>
     </div>
+    </details>
 
     <!-- ===== SHIELD ROSTER — STYLE EXPLORATION (pending decision) ===== -->
+    <details class="vmatrix-details"><summary>Shield roster — style exploration proposal — pending decision <span class="visually-hidden">— variant matrix, collapsed by default</span></summary>
     <div class="vmatrix">
       <div class="vm-head">
         <h4>Shield roster — style exploration <span style="font-size:var(--tw-text-xs); color:var(--tw-green-ink); font-weight:var(--tw-weight-regular)">proposal — pending decision</span></h4>
@@ -2256,8 +2356,10 @@
       </div>
       <div class="vm-note"><strong>Decision needed:</strong> V1 keeps the shipped silver/navy bezel — already reused in the AI Practice overlap cards — at a scale that reads better standalone. V2 vectorizes the actual production shield artwork (<code>image26–28.webp</code>: solid dark-navy rim, offset drop-shadow shape rather than a CSS blur, teal-navy face) and extends that treatment to the 5 category pairings that only exist as concept icons today. Choosing V2 would close the "ships as raster, vectorizing is an open task" gap noted above; choosing V1 keeps one fewer shield style in play. Kate to pick a direction before either replaces the roster above.</div>
     </div>
+    </details>
 
     <!-- ===== SEGMENT CARD — "Who We Serve" ===== -->
+    <details class="vmatrix-details"><summary>Segment card "Who We Serve" — the three homepage audience segments <span class="visually-hidden">— variant matrix, collapsed by default</span></summary>
     <div class="vmatrix">
       <div class="vm-head">
         <h4>Segment card <span style="font-size:var(--tw-text-xs); color:var(--tw-ink-muted); font-weight:var(--tw-weight-regular)">"Who We Serve" — the three homepage audience segments</span></h4>
@@ -2291,8 +2393,10 @@
       </div>
       <div class="vm-note"><strong>Updated 2026-08.</strong> Replaces the circle-badge / centered layout previously documented here. New anatomy: a light card (not the soft aqua-to-sand gradient), left-aligned copy, and a small <strong>skewed green icon tag overlapping the card's top-left corner</strong> — the float-panel skew motif at badge scale instead of card scale. <strong>Sync note:</strong> as of this writing, thiswaay.com's <code>.we-serve-section .box</code> CSS still ships the previous centered/circle-badge version — this preview documents the target direction, flagging it here so the two get reconciled rather than silently diverging.</div>
     </div>
+    </details>
 
     <!-- ===== LISTS ===== -->
+    <details class="vmatrix-details"><summary>List <span class="visually-hidden">— variant matrix, collapsed by default</span></summary>
     <div class="vmatrix">
       <div class="vm-head">
         <h4>List</h4>
@@ -2313,8 +2417,10 @@
       </div>
       <div class="vm-note"><strong>Pick the marker for what it means:</strong> numbered steps imply sequence, circle-checks imply completeness, plane bullets are brand-flavored neutral. Don't number a non-sequence.</div>
     </div>
+    </details>
 
     <!-- ===== HERO ===== -->
+    <details class="vmatrix-details"><summary>Hero <span class="visually-hidden">— variant matrix, collapsed by default</span></summary>
     <div class="vmatrix">
       <div class="vm-head">
         <h4>Hero</h4>
@@ -2334,8 +2440,10 @@
       </div>
       <div class="vm-note"><strong>Invariant:</strong> every hero uses the <code>skew(0deg, -2°)</code> section break. Ground, H1 color, and CTA count are the axes that vary.</div>
     </div>
+    </details>
 
     <!-- ===== CARD TYPES ===== -->
+    <details class="vmatrix-details"><summary>Card — type <span class="visually-hidden">— variant matrix, collapsed by default</span></summary>
     <div class="vmatrix">
       <div class="vm-head">
         <h4>Card — type</h4>
@@ -2365,6 +2473,7 @@
       </div>
       <div class="vm-note"><strong>Consolidation target ⬦:</strong> these 13 should resolve to <em>(base card × ground × badge placement)</em> rather than 13 unrelated patterns. Tabled rather than rendered — 13 types × 6 grounds is 78 combinations, most of which have never shipped. Render the ones you actually need.</div>
     </div>
+    </details>
   </div>
 </section>
 
@@ -2561,7 +2670,6 @@
     <h3 id="deck-foundations" style="margin-bottom:8px; scroll-margin-top:150px">Deck color &amp; type</h3>
     <p style="color:var(--tw-ink-muted); font-size:var(--tw-text-lg); max-width:70ch; margin-bottom:20px">Decks draw from the brand palette but lean on different roles than the site — teal leads as the accent, and green is reserved. <strong style="color:var(--tw-navy)">Slide headers and body are navy</strong>, the same navy as the site. (Deck Gray <code>#595959</code>, the former deck header color, was <strong style="color:var(--tw-navy)">retired 2026-08</strong>.)</p>
     <div class="swatch-grid" style="margin-bottom:14px">
-      <button type="button" class="swatch" data-hex="#595959" aria-label="Deck Gray, hex 5 9 5 9 5 9, retired. Press to copy hex code."><div class="chipcolor" style="background:#595959" aria-hidden="true"><span class="copied-tag">Copied</span></div><div class="info" aria-hidden="true"><div class="name">Deck Gray <span style="opacity:.7">(retired)</span></div><div class="hex">#595959</div><div class="use"><strong>Retired 2026-08.</strong> Former deck header/body color — slide headers and body are navy now.</div></div></button>
       <button type="button" class="swatch" data-hex="#0C2A48" aria-label="Navy, hex 0 C 2 A 4 8. Press to copy hex code."><div class="chipcolor" style="background:#0C2A48" aria-hidden="true"><span class="copied-tag">Copied</span></div><div class="info" aria-hidden="true"><div class="name">Navy</div><div class="hex">#0C2A48</div><div class="use">Title, divider, and closing slide grounds.</div></div></button>
       <button type="button" class="swatch" data-hex="#077373" aria-label="Teal Ink, hex 0 7 7 3 7 3. Press to copy hex code."><div class="chipcolor" style="background:#077373" aria-hidden="true"><span class="copied-tag">Copied</span></div><div class="info" aria-hidden="true"><div class="name">Teal — Ink</div><div class="hex">#077373</div><div class="use">Subheads and attribution. The deck heritage accent.</div></div></button>
       <button type="button" class="swatch" data-hex="#54B987" aria-label="Waay Green, hex 5 4 B 9 8 7. Press to copy hex code."><div class="chipcolor" style="background:#54B987" aria-hidden="true"><span class="copied-tag">Copied</span></div><div class="info" aria-hidden="true"><div class="name">Waay Green</div><div class="hex">#54B987</div><div class="use">Category labels, chart series, the presenter line.</div></div></button>
@@ -2607,7 +2715,7 @@
           </ul>
           <div class="deck-num">3 / 12</div>
         </div>
-        <figcaption><strong style="color:var(--tw-navy)">Content / bullet</strong> — white ground, gray header, short declarative bullets, generous whitespace</figcaption>
+        <figcaption><strong style="color:var(--tw-navy)">Content / bullet</strong> — white ground, navy header, short declarative bullets, generous whitespace</figcaption>
       </figure>
 
       <figure>
@@ -2739,7 +2847,7 @@
         <li>Headlines in sentence case; at most one green/teal highlight per headline; eyebrows are the only uppercase element.</li>
         <li>Typography is <strong>Axiforma</strong> in all assets; substitute <strong>Poppins</strong> only when Axiforma is unavailable. Never introduce a second family.</li>
         <li>Apply the voice rules in section 06 to all copy. When in doubt: shorter, calmer, more structural.</li>
-        <li>Slides follow the deck system: navy headers, teal subheads, green category labels (reserved), white or navy grounds — set in Axiforma going forward (legacy deck face is deprecated; Deck Gray #595959 retired 2026-08).</li>
+        <li>Slides follow the deck system: navy headers, teal subheads, green category labels (reserved), white or navy grounds — set in Axiforma going forward (legacy deck face is deprecated).</li>
         <li>Paper plane motif: use the exact SVG paths embedded in section 05; wing gradient is #62D38C → #30737B (nose → tail), body navy on light / white on navy. Flight trails are round white or navy dots with at least one loop — never straight, never dashed.</li>
         <li>Charts use the fixed series order (green, steel, teal, navy — navy doubles as axes/text); slate is gridlines/labels only, never a series color; single-series is always Waay green; no chart-junk, 3D, or non-brand colors.</li>
         <li>Screenshots are always framed — light gradient ground or navy hero with topographic lines — with 8px corners and a soft navy shadow; annotate only in Waay green.</li>
@@ -2756,7 +2864,7 @@
 <footer>
   <div class="wrap">
     <div>© 2026 This Waay · Product design &amp; AI strategy consultancy · Sacramento, California</div>
-    <div>Style guide v3.1 — living document; update on brand decisions (v3.1 — 2026-08 spec reconciliation: the primary button's white-on-green contrast reclassified from open gap to a dated, measured accepted deviation with a remediation lever; retired section-padding clamp and the duplicate text-measure block removed from the docs; weightEquivalents promoted to production with a named familyName field per cut (the numeric-weight-only path silently drops to the wrong Axiforma cut); Axiforma licensing resolved — PDF/deck only, web stack unchanged. v3.0: reconciled to the production marketing site as source of truth — corrected card radius, container width, pill radius, body size, and the soft gradient, which now carries its warm third stop)</div>
+    <div>Style guide v3.2 — living document; update on brand decisions (v3.2 — 2026-08 presentation restructure: reorganized showcase-first — a new Zone 1 hero (real motif assets, no redraws) and Zone 2 "use it" + key-assets rail promoted above the existing 15-section reference, which is preserved verbatim below and progressively disclosed (the Variants matrices collapse by default). No token or content changes. v3.1 — 2026-08 spec reconciliation: the primary button's white-on-green contrast reclassified from open gap to a dated, measured accepted deviation with a remediation lever; retired section-padding clamp and the duplicate text-measure block removed from the docs; weightEquivalents promoted to production with a named familyName field per cut (the numeric-weight-only path silently drops to the wrong Axiforma cut); Axiforma licensing resolved — PDF/deck only, web stack unchanged. v3.0: reconciled to the production marketing site as source of truth — corrected card radius, container width, pill radius, body size, and the soft gradient, which now carries its warm third stop)</div>
   </div>
 </footer>
 
