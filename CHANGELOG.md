@@ -2,6 +2,35 @@
 
 This tracks version milestones for the unified `Branding/` home itself — not each brand's own internal changelog. See `product-design-studio/index.html` (footer living-document note) and `gridmark-partners/gridmark-design-system-v3.html` (Governance & versioning) for brand-level changelogs.
 
+## Unified v1.6.1 — 2026-08-17 — Spec correction: per-surface accent recorded; deck headers navy; Deck Gray reviewed (branch: spec-correction-accent-header, off atomic-deck)
+
+Two governed spec-text/status corrections surfaced by the Phase 2R atomic audit. Both make an
+existing, real difference **explicit and intentional** — production reality wins, the spec is
+corrected, and the old value is marked superseded with a dated note, not silently deleted. Applied on
+a short branch off `atomic-deck`; `verify-schema` **11/11**, `verify-phase3b` **6/6**, `validate.py` **4/4**.
+
+- **Per-surface accent recorded (decided 2026-08 by Kate).** Teal is the primary accent on the
+  deck/document surface; green (`fill.action`) is the primary accent on the web surface; in decks green
+  is reserved for divider-words, gantt bars, Category pills, and the closing word. Note added to
+  `color.fill.accent` (teal) with a cross-pointer on `color.fill.action` (green): the split is
+  deliberate — do **not** reconcile the two surfaces to a single brand-wide accent. Confirmed the
+  Phase 2R `slide.*` bindings match (teal atoms → `fill.accent`/`text.accent-alt`; reserved-green →
+  `fill.action`); no token implied a single brand-wide accent, so nothing needed superseding there.
+- **Deck headers corrected to navy; Deck Gray retired.** The real 2026 template renders headers and
+  body in navy (`text.body`), not the legacy "Deck Gray" `#595959`. There is **no `slideDeck` token
+  block** — the equivalent `slide.*` block already binds navy headers and its `$description` already
+  noted the supersession. `color.gray.700` (#595959) is referenced by **zero** production tokens, so
+  per the anti-`#8CA7B9` rule it is marked **`status: deprecated`** with a dated `correction2026_08`
+  note + `supersededBy`; the resolver now withholds it from every emitted artifact (production tokens
+  181 → 180; `--color-gray-700`/#595959 gone from `tokens.css`, `figma-variables.json`,
+  `tokens.flat.dtcg.json`). Registered in `validate.py` `LEDGER` (now 16 items) so it can't re-leak.
+  The value is retained in `tokens.json` only as a dated record; its sole remaining code reference is
+  the pre-atomic `scripts/build_deck.py`, itself superseded and guarded.
+- **Prose synced.** `STYLE.md` and the public `index.html` guide (deck swatch, spec tables, the deck
+  mock's rendered title, the go-forward checklist) updated wherever Deck Gray was named as the header
+  color → navy / "retired 2026-08". `references/slide-components.md` already said navy — unchanged.
+- **`meta.updated` → 2026-08-17**; the three build artifacts regenerated.
+
 ## Unified v1.6 — 2026-08-16 — Phase 2R atomic deck system (branch: atomic-deck)
 
 Rebuilt the deck template atomically. The Phase 2/3b `.potx` was theme-correct but had six generic

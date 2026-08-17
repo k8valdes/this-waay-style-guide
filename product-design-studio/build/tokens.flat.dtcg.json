@@ -198,21 +198,6 @@
         "$description": "ACCESSIBLE TEXT variant — \"don't\" tags, form error text on light grounds. ~6.6:1 on white, passes AA."
       }
     },
-    "gray": {
-      "700": {
-        "$type": "color",
-        "$value": {
-          "colorSpace": "srgb",
-          "components": [
-            0.349,
-            0.349,
-            0.349
-          ],
-          "hex": "#595959"
-        },
-        "$description": "DECK SYSTEM ONLY — slide headers/body on white. Deliberately absent from the marketing-site palette; never on the website."
-      }
-    },
     "white": {
       "$type": "color",
       "$value": {
@@ -445,7 +430,7 @@
           ],
           "hex": "#54B987"
         },
-        "$description": "THE action fill — buttons, labels, icons, on any ground."
+        "$description": "THE action fill — buttons, labels, icons, on any ground. PRIMARY accent on the WEB surface."
       },
       "accent": {
         "$type": "color",
@@ -458,7 +443,7 @@
           ],
           "hex": "#0BABAB"
         },
-        "$description": "Heritage accent fill."
+        "$description": "Heritage accent fill. PRIMARY accent on the DECK/DOCUMENT surface (eyebrows, subheads, timed-row minutes, numerals, Opportunity/Sub-Category pills)."
       },
       "emphasis": {
         "$type": "color",
@@ -1807,6 +1792,447 @@
           "hex": "#0C2A48"
         }
       }
+    }
+  },
+  "slide": {
+    "eyebrow": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.027,
+          0.451,
+          0.451
+        ],
+        "hex": "#077373"
+      },
+      "$description": "Uppercase section eyebrow (AGENDA/HEADER/COMPONENTS). Teal ink, accessible on light."
+    },
+    "subhead": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.027,
+          0.451,
+          0.451
+        ],
+        "hex": "#077373"
+      },
+      "$description": "The teal line above a slide H1 ('Stage 3 check-in…', 'How we get there')."
+    },
+    "headerTitle": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.047,
+          0.165,
+          0.282
+        ],
+        "hex": "#0C2A48"
+      },
+      "$description": "Slide H1 on a light ground (navy). On navy grounds use text.on-ground."
+    },
+    "headerTitleOnDark": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "hex": "#FFFFFF"
+      },
+      "$description": "Slide H1 on a navy ground (white)."
+    },
+    "footer": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.361,
+          0.443,
+          0.522
+        ],
+        "hex": "#5C7185"
+      },
+      "$description": "Running footer (section name · slide number). Small muted slate."
+    },
+    "body": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.047,
+          0.165,
+          0.282
+        ],
+        "hex": "#0C2A48"
+      },
+      "$description": "Body paragraph / list text on light grounds."
+    },
+    "timedRowTime": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.027,
+          0.451,
+          0.451
+        ],
+        "hex": "#077373"
+      },
+      "$description": "The minutes value in a timed-row ('5 min'). Teal ink."
+    },
+    "timedRowBody": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.047,
+          0.165,
+          0.282
+        ],
+        "hex": "#0C2A48"
+      },
+      "$description": "The description text in a timed-row."
+    },
+    "agendaCardGround": {
+      "$type": "gradient",
+      "$value": [
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [
+              0.91,
+              0.996,
+              0.984
+            ],
+            "hex": "#E8FEFB"
+          },
+          "position": 0
+        },
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [
+              0.949,
+              0.984,
+              0.984
+            ],
+            "hex": "#F2FBFB"
+          },
+          "position": 0.55
+        },
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [
+              0.992,
+              0.961,
+              0.91
+            ],
+            "hex": "#FDF5E8"
+          },
+          "position": 1
+        }
+      ],
+      "$extensions": {
+        "x.brandkit": {
+          "angle": 135
+        }
+      },
+      "$description": "The agenda-block card ground — the soft cool-to-warm gradient."
+    },
+    "numeralFill": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.043,
+          0.671,
+          0.671
+        ],
+        "hex": "#0BABAB"
+      },
+      "$description": "Teal circle behind a numbered-item numeral."
+    },
+    "numeralText": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.047,
+          0.165,
+          0.282
+        ],
+        "hex": "#0C2A48"
+      },
+      "$description": "The numeral itself, on the teal circle (navy passes on teal)."
+    },
+    "pillOpportunity": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.043,
+          0.671,
+          0.671
+        ],
+        "hex": "#0BABAB"
+      },
+      "$description": "'Opportunity' pill fill — teal."
+    },
+    "pillSubCategory": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.043,
+          0.671,
+          0.671
+        ],
+        "hex": "#0BABAB"
+      },
+      "$description": "'Sub Category' pill fill — teal."
+    },
+    "pillCategory": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.329,
+          0.725,
+          0.529
+        ],
+        "hex": "#54B987"
+      },
+      "$description": "'Category' pill fill — green (fill.action), the reserved accent."
+    },
+    "pillLabel": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.047,
+          0.165,
+          0.282
+        ],
+        "hex": "#0C2A48"
+      },
+      "$description": "Pill label — navy (passes AA on both teal 5.2:1 and green 6:1). Template uses white on teal (a deck a11y gap); navy is the accessible binding."
+    },
+    "pillRadius": {
+      "$type": "dimension",
+      "$value": {
+        "value": 25,
+        "unit": "px"
+      },
+      "$description": "Pill corner radius."
+    },
+    "dividerWord": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.329,
+          0.725,
+          0.529
+        ],
+        "hex": "#54B987"
+      },
+      "$description": "The huge section-divider word ('Discover'/'Define'…). GREEN — confirmed fill.action at display size on navy (passes), NOT punch."
+    },
+    "closingWord": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.329,
+          0.725,
+          0.529
+        ],
+        "hex": "#54B987"
+      },
+      "$description": "The large 'Thank you.' on the closing slide. Green."
+    },
+    "ganttBar": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.329,
+          0.725,
+          0.529
+        ],
+        "hex": "#54B987"
+      },
+      "$description": "Gantt schedule bar — green."
+    },
+    "ganttHeaderFill": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.047,
+          0.165,
+          0.282
+        ],
+        "hex": "#0C2A48"
+      },
+      "$description": "Gantt week-header row — navy."
+    },
+    "ganttHeaderText": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "hex": "#FFFFFF"
+      },
+      "$description": "Gantt header text (weeks/dates) — white on navy."
+    },
+    "ganttRowLabel": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.047,
+          0.165,
+          0.282
+        ],
+        "hex": "#0C2A48"
+      },
+      "$description": "Gantt row labels (Project Planning…)."
+    },
+    "ganttGridline": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.553,
+          0.639,
+          0.71
+        ],
+        "hex": "#8DA3B5"
+      },
+      "$description": "Gantt gridlines."
+    },
+    "cardGround": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.047,
+          0.165,
+          0.282
+        ],
+        "hex": "#0C2A48"
+      },
+      "$description": "Follow-Ups / areas-of-interest card ground — navy."
+    },
+    "cardTitle": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "hex": "#FFFFFF"
+      },
+      "$description": "Card title — white on navy."
+    },
+    "cardBody": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "hex": "#FFFFFF",
+        "alpha": 0.72
+      },
+      "$description": "Card body copy — white @72% on navy."
+    },
+    "cardRadius": {
+      "$type": "dimension",
+      "$value": {
+        "value": 8,
+        "unit": "px"
+      },
+      "$description": "Card corner radius."
+    },
+    "diamondFill": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.043,
+          0.671,
+          0.671
+        ],
+        "hex": "#0BABAB"
+      },
+      "$description": "Primary process diamond — teal."
+    },
+    "diamondLabel": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "hex": "#FFFFFF"
+      },
+      "$description": "Diamond stage label — white."
+    },
+    "imagePanelGround": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.047,
+          0.165,
+          0.282
+        ],
+        "hex": "#0C2A48"
+      },
+      "$description": "Navy placeholder panel for a screenshot/image."
+    },
+    "logoInset": {
+      "$type": "dimension",
+      "$value": {
+        "value": 32,
+        "unit": "px"
+      },
+      "$description": "Logo inset from the slide edge (safe-area)."
+    },
+    "logoContentSize": {
+      "$type": "dimension",
+      "$value": {
+        "value": 64,
+        "unit": "px"
+      },
+      "$description": "Logo width on content slides (top-right, small)."
+    },
+    "logoFeatureSize": {
+      "$type": "dimension",
+      "$value": {
+        "value": 96,
+        "unit": "px"
+      },
+      "$description": "Logo width on cover/divider/closing (feature)."
     }
   }
 }

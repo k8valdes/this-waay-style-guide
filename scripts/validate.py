@@ -8,7 +8,7 @@ invariant — the strongest anti-drift guard in the system.
     python3 scripts/validate.py
 
 Checks:
-  A. production-only — no deprecated/proposed token (the 15 ledger items)
+  A. production-only — no deprecated/proposed token (the 16 ledger items)
      appears in ANY emitted artifact. Deprecated/proposed are readable in
      source but structurally un-generatable.
   B. off-token colour — every hex in every emitted artifact resolves to a v4.0
@@ -31,12 +31,13 @@ import emit_css, emit_figma, emit_dtcg, emit_pptx  # noqa: E402
 
 REPO = HERE.parent
 
-# 3a ledger — the 15 items that must never appear in any generated artifact
+# 3a ledger — the items that must never appear in any generated artifact
 LEDGER = [
     "card.skewed-accent", "card.deliverable", "card.case-study-highlight", "card.banner",
     "card.testimonial", "card.service-primary", "card.tall-pricing", "card.quote",
     "card.green-centered", "card.flip", "card.carousel",
     "color.surface.raised", "color.surface.sunken", "color.fill.subtle", "color.fill.success",
+    "color.gray.700",  # deprecated 2026-08 — legacy Deck Gray; deck headers are navy (see tokens.json correction2026_08)
 ]
 STOCK_OFFICE_HEX = {"4472C4", "ED7D31", "A5A5A5", "FFC000", "5B9BD5", "70AD47",
                     "4F81BD", "C0504D", "1F497D", "EEECE1"}
@@ -75,7 +76,7 @@ def main():
         for item in LEDGER:
             if item in text or slug(item) in text:
                 a_hits.append(f"{item} in {name}")
-    check("A. production-only (15 ledger items absent from all artifacts)", not a_hits, a_hits)
+    check("A. production-only (16 ledger items absent from all artifacts)", not a_hits, a_hits)
 
     # B. off-token colour in each artifact
     b_hits = []

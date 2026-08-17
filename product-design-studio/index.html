@@ -854,7 +854,7 @@
   .deck-frame.navy { background: var(--tw-navy); color: #fff; }
   .deck-frame .deck-eyebrow { font-family: var(--tw-font-display); font-weight: var(--tw-weight-bold); font-size: var(--tw-text-2xs); letter-spacing: var(--tw-tracking-wide-lg); text-transform: uppercase; color: var(--tw-green-ink); }
   .deck-frame.navy .deck-eyebrow { color: var(--tw-green); }
-  .deck-frame .deck-title { font-family: var(--tw-font-display); font-weight: var(--tw-weight-bold); font-size: var(--tw-text-2xl); color: #595959; margin-top: 8px; }
+  .deck-frame .deck-title { font-family: var(--tw-font-display); font-weight: var(--tw-weight-bold); font-size: var(--tw-text-2xl); color: var(--tw-navy); margin-top: 8px; }
   .deck-frame.navy .deck-title { color: #fff; }
   .deck-frame .deck-sub { font-family: var(--tw-font-display); font-weight: var(--tw-weight-semibold); font-size: var(--tw-text-md); color: var(--tw-teal-ink); margin-top: 6px; }
   .deck-frame .deck-num { position: absolute; right: 16px; bottom: 12px; font-size: var(--tw-text-xs); color: var(--tw-ink-muted); font-family: var(--tw-font-display); }
@@ -2548,7 +2548,7 @@
       <div style="font-family:var(--tw-font-display); font-weight:var(--tw-weight-bold); margin-bottom:10px">How decks differ from the marketing site</div>
       <table class="spec-table" style="margin:0; --tw-navy:#fff">
         <tr><td style="color:#fff">Ground</td><td style="color:rgba(255,255,255,.85)">White or navy</td><td style="color:rgba(255,255,255,.72)">No soft-gradient grounds — they wash out when projected</td></tr>
-        <tr><td style="color:#fff">Header color</td><td style="color:rgba(255,255,255,.85)">Deck Gray <code style="color:#54B987">#595959</code></td><td style="color:rgba(255,255,255,.72)">Deck-only. Never used on the marketing site</td></tr>
+        <tr><td style="color:#fff">Header color</td><td style="color:rgba(255,255,255,.85)">Navy <code style="color:#54B987">#0C2A48</code></td><td style="color:rgba(255,255,255,.72)">Was Deck Gray #595959 — retired 2026-08; slide headers and body are navy</td></tr>
         <tr><td style="color:#fff">Minimum text</td><td style="color:rgba(255,255,255,.85)">~18px @ 1080p</td><td style="color:rgba(255,255,255,.72)">Larger than web minimums — distance legibility</td></tr>
         <tr><td style="color:#fff">Motion</td><td style="color:rgba(255,255,255,.85)">Fade or cut only</td><td style="color:rgba(255,255,255,.72)">The site's scroll reveals and draw-on have no deck equivalent</td></tr>
         <tr><td style="color:#fff">Aspect</td><td style="color:rgba(255,255,255,.85)">Fixed 16:9</td><td style="color:rgba(255,255,255,.72)">Not responsive — a fixed canvas, not a breakpoint system</td></tr>
@@ -2556,15 +2556,15 @@
     </div>
 
     <h3 id="deck-foundations" style="margin-bottom:8px; scroll-margin-top:150px">Deck color &amp; type</h3>
-    <p style="color:var(--tw-ink-muted); font-size:var(--tw-text-lg); max-width:70ch; margin-bottom:20px">Decks draw from the brand palette but add one color of their own and lean on different roles. <strong style="color:var(--tw-navy)">Deck Gray is deck-only</strong> — it is deliberately absent from the marketing-site palette.</p>
+    <p style="color:var(--tw-ink-muted); font-size:var(--tw-text-lg); max-width:70ch; margin-bottom:20px">Decks draw from the brand palette but lean on different roles than the site — teal leads as the accent, and green is reserved. <strong style="color:var(--tw-navy)">Slide headers and body are navy</strong>, the same navy as the site. (Deck Gray <code>#595959</code>, the former deck header color, was <strong style="color:var(--tw-navy)">retired 2026-08</strong>.)</p>
     <div class="swatch-grid" style="margin-bottom:14px">
-      <button type="button" class="swatch" data-hex="#595959" aria-label="Deck Gray, hex 5 9 5 9 5 9. Press to copy hex code."><div class="chipcolor" style="background:#595959" aria-hidden="true"><span class="copied-tag">Copied</span></div><div class="info" aria-hidden="true"><div class="name">Deck Gray</div><div class="hex">#595959</div><div class="use"><strong>Deck-only.</strong> Slide headers and body text on white.</div></div></button>
+      <button type="button" class="swatch" data-hex="#595959" aria-label="Deck Gray, hex 5 9 5 9 5 9, retired. Press to copy hex code."><div class="chipcolor" style="background:#595959" aria-hidden="true"><span class="copied-tag">Copied</span></div><div class="info" aria-hidden="true"><div class="name">Deck Gray <span style="opacity:.7">(retired)</span></div><div class="hex">#595959</div><div class="use"><strong>Retired 2026-08.</strong> Former deck header/body color — slide headers and body are navy now.</div></div></button>
       <button type="button" class="swatch" data-hex="#0C2A48" aria-label="Navy, hex 0 C 2 A 4 8. Press to copy hex code."><div class="chipcolor" style="background:#0C2A48" aria-hidden="true"><span class="copied-tag">Copied</span></div><div class="info" aria-hidden="true"><div class="name">Navy</div><div class="hex">#0C2A48</div><div class="use">Title, divider, and closing slide grounds.</div></div></button>
       <button type="button" class="swatch" data-hex="#077373" aria-label="Teal Ink, hex 0 7 7 3 7 3. Press to copy hex code."><div class="chipcolor" style="background:#077373" aria-hidden="true"><span class="copied-tag">Copied</span></div><div class="info" aria-hidden="true"><div class="name">Teal — Ink</div><div class="hex">#077373</div><div class="use">Subheads and attribution. The deck heritage accent.</div></div></button>
       <button type="button" class="swatch" data-hex="#54B987" aria-label="Waay Green, hex 5 4 B 9 8 7. Press to copy hex code."><div class="chipcolor" style="background:#54B987" aria-hidden="true"><span class="copied-tag">Copied</span></div><div class="info" aria-hidden="true"><div class="name">Waay Green</div><div class="hex">#54B987</div><div class="use">Category labels, chart series, the presenter line.</div></div></button>
     </div>
     <table class="spec-table" style="margin-bottom:38px">
-      <tr><td>Slide header</td><td>Axiforma SemiBold · Deck Gray</td><td>The workhorse — content and chart slides</td></tr>
+      <tr><td>Slide header</td><td>Axiforma SemiBold · Navy</td><td>The workhorse — content and chart slides</td></tr>
       <tr><td>Display title</td><td>Axiforma Bold · white on navy</td><td>Title, divider, and closing slides</td></tr>
       <tr><td>Subhead</td><td>Axiforma SemiBold · Teal-Ink</td><td>Summary lines, attribution</td></tr>
       <tr><td>Body / bullets</td><td>Axiforma Regular · ~18px min</td><td>Short declarative lines — never paragraphs</td></tr>
@@ -2736,7 +2736,7 @@
         <li>Headlines in sentence case; at most one green/teal highlight per headline; eyebrows are the only uppercase element.</li>
         <li>Typography is <strong>Axiforma</strong> in all assets; substitute <strong>Poppins</strong> only when Axiforma is unavailable. Never introduce a second family.</li>
         <li>Apply the voice rules in section 06 to all copy. When in doubt: shorter, calmer, more structural.</li>
-        <li>Slides follow the deck system: gray headers (#595959), teal subheads, green category labels, white or navy grounds — set in Axiforma going forward (legacy deck face is deprecated).</li>
+        <li>Slides follow the deck system: navy headers, teal subheads, green category labels (reserved), white or navy grounds — set in Axiforma going forward (legacy deck face is deprecated; Deck Gray #595959 retired 2026-08).</li>
         <li>Paper plane motif: use the exact SVG paths embedded in section 05; wing gradient is #62D38C → #30737B (nose → tail), body navy on light / white on navy. Flight trails are round white or navy dots with at least one loop — never straight, never dashed.</li>
         <li>Charts use the fixed series order (green, steel, teal, navy — navy doubles as axes/text); slate is gridlines/labels only, never a series color; single-series is always Waay green; no chart-junk, 3D, or non-brand colors.</li>
         <li>Screenshots are always framed — light gradient ground or navy hero with topographic lines — with 8px corners and a soft navy shadow; annotate only in Waay green.</li>
