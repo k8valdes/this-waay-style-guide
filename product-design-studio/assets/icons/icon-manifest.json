@@ -1,0 +1,3125 @@
+{
+  "icons": [
+    {
+      "file": "icon-001.png",
+      "concept": "check-circle",
+      "category": "status",
+      "aliases": [
+        "success",
+        "complete",
+        "confirm",
+        "done"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-002.png",
+      "concept": "shopping-cart",
+      "category": "object",
+      "aliases": [
+        "ecommerce",
+        "retail",
+        "purchase",
+        "basket"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-003.png",
+      "concept": "search-trend-analysis",
+      "category": "data",
+      "aliases": [
+        "find",
+        "lookup"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-004.png",
+      "concept": "analytics-card-mini",
+      "category": "data",
+      "aliases": [
+        "analytics"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-005.png",
+      "concept": "wallet",
+      "category": "object",
+      "aliases": [
+        "payment",
+        "finance"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-006.png",
+      "concept": "diagonal-accent-marks",
+      "category": "misc",
+      "aliases": [
+        "diagonal"
+      ],
+      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: two separate green parallelogram (slanted-cut) shapes arranged diagonally with a gap between them, like two disconnected slash or ribbon fragments"
+    },
+    {
+      "file": "icon-007.png",
+      "concept": "arrow-up-circle",
+      "category": "status",
+      "aliases": [
+        "increase",
+        "growth",
+        "rising",
+        "trending-up"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-008.png",
+      "concept": "business-growth-sprout",
+      "category": "data",
+      "aliases": [
+        "increase",
+        "trend",
+        "rising",
+        "plant"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-009.png",
+      "concept": "milestone-flag",
+      "category": "status",
+      "aliases": [
+        "marker"
+      ],
+      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: a green diagonal handle/stem topped with a leaf- or pennant-shaped head that has a concave notch cut into one edge, like a flag or torch held at an angle"
+    },
+    {
+      "file": "icon-010.png",
+      "concept": "megaphone-announcement-boost",
+      "category": "communication",
+      "aliases": [
+        "broadcast",
+        "marketing"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-011.png",
+      "concept": "map-location-pin",
+      "category": "navigation",
+      "aliases": [
+        "place"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-012.png",
+      "concept": "arrow-up-circle-alt",
+      "category": "status",
+      "aliases": [
+        "increase",
+        "growth",
+        "rising",
+        "trending-up"
+      ],
+      "notes": "Visually indistinguishable from icon-007; qualifier denotes a repeated source asset."
+    },
+    {
+      "file": "icon-013.png",
+      "concept": "dashboard-analytics",
+      "category": "data",
+      "aliases": [
+        "dashboard"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-014.png",
+      "concept": "quotation-marks",
+      "category": "communication",
+      "aliases": [
+        "quotation"
+      ],
+      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: two vertical green bars of similar height, one hooked/rounded at the bottom-left and the other hooked at the top-right, resembling a pair of opening and closing quotation marks"
+    },
+    {
+      "file": "icon-015.png",
+      "concept": "crown-premium",
+      "category": "status",
+      "aliases": [
+        "royalty"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-016.png",
+      "concept": "document-edit-notepad",
+      "category": "action",
+      "aliases": [
+        "file",
+        "paper",
+        "pencil",
+        "modify"
+      ],
+      "notes": "Depicts a notepad with a checkbox alongside a separate pen \u2014 distinct from icon-110's folded page + pencil."
+    },
+    {
+      "file": "icon-017.png",
+      "concept": "presentation-growth",
+      "category": "data",
+      "aliases": [
+        "increase",
+        "trend",
+        "rising"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-018.png",
+      "concept": "clipboard-data-report",
+      "category": "data",
+      "aliases": [
+        "clipboard"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-019.png",
+      "concept": "arrow-up",
+      "category": "status",
+      "aliases": [
+        "increase",
+        "growth",
+        "rising",
+        "trending-up"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-020.png",
+      "concept": "briefcase-analytics",
+      "category": "data",
+      "aliases": [
+        "business",
+        "work"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-021.png",
+      "concept": "premium-award-badge",
+      "category": "status",
+      "aliases": [
+        "medal",
+        "achievement",
+        "certification"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-022.png",
+      "concept": "message-bubble-dots",
+      "category": "communication",
+      "aliases": [
+        "message"
+      ],
+      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: a green rounded square with a concave quarter-circle notch cut from the top-left corner and two small navy dots near the bottom-right, resembling a speech-bubble fragment with a typing ellipsis"
+    },
+    {
+      "file": "icon-023.png",
+      "concept": "dial-alert-rotation",
+      "category": "action",
+      "aliases": [
+        "dial"
+      ],
+      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: a navy circle with a center hub dot joined by four spokes to four dots around the rim (like a wheel or dial), with small green tick/arc marks outside the top-right edge suggesting motion or an alert"
+    },
+    {
+      "file": "icon-024.png",
+      "concept": "money-growth-plant",
+      "category": "data",
+      "aliases": [
+        "increase",
+        "trend",
+        "rising",
+        "sprout"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-025.png",
+      "concept": "growth-feedback-chat",
+      "category": "communication",
+      "aliases": [
+        "increase",
+        "trend",
+        "rising",
+        "message"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-026.png",
+      "concept": "website-marketing-announcement",
+      "category": "communication",
+      "aliases": [
+        "website"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-027.png",
+      "concept": "network-data-hub",
+      "category": "data",
+      "aliases": [
+        "connection"
+      ],
+      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: a navy rounded dome/cylinder shape with two dots on its face, connected by three lines descending to three green circular nodes in a hub-and-spoke pattern"
+    },
+    {
+      "file": "icon-028.png",
+      "concept": "credit-card-stack",
+      "category": "object",
+      "aliases": [
+        "credit"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-029.png",
+      "concept": "user-profile-basic",
+      "category": "people",
+      "aliases": [
+        "account",
+        "contact"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-030.png",
+      "concept": "profile-view-eye",
+      "category": "people",
+      "aliases": [
+        "profile"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-031.png",
+      "concept": "analytics-card-mini-alt",
+      "category": "data",
+      "aliases": [
+        "analytics"
+      ],
+      "notes": "Visually indistinguishable from icon-004; qualifier denotes a repeated source asset, not a visual variant."
+    },
+    {
+      "file": "icon-032.png",
+      "concept": "email-alert-fast",
+      "category": "communication",
+      "aliases": [
+        "mail",
+        "message"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-033.png",
+      "concept": "user-simple",
+      "category": "people",
+      "aliases": [
+        "profile",
+        "account",
+        "contact"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-034.png",
+      "concept": "check-circle-alt",
+      "category": "status",
+      "aliases": [
+        "success",
+        "complete",
+        "confirm",
+        "done"
+      ],
+      "notes": "Visually indistinguishable from icon-001; qualifier denotes a repeated source asset."
+    },
+    {
+      "file": "icon-035.png",
+      "concept": "message-corner-dots",
+      "category": "communication",
+      "aliases": [
+        "message"
+      ],
+      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: a green L-shaped corner block (flat horizontal base with a raised vertical block on the left) with two small white dots on the horizontal part, resembling a mirrored speech-bubble corner fragment"
+    },
+    {
+      "file": "icon-036.png",
+      "concept": "email-stack-multiple",
+      "category": "communication",
+      "aliases": [
+        "mail",
+        "message"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-037.png",
+      "concept": "check-circle-secondary",
+      "category": "status",
+      "aliases": [
+        "success",
+        "complete",
+        "confirm",
+        "done"
+      ],
+      "notes": "Visually indistinguishable from icon-001 (originally named checkmark-circle); qualifier denotes a repeated source asset."
+    },
+    {
+      "file": "icon-038.png",
+      "concept": "growth-chart-arrow",
+      "category": "data",
+      "aliases": [
+        "increase",
+        "trend",
+        "rising",
+        "graph"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-039.png",
+      "concept": "home-value-down",
+      "category": "data",
+      "aliases": [
+        "home"
+      ],
+      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: A solid green shape with a wavy double-curved top edge (resembling an upside-down house silhouette) sitting just above a bold chevron arrow pointing downward, both in green with a gap between them."
+    },
+    {
+      "file": "icon-040.png",
+      "concept": "cash-bill",
+      "category": "object",
+      "aliases": [
+        "cash"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-041.png",
+      "concept": "chat-bubble-dots",
+      "category": "communication",
+      "aliases": [
+        "message",
+        "conversation"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-042.png",
+      "concept": "location-pin",
+      "category": "navigation",
+      "aliases": [
+        "map",
+        "place"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-043.png",
+      "concept": "flask-growth-arrow",
+      "category": "data",
+      "aliases": [
+        "increase",
+        "trend",
+        "rising"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-044.png",
+      "concept": "network-nodes-hub",
+      "category": "data",
+      "aliases": [
+        "connection"
+      ],
+      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: Three small green circles at the top (one upper-left, one on a short vertical stub at top-center, one upper-right) each connected by right-angle bent lines converging down into one larger green circle at the bottom center."
+    },
+    {
+      "file": "icon-045.png",
+      "concept": "arrow-up-circle-bold",
+      "category": "status",
+      "aliases": [
+        "increase",
+        "growth",
+        "rising",
+        "trending-up"
+      ],
+      "notes": "Same composition as icon-007 with a visibly bolder/thicker arrow per the source description (originally named up-arrow-circle)."
+    },
+    {
+      "file": "icon-046.png",
+      "concept": "server-network-connection",
+      "category": "data",
+      "aliases": [
+        "hub"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-047.png",
+      "concept": "bank-dollar-coin",
+      "category": "object",
+      "aliases": [
+        "money",
+        "revenue",
+        "price",
+        "payment"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-048.png",
+      "concept": "clock-time",
+      "category": "status",
+      "aliases": [
+        "clock"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-049.png",
+      "concept": "team-hierarchy-chart",
+      "category": "people",
+      "aliases": [
+        "group",
+        "people",
+        "graph",
+        "analytics"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-050.png",
+      "concept": "home-value-up",
+      "category": "data",
+      "aliases": [
+        "home"
+      ],
+      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: A chevron arrow pointing upward positioned directly above a solid green house/roof-shaped silhouette with a curved bottom edge, both green with a gap between them."
+    },
+    {
+      "file": "icon-051.png",
+      "concept": "gauge-meter-check",
+      "category": "status",
+      "aliases": [
+        "performance",
+        "success",
+        "complete",
+        "confirm"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-052.png",
+      "concept": "unboxing-new-home",
+      "category": "action",
+      "aliases": [
+        "unboxing"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-053.png",
+      "concept": "funnel-shape",
+      "category": "object",
+      "aliases": [
+        "conversion",
+        "pipeline"
+      ],
+      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: A solid green trapezoid shape with a wide flat top edge tapering to a narrower bottom edge, sitting directly on a short rounded horizontal green bar/base, with no other elements in the cell."
+    },
+    {
+      "file": "icon-054.png",
+      "concept": "mind-lightning-idea",
+      "category": "people",
+      "aliases": [
+        "lightbulb",
+        "insight"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-055.png",
+      "concept": "rocket-launch",
+      "category": "action",
+      "aliases": [
+        "startup"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-056.png",
+      "concept": "coin-stack-dollar",
+      "category": "object",
+      "aliases": [
+        "currency",
+        "cash",
+        "money",
+        "revenue"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-057.png",
+      "concept": "check-circle-secondary-alt",
+      "category": "status",
+      "aliases": [
+        "success",
+        "complete",
+        "confirm",
+        "done"
+      ],
+      "notes": "Visually indistinguishable from icon-037; both white-checkmark variants."
+    },
+    {
+      "file": "icon-058.png",
+      "concept": "document-stack",
+      "category": "object",
+      "aliases": [
+        "file",
+        "paper"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-059.png",
+      "concept": "user-avatar-circle-secondary",
+      "category": "people",
+      "aliases": [
+        "profile",
+        "account",
+        "contact"
+      ],
+      "notes": "Visually indistinguishable from icon-074 (originally named user-avatar-profile); qualifier denotes a repeated source asset."
+    },
+    {
+      "file": "icon-060.png",
+      "concept": "highlight-edit-mark",
+      "category": "action",
+      "aliases": [
+        "pencil",
+        "modify"
+      ],
+      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: Fragmentary green-only shapes with no navy outline: a rounded rectangle bar tilted diagonally at upper right like a marker or eraser tip, with a thinner parallel diagonal line beside it, and a separate short bent/angled line lower left resembling a corner or checkmark stroke."
+    },
+    {
+      "file": "icon-061.png",
+      "concept": "decline-chart-arrow",
+      "category": "data",
+      "aliases": [
+        "graph",
+        "analytics"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-062.png",
+      "concept": "location-price-pin",
+      "category": "data",
+      "aliases": [
+        "map",
+        "place"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-063.png",
+      "concept": "pencil-edit-accented",
+      "category": "action",
+      "aliases": [
+        "write",
+        "modify"
+      ],
+      "notes": "A navy pencil flanked by two green diamond accent shapes \u2014 distinct from icon-304's solid green pencil."
+    },
+    {
+      "file": "icon-064.png",
+      "concept": "email-megaphone-announcement",
+      "category": "communication",
+      "aliases": [
+        "mail",
+        "message",
+        "broadcast",
+        "marketing"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-065.png",
+      "concept": "megaphone-right",
+      "category": "communication",
+      "aliases": [
+        "announcement",
+        "broadcast",
+        "marketing"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-066.png",
+      "concept": "headphones-support-check",
+      "category": "communication",
+      "aliases": [
+        "audio",
+        "success",
+        "complete",
+        "confirm"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-067.png",
+      "concept": "shield-check",
+      "category": "status",
+      "aliases": [
+        "security",
+        "protection",
+        "success",
+        "complete"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-068.png",
+      "concept": "server-device-sync",
+      "category": "data",
+      "aliases": [
+        "server"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-069.png",
+      "concept": "shopping-bag-analytics",
+      "category": "data",
+      "aliases": [
+        "ecommerce",
+        "retail",
+        "purchase"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-070.png",
+      "concept": "website-profile-video",
+      "category": "communication",
+      "aliases": [
+        "website"
+      ],
+      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: A navy outlined browser/app window with two dots in the top corner like window controls, containing a solid green user avatar silhouette on the left and a solid green rounded rectangle with a white horizontal pill shape on the right like a video thumbnail, with a horizontal navy line below the window that has a plus-shaped crosshair handle near its left end."
+    },
+    {
+      "file": "icon-071.png",
+      "concept": "shopping-cart-solid",
+      "category": "object",
+      "aliases": [
+        "ecommerce",
+        "retail",
+        "purchase",
+        "basket"
+      ],
+      "notes": "A single-tone solid green cart silhouette, distinct from icon-002's navy-and-green duotone rendering."
+    },
+    {
+      "file": "icon-072.png",
+      "concept": "battery-level-indicator",
+      "category": "status",
+      "aliases": [
+        "battery"
+      ],
+      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: A small solid green shape offset to the right side of the cell: a short rounded rectangle cap sitting above a taller rounded rectangle body, separated by a thin gap, resembling a vertical battery icon."
+    },
+    {
+      "file": "icon-073.png",
+      "concept": "user-profile-details",
+      "category": "people",
+      "aliases": [
+        "account",
+        "contact"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-074.png",
+      "concept": "user-avatar-circle",
+      "category": "people",
+      "aliases": [
+        "profile",
+        "account",
+        "contact"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-075.png",
+      "concept": "corner-bracket-expand",
+      "category": "action",
+      "aliases": [
+        "corner"
+      ],
+      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: a single green L-shaped rounded corner bracket with no other elements, resembling one corner of a crop or fullscreen/expand frame"
+    },
+    {
+      "file": "icon-076.png",
+      "concept": "checkmark-confirm",
+      "category": "status",
+      "aliases": [
+        "success",
+        "confirmed",
+        "verified"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-077.png",
+      "concept": "shopping-bag",
+      "category": "object",
+      "aliases": [
+        "ecommerce",
+        "retail",
+        "purchase"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-078.png",
+      "concept": "document-stack-list",
+      "category": "object",
+      "aliases": [
+        "file",
+        "paper"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-079.png",
+      "concept": "delivery-truck-shipment",
+      "category": "object",
+      "aliases": [
+        "shipping",
+        "logistics"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-080.png",
+      "concept": "speaker-volume",
+      "category": "communication",
+      "aliases": [
+        "speaker"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-081.png",
+      "concept": "shield-check-alt",
+      "category": "status",
+      "aliases": [
+        "security",
+        "protection",
+        "success",
+        "complete"
+      ],
+      "notes": "Visually indistinguishable from icon-067 (originally named security-verified-shield); qualifier denotes a repeated source asset."
+    },
+    {
+      "file": "icon-082.png",
+      "concept": "milestone-marker",
+      "category": "status",
+      "aliases": [
+        "milestone"
+      ],
+      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: a small green dome-topped capsule shape (flat bottom, rounded top) resting on a green horizontal baseline, an abstract marker shape with no other detail"
+    },
+    {
+      "file": "icon-083.png",
+      "concept": "profile-display-stand",
+      "category": "people",
+      "aliases": [
+        "profile"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-084.png",
+      "concept": "guest-user-placeholder",
+      "category": "people",
+      "aliases": [
+        "profile",
+        "account",
+        "contact"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-085.png",
+      "concept": "dollar-coin",
+      "category": "data",
+      "aliases": [
+        "money",
+        "revenue",
+        "price",
+        "payment"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-086.png",
+      "concept": "chat-message-bubble",
+      "category": "communication",
+      "aliases": [
+        "conversation"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-087.png",
+      "concept": "career-growth-arrows",
+      "category": "people",
+      "aliases": [
+        "increase",
+        "trend",
+        "rising"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-088.png",
+      "concept": "bar-chart-growth-arrow-embedded",
+      "category": "data",
+      "aliases": [
+        "analytics",
+        "graph",
+        "data",
+        "increase"
+      ],
+      "notes": "The growth arrow stands in place of the tallest bar itself."
+    },
+    {
+      "file": "icon-089.png",
+      "concept": "team-growth-presentation",
+      "category": "data",
+      "aliases": [
+        "group",
+        "people",
+        "increase",
+        "trend"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-090.png",
+      "concept": "network-node-structure",
+      "category": "data",
+      "aliases": [
+        "connection",
+        "hub"
+      ],
+      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: an abstract triangular frame of connected navy lines with a circular node at the end of two horizontal arms extending left and right, sitting atop a green flat trapezoidal base marked with two dots"
+    },
+    {
+      "file": "icon-091.png",
+      "concept": "arrow-up-circle-secondary",
+      "category": "status",
+      "aliases": [
+        "increase",
+        "growth",
+        "rising",
+        "trending-up"
+      ],
+      "notes": "Visually indistinguishable from icon-007 (originally named increase-arrow-circle); qualifier denotes a repeated source asset."
+    },
+    {
+      "file": "icon-092.png",
+      "concept": "government-bank-building",
+      "category": "object",
+      "aliases": [
+        "office",
+        "facility"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-093.png",
+      "concept": "insight-growth-eye",
+      "category": "data",
+      "aliases": [
+        "increase",
+        "trend",
+        "rising"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-094.png",
+      "concept": "search-verified-checklist",
+      "category": "action",
+      "aliases": [
+        "find",
+        "lookup",
+        "confirmed",
+        "approved"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-095.png",
+      "concept": "notification-bell-upgrade",
+      "category": "communication",
+      "aliases": [
+        "alert"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-096.png",
+      "concept": "referral-network",
+      "category": "people",
+      "aliases": [
+        "connection",
+        "hub"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-097.png",
+      "concept": "document-announcement",
+      "category": "communication",
+      "aliases": [
+        "file",
+        "paper"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-098.png",
+      "concept": "user-avatar-circle-alt",
+      "category": "people",
+      "aliases": [
+        "profile",
+        "account",
+        "contact"
+      ],
+      "notes": "Visually indistinguishable from icon-074; qualifier denotes a repeated source asset."
+    },
+    {
+      "file": "icon-099.png",
+      "concept": "milestone-flag-marker",
+      "category": "status",
+      "aliases": [
+        "milestone"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-100.png",
+      "concept": "financial-growth-sprout",
+      "category": "data",
+      "aliases": [
+        "increase",
+        "trend",
+        "rising",
+        "plant"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-101.png",
+      "concept": "presentation-bar-chart",
+      "category": "data",
+      "aliases": [
+        "analytics",
+        "graph",
+        "data"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-102.png",
+      "concept": "plant-sprout",
+      "category": "object",
+      "aliases": [
+        "growth"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-103.png",
+      "concept": "audience-targeting",
+      "category": "people",
+      "aliases": [
+        "audience"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-104.png",
+      "concept": "megaphone-right-handle-bottom",
+      "category": "communication",
+      "aliases": [
+        "announcement",
+        "broadcast",
+        "marketing"
+      ],
+      "notes": "Right-facing like icon-065, but the handle sits at the bottom rather than the side."
+    },
+    {
+      "file": "icon-105.png",
+      "concept": "team-pair",
+      "category": "people",
+      "aliases": [
+        "group",
+        "people"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-106.png",
+      "concept": "percentage-circle",
+      "category": "data",
+      "aliases": [
+        "percentage"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-107.png",
+      "concept": "cloud-revenue",
+      "category": "data",
+      "aliases": [
+        "cloud"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-108.png",
+      "concept": "dollar-coin-alt",
+      "category": "data",
+      "aliases": [
+        "money",
+        "revenue",
+        "price",
+        "payment"
+      ],
+      "notes": "Visually indistinguishable from icon-085; qualifier denotes a repeated source asset."
+    },
+    {
+      "file": "icon-109.png",
+      "concept": "checkout-counter-customer",
+      "category": "people",
+      "aliases": [
+        "checkout"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-110.png",
+      "concept": "document-edit-page",
+      "category": "action",
+      "aliases": [
+        "file",
+        "paper",
+        "pencil",
+        "modify"
+      ],
+      "notes": "Depicts a folded-corner page with a pencil overlapping the corner \u2014 distinct from icon-016's notepad + pen."
+    },
+    {
+      "file": "icon-111.png",
+      "concept": "blazer-jacket-attire",
+      "category": "object",
+      "aliases": [
+        "blazer"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-112.png",
+      "concept": "email-analytics-report",
+      "category": "communication",
+      "aliases": [
+        "mail",
+        "message"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-113.png",
+      "concept": "user-performance-dashboard",
+      "category": "data",
+      "aliases": [
+        "profile",
+        "account",
+        "contact"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-114.png",
+      "concept": "night-mode-moon",
+      "category": "status",
+      "aliases": [
+        "night"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-115.png",
+      "concept": "flag-location-marker",
+      "category": "navigation",
+      "aliases": [
+        "milestone",
+        "map",
+        "pin",
+        "place"
+      ],
+      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: a small green rounded-rectangle flag mounted on a short post above a wide flared trapezoid base, like a flag planted on a mound or a lamp-shaped location marker"
+    },
+    {
+      "file": "icon-116.png",
+      "concept": "megaphone-bullhorn",
+      "category": "communication",
+      "aliases": [
+        "announcement",
+        "broadcast",
+        "marketing"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-117.png",
+      "concept": "map-locate-target",
+      "category": "navigation",
+      "aliases": [
+        "goal",
+        "aim"
+      ],
+      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: four small green rounded tabs positioned above, below, left, and right of an empty center point, like crosshair or alignment marks at the four cardinal directions with no connecting outline"
+    },
+    {
+      "file": "icon-118.png",
+      "concept": "shopping-cart-outline",
+      "category": "object",
+      "aliases": [
+        "ecommerce",
+        "retail",
+        "purchase",
+        "basket"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-119.png",
+      "concept": "arrow-up-circle-thin",
+      "category": "status",
+      "aliases": [
+        "increase",
+        "growth",
+        "rising",
+        "trending-up"
+      ],
+      "notes": "Same composition as icon-007 with a visibly thinner arrow stroke per the source description."
+    },
+    {
+      "file": "icon-120.png",
+      "concept": "calendar-growth-chart",
+      "category": "data",
+      "aliases": [
+        "increase",
+        "trend",
+        "rising",
+        "graph"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-121.png",
+      "concept": "support-headset",
+      "category": "communication",
+      "aliases": [
+        "customer-service"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-122.png",
+      "concept": "home-priority-arrow",
+      "category": "navigation",
+      "aliases": [
+        "home"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-123.png",
+      "concept": "megaphone-right-alt",
+      "category": "communication",
+      "aliases": [
+        "announcement",
+        "broadcast",
+        "marketing"
+      ],
+      "notes": "Visually indistinguishable from icon-065 (originally named megaphone-announcement-solid); qualifier denotes a repeated source asset."
+    },
+    {
+      "file": "icon-124.png",
+      "concept": "highlighter-marker-pen",
+      "category": "object",
+      "aliases": [
+        "highlighter"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-125.png",
+      "concept": "storefront-shop",
+      "category": "object",
+      "aliases": [
+        "store",
+        "retail"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-126.png",
+      "concept": "chart-axis-corner",
+      "category": "data",
+      "aliases": [
+        "graph",
+        "analytics"
+      ],
+      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: a green right-angle line forming a horizontal base and a vertical riser meeting at a corner, with a small circle at the top end and a small square notch at the bend, like a chart axis or carpenter's square"
+    },
+    {
+      "file": "icon-127.png",
+      "concept": "message-tag-notification",
+      "category": "communication",
+      "aliases": [
+        "bell",
+        "alert"
+      ],
+      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: a tilted green angular shape with a pointed notched tail on the left and a rounded body containing two small square dots on the right, resembling an angled tag or speech-bubble label"
+    },
+    {
+      "file": "icon-128.png",
+      "concept": "phone-call-message",
+      "category": "communication",
+      "aliases": [
+        "phone"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-129.png",
+      "concept": "quotation-marks-testimonial",
+      "category": "communication",
+      "aliases": [
+        "quotation"
+      ],
+      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: two separate angular green shapes resembling stylized quotation marks or small notched pennants, mirrored to face each other"
+    },
+    {
+      "file": "icon-130.png",
+      "concept": "premium-crown",
+      "category": "object",
+      "aliases": [
+        "royalty"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-131.png",
+      "concept": "user-profile-list-item",
+      "category": "people",
+      "aliases": [
+        "account",
+        "contact"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-132.png",
+      "concept": "id-card-edit",
+      "category": "people",
+      "aliases": [
+        "pencil",
+        "modify"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-133.png",
+      "concept": "shield-verified-growth",
+      "category": "status",
+      "aliases": [
+        "security",
+        "protection",
+        "confirmed",
+        "approved"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-134.png",
+      "concept": "lightbulb-idea-checkmark",
+      "category": "misc",
+      "aliases": [
+        "insight",
+        "success",
+        "confirmed",
+        "verified"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-135.png",
+      "concept": "arrow-up-circle-small",
+      "category": "status",
+      "aliases": [
+        "increase",
+        "growth",
+        "rising",
+        "trending-up"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-136.png",
+      "concept": "lightbulb-idea-growth",
+      "category": "misc",
+      "aliases": [
+        "insight",
+        "increase",
+        "trend",
+        "rising"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-137.png",
+      "concept": "product-launch-box",
+      "category": "data",
+      "aliases": [
+        "product"
+      ],
+      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: a navy open box or folded-carton shape with angular triangular flaps and a green lower half, with an arrow rising straight up from its center"
+    },
+    {
+      "file": "icon-138.png",
+      "concept": "megaphone-verified",
+      "category": "communication",
+      "aliases": [
+        "announcement",
+        "broadcast",
+        "marketing",
+        "confirmed"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-139.png",
+      "concept": "milestone-hill-marker",
+      "category": "misc",
+      "aliases": [
+        "milestone"
+      ],
+      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: a green flattened dome or trapezoid shape, wider at the bottom with a flat ridged top edge, and a white ring near its upper center"
+    },
+    {
+      "file": "icon-140.png",
+      "concept": "user-avatar-ringed",
+      "category": "people",
+      "aliases": [
+        "profile",
+        "account",
+        "contact"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-141.png",
+      "concept": "growth-trend-arrow",
+      "category": "data",
+      "aliases": [
+        "increase",
+        "rising"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-142.png",
+      "concept": "mobile-shopping-bag",
+      "category": "object",
+      "aliases": [
+        "ecommerce",
+        "retail",
+        "purchase"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-143.png",
+      "concept": "shopping-basket",
+      "category": "object",
+      "aliases": [
+        "ecommerce",
+        "retail",
+        "purchase"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-144.png",
+      "concept": "control-bar-dots",
+      "category": "misc",
+      "aliases": [
+        "control"
+      ],
+      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: a green horizontal pill-shaped outline containing three small navy dots on the left and an empty rounded bar on the right, like an input field, slider, or progress control"
+    },
+    {
+      "file": "icon-145.png",
+      "concept": "briefcase-verified",
+      "category": "status",
+      "aliases": [
+        "business",
+        "work",
+        "confirmed",
+        "approved"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-146.png",
+      "concept": "phone-contact-call",
+      "category": "communication",
+      "aliases": [
+        "phone"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-147.png",
+      "concept": "government-building",
+      "category": "object",
+      "aliases": [
+        "office",
+        "facility"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-148.png",
+      "concept": "user-avatar-filled",
+      "category": "people",
+      "aliases": [
+        "profile",
+        "account",
+        "contact"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-149.png",
+      "concept": "cash-register-terminal",
+      "category": "object",
+      "aliases": [
+        "cash"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-150.png",
+      "concept": "person-single",
+      "category": "people",
+      "aliases": [
+        "user",
+        "profile",
+        "contact"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-151.png",
+      "concept": "megaphone-left",
+      "category": "communication",
+      "aliases": [
+        "announcement",
+        "broadcast",
+        "marketing"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-152.png",
+      "concept": "podium-stage-platform",
+      "category": "object",
+      "aliases": [
+        "podium"
+      ],
+      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: A green horizontal bar resting atop two navy trapezoidal legs that splay outward, resembling a podium, stage riser, or stand"
+    },
+    {
+      "file": "icon-153.png",
+      "concept": "hands-holding-plant",
+      "category": "action",
+      "aliases": [
+        "growth",
+        "sprout"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-154.png",
+      "concept": "analytics-bar-chart-card",
+      "category": "data",
+      "aliases": [
+        "graph",
+        "data"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-155.png",
+      "concept": "dollar-trend-indicator",
+      "category": "data",
+      "aliases": [
+        "money",
+        "revenue",
+        "price",
+        "payment"
+      ],
+      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: A green dollar sign next to a small solid navy triangle pointing right, suggesting a financial trend or change"
+    },
+    {
+      "file": "icon-156.png",
+      "concept": "people-network-connection",
+      "category": "people",
+      "aliases": [
+        "hub"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-157.png",
+      "concept": "video-conference-screen",
+      "category": "communication",
+      "aliases": [
+        "video"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-158.png",
+      "concept": "money-growth-investment",
+      "category": "data",
+      "aliases": [
+        "increase",
+        "trend",
+        "rising"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-159.png",
+      "concept": "cash-drawer-box",
+      "category": "object",
+      "aliases": [
+        "cash"
+      ],
+      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: A small green rectangular box shape with a navy horizontal line/slot near the top, resembling a cash drawer or archive box"
+    },
+    {
+      "file": "icon-160.png",
+      "concept": "people-pair-team",
+      "category": "people",
+      "aliases": [
+        "group"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-161.png",
+      "concept": "career-growth-path",
+      "category": "status",
+      "aliases": [
+        "increase",
+        "trend",
+        "rising"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-162.png",
+      "concept": "arrow-up-circle-navy-mark-alt",
+      "category": "status",
+      "aliases": [
+        "increase",
+        "growth",
+        "rising",
+        "trending-up"
+      ],
+      "notes": "Visually indistinguishable from icon-282 (originally named increase-arrow-circle); both navy-arrow variants."
+    },
+    {
+      "file": "icon-163.png",
+      "concept": "dollar-coin-secondary",
+      "category": "misc",
+      "aliases": [
+        "money",
+        "revenue",
+        "price",
+        "payment"
+      ],
+      "notes": "Visually indistinguishable from icon-085 (originally named dollar-badge-circle); qualifier denotes a repeated source asset."
+    },
+    {
+      "file": "icon-164.png",
+      "concept": "podcast-microphone",
+      "category": "object",
+      "aliases": [
+        "podcast"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-165.png",
+      "concept": "conversion-funnel-person",
+      "category": "data",
+      "aliases": [
+        "pipeline",
+        "user",
+        "profile",
+        "contact"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-166.png",
+      "concept": "invoice-receipt-document",
+      "category": "object",
+      "aliases": [
+        "file",
+        "paper"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-167.png",
+      "concept": "chart-presentation-board",
+      "category": "data",
+      "aliases": [
+        "graph",
+        "analytics"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-168.png",
+      "concept": "conversion-funnel-person-alt",
+      "category": "data",
+      "aliases": [
+        "pipeline",
+        "user",
+        "profile",
+        "contact"
+      ],
+      "notes": "Visually indistinguishable from icon-165; qualifier denotes a repeated source asset."
+    },
+    {
+      "file": "icon-169.png",
+      "concept": "user-base-platform",
+      "category": "people",
+      "aliases": [
+        "profile",
+        "account",
+        "contact"
+      ],
+      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: A navy person head-and-shoulders silhouette sitting above a green rounded, dotted base shape, suggesting a person standing on a platform or base"
+    },
+    {
+      "file": "icon-170.png",
+      "concept": "scanner-conveyor-tray",
+      "category": "object",
+      "aliases": [
+        "scanner"
+      ],
+      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: A thin green horizontal plate/tray with two small navy dots on its surface, held up by short navy legs at each end"
+    },
+    {
+      "file": "icon-171.png",
+      "concept": "stopwatch-timer",
+      "category": "object",
+      "aliases": [
+        "time"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-172.png",
+      "concept": "growth-sprout-leaf",
+      "category": "object",
+      "aliases": [
+        "increase",
+        "trend",
+        "rising",
+        "plant"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-173.png",
+      "concept": "trend-arrow-up",
+      "category": "data",
+      "aliases": [
+        "increase",
+        "growth",
+        "rising",
+        "trending-up"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-174.png",
+      "concept": "mountain-summit-flag",
+      "category": "status",
+      "aliases": [
+        "milestone",
+        "marker"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-175.png",
+      "concept": "lightning-bolt-energy",
+      "category": "action",
+      "aliases": [
+        "lightning"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-176.png",
+      "concept": "user-avatar-ringed-alt",
+      "category": "people",
+      "aliases": [
+        "profile",
+        "account",
+        "contact"
+      ],
+      "notes": "Visually indistinguishable from icon-140 (originally named user-profile-outline); qualifier denotes a repeated source asset."
+    },
+    {
+      "file": "icon-177.png",
+      "concept": "attachment-link-verified",
+      "category": "status",
+      "aliases": [
+        "confirmed",
+        "approved"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-178.png",
+      "concept": "pie-chart-data-segment",
+      "category": "data",
+      "aliases": [
+        "graph",
+        "analytics"
+      ],
+      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: A navy circle with one wedge-shaped slice cut out and filled green, and two small dots remaining in the navy portion, resembling a pie chart or a partially eaten cookie"
+    },
+    {
+      "file": "icon-179.png",
+      "concept": "rocket-launch-growth",
+      "category": "action",
+      "aliases": [
+        "startup",
+        "increase",
+        "trend",
+        "rising"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-180.png",
+      "concept": "award-medal-star",
+      "category": "status",
+      "aliases": [
+        "achievement",
+        "favorite",
+        "rating"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-181.png",
+      "concept": "ribbon-y-mark",
+      "category": "misc",
+      "aliases": [
+        "ribbon"
+      ],
+      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: abstract green faceted/folded ribbon shape forming a stylized letter Y or downward arrow, with small folded flap details at the outer edges"
+    },
+    {
+      "file": "icon-182.png",
+      "concept": "stacked-crescent-accent",
+      "category": "misc",
+      "aliases": [
+        "stacked"
+      ],
+      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: three green rounded crescent/bracket shapes stacked vertically in a wavy zigzag column, not connected to any outline"
+    },
+    {
+      "file": "icon-183.png",
+      "concept": "focus-scan-corners",
+      "category": "action",
+      "aliases": [
+        "focus"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-184.png",
+      "concept": "dollar-coin-secondary-alt",
+      "category": "data",
+      "aliases": [
+        "money",
+        "revenue",
+        "price",
+        "payment"
+      ],
+      "notes": "Visually indistinguishable from icon-163 (originally named dollar-coin-circle); both in this repeated-asset group."
+    },
+    {
+      "file": "icon-185.png",
+      "concept": "bar-chart-ascending",
+      "category": "data",
+      "aliases": [
+        "analytics",
+        "graph",
+        "data"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-186.png",
+      "concept": "compass-destination-flag",
+      "category": "navigation",
+      "aliases": [
+        "milestone",
+        "marker"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-187.png",
+      "concept": "apartment-building",
+      "category": "object",
+      "aliases": [
+        "office",
+        "facility"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-188.png",
+      "concept": "warehouse-package-storefront",
+      "category": "object",
+      "aliases": [
+        "shipping",
+        "delivery",
+        "shop",
+        "store"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-189.png",
+      "concept": "cart-restock-upload",
+      "category": "action",
+      "aliases": [
+        "basket",
+        "checkout"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-190.png",
+      "concept": "percentage-circle-ringed",
+      "category": "data",
+      "aliases": [
+        "percentage"
+      ],
+      "notes": "Same white-percent-on-green-circle composition as icon-106, framed by an additional navy outer ring."
+    },
+    {
+      "file": "icon-191.png",
+      "concept": "minus-remove-dash",
+      "category": "misc",
+      "aliases": [
+        "minus"
+      ],
+      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: single thick short green horizontal rounded bar floating alone with no other elements"
+    },
+    {
+      "file": "icon-192.png",
+      "concept": "polo-shirt-apparel",
+      "category": "object",
+      "aliases": [
+        "polo"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-193.png",
+      "concept": "performance-gauge-user",
+      "category": "data",
+      "aliases": [
+        "meter",
+        "profile",
+        "account",
+        "contact"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-194.png",
+      "concept": "podium-lectern-stand",
+      "category": "misc",
+      "aliases": [
+        "podium"
+      ],
+      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: small green shape resembling a wide dome or lampshade top on a short narrow stem, sitting above a thin horizontal base bar wider than the stem"
+    },
+    {
+      "file": "icon-195.png",
+      "concept": "megaphone-left-waves",
+      "category": "communication",
+      "aliases": [
+        "announcement",
+        "broadcast",
+        "marketing"
+      ],
+      "notes": "Left-facing like icon-151, with sound-wave lines in front of the bell."
+    },
+    {
+      "file": "icon-196.png",
+      "concept": "justice-scale-balance",
+      "category": "object",
+      "aliases": [
+        "justice"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-197.png",
+      "concept": "corporate-office-tower",
+      "category": "object",
+      "aliases": [
+        "corporate"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-198.png",
+      "concept": "document-edit-pencil",
+      "category": "action",
+      "aliases": [
+        "file",
+        "paper",
+        "modify",
+        "write"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-199.png",
+      "concept": "market-stall-umbrella",
+      "category": "object",
+      "aliases": [
+        "market"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-200.png",
+      "concept": "dollar-coin-tertiary",
+      "category": "data",
+      "aliases": [
+        "money",
+        "revenue",
+        "price",
+        "payment"
+      ],
+      "notes": "Visually indistinguishable from icon-085 (originally named dollar-coin-circle); qualifier denotes a repeated source asset."
+    },
+    {
+      "file": "icon-201.png",
+      "concept": "abstract-spark-fragment",
+      "category": "misc",
+      "aliases": [
+        "abstract"
+      ],
+      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: two disconnected small green shapes - a crescent arc in the upper left and a diagonal capsule with a small separate crescent below it - scattered with gaps and no connecting outline"
+    },
+    {
+      "file": "icon-202.png",
+      "concept": "vaccine-syringe-protection",
+      "category": "object",
+      "aliases": [
+        "vaccine"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-203.png",
+      "concept": "wings-spread-abstract",
+      "category": "misc",
+      "aliases": [
+        "wings"
+      ],
+      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: wide green shape made of two swept wing-like chevrons meeting at a shared center notch, resembling spread bird wings"
+    },
+    {
+      "file": "icon-204.png",
+      "concept": "stacked-dash-lines",
+      "category": "misc",
+      "aliases": [
+        "stacked"
+      ],
+      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: two green horizontal bars stacked with a gap, the top bar wider and thicker than the shorter bottom bar"
+    },
+    {
+      "file": "icon-205.png",
+      "concept": "savings-growth-arrow",
+      "category": "data",
+      "aliases": [
+        "increase",
+        "trend",
+        "rising"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-206.png",
+      "concept": "invoice-audit-verified",
+      "category": "data",
+      "aliases": [
+        "confirmed",
+        "approved"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-207.png",
+      "concept": "notification-bell-verified",
+      "category": "communication",
+      "aliases": [
+        "alert",
+        "confirmed",
+        "approved"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-208.png",
+      "concept": "time-tracking-display-stand",
+      "category": "data",
+      "aliases": [
+        "time"
+      ],
+      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: navy two-legged counter or stand with two short dash marks along its flat top edge, badged by a green circle containing a white crescent or pac-man-shaped cutout resembling a partial clock face"
+    },
+    {
+      "file": "icon-209.png",
+      "concept": "money-bag-growth",
+      "category": "data",
+      "aliases": [
+        "increase",
+        "trend",
+        "rising"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-210.png",
+      "concept": "storefront-scalloped-awning",
+      "category": "object",
+      "aliases": [
+        "shop",
+        "store",
+        "retail"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-211.png",
+      "concept": "atm-cash-dispense",
+      "category": "action",
+      "aliases": [
+        "atm"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-212.png",
+      "concept": "ecommerce-browser-window",
+      "category": "object",
+      "aliases": [
+        "ecommerce"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-213.png",
+      "concept": "verified-search-checkmark",
+      "category": "status",
+      "aliases": [
+        "confirmed",
+        "approved",
+        "find",
+        "lookup"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-214.png",
+      "concept": "secure-email-shield",
+      "category": "communication",
+      "aliases": [
+        "mail",
+        "message",
+        "security",
+        "protection"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-215.png",
+      "concept": "pause-bars-abstract",
+      "category": "misc",
+      "aliases": [
+        "pause"
+      ],
+      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: two separate green vertical bars with slightly angled tops, similar height, floating side by side with no other elements"
+    },
+    {
+      "file": "icon-216.png",
+      "concept": "employee-id-badge",
+      "category": "people",
+      "aliases": [
+        "award",
+        "certification"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-217.png",
+      "concept": "scattered-shape-accent",
+      "category": "misc",
+      "aliases": [
+        "scattered"
+      ],
+      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: A green triangular wedge at top-left, a solid green circle in the middle, and a smaller green curved wedge at the bottom - three disconnected abstract geometric fragments."
+    },
+    {
+      "file": "icon-218.png",
+      "concept": "focus-aperture-points",
+      "category": "action",
+      "aliases": [
+        "focus"
+      ],
+      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: Four small green rounded blob shapes positioned at top, bottom, left, and right like compass points, forming a broken square/frame with gaps between each piece."
+    },
+    {
+      "file": "icon-219.png",
+      "concept": "user-profile-bust",
+      "category": "people",
+      "aliases": [
+        "account",
+        "contact"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-220.png",
+      "concept": "syringe-injection",
+      "category": "object",
+      "aliases": [
+        "syringe"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-221.png",
+      "concept": "winners-podium-crown",
+      "category": "status",
+      "aliases": [
+        "premium",
+        "royalty"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-222.png",
+      "concept": "search-trend-growth",
+      "category": "data",
+      "aliases": [
+        "find",
+        "lookup",
+        "increase",
+        "rising"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-223.png",
+      "concept": "invoice-billing-document",
+      "category": "object",
+      "aliases": [
+        "file",
+        "paper"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-224.png",
+      "concept": "team-profile-group",
+      "category": "people",
+      "aliases": [
+        "people"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-225.png",
+      "concept": "direction-pointer-flag",
+      "category": "navigation",
+      "aliases": [
+        "milestone",
+        "marker"
+      ],
+      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: A solid green diamond/kite-shaped form with one pointed end, tilted at roughly 45 degrees, resembling a paper airplane or angled directional flag."
+    },
+    {
+      "file": "icon-226.png",
+      "concept": "location-pin-person",
+      "category": "navigation",
+      "aliases": [
+        "map",
+        "place",
+        "user",
+        "profile"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-227.png",
+      "concept": "user-card-select",
+      "category": "people",
+      "aliases": [
+        "profile",
+        "account",
+        "contact"
+      ],
+      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: A small green person icon beside a plain navy-outlined rounded square, suggesting a person paired with a selectable card or tile."
+    },
+    {
+      "file": "icon-228.png",
+      "concept": "target-dart-bullseye",
+      "category": "status",
+      "aliases": [
+        "goal",
+        "aim"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-229.png",
+      "concept": "diagonal-accent-bar",
+      "category": "misc",
+      "aliases": [
+        "diagonal"
+      ],
+      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: A single thick green diagonal rounded bar/slash shape with no other elements."
+    },
+    {
+      "file": "icon-230.png",
+      "concept": "bar-chart-growth-tile",
+      "category": "data",
+      "aliases": [
+        "analytics",
+        "graph",
+        "data",
+        "increase"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-231.png",
+      "concept": "megaphone-left-waves-alt",
+      "category": "communication",
+      "aliases": [
+        "announcement",
+        "broadcast",
+        "marketing"
+      ],
+      "notes": "Visually indistinguishable from icon-195; both left-facing with sound waves."
+    },
+    {
+      "file": "icon-232.png",
+      "concept": "featured-stack-burst",
+      "category": "object",
+      "aliases": [
+        "featured"
+      ],
+      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: A navy stack of three to four layered horizontal bars drawn at a slight perspective angle, with small ray/tick marks radiating from the left side like a burst or shine."
+    },
+    {
+      "file": "icon-233.png",
+      "concept": "bar-chart-dashboard-tile",
+      "category": "data",
+      "aliases": [
+        "analytics",
+        "graph",
+        "data"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-234.png",
+      "concept": "mobile-push-announcement",
+      "category": "communication",
+      "aliases": [
+        "mobile"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-235.png",
+      "concept": "team-chat-conversation",
+      "category": "communication",
+      "aliases": [
+        "group",
+        "people",
+        "message"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-236.png",
+      "concept": "growth-arrow-tile",
+      "category": "data",
+      "aliases": [
+        "increase",
+        "trend",
+        "rising"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-237.png",
+      "concept": "vertical-accent-bar",
+      "category": "misc",
+      "aliases": [
+        "vertical"
+      ],
+      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: A single thick green vertical rounded bar/pill shape with no other elements."
+    },
+    {
+      "file": "icon-238.png",
+      "concept": "decline-arrow-drop",
+      "category": "data",
+      "aliases": [
+        "decline"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-239.png",
+      "concept": "slider-toggle-control",
+      "category": "action",
+      "aliases": [
+        "slider"
+      ],
+      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: A horizontal bar made of two short navy dash segments flanking a green square in the middle, resembling a slider or equalizer control."
+    },
+    {
+      "file": "icon-240.png",
+      "concept": "pie-chart-growth",
+      "category": "data",
+      "aliases": [
+        "graph",
+        "analytics",
+        "increase",
+        "trend"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-241.png",
+      "concept": "corner-crop-bracket",
+      "category": "action",
+      "aliases": [
+        "corner"
+      ],
+      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: A simple green right-angle line forming a single corner bracket, like a crop mark or frame corner."
+    },
+    {
+      "file": "icon-242.png",
+      "concept": "chess-knight-strategy",
+      "category": "misc",
+      "aliases": [
+        "chess"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-243.png",
+      "concept": "shopping-bag-handle",
+      "category": "object",
+      "aliases": [
+        "ecommerce",
+        "retail",
+        "purchase"
+      ],
+      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: A green rounded square containing a simple navy curved handle/horseshoe shape, resembling the handle of a bag or tote."
+    },
+    {
+      "file": "icon-244.png",
+      "concept": "profitable-idea-lightbulb",
+      "category": "misc",
+      "aliases": [
+        "insight"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-245.png",
+      "concept": "user-media-panel",
+      "category": "people",
+      "aliases": [
+        "profile",
+        "account",
+        "contact"
+      ],
+      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: A small green person icon beside a wider navy-outlined rounded rectangle, suggesting a person paired with a media panel or screen."
+    },
+    {
+      "file": "icon-246.png",
+      "concept": "support-headset-verified",
+      "category": "communication",
+      "aliases": [
+        "customer-service",
+        "confirmed",
+        "approved"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-247.png",
+      "concept": "ascending-growth-chevrons",
+      "category": "data",
+      "aliases": [
+        "increase",
+        "trend",
+        "rising"
+      ],
+      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: Two solid green chevron/arrow shapes pointing upward, a smaller one at top-left and a larger one at bottom-right, stepping diagonally upward."
+    },
+    {
+      "file": "icon-248.png",
+      "concept": "check-circle-navy-mark-alt",
+      "category": "status",
+      "aliases": [
+        "success",
+        "complete",
+        "confirm",
+        "done"
+      ],
+      "notes": "Visually indistinguishable from icon-283 (originally named verified-checkmark-circle); both navy-checkmark variants."
+    },
+    {
+      "file": "icon-249.png",
+      "concept": "package-shipping-label",
+      "category": "object",
+      "aliases": [
+        "delivery"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-250.png",
+      "concept": "financial-protection-shield",
+      "category": "status",
+      "aliases": [
+        "security"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-251.png",
+      "concept": "user-avatar-circle-navy-mark",
+      "category": "people",
+      "aliases": [
+        "profile",
+        "account",
+        "contact"
+      ],
+      "notes": "Same composition as icon-074 but the silhouette is solid navy rather than a white cutout."
+    },
+    {
+      "file": "icon-252.png",
+      "concept": "performance-growth-circle",
+      "category": "data",
+      "aliases": [
+        "increase",
+        "trend",
+        "rising"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-253.png",
+      "concept": "search-verified",
+      "category": "action",
+      "aliases": [
+        "find",
+        "lookup",
+        "confirmed",
+        "approved"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-254.png",
+      "concept": "price-tag-dollar",
+      "category": "object",
+      "aliases": [
+        "money",
+        "revenue",
+        "payment"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-255.png",
+      "concept": "drag-handle",
+      "category": "misc",
+      "aliases": [
+        "drag"
+      ],
+      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: green flat-topped bracket shape with two rounded legs flaring outward at the base, no other elements present"
+    },
+    {
+      "file": "icon-256.png",
+      "concept": "umbrella-canopy",
+      "category": "object",
+      "aliases": [
+        "umbrella"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-257.png",
+      "concept": "monitor-megaphone-announcement",
+      "category": "communication",
+      "aliases": [
+        "broadcast",
+        "marketing"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-258.png",
+      "concept": "bar-chart-ascending-alt",
+      "category": "data",
+      "aliases": [
+        "analytics",
+        "graph",
+        "data"
+      ],
+      "notes": "Visually indistinguishable from icon-185; qualifier denotes a repeated source asset."
+    },
+    {
+      "file": "icon-259.png",
+      "concept": "analytics-dashboard-card",
+      "category": "data",
+      "aliases": [
+        "analytics"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-260.png",
+      "concept": "highlighter-marker",
+      "category": "object",
+      "aliases": [
+        "highlighter"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-261.png",
+      "concept": "sprout-growth-burst",
+      "category": "data",
+      "aliases": [
+        "plant",
+        "increase",
+        "trend",
+        "rising"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-262.png",
+      "concept": "gear-clock-automation",
+      "category": "action",
+      "aliases": [
+        "settings",
+        "configuration",
+        "time"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-263.png",
+      "concept": "storefront-shop-green-frame",
+      "category": "object",
+      "aliases": [
+        "store",
+        "retail"
+      ],
+      "notes": "Predominantly green with navy accent details \u2014 the inverse duotone balance from icon-125's mostly-navy rendering."
+    },
+    {
+      "file": "icon-264.png",
+      "concept": "chat-bubble-abstract",
+      "category": "communication",
+      "aliases": [
+        "message",
+        "conversation"
+      ],
+      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: abstract green blob with two white dots like eyes or an ellipsis and a curved swooping tail, resembling a speech bubble or duck-like silhouette"
+    },
+    {
+      "file": "icon-265.png",
+      "concept": "performance-gauge-dashboard",
+      "category": "data",
+      "aliases": [
+        "meter"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-266.png",
+      "concept": "dollar-coin-tertiary-alt",
+      "category": "data",
+      "aliases": [
+        "money",
+        "revenue",
+        "price",
+        "payment"
+      ],
+      "notes": "Visually indistinguishable from icon-200; both in this repeated-asset group."
+    },
+    {
+      "file": "icon-267.png",
+      "concept": "face-recognition-scan",
+      "category": "people",
+      "aliases": [
+        "face"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-268.png",
+      "concept": "verified-id-card",
+      "category": "status",
+      "aliases": [
+        "confirmed",
+        "approved"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-269.png",
+      "concept": "mountain-peaks-abstract",
+      "category": "misc",
+      "aliases": [
+        "mountain"
+      ],
+      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: three green triangular peak shapes of graduated height arranged side by side with white gaps, resembling a crown or mountain range"
+    },
+    {
+      "file": "icon-270.png",
+      "concept": "growth-trajectory-sprout",
+      "category": "data",
+      "aliases": [
+        "increase",
+        "trend",
+        "rising",
+        "plant"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-271.png",
+      "concept": "investment-growth-planter",
+      "category": "data",
+      "aliases": [
+        "increase",
+        "trend",
+        "rising"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-272.png",
+      "concept": "price-drop-arrows",
+      "category": "data",
+      "aliases": [
+        "price"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-273.png",
+      "concept": "trend-line-increase",
+      "category": "data",
+      "aliases": [
+        "trend"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-274.png",
+      "concept": "priority-flag-bars",
+      "category": "status",
+      "aliases": [
+        "milestone",
+        "marker"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-275.png",
+      "concept": "shopping-bag-retail",
+      "category": "object",
+      "aliases": [
+        "ecommerce",
+        "purchase"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-276.png",
+      "concept": "pencil-edit-write",
+      "category": "action",
+      "aliases": [
+        "modify"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-277.png",
+      "concept": "team-performance-growth",
+      "category": "people",
+      "aliases": [
+        "group",
+        "people",
+        "increase",
+        "trend"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-278.png",
+      "concept": "user-profile-browser-window",
+      "category": "people",
+      "aliases": [
+        "account",
+        "contact"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-279.png",
+      "concept": "horizontal-divider-bar",
+      "category": "misc",
+      "aliases": [
+        "horizontal"
+      ],
+      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: single flat green horizontal trapezoid bar with no other elements"
+    },
+    {
+      "file": "icon-280.png",
+      "concept": "investment-growth-payment",
+      "category": "data",
+      "aliases": [
+        "increase",
+        "trend",
+        "rising"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-281.png",
+      "concept": "growth-trend-card",
+      "category": "data",
+      "aliases": [
+        "increase",
+        "rising"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-282.png",
+      "concept": "arrow-up-circle-navy-mark",
+      "category": "status",
+      "aliases": [
+        "increase",
+        "growth",
+        "rising",
+        "trending-up"
+      ],
+      "notes": "Same composition as icon-007 but the arrow is navy instead of white."
+    },
+    {
+      "file": "icon-283.png",
+      "concept": "check-circle-navy-mark",
+      "category": "status",
+      "aliases": [
+        "success",
+        "complete",
+        "confirm",
+        "done"
+      ],
+      "notes": "Same composition as icon-001 but the checkmark is navy instead of white (originally named checkmark-circle)."
+    },
+    {
+      "file": "icon-284.png",
+      "concept": "payment-terminal-device",
+      "category": "object",
+      "aliases": [
+        "payment"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-285.png",
+      "concept": "bar-chart-growth-arrow-overlay",
+      "category": "data",
+      "aliases": [
+        "analytics",
+        "graph",
+        "data",
+        "increase"
+      ],
+      "notes": "The growth arrow curves above and over the bars rather than replacing one."
+    },
+    {
+      "file": "icon-286.png",
+      "concept": "goal-target-arrow",
+      "category": "data",
+      "aliases": [
+        "aim"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-287.png",
+      "concept": "corner-crop-marker",
+      "category": "misc",
+      "aliases": [
+        "corner"
+      ],
+      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: simple green L-shaped corner bracket line with a rounded joint, no other elements"
+    },
+    {
+      "file": "icon-288.png",
+      "concept": "folder-announcement-marketing",
+      "category": "communication",
+      "aliases": [
+        "folder"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-289.png",
+      "concept": "folder-analytics",
+      "category": "data",
+      "aliases": [
+        "folder"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-290.png",
+      "concept": "favorite-star",
+      "category": "status",
+      "aliases": [
+        "rating"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-291.png",
+      "concept": "growth-sprout",
+      "category": "object",
+      "aliases": [
+        "increase",
+        "trend",
+        "rising",
+        "plant"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-292.png",
+      "concept": "id-badge-gift",
+      "category": "people",
+      "aliases": [
+        "award",
+        "certification"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-293.png",
+      "concept": "bookmark-tags",
+      "category": "object",
+      "aliases": [
+        "bookmark"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-294.png",
+      "concept": "content-card-list",
+      "category": "data",
+      "aliases": [
+        "content"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-295.png",
+      "concept": "delivery-dolly",
+      "category": "object",
+      "aliases": [
+        "shipping",
+        "logistics"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-296.png",
+      "concept": "dollar-price-summary",
+      "category": "data",
+      "aliases": [
+        "money",
+        "revenue",
+        "payment"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-297.png",
+      "concept": "document-analytics",
+      "category": "data",
+      "aliases": [
+        "file",
+        "paper"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-298.png",
+      "concept": "chat-conversation",
+      "category": "communication",
+      "aliases": [
+        "message"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-299.png",
+      "concept": "storefront-awning",
+      "category": "object",
+      "aliases": [
+        "shop",
+        "store",
+        "retail"
+      ],
+      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: A green horizontal shape with a flat top edge and a scalloped four-bump wavy bottom edge, like an awning valance or bunting trim, with no other elements."
+    },
+    {
+      "file": "icon-300.png",
+      "concept": "premium-crown-badge",
+      "category": "status",
+      "aliases": [
+        "royalty",
+        "award",
+        "certification"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-301.png",
+      "concept": "graduation-growth",
+      "category": "misc",
+      "aliases": [
+        "increase",
+        "trend",
+        "rising"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-302.png",
+      "concept": "analytics-bar-chart",
+      "category": "data",
+      "aliases": [
+        "graph",
+        "data"
+      ],
+      "notes": null
+    },
+    {
+      "file": "icon-303.png",
+      "concept": "podium-stand",
+      "category": "object",
+      "aliases": [
+        "podium"
+      ],
+      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: A small green shape combining a flat wide horizontal bar with a narrower rounded-bottom rectangle hanging below it, positioned low in the cell, resembling a simplified podium or pedestal base."
+    },
+    {
+      "file": "icon-304.png",
+      "concept": "pencil-edit-solid",
+      "category": "action",
+      "aliases": [
+        "write",
+        "modify"
+      ],
+      "notes": "A standalone solid green pencil with a defined eraser end \u2014 distinct from icon-063's accented navy pencil."
+    }
+  ]
+}
