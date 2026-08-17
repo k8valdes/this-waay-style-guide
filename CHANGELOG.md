@@ -2,6 +2,67 @@
 
 This tracks version milestones for the unified `Branding/` home itself — not each brand's own internal changelog. See `product-design-studio/index.html` (footer living-document note) and `gridmark-partners/gridmark-design-system-v3.html` (Governance & versioning) for brand-level changelogs.
 
+## Unified v1.6.1 — 2026-08-17 — Spec correction: per-surface accent recorded; deck headers navy; Deck Gray reviewed (branch: spec-correction-accent-header, off atomic-deck)
+
+Two governed spec-text/status corrections surfaced by the Phase 2R atomic audit. Both make an
+existing, real difference **explicit and intentional** — production reality wins, the spec is
+corrected, and the old value is marked superseded with a dated note, not silently deleted. Applied on
+a short branch off `atomic-deck`; `verify-schema` **11/11**, `verify-phase3b` **6/6**, `validate.py` **4/4**.
+
+- **Per-surface accent recorded (decided 2026-08 by Kate).** Teal is the primary accent on the
+  deck/document surface; green (`fill.action`) is the primary accent on the web surface; in decks green
+  is reserved for divider-words, gantt bars, Category pills, and the closing word. Note added to
+  `color.fill.accent` (teal) with a cross-pointer on `color.fill.action` (green): the split is
+  deliberate — do **not** reconcile the two surfaces to a single brand-wide accent. Confirmed the
+  Phase 2R `slide.*` bindings match (teal atoms → `fill.accent`/`text.accent-alt`; reserved-green →
+  `fill.action`); no token implied a single brand-wide accent, so nothing needed superseding there.
+- **Deck headers corrected to navy; Deck Gray retired.** The real 2026 template renders headers and
+  body in navy (`text.body`), not the legacy "Deck Gray" `#595959`. There is **no `slideDeck` token
+  block** — the equivalent `slide.*` block already binds navy headers and its `$description` already
+  noted the supersession. `color.gray.700` (#595959) is referenced by **zero** production tokens, so
+  per the anti-`#8CA7B9` rule it is marked **`status: deprecated`** with a dated `correction2026_08`
+  note + `supersededBy`; the resolver now withholds it from every emitted artifact (production tokens
+  181 → 180; `--color-gray-700`/#595959 gone from `tokens.css`, `figma-variables.json`,
+  `tokens.flat.dtcg.json`). Registered in `validate.py` `LEDGER` (now 16 items) so it can't re-leak.
+  The value is retained in `tokens.json` only as a dated record; its sole remaining code reference is
+  the pre-atomic `scripts/build_deck.py`, itself superseded and guarded.
+- **Prose synced.** `STYLE.md` and the public `index.html` guide (deck swatch, spec tables, the deck
+  mock's rendered title, the go-forward checklist) updated wherever Deck Gray was named as the header
+  color → navy / "retired 2026-08". `references/slide-components.md` already said navy — unchanged.
+- **`meta.updated` → 2026-08-17**; the three build artifacts regenerated.
+
+## Unified v1.6 — 2026-08-16 — Phase 2R atomic deck system (branch: atomic-deck)
+
+Rebuilt the deck template atomically. The Phase 2/3b `.potx` was theme-correct but had six generic
+layouts; this replaces them with the reference template's real **composed, named story layouts**,
+built from a catalogued set of token-bound atoms → molecules → layouts (mirroring primitive →
+semantic → component). A generator now fills slots instead of painting slides. This Waay is the
+worked example; the structure is brand-agnostic. On the `atomic-deck` branch, validated, not merged.
+
+- **`slide.*` tier-3 tokens** (37; 33 production / 4 proposed) — every deck atom bound to a semantic
+  role, no literal. Reconciled from the real template: the deck's accent is **teal** (eyebrows,
+  subheads, timed-rows, numerals, Opportunity/Sub-Category pills → `fill.accent`/`text.accent-alt`);
+  **green (`fill.action`) is reserved** for divider-words, gantt bars, Category pills, and the closing
+  word — confirming a huge divider word is `fill.action`, not punch. `verify-schema.py` Check 9 widened
+  to govern `slide.*`; **11/11**.
+- **`references/slide-components.md`** — the atom/molecule/layout catalog with the token-binding column,
+  logo governance, and the Skill/client-workflow note ("atomic deck system — audit, catalog, bind,
+  compose"). The permanent capability artifact.
+- **Rebuilt `this-waay-deck.potx`** — 7 composed named layouts (Cover · Agenda · Stakeholders & agenda
+  · Project goals · Timeline · Section divider · Closing) over the intact Phase 3b theme. The
+  **agenda-block molecule is defined once and shared** by Agenda and Stakeholders & agenda (proven, not
+  copied). The atom builder enforces the ≥14pt projected-legibility floor structurally. Real logo
+  embedded (rasterised from the official SVG), correct variant per ground. Rendered — matches the
+  reference template.
+- **Assets** (`product-design-studio/assets/`): the logo rasterised to PNG (`logo/`), paper-plane
+  motif graphics (`motif/`), the **304-icon duotone library** extracted (`icons/` — the thrice-flagged
+  gap, now present; concept-naming is a bounded follow-up), and `ASSETS.md` so layouts reference named
+  assets, not raw media paths.
+- **`validate.py --deck`** — composition-aware checks on the rebuilt `.potx`: composition (only
+  catalogued atoms), token-bound (every colour resolves to a production token — no literal),
+  logo-present-and-correct-variant-per-ground, production-only. **4/4.** Plus the Phase 2 template
+  validator **4/4** (theme, off-token, font, deck-rules). No regression: `verify-phase3b` 6/6.
+
 ## Unified v1.5 — 2026-08-14 — Phase 3b resolver & build pipeline
 
 Built the tooling that *consumes* the v4.0 tiered spec: one resolver that flattens the tiers, five emitters that are pure functions of it, and a production-only validator — so every generated format reads one resolved source and cannot disagree. Merged together with Phase 3a (v4.0 goes live in the same step; no half-migrated window).

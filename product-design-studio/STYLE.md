@@ -48,7 +48,7 @@ Support charts, documents, and illustration. **They never lead.**
 | Slate | `#8DA3B5` | Muted labels, captions, borders, chart gridlines |
 | Coral | `#F2A08D` | **Illustration only** — the glowing path accent. Never UI, charts, or text |
 
-**Moved out:** `#595959` (Deck Gray) is **decks-only** and no longer part of the site palette — see [Slide decks](#slide-decks).
+**Retired:** `#595959` (Deck Gray) was decks-only and is now **deprecated** (spec correction 2026-08) — the real 2026 deck template renders headers and body in **navy**, not Deck Gray. It is absent from the site palette and no longer used on decks — see [Slide decks](#slide-decks).
 
 ### Surfaces
 | Mint | `#E8FEFB` | Soft gradient stop A (0%) *(v3 fix — was `#EEF8EC`)* |
@@ -378,13 +378,13 @@ Layered paper-cut illustration, low-poly geometric landscape at night, deep navy
 | | Marketing site | Decks |
 |---|---|---|
 | Grounds | navy · white · soft-gradient | **white or navy only** — gradients wash out projected |
-| Header color | navy | **Deck Gray `#595959`** — deck-only |
+| Header color | navy | **navy** — was Deck Gray `#595959`, retired 2026-08 |
 | Minimum text | 15px body | **~18px @ 1080p** — distance legibility |
 | Motion | scroll reveals, flight-path draw-on | **fade or cut only**, presenter-controlled |
 | Canvas | Bootstrap responsive, 1140px | **fixed 16:9** — not a breakpoint system |
 | Radius | 8px cards | n/a — slides aren't cards |
 
-**Deck color & type:** Deck Gray `#595959` (headers/body on white, deck-only) · Navy `#0C2A48` (title/divider/closing grounds) · Teal-Ink `#077373` (subheads, attribution) · Waay Green `#54B987` (category labels, chart series, presenter line). Axiforma throughout — SemiBold slide headers, Bold display titles, Regular body.
+**Deck color & type:** Navy `#0C2A48` (headers & body on white; also title/divider/closing grounds) · Teal-Ink `#077373` (subheads, attribution — the deck's leading accent) · Waay Green `#54B987` (category labels, chart series, presenter line — reserved). Deck Gray `#595959` is **retired** (2026-08 — deck headers are navy now). Axiforma throughout — SemiBold slide headers, Bold display titles, Regular body.
 
 Six templates cover most decks: **title/cover, section divider, content/bullet, quote, chart/data, closing.**
 

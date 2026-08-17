@@ -4,7 +4,7 @@ verify-phase3b.py — the Phase 3b pass/fail gate. Exits non-zero on any failure
 
   1. Resolver — every reference resolves, no cycles, on the live v4.0 file.
   2. Determinism — the full pipeline run twice is byte-identical.
-  3. Production-only — no deprecated/proposed token (the 15 ledger items) in any artifact.
+  3. Production-only — no deprecated/proposed token (the 16 ledger items) in any artifact.
   4. Round-trip — emit_dtcg output is valid 2025.10 and re-resolves to the same values.
   5. No-regression — deck 4/4, docx 3/3, validate.py clean.
   6. Guide — its :root asserts no value contradicting the resolved CSS.
@@ -58,11 +58,11 @@ def main():
     diff = [k for k in a if a[k] != b[k]]
     check("2. determinism: pipeline run twice is byte-identical", not diff, diff)
 
-    # 3. production-only — 15 ledger items absent from all artifacts
+    # 3. production-only — 16 ledger items absent from all artifacts
     arts = dict(a)
     hits = [f"{item} in {name}" for name, text in arts.items()
             for item in validate.LEDGER if item in text or validate.slug(item) in text]
-    check("3. production-only: 15 ledger items absent from all artifacts", not hits, hits)
+    check("3. production-only: 16 ledger items absent from all artifacts", not hits, hits)
 
     # 4. round-trip — emit_dtcg is valid 2025.10 and re-resolves to same values
     dtcg = emit_dtcg.emit(prod, r.version, r.ns)

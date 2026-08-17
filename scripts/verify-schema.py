@@ -202,7 +202,7 @@ def main():
     # 9. every component has a status; no component references a color primitive (except noted)
     v9 = []
     prim_color_re = re.compile(r"^color\.(?!surface\.|fill\.|text\.|border\.)")
-    for grp_name in ("button", "card", "badge"):
+    for grp_name in ("button", "card", "badge", "slide"):
         grp = doc.get(grp_name, {})
         for comp_name, comp in grp.items():
             if comp_name.startswith("$"):
