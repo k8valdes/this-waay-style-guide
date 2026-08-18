@@ -33,7 +33,7 @@ brand-agnostic — for another client only the token bindings and assets change.
 | **numbered-item** | numeral, title, sub-text | `slide.numeralFill` → `fill.accent` (teal) · `slide.numeralText` → `text.on-fill` | Teal circle numeral. |
 | **pill** | label | `slide.pillOpportunity`/`pillSubCategory` → `fill.accent` (teal) · `slide.pillCategory` → `fill.action` (green) · `slide.pillLabel` → `text.on-fill` · `slide.pillRadius` | Three states: Opportunity (teal), Sub-Category (teal), Category (green). |
 | **card** | icon-tile, title, body, pill | `slide.cardGround` → `surface.ground` (navy) · `slide.cardTitle` → `text.on-ground` · `slide.cardBody` → `overlay.on-dark-body` · `slide.cardRadius` | Variants: compact / expanded / alt-light (`slide.cardAlt*`, proposed) / user-flow. |
-| **icon-tile** | icon | icon asset (duotone library) | White/green icon in a card. |
+| **icon-tile** | icon | icon asset (duotone library, `assets/icons/icon-NNN.png`) | White/green icon in a card. Request by meaning, not number — `assets/icons/icon-manifest.json` maps a concept name (e.g. `settings-gear`) and its aliases to the file; see `references/icon-library.md` for the convention. |
 | **divider-word** | word | `slide.dividerWord` → `fill.action` (**green**) | Huge; the section break. |
 | **gantt-bar** | span | `slide.ganttBar` → `fill.action` (green) | |
 | **table-header-cell** | text | `slide.ganttHeaderFill` → `surface.ground` · `slide.ganttHeaderText` → `text.on-ground` | Gantt week header. |
