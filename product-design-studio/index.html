@@ -1017,6 +1017,46 @@
   .vmatrix-details[open] > summary::before { content: '▾ '; }
   .vmatrix-details[open] > summary { border-radius: var(--tw-radius-card) var(--tw-radius-card) 0 0; border-bottom: none; margin-bottom: 0; }
   .vmatrix-details[open] > summary + .vmatrix { border-top-left-radius: 0; border-top-right-radius: 0; }
+
+  /* Icon library — live preview (2026-08), reads assets/icons/icon-manifest.json (embedded below) */
+  .icon-browser-toolbar { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 16px; }
+  .icon-search-wrap { position: relative; flex: 1 1 260px; max-width: 360px; }
+  .icon-search-wrap svg { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); width: 16px; height: 16px; color: var(--tw-ink-muted); pointer-events: none; }
+  #icon-search {
+    width: 100%; font: inherit; font-size: var(--tw-text-md); padding: 10px 14px 10px 36px;
+    border: 1.5px solid #D4DEE6; border-radius: var(--tw-radius-pill); background: var(--tw-white); color: var(--tw-navy);
+  }
+  #icon-search:focus-visible { outline: 3px solid var(--tw-green-ink); outline-offset: 2px; }
+  .icon-cat-pills { display: flex; gap: 6px; flex-wrap: wrap; }
+  .icon-cat-pill {
+    font-family: var(--tw-font-display); font-size: var(--tw-text-sm); font-weight: var(--tw-weight-semibold);
+    color: var(--tw-ink-muted); background: var(--tw-white); border: 1.5px solid #D4DEE6; border-radius: var(--tw-radius-pill);
+    padding: 6px 14px; cursor: pointer;
+  }
+  .icon-cat-pill:hover { border-color: var(--tw-green); }
+  .icon-cat-pill:focus-visible { outline: 3px solid var(--tw-green-ink); outline-offset: 2px; }
+  .icon-cat-pill[aria-pressed="true"] { background: var(--tw-navy); border-color: var(--tw-navy); color: var(--tw-white); }
+  .icon-count { font-size: var(--tw-text-md); color: var(--tw-ink-muted); margin-bottom: 14px; }
+  .icon-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(108px, 1fr)); gap: 10px; }
+  .icon-tile {
+    position: relative; display: flex; flex-direction: column; align-items: center; gap: 8px;
+    background: var(--tw-white); border: 1px solid #E4EDF2; border-radius: var(--tw-radius-card); padding: 14px 8px 10px;
+    font: inherit; cursor: pointer; text-align: center;
+  }
+  .icon-tile:hover { transform: translateY(-2px); border-color: var(--tw-green); }
+  .icon-tile:focus-visible { outline: 3px solid var(--tw-green-ink); outline-offset: 2px; }
+  @media (prefers-reduced-motion: reduce) { .icon-tile:hover { transform: none; } }
+  .icon-tile img { width: 40px; height: 40px; object-fit: contain; }
+  .icon-tile .icon-concept { font-size: var(--tw-text-xs); color: var(--tw-navy); line-height: 1.25; word-break: break-word; }
+  .icon-tile[hidden] { display: none; }
+  .icon-tile .copied-tag {
+    position: absolute; top: 6px; right: 6px; background: rgba(12,42,72,0.85); color: var(--tw-white);
+    font-size: var(--tw-text-xs); font-family: var(--tw-font-display); font-weight: var(--tw-weight-semibold);
+    padding: 2px 8px; border-radius: var(--tw-radius-pill); opacity: 0; transition: opacity 0.2s;
+  }
+  .icon-tile.copied .copied-tag { opacity: 1; }
+  @media (prefers-reduced-motion: reduce) { .icon-tile .copied-tag { transition: none; } }
+  .icon-empty-state { grid-column: 1 / -1; text-align: center; color: var(--tw-ink-muted); font-size: var(--tw-text-lg); padding: 40px 0; }
 </style>
 </head>
 <body>
@@ -1702,6 +1742,19 @@
           <svg viewBox="0 0 48 48" width="46" aria-hidden="true"><path d="M10 38 V22 M24 38 V12 M38 38 V28" stroke="#0C2A48" stroke-width="3.8" stroke-linecap="round"/><circle cx="24" cy="12" r="5" fill="#54B987"/></svg>
         </div>
         <p style="font-size:var(--tw-text-md); color:#5C7185; margin-top:12px">Bold navy outlines (≈3.5px at 48px grid) with a single flat green fill element. On navy backgrounds, outlines invert to white; green fills stay green.</p>
+      </div>
+      <div class="comp-block" style="grid-column: 1 / -1">
+        <h4>Icon library — live preview</h4>
+        <p style="font-size:var(--tw-text-md); color:#5C7185; margin-top:-4px; margin-bottom:16px; max-width:74ch">The real production library, extracted from the deck — 304 icons, each with a concept name so a generator can request "the settings icon" by meaning, not a number nobody's memorized. Search below, or click a tile to copy its concept name. Full convention, categories, and the collision log: <code>references/icon-library.md</code>.</p>
+        <div class="icon-browser-toolbar">
+          <div class="icon-search-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+            <input type="search" id="icon-search" placeholder="Search by name — “settings”, “growth”, “dollar”…" aria-label="Search the icon library by name">
+          </div>
+          <div class="icon-cat-pills" id="icon-cat-pills" role="group" aria-label="Filter by category"></div>
+        </div>
+        <p class="icon-count" id="icon-count" aria-live="polite"></p>
+        <div class="icon-grid" id="icon-grid"></div>
       </div>
       <div class="comp-block">
         <h4>Angled section breaks</h4>
@@ -2968,6 +3021,96 @@
     modalClose.addEventListener('click', function () { modal.close(); });
     modal.addEventListener('close', function () { modalTrigger.focus(); });
   }
+</script>
+
+<script>
+  // Icon library browser — reads the manifest embedded below (not fetched, so this works
+  // identically over file://, a local server, or GitHub Pages). Each row is
+  // [file, concept, category, aliases]; see assets/icons/icon-manifest.json for the full
+  // per-icon record (notes, etc.) and references/icon-library.md for the convention.
+  // This is a SNAPSHOT, not fetched live — if icon-manifest.json ever changes, re-run
+  // `python3 scripts/sync-icon-browser-data.py` to regenerate the array below, or the two
+  // will silently drift (the same staleness class the guide's own :root once had).
+  var ICON_DATA = [["icon-001.png","check-circle","status",["success","complete","confirm","done"]],["icon-002.png","shopping-cart","object",["ecommerce","retail","purchase","basket"]],["icon-003.png","search-trend-analysis","data",["find","lookup"]],["icon-004.png","analytics-card-mini","data",["analytics"]],["icon-005.png","wallet","object",["payment","finance"]],["icon-006.png","diagonal-accent-marks","misc",["diagonal"]],["icon-007.png","arrow-up-circle","status",["increase","growth","rising","trending-up"]],["icon-008.png","business-growth-sprout","data",["increase","trend","rising","plant"]],["icon-009.png","milestone-flag","status",["marker"]],["icon-010.png","megaphone-announcement-boost","communication",["broadcast","marketing"]],["icon-011.png","map-location-pin","navigation",["place"]],["icon-012.png","arrow-up-circle-alt","status",["increase","growth","rising","trending-up"]],["icon-013.png","dashboard-analytics","data",["dashboard"]],["icon-014.png","quotation-marks","communication",["quotation"]],["icon-015.png","crown-premium","status",["royalty"]],["icon-016.png","document-edit-notepad","action",["file","paper","pencil","modify"]],["icon-017.png","presentation-growth","data",["increase","trend","rising"]],["icon-018.png","clipboard-data-report","data",["clipboard"]],["icon-019.png","arrow-up","status",["increase","growth","rising","trending-up"]],["icon-020.png","briefcase-analytics","data",["business","work"]],["icon-021.png","premium-award-badge","status",["medal","achievement","certification"]],["icon-022.png","message-bubble-dots","communication",["message"]],["icon-023.png","dial-alert-rotation","action",["dial"]],["icon-024.png","money-growth-plant","data",["increase","trend","rising","sprout"]],["icon-025.png","growth-feedback-chat","communication",["increase","trend","rising","message"]],["icon-026.png","website-marketing-announcement","communication",["website"]],["icon-027.png","network-data-hub","data",["connection"]],["icon-028.png","credit-card-stack","object",["credit"]],["icon-029.png","user-profile-basic","people",["account","contact"]],["icon-030.png","profile-view-eye","people",["profile"]],["icon-031.png","analytics-card-mini-alt","data",["analytics"]],["icon-032.png","email-alert-fast","communication",["mail","message"]],["icon-033.png","user-simple","people",["profile","account","contact"]],["icon-034.png","check-circle-alt","status",["success","complete","confirm","done"]],["icon-035.png","message-corner-dots","communication",["message"]],["icon-036.png","email-stack-multiple","communication",["mail","message"]],["icon-037.png","check-circle-secondary","status",["success","complete","confirm","done"]],["icon-038.png","growth-chart-arrow","data",["increase","trend","rising","graph"]],["icon-039.png","home-value-down","data",["home"]],["icon-040.png","cash-bill","object",["cash"]],["icon-041.png","chat-bubble-dots","communication",["message","conversation"]],["icon-042.png","location-pin","navigation",["map","place"]],["icon-043.png","flask-growth-arrow","data",["increase","trend","rising"]],["icon-044.png","network-nodes-hub","data",["connection"]],["icon-045.png","arrow-up-circle-bold","status",["increase","growth","rising","trending-up"]],["icon-046.png","server-network-connection","data",["hub"]],["icon-047.png","bank-dollar-coin","object",["money","revenue","price","payment"]],["icon-048.png","clock-time","status",["clock"]],["icon-049.png","team-hierarchy-chart","people",["group","people","graph","analytics"]],["icon-050.png","home-value-up","data",["home"]],["icon-051.png","gauge-meter-check","status",["performance","success","complete","confirm"]],["icon-052.png","unboxing-new-home","action",["unboxing"]],["icon-053.png","funnel-shape","object",["conversion","pipeline"]],["icon-054.png","mind-lightning-idea","people",["lightbulb","insight"]],["icon-055.png","rocket-launch","action",["startup"]],["icon-056.png","coin-stack-dollar","object",["currency","cash","money","revenue"]],["icon-057.png","check-circle-secondary-alt","status",["success","complete","confirm","done"]],["icon-058.png","document-stack","object",["file","paper"]],["icon-059.png","user-avatar-circle-secondary","people",["profile","account","contact"]],["icon-060.png","highlight-edit-mark","action",["pencil","modify"]],["icon-061.png","decline-chart-arrow","data",["graph","analytics"]],["icon-062.png","location-price-pin","data",["map","place"]],["icon-063.png","pencil-edit-accented","action",["write","modify"]],["icon-064.png","email-megaphone-announcement","communication",["mail","message","broadcast","marketing"]],["icon-065.png","megaphone-right","communication",["announcement","broadcast","marketing"]],["icon-066.png","headphones-support-check","communication",["audio","success","complete","confirm"]],["icon-067.png","shield-check","status",["security","protection","success","complete"]],["icon-068.png","server-device-sync","data",["server"]],["icon-069.png","shopping-bag-analytics","data",["ecommerce","retail","purchase"]],["icon-070.png","website-profile-video","communication",["website"]],["icon-071.png","shopping-cart-solid","object",["ecommerce","retail","purchase","basket"]],["icon-072.png","battery-level-indicator","status",["battery"]],["icon-073.png","user-profile-details","people",["account","contact"]],["icon-074.png","user-avatar-circle","people",["profile","account","contact"]],["icon-075.png","corner-bracket-expand","action",["corner"]],["icon-076.png","checkmark-confirm","status",["success","confirmed","verified"]],["icon-077.png","shopping-bag","object",["ecommerce","retail","purchase"]],["icon-078.png","document-stack-list","object",["file","paper"]],["icon-079.png","delivery-truck-shipment","object",["shipping","logistics"]],["icon-080.png","speaker-volume","communication",["speaker"]],["icon-081.png","shield-check-alt","status",["security","protection","success","complete"]],["icon-082.png","milestone-marker","status",["milestone"]],["icon-083.png","profile-display-stand","people",["profile"]],["icon-084.png","guest-user-placeholder","people",["profile","account","contact"]],["icon-085.png","dollar-coin","data",["money","revenue","price","payment"]],["icon-086.png","chat-message-bubble","communication",["conversation"]],["icon-087.png","career-growth-arrows","people",["increase","trend","rising"]],["icon-088.png","bar-chart-growth-arrow-embedded","data",["analytics","graph","data","increase"]],["icon-089.png","team-growth-presentation","data",["group","people","increase","trend"]],["icon-090.png","network-node-structure","data",["connection","hub"]],["icon-091.png","arrow-up-circle-secondary","status",["increase","growth","rising","trending-up"]],["icon-092.png","government-bank-building","object",["office","facility"]],["icon-093.png","insight-growth-eye","data",["increase","trend","rising"]],["icon-094.png","search-verified-checklist","action",["find","lookup","confirmed","approved"]],["icon-095.png","notification-bell-upgrade","communication",["alert"]],["icon-096.png","referral-network","people",["connection","hub"]],["icon-097.png","document-announcement","communication",["file","paper"]],["icon-098.png","user-avatar-circle-alt","people",["profile","account","contact"]],["icon-099.png","milestone-flag-marker","status",["milestone"]],["icon-100.png","financial-growth-sprout","data",["increase","trend","rising","plant"]],["icon-101.png","presentation-bar-chart","data",["analytics","graph","data"]],["icon-102.png","plant-sprout","object",["growth"]],["icon-103.png","audience-targeting","people",["audience"]],["icon-104.png","megaphone-right-handle-bottom","communication",["announcement","broadcast","marketing"]],["icon-105.png","team-pair","people",["group","people"]],["icon-106.png","percentage-circle","data",["percentage"]],["icon-107.png","cloud-revenue","data",["cloud"]],["icon-108.png","dollar-coin-alt","data",["money","revenue","price","payment"]],["icon-109.png","checkout-counter-customer","people",["checkout"]],["icon-110.png","document-edit-page","action",["file","paper","pencil","modify"]],["icon-111.png","blazer-jacket-attire","object",["blazer"]],["icon-112.png","email-analytics-report","communication",["mail","message"]],["icon-113.png","user-performance-dashboard","data",["profile","account","contact"]],["icon-114.png","night-mode-moon","status",["night"]],["icon-115.png","flag-location-marker","navigation",["milestone","map","pin","place"]],["icon-116.png","megaphone-bullhorn","communication",["announcement","broadcast","marketing"]],["icon-117.png","map-locate-target","navigation",["goal","aim"]],["icon-118.png","shopping-cart-outline","object",["ecommerce","retail","purchase","basket"]],["icon-119.png","arrow-up-circle-thin","status",["increase","growth","rising","trending-up"]],["icon-120.png","calendar-growth-chart","data",["increase","trend","rising","graph"]],["icon-121.png","support-headset","communication",["customer-service"]],["icon-122.png","home-priority-arrow","navigation",["home"]],["icon-123.png","megaphone-right-alt","communication",["announcement","broadcast","marketing"]],["icon-124.png","highlighter-marker-pen","object",["highlighter"]],["icon-125.png","storefront-shop","object",["store","retail"]],["icon-126.png","chart-axis-corner","data",["graph","analytics"]],["icon-127.png","message-tag-notification","communication",["bell","alert"]],["icon-128.png","phone-call-message","communication",["phone"]],["icon-129.png","quotation-marks-testimonial","communication",["quotation"]],["icon-130.png","premium-crown","object",["royalty"]],["icon-131.png","user-profile-list-item","people",["account","contact"]],["icon-132.png","id-card-edit","people",["pencil","modify"]],["icon-133.png","shield-verified-growth","status",["security","protection","confirmed","approved"]],["icon-134.png","lightbulb-idea-checkmark","misc",["insight","success","confirmed","verified"]],["icon-135.png","arrow-up-circle-small","status",["increase","growth","rising","trending-up"]],["icon-136.png","lightbulb-idea-growth","misc",["insight","increase","trend","rising"]],["icon-137.png","product-launch-box","data",["product"]],["icon-138.png","megaphone-verified","communication",["announcement","broadcast","marketing","confirmed"]],["icon-139.png","milestone-hill-marker","misc",["milestone"]],["icon-140.png","user-avatar-ringed","people",["profile","account","contact"]],["icon-141.png","growth-trend-arrow","data",["increase","rising"]],["icon-142.png","mobile-shopping-bag","object",["ecommerce","retail","purchase"]],["icon-143.png","shopping-basket","object",["ecommerce","retail","purchase"]],["icon-144.png","control-bar-dots","misc",["control"]],["icon-145.png","briefcase-verified","status",["business","work","confirmed","approved"]],["icon-146.png","phone-contact-call","communication",["phone"]],["icon-147.png","government-building","object",["office","facility"]],["icon-148.png","user-avatar-filled","people",["profile","account","contact"]],["icon-149.png","cash-register-terminal","object",["cash"]],["icon-150.png","person-single","people",["user","profile","contact"]],["icon-151.png","megaphone-left","communication",["announcement","broadcast","marketing"]],["icon-152.png","podium-stage-platform","object",["podium"]],["icon-153.png","hands-holding-plant","action",["growth","sprout"]],["icon-154.png","analytics-bar-chart-card","data",["graph","data"]],["icon-155.png","dollar-trend-indicator","data",["money","revenue","price","payment"]],["icon-156.png","people-network-connection","people",["hub"]],["icon-157.png","video-conference-screen","communication",["video"]],["icon-158.png","money-growth-investment","data",["increase","trend","rising"]],["icon-159.png","cash-drawer-box","object",["cash"]],["icon-160.png","people-pair-team","people",["group"]],["icon-161.png","career-growth-path","status",["increase","trend","rising"]],["icon-162.png","arrow-up-circle-navy-mark-alt","status",["increase","growth","rising","trending-up"]],["icon-163.png","dollar-coin-secondary","misc",["money","revenue","price","payment"]],["icon-164.png","podcast-microphone","object",["podcast"]],["icon-165.png","conversion-funnel-person","data",["pipeline","user","profile","contact"]],["icon-166.png","invoice-receipt-document","object",["file","paper"]],["icon-167.png","chart-presentation-board","data",["graph","analytics"]],["icon-168.png","conversion-funnel-person-alt","data",["pipeline","user","profile","contact"]],["icon-169.png","user-base-platform","people",["profile","account","contact"]],["icon-170.png","scanner-conveyor-tray","object",["scanner"]],["icon-171.png","stopwatch-timer","object",["time"]],["icon-172.png","growth-sprout-leaf","object",["increase","trend","rising","plant"]],["icon-173.png","trend-arrow-up","data",["increase","growth","rising","trending-up"]],["icon-174.png","mountain-summit-flag","status",["milestone","marker"]],["icon-175.png","lightning-bolt-energy","action",["lightning"]],["icon-176.png","user-avatar-ringed-alt","people",["profile","account","contact"]],["icon-177.png","attachment-link-verified","status",["confirmed","approved"]],["icon-178.png","pie-chart-data-segment","data",["graph","analytics"]],["icon-179.png","rocket-launch-growth","action",["startup","increase","trend","rising"]],["icon-180.png","award-medal-star","status",["achievement","favorite","rating"]],["icon-181.png","ribbon-y-mark","misc",["ribbon"]],["icon-182.png","stacked-crescent-accent","misc",["stacked"]],["icon-183.png","focus-scan-corners","action",["focus"]],["icon-184.png","dollar-coin-secondary-alt","data",["money","revenue","price","payment"]],["icon-185.png","bar-chart-ascending","data",["analytics","graph","data"]],["icon-186.png","compass-destination-flag","navigation",["milestone","marker"]],["icon-187.png","apartment-building","object",["office","facility"]],["icon-188.png","warehouse-package-storefront","object",["shipping","delivery","shop","store"]],["icon-189.png","cart-restock-upload","action",["basket","checkout"]],["icon-190.png","percentage-circle-ringed","data",["percentage"]],["icon-191.png","minus-remove-dash","misc",["minus"]],["icon-192.png","polo-shirt-apparel","object",["polo"]],["icon-193.png","performance-gauge-user","data",["meter","profile","account","contact"]],["icon-194.png","podium-lectern-stand","misc",["podium"]],["icon-195.png","megaphone-left-waves","communication",["announcement","broadcast","marketing"]],["icon-196.png","justice-scale-balance","object",["justice"]],["icon-197.png","corporate-office-tower","object",["corporate"]],["icon-198.png","document-edit-pencil","action",["file","paper","modify","write"]],["icon-199.png","market-stall-umbrella","object",["market"]],["icon-200.png","dollar-coin-tertiary","data",["money","revenue","price","payment"]],["icon-201.png","abstract-spark-fragment","misc",["abstract"]],["icon-202.png","vaccine-syringe-protection","object",["vaccine"]],["icon-203.png","wings-spread-abstract","misc",["wings"]],["icon-204.png","stacked-dash-lines","misc",["stacked"]],["icon-205.png","savings-growth-arrow","data",["increase","trend","rising"]],["icon-206.png","invoice-audit-verified","data",["confirmed","approved"]],["icon-207.png","notification-bell-verified","communication",["alert","confirmed","approved"]],["icon-208.png","time-tracking-display-stand","data",["time"]],["icon-209.png","money-bag-growth","data",["increase","trend","rising"]],["icon-210.png","storefront-scalloped-awning","object",["shop","store","retail"]],["icon-211.png","atm-cash-dispense","action",["atm"]],["icon-212.png","ecommerce-browser-window","object",["ecommerce"]],["icon-213.png","verified-search-checkmark","status",["confirmed","approved","find","lookup"]],["icon-214.png","secure-email-shield","communication",["mail","message","security","protection"]],["icon-215.png","pause-bars-abstract","misc",["pause"]],["icon-216.png","employee-id-badge","people",["award","certification"]],["icon-217.png","scattered-shape-accent","misc",["scattered"]],["icon-218.png","focus-aperture-points","action",["focus"]],["icon-219.png","user-profile-bust","people",["account","contact"]],["icon-220.png","syringe-injection","object",["syringe"]],["icon-221.png","winners-podium-crown","status",["premium","royalty"]],["icon-222.png","search-trend-growth","data",["find","lookup","increase","rising"]],["icon-223.png","invoice-billing-document","object",["file","paper"]],["icon-224.png","team-profile-group","people",["people"]],["icon-225.png","direction-pointer-flag","navigation",["milestone","marker"]],["icon-226.png","location-pin-person","navigation",["map","place","user","profile"]],["icon-227.png","user-card-select","people",["profile","account","contact"]],["icon-228.png","target-dart-bullseye","status",["goal","aim"]],["icon-229.png","diagonal-accent-bar","misc",["diagonal"]],["icon-230.png","bar-chart-growth-tile","data",["analytics","graph","data","increase"]],["icon-231.png","megaphone-left-waves-alt","communication",["announcement","broadcast","marketing"]],["icon-232.png","featured-stack-burst","object",["featured"]],["icon-233.png","bar-chart-dashboard-tile","data",["analytics","graph","data"]],["icon-234.png","mobile-push-announcement","communication",["mobile"]],["icon-235.png","team-chat-conversation","communication",["group","people","message"]],["icon-236.png","growth-arrow-tile","data",["increase","trend","rising"]],["icon-237.png","vertical-accent-bar","misc",["vertical"]],["icon-238.png","decline-arrow-drop","data",["decline"]],["icon-239.png","slider-toggle-control","action",["slider"]],["icon-240.png","pie-chart-growth","data",["graph","analytics","increase","trend"]],["icon-241.png","corner-crop-bracket","action",["corner"]],["icon-242.png","chess-knight-strategy","misc",["chess"]],["icon-243.png","shopping-bag-handle","object",["ecommerce","retail","purchase"]],["icon-244.png","profitable-idea-lightbulb","misc",["insight"]],["icon-245.png","user-media-panel","people",["profile","account","contact"]],["icon-246.png","support-headset-verified","communication",["customer-service","confirmed","approved"]],["icon-247.png","ascending-growth-chevrons","data",["increase","trend","rising"]],["icon-248.png","check-circle-navy-mark-alt","status",["success","complete","confirm","done"]],["icon-249.png","package-shipping-label","object",["delivery"]],["icon-250.png","financial-protection-shield","status",["security"]],["icon-251.png","user-avatar-circle-navy-mark","people",["profile","account","contact"]],["icon-252.png","performance-growth-circle","data",["increase","trend","rising"]],["icon-253.png","search-verified","action",["find","lookup","confirmed","approved"]],["icon-254.png","price-tag-dollar","object",["money","revenue","payment"]],["icon-255.png","drag-handle","misc",["drag"]],["icon-256.png","umbrella-canopy","object",["umbrella"]],["icon-257.png","monitor-megaphone-announcement","communication",["broadcast","marketing"]],["icon-258.png","bar-chart-ascending-alt","data",["analytics","graph","data"]],["icon-259.png","analytics-dashboard-card","data",["analytics"]],["icon-260.png","highlighter-marker","object",["highlighter"]],["icon-261.png","sprout-growth-burst","data",["plant","increase","trend","rising"]],["icon-262.png","gear-clock-automation","action",["settings","configuration","time"]],["icon-263.png","storefront-shop-green-frame","object",["store","retail"]],["icon-264.png","chat-bubble-abstract","communication",["message","conversation"]],["icon-265.png","performance-gauge-dashboard","data",["meter"]],["icon-266.png","dollar-coin-tertiary-alt","data",["money","revenue","price","payment"]],["icon-267.png","face-recognition-scan","people",["face"]],["icon-268.png","verified-id-card","status",["confirmed","approved"]],["icon-269.png","mountain-peaks-abstract","misc",["mountain"]],["icon-270.png","growth-trajectory-sprout","data",["increase","trend","rising","plant"]],["icon-271.png","investment-growth-planter","data",["increase","trend","rising"]],["icon-272.png","price-drop-arrows","data",["price"]],["icon-273.png","trend-line-increase","data",["trend"]],["icon-274.png","priority-flag-bars","status",["milestone","marker"]],["icon-275.png","shopping-bag-retail","object",["ecommerce","purchase"]],["icon-276.png","pencil-edit-write","action",["modify"]],["icon-277.png","team-performance-growth","people",["group","people","increase","trend"]],["icon-278.png","user-profile-browser-window","people",["account","contact"]],["icon-279.png","horizontal-divider-bar","misc",["horizontal"]],["icon-280.png","investment-growth-payment","data",["increase","trend","rising"]],["icon-281.png","growth-trend-card","data",["increase","rising"]],["icon-282.png","arrow-up-circle-navy-mark","status",["increase","growth","rising","trending-up"]],["icon-283.png","check-circle-navy-mark","status",["success","complete","confirm","done"]],["icon-284.png","payment-terminal-device","object",["payment"]],["icon-285.png","bar-chart-growth-arrow-overlay","data",["analytics","graph","data","increase"]],["icon-286.png","goal-target-arrow","data",["aim"]],["icon-287.png","corner-crop-marker","misc",["corner"]],["icon-288.png","folder-announcement-marketing","communication",["folder"]],["icon-289.png","folder-analytics","data",["folder"]],["icon-290.png","favorite-star","status",["rating"]],["icon-291.png","growth-sprout","object",["increase","trend","rising","plant"]],["icon-292.png","id-badge-gift","people",["award","certification"]],["icon-293.png","bookmark-tags","object",["bookmark"]],["icon-294.png","content-card-list","data",["content"]],["icon-295.png","delivery-dolly","object",["shipping","logistics"]],["icon-296.png","dollar-price-summary","data",["money","revenue","payment"]],["icon-297.png","document-analytics","data",["file","paper"]],["icon-298.png","chat-conversation","communication",["message"]],["icon-299.png","storefront-awning","object",["shop","store","retail"]],["icon-300.png","premium-crown-badge","status",["royalty","award","certification"]],["icon-301.png","graduation-growth","misc",["increase","trend","rising"]],["icon-302.png","analytics-bar-chart","data",["graph","data"]],["icon-303.png","podium-stand","object",["podium"]],["icon-304.png","pencil-edit-solid","action",["write","modify"]]];
+  var CATEGORY_LABELS = {"action": "Action", "communication": "Communication", "data": "Data", "misc": "Misc", "navigation": "Navigation", "object": "Object", "people": "People", "status": "Status"};
+
+  (function () {
+    var grid = document.getElementById('icon-grid');
+    var countEl = document.getElementById('icon-count');
+    var searchEl = document.getElementById('icon-search');
+    var pillsEl = document.getElementById('icon-cat-pills');
+    if (!grid || !searchEl || !pillsEl) return;
+
+    var activeCategory = 'all';
+
+    // build category pills — "All" plus one per category actually present in the data
+    var categoriesPresent = [];
+    ICON_DATA.forEach(function (row) { if (categoriesPresent.indexOf(row[2]) === -1) categoriesPresent.push(row[2]); });
+    categoriesPresent.sort();
+    function makePill(cat, label) {
+      var btn = document.createElement('button');
+      btn.type = 'button'; btn.className = 'icon-cat-pill'; btn.textContent = label;
+      btn.setAttribute('aria-pressed', cat === 'all' ? 'true' : 'false');
+      btn.addEventListener('click', function () {
+        activeCategory = cat;
+        pillsEl.querySelectorAll('.icon-cat-pill').forEach(function (p) { p.setAttribute('aria-pressed', p === btn ? 'true' : 'false'); });
+        applyFilter();
+      });
+      return btn;
+    }
+    pillsEl.appendChild(makePill('all', 'All'));
+    categoriesPresent.forEach(function (cat) { pillsEl.appendChild(makePill(cat, CATEGORY_LABELS[cat] || cat)); });
+
+    // build tiles once
+    var tiles = ICON_DATA.map(function (row) {
+      var file = row[0], concept = row[1], category = row[2], aliases = row[3];
+      var btn = document.createElement('button');
+      btn.type = 'button'; btn.className = 'icon-tile';
+      btn.dataset.concept = concept; btn.dataset.category = category; btn.dataset.aliases = aliases.join(' ');
+      btn.dataset.file = file;
+      btn.title = concept + ' — ' + (CATEGORY_LABELS[category] || category) + (aliases.length ? ' (' + aliases.join(', ') + ')' : '');
+      var img = document.createElement('img');
+      img.src = 'assets/icons/' + file; img.alt = ''; img.loading = 'lazy'; img.width = 40; img.height = 40;
+      var label = document.createElement('span');
+      label.className = 'icon-concept'; label.textContent = concept;
+      var tag = document.createElement('span');
+      tag.className = 'copied-tag'; tag.textContent = 'Copied';
+      btn.appendChild(img); btn.appendChild(label); btn.appendChild(tag);
+      btn.addEventListener('click', function () {
+        navigator.clipboard.writeText(concept).then(function () {
+          btn.classList.add('copied');
+          if (copyStatus) copyStatus.textContent = 'Copied ' + concept + ' to clipboard';
+          setTimeout(function () { btn.classList.remove('copied'); }, 1200);
+        });
+      });
+      grid.appendChild(btn);
+      return { el: btn, concept: concept, category: category, aliases: aliases, file: file };
+    });
+
+    var emptyState = document.createElement('div');
+    emptyState.className = 'icon-empty-state'; emptyState.hidden = true;
+    emptyState.textContent = 'No icons match that search.';
+    grid.appendChild(emptyState);
+
+    function applyFilter() {
+      var term = searchEl.value.trim().toLowerCase();
+      var shown = 0;
+      tiles.forEach(function (t) {
+        var categoryOk = activeCategory === 'all' || t.category === activeCategory;
+        var termOk = !term || t.concept.indexOf(term) !== -1 || t.file.indexOf(term) !== -1 ||
+          t.aliases.some(function (a) { return a.indexOf(term) !== -1; });
+        var visible = categoryOk && termOk;
+        t.el.hidden = !visible;
+        if (visible) shown++;
+      });
+      emptyState.hidden = shown !== 0;
+      countEl.textContent = shown === ICON_DATA.length
+        ? shown + ' icons'
+        : shown + ' of ' + ICON_DATA.length + ' icons';
+    }
+    searchEl.addEventListener('input', applyFilter);
+    applyFilter();
+  })();
 </script>
 </body>
 </html>
