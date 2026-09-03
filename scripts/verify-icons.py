@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 """
-verify-icons.py — the pass/fail gate for the icon concept-naming manifest (Phase 2R
-follow-up). Standard library only. Checks assets/icons/icon-manifest.json against the
-304 files on disk. Prints PASS/FAIL per check + a summary; exits 0 only if all pass.
+verify-icons.py — the pass/fail gate for the icon concept-naming manifest. Standard
+library only. Checks assets/icons/icon-manifest.json against the actual *.png files
+on disk (recursive — covers both the original numbered icon-NNN.png extraction and
+any named subfolders added later, e.g. assets/icons/ai/). Prints PASS/FAIL per check
++ a summary; exits 0 only if all pass.
 
     python3 scripts/verify-icons.py
 """
@@ -15,7 +17,6 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parent.parent
 ICONS_DIR = REPO / "product-design-studio" / "assets" / "icons"
 MANIFEST = ICONS_DIR / "icon-manifest.json"
-EXPECTED_COUNT = 304
 NAME_RE = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
 
 results = []
@@ -38,17 +39,21 @@ def main():
 
     icons = doc.get("icons", [])
 
-    # 1. exactly 304 entries, one per icon-NNN.png on disk, zero missing / zero extra
-    on_disk = {f"icon-{i:03d}.png" for i in range(1, EXPECTED_COUNT + 1)}
-    in_manifest = {e.get("file") for e in icons}
+    # 1. every *.png actually on disk is in the manifest, and vice versa — zero
+    #    missing / zero orphaned, regardless of naming pattern or subfolder.
+    on_disk = {str(p.relative_to(ICONS_DIR)) for p in ICONS_DIR.rglob("*.png")}
+    in_manifest_list = [e.get("file") for e in icons]
+    in_manifest = set(in_manifest_list)
+    duplicate_entries = sorted({f for f in in_manifest_list if in_manifest_list.count(f) > 1})
     missing_from_manifest = sorted(on_disk - in_manifest)
     extra_in_manifest = sorted(in_manifest - on_disk)
-    c1 = (len(icons) == EXPECTED_COUNT) and not missing_from_manifest and not extra_in_manifest
-    check(f"1. {EXPECTED_COUNT}/{EXPECTED_COUNT} icons present in manifest, zero missing/extra",
+    c1 = not missing_from_manifest and not extra_in_manifest and not duplicate_entries
+    check(f"1. {len(on_disk)}/{len(on_disk)} on-disk icons present in manifest, zero missing/extra/duplicate",
           c1,
-          ([] if len(icons) == EXPECTED_COUNT else [f"manifest has {len(icons)} entries, expected {EXPECTED_COUNT}"])
-          + [f"missing: {m}" for m in missing_from_manifest[:10]]
-          + [f"unexpected: {e}" for e in extra_in_manifest[:10]])
+          [f"manifest has {len(icons)} entries, {len(on_disk)} files on disk"]
+          + [f"missing from manifest: {m}" for m in missing_from_manifest[:10]]
+          + [f"orphaned manifest entry (no file on disk): {e}" for e in extra_in_manifest[:10]]
+          + [f"duplicate manifest entry: {d}" for d in duplicate_entries[:10]])
 
     # 2. every entry has the required fields, correctly typed; naming convention enforced
     v2 = []

@@ -3120,6 +3120,161 @@
         "modify"
       ],
       "notes": "A standalone solid green pencil with a defined eraser end \u2014 distinct from icon-063's accented navy pencil."
+    },
+    {
+      "file": "ai/ai-model-core.png",
+      "concept": "ai-model-core",
+      "category": "ai",
+      "aliases": [
+        "model",
+        "neural-network",
+        "ai"
+      ],
+      "notes": "New original icon (2026-09), hand-authored to extend the library with an AI-usage category \u2014 not extracted from the deck like icon-001..icon-304."
+    },
+    {
+      "file": "ai/generate-spark.png",
+      "concept": "generate-spark",
+      "category": "ai",
+      "aliases": [
+        "generate",
+        "ai-generate",
+        "magic",
+        "sparkle"
+      ],
+      "notes": "New original icon (2026-09), hand-authored to extend the library with an AI-usage category \u2014 not extracted from the deck like icon-001..icon-304."
+    },
+    {
+      "file": "ai/chat-assistant.png",
+      "concept": "chat-assistant",
+      "category": "ai",
+      "aliases": [
+        "ai-chat",
+        "assistant",
+        "chatbot"
+      ],
+      "notes": "New original icon (2026-09), hand-authored to extend the library with an AI-usage category \u2014 not extracted from the deck like icon-001..icon-304."
+    },
+    {
+      "file": "ai/prompt-input.png",
+      "concept": "prompt-input",
+      "category": "ai",
+      "aliases": [
+        "prompt",
+        "ai-input",
+        "send"
+      ],
+      "notes": "New original icon (2026-09), hand-authored to extend the library with an AI-usage category \u2014 not extracted from the deck like icon-001..icon-304."
+    },
+    {
+      "file": "ai/ai-agent.png",
+      "concept": "ai-agent",
+      "category": "ai",
+      "aliases": [
+        "agent",
+        "bot",
+        "robot"
+      ],
+      "notes": "New original icon (2026-09), hand-authored to extend the library with an AI-usage category \u2014 not extracted from the deck like icon-001..icon-304."
+    },
+    {
+      "file": "ai/automation-flow.png",
+      "concept": "automation-flow",
+      "category": "ai",
+      "aliases": [
+        "automation",
+        "workflow",
+        "pipeline"
+      ],
+      "notes": "New original icon (2026-09), hand-authored to extend the library with an AI-usage category \u2014 not extracted from the deck like icon-001..icon-304."
+    },
+    {
+      "file": "ai/human-in-the-loop.png",
+      "concept": "human-in-the-loop",
+      "category": "ai",
+      "aliases": [
+        "human-review",
+        "approval",
+        "oversight"
+      ],
+      "notes": "New original icon (2026-09), hand-authored to extend the library with an AI-usage category \u2014 not extracted from the deck like icon-001..icon-304."
+    },
+    {
+      "file": "ai/guardrail-shield.png",
+      "concept": "guardrail-shield",
+      "category": "ai",
+      "aliases": [
+        "ai-safety",
+        "guardrails",
+        "protection"
+      ],
+      "notes": "New original icon (2026-09), hand-authored to extend the library with an AI-usage category \u2014 not extracted from the deck like icon-001..icon-304."
+    },
+    {
+      "file": "ai/training-data.png",
+      "concept": "training-data",
+      "category": "ai",
+      "aliases": [
+        "dataset",
+        "fine-tune",
+        "training"
+      ],
+      "notes": "New original icon (2026-09), hand-authored to extend the library with an AI-usage category \u2014 not extracted from the deck like icon-001..icon-304."
+    },
+    {
+      "file": "ai/confidence-score.png",
+      "concept": "confidence-score",
+      "category": "ai",
+      "aliases": [
+        "accuracy",
+        "performance",
+        "meter"
+      ],
+      "notes": "New original icon (2026-09), hand-authored to extend the library with an AI-usage category \u2014 not extracted from the deck like icon-001..icon-304."
+    },
+    {
+      "file": "ai/voice-input.png",
+      "concept": "voice-input",
+      "category": "ai",
+      "aliases": [
+        "speech",
+        "audio",
+        "ai-voice"
+      ],
+      "notes": "New original icon (2026-09), hand-authored to extend the library with an AI-usage category \u2014 not extracted from the deck like icon-001..icon-304."
+    },
+    {
+      "file": "ai/document-analysis.png",
+      "concept": "document-analysis",
+      "category": "ai",
+      "aliases": [
+        "ai-scan",
+        "document-ai",
+        "extraction"
+      ],
+      "notes": "New original icon (2026-09), hand-authored to extend the library with an AI-usage category \u2014 not extracted from the deck like icon-001..icon-304."
+    },
+    {
+      "file": "ai/workflow-intelligence.png",
+      "concept": "workflow-intelligence",
+      "category": "ai",
+      "aliases": [
+        "readiness",
+        "wia",
+        "assessment"
+      ],
+      "notes": "New original icon (2026-09), hand-authored to extend the library with an AI-usage category \u2014 not extracted from the deck like icon-001..icon-304."
+    },
+    {
+      "file": "ai/data-pipeline.png",
+      "concept": "data-pipeline",
+      "category": "ai",
+      "aliases": [
+        "etl",
+        "data-flow",
+        "ingestion"
+      ],
+      "notes": "New original icon (2026-09), hand-authored to extend the library with an AI-usage category \u2014 not extracted from the deck like icon-001..icon-304."
     }
   ]
 }
