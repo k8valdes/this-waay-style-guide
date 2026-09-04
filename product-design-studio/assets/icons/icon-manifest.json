@@ -2,15 +2,15 @@
   "icons": [
     {
       "file": "icon-001.png",
-      "concept": "check-circle",
+      "concept": "briefcase-verified-alt",
       "category": "status",
       "aliases": [
-        "success",
-        "complete",
-        "confirm",
-        "done"
+        "approved",
+        "confirmed",
+        "task-complete",
+        "certified"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'check-circle' from the broken render; re-identified now that the full artwork is visible: Navy briefcase (handle, body, latch) with a green circular checkmark badge at the bottom-right corner; the old name captured only the badge and ignored the briefcase. Duplicate artwork of icon-145.png ('briefcase-verified'); suffixed '-alt' to keep concept names unique."
     },
     {
       "file": "icon-002.png",
@@ -36,12 +36,15 @@
     },
     {
       "file": "icon-004.png",
-      "concept": "analytics-card-mini",
+      "concept": "briefcase-analytics-alt",
       "category": "data",
       "aliases": [
-        "analytics"
+        "business-report",
+        "performance",
+        "stats",
+        "portfolio"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'analytics-card-mini' from the broken render; re-identified now that the full artwork is visible: Navy briefcase with a green mini bar-chart card badge at the bottom-right corner; the old name described only the badge, not the briefcase it's attached to. Duplicate artwork of icon-020.png ('briefcase-analytics'); suffixed '-alt' to keep concept names unique."
     },
     {
       "file": "icon-005.png",
@@ -55,24 +58,27 @@
     },
     {
       "file": "icon-006.png",
-      "concept": "diagonal-accent-marks",
-      "category": "misc",
+      "concept": "pencil-diagonal-accent",
+      "category": "action",
       "aliases": [
-        "diagonal"
+        "edit",
+        "write",
+        "compose",
+        "draft"
       ],
-      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: two separate green parallelogram (slanted-cut) shapes arranged diagonally with a gap between them, like two disconnected slash or ribbon fragments"
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'diagonal-accent-marks' from the broken render; re-identified now that the full artwork is visible: A navy pencil angled diagonally (tip lower-left, eraser upper-right) flanked by green diagonal parallelogram accent marks; the old name described only the green accents and missed the pencil entirely."
     },
     {
       "file": "icon-007.png",
-      "concept": "arrow-up-circle",
+      "concept": "flask-trending-up",
       "category": "status",
       "aliases": [
-        "increase",
-        "growth",
-        "rising",
-        "trending-up"
+        "research-growth",
+        "experiment-success",
+        "lab-results",
+        "rising"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'arrow-up-circle' from the broken render; re-identified now that the full artwork is visible: A navy laboratory flask (narrow neck, conical body) with a green circular badge at top-right containing an upward arrow; the flask itself was invisible under the old name."
     },
     {
       "file": "icon-008.png",
@@ -88,12 +94,15 @@
     },
     {
       "file": "icon-009.png",
-      "concept": "milestone-flag",
+      "concept": "target-dart",
       "category": "status",
       "aliases": [
-        "marker"
+        "goal",
+        "objective",
+        "achievement",
+        "precision"
       ],
-      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: a green diagonal handle/stem topped with a leaf- or pennant-shaped head that has a concave notch cut into one edge, like a flag or torch held at an angle"
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'milestone-flag' from the broken render; re-identified now that the full artwork is visible: Navy concentric target/bullseye rings with a green dart or arrow flying into the top-right edge; no flag is present anywhere in the icon."
     },
     {
       "file": "icon-010.png",
@@ -116,15 +125,15 @@
     },
     {
       "file": "icon-012.png",
-      "concept": "arrow-up-circle-alt",
+      "concept": "rocket-trending-up",
       "category": "status",
       "aliases": [
-        "increase",
         "growth",
-        "rising",
-        "trending-up"
+        "launch",
+        "momentum",
+        "breakthrough"
       ],
-      "notes": "Visually indistinguishable from icon-007; qualifier denotes a repeated source asset."
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'arrow-up-circle-alt' from the broken render; re-identified now that the full artwork is visible: A navy rocket-like diagonal form with small motion/speed lines trailing it, topped by a green circular badge with an upward arrow; the old name ignored the rocket shape and motion lines."
     },
     {
       "file": "icon-013.png",
@@ -137,12 +146,15 @@
     },
     {
       "file": "icon-014.png",
-      "concept": "quotation-marks",
-      "category": "communication",
+      "concept": "office-building",
+      "category": "object",
       "aliases": [
-        "quotation"
+        "headquarters",
+        "company",
+        "workplace",
+        "tower"
       ],
-      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: two vertical green bars of similar height, one hooked/rounded at the bottom-left and the other hooked at the top-right, resembling a pair of opening and closing quotation marks"
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'quotation-marks' from the broken render; re-identified now that the full artwork is visible: A navy multi-story building with a grid of small windows and an arched doorway, topped by a small green pennant/roof accent; no quotation marks are present."
     },
     {
       "file": "icon-015.png",
@@ -151,7 +163,7 @@
       "aliases": [
         "royalty"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Concept name was already accurate even from the broken render, so it's unchanged."
     },
     {
       "file": "icon-016.png",
@@ -187,15 +199,15 @@
     },
     {
       "file": "icon-019.png",
-      "concept": "arrow-up",
-      "category": "status",
+      "concept": "bar-chart-growth",
+      "category": "data",
       "aliases": [
+        "performance",
         "increase",
-        "growth",
-        "rising",
+        "statistics",
         "trending-up"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'arrow-up' from the broken render; re-identified now that the full artwork is visible: Three navy ascending bar-chart columns with a green upward arrow above the tallest bar; the old name captured only the arrow, not the chart itself."
     },
     {
       "file": "icon-020.png",
@@ -220,12 +232,15 @@
     },
     {
       "file": "icon-022.png",
-      "concept": "message-bubble-dots",
-      "category": "communication",
+      "concept": "pie-chart-segment",
+      "category": "data",
       "aliases": [
-        "message"
+        "percentage",
+        "proportion",
+        "statistics",
+        "breakdown"
       ],
-      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: a green rounded square with a concave quarter-circle notch cut from the top-left corner and two small navy dots near the bottom-right, resembling a speech-bubble fragment with a typing ellipsis"
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'message-bubble-dots' from the broken render; re-identified now that the full artwork is visible: A navy-and-green circular pie/donut chart with one green wedge cut out plus two small dots near the wedge; there is no speech bubble."
     },
     {
       "file": "icon-023.png",
@@ -289,13 +304,15 @@
     },
     {
       "file": "icon-029.png",
-      "concept": "user-profile-basic",
-      "category": "people",
+      "concept": "user-growth",
+      "category": "data",
       "aliases": [
-        "account",
-        "contact"
+        "followers",
+        "promotion",
+        "engagement",
+        "audience"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'user-profile-basic' from the broken render; re-identified now that the full artwork is visible: A small green person silhouette flanked by two navy upward arrows; the old name ignored the arrows that give the icon its growth meaning."
     },
     {
       "file": "icon-030.png",
@@ -308,12 +325,15 @@
     },
     {
       "file": "icon-031.png",
-      "concept": "analytics-card-mini-alt",
+      "concept": "desktop-analytics",
       "category": "data",
       "aliases": [
-        "analytics"
+        "dashboard",
+        "computer",
+        "reporting",
+        "statistics"
       ],
-      "notes": "Visually indistinguishable from icon-004; qualifier denotes a repeated source asset, not a visual variant."
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'analytics-card-mini-alt' from the broken render; re-identified now that the full artwork is visible: A navy desktop monitor with a green bar-chart panel on its screen; the old name described only the chart badge, not the monitor."
     },
     {
       "file": "icon-032.png",
@@ -327,35 +347,39 @@
     },
     {
       "file": "icon-033.png",
-      "concept": "user-simple",
+      "concept": "team-hierarchy",
       "category": "people",
       "aliases": [
-        "profile",
-        "account",
-        "contact"
+        "organization",
+        "management",
+        "structure",
+        "org-chart"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'user-simple' from the broken render; re-identified now that the full artwork is visible: One green figure at the top connected by navy lines to three navy figures below, forming an org-chart/management structure rather than a single simple user."
     },
     {
       "file": "icon-034.png",
-      "concept": "check-circle-alt",
+      "concept": "megaphone-verified-alt",
       "category": "status",
       "aliases": [
-        "success",
-        "complete",
-        "confirm",
-        "done"
+        "approved",
+        "confirmed",
+        "announcement",
+        "broadcast"
       ],
-      "notes": "Visually indistinguishable from icon-001; qualifier denotes a repeated source asset."
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'check-circle-alt' from the broken render; re-identified now that the full artwork is visible: A navy megaphone/bullhorn with a green circular checkmark badge at the top-right corner; the old name ignored the megaphone. Duplicate artwork of icon-138.png ('megaphone-verified'); suffixed '-alt' to keep concept names unique."
     },
     {
       "file": "icon-035.png",
-      "concept": "message-corner-dots",
+      "concept": "envelope-send",
       "category": "communication",
       "aliases": [
-        "message"
+        "email",
+        "mail",
+        "notification",
+        "inbox"
       ],
-      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: a green L-shaped corner block (flat horizontal base with a raised vertical block on the left) with two small white dots on the horizontal part, resembling a mirrored speech-bubble corner fragment"
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'message-corner-dots' from the broken render; re-identified now that the full artwork is visible: A navy mail envelope with green motion/dash lines at the upper right suggesting a message being sent; there are no corner dots forming a distinct bubble."
     },
     {
       "file": "icon-036.png",
@@ -369,15 +393,15 @@
     },
     {
       "file": "icon-037.png",
-      "concept": "check-circle-secondary",
+      "concept": "bell-verified",
       "category": "status",
       "aliases": [
-        "success",
-        "complete",
-        "confirm",
-        "done"
+        "acknowledged",
+        "confirmed",
+        "alert",
+        "notification"
       ],
-      "notes": "Visually indistinguishable from icon-001 (originally named checkmark-circle); qualifier denotes a repeated source asset."
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'check-circle-secondary' from the broken render; re-identified now that the full artwork is visible: A navy notification bell with a green circular checkmark badge at the top-right corner; the old name ignored the bell shape."
     },
     {
       "file": "icon-038.png",
@@ -393,41 +417,51 @@
     },
     {
       "file": "icon-039.png",
-      "concept": "home-value-down",
+      "concept": "price-decrease",
       "category": "data",
       "aliases": [
-        "home"
+        "devaluation",
+        "decline",
+        "cost-reduction",
+        "depreciation"
       ],
-      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: A solid green shape with a wavy double-curved top edge (resembling an upside-down house silhouette) sitting just above a bold chevron arrow pointing downward, both in green with a gap between them."
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'home-value-down' from the broken render; re-identified now that the full artwork is visible: A navy circle containing a green dollar sign with a green downward chevron beneath it; no house/roof shape is present despite the old 'home-value' name."
     },
     {
       "file": "icon-040.png",
-      "concept": "cash-bill",
-      "category": "object",
+      "concept": "cash-sprout",
+      "category": "data",
       "aliases": [
-        "cash"
+        "investment",
+        "savings",
+        "profit",
+        "financial-growth"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'cash-bill' from the broken render; re-identified now that the full artwork is visible: A green banknote with a dollar sign, with a navy plant sprout (stem and leaves) growing from its top edge; the old name captured only the bill, not the sprout signifying growth."
     },
     {
       "file": "icon-041.png",
-      "concept": "chat-bubble-dots",
+      "concept": "phone-chat-bubble",
       "category": "communication",
       "aliases": [
-        "message",
-        "conversation"
+        "call",
+        "support",
+        "conversation",
+        "customer-service"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'chat-bubble-dots' from the broken render; re-identified now that the full artwork is visible: A navy telephone handset with a green speech bubble containing three dots near the earpiece; the old name ignored the phone handset."
     },
     {
       "file": "icon-042.png",
-      "concept": "location-pin",
+      "concept": "map-location-pin-alt",
       "category": "navigation",
       "aliases": [
-        "map",
-        "place"
+        "directions",
+        "waypoint",
+        "route",
+        "gps"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'location-pin' from the broken render; re-identified now that the full artwork is visible: A navy folded paper map with a green location pin and a couple of waypoint dots on its surface; the old name described only the pin, not the map beneath it. Duplicate artwork of icon-011.png ('map-location-pin'); suffixed '-alt' to keep concept names unique."
     },
     {
       "file": "icon-043.png",
@@ -442,24 +476,27 @@
     },
     {
       "file": "icon-044.png",
-      "concept": "network-nodes-hub",
+      "concept": "database-network-nodes",
       "category": "data",
       "aliases": [
-        "connection"
+        "connection",
+        "server",
+        "infrastructure",
+        "sync"
       ],
-      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: Three small green circles at the top (one upper-left, one on a short vertical stub at top-center, one upper-right) each connected by right-angle bent lines converging down into one larger green circle at the bottom center."
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'network-nodes-hub' from the broken render; re-identified now that the full artwork is visible: A navy cylindrical database/server shape branches via lines to three green circular nodes below; the old name's generic 'hub' undersells the now-visible database shape."
     },
     {
       "file": "icon-045.png",
-      "concept": "arrow-up-circle-bold",
+      "concept": "hand-lever-signal",
       "category": "status",
       "aliases": [
+        "boost",
         "increase",
-        "growth",
-        "rising",
-        "trending-up"
+        "momentum",
+        "throttle"
       ],
-      "notes": "Same composition as icon-007 with a visibly bolder/thicker arrow per the source description (originally named up-arrow-circle)."
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Re-identified but still abstract/ambiguous: A navy hand/fist gripping a horizontal handle or lever with green ascending tick marks beside it and a green upward arrow above; reads as a 'boost/increase' indicator but the exact object (lever, control, or megaphone) is unclear."
     },
     {
       "file": "icon-046.png",
@@ -484,12 +521,15 @@
     },
     {
       "file": "icon-048.png",
-      "concept": "clock-time",
+      "concept": "gear-clock",
       "category": "status",
       "aliases": [
-        "clock"
+        "scheduled",
+        "pending",
+        "automation",
+        "in-progress"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'clock-time' from the broken render; re-identified now that the full artwork is visible: A navy gear/cog with a green clock face set in its center; the old name ignored the gear, which is now the dominant shape."
     },
     {
       "file": "icon-049.png",
@@ -505,24 +545,27 @@
     },
     {
       "file": "icon-050.png",
-      "concept": "home-value-up",
+      "concept": "price-increase",
       "category": "data",
       "aliases": [
-        "home"
+        "appreciation",
+        "profit",
+        "gain",
+        "valuation"
       ],
-      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: A chevron arrow pointing upward positioned directly above a solid green house/roof-shaped silhouette with a curved bottom edge, both green with a gap between them."
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'home-value-up' from the broken render; re-identified now that the full artwork is visible: A navy circle containing a green dollar sign with a green upward chevron above it; no house/roof shape is present despite the old 'home-value' name."
     },
     {
       "file": "icon-051.png",
-      "concept": "gauge-meter-check",
+      "concept": "headphones-verified",
       "category": "status",
       "aliases": [
-        "performance",
-        "success",
-        "complete",
-        "confirm"
+        "approved",
+        "confirmed",
+        "audio-check",
+        "quality"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'gauge-meter-check' from the broken render; re-identified now that the full artwork is visible: Navy over-ear headphones with a green circular checkmark badge set within the headband; there is no gauge or meter shape."
     },
     {
       "file": "icon-052.png",
@@ -535,13 +578,15 @@
     },
     {
       "file": "icon-053.png",
-      "concept": "funnel-shape",
-      "category": "object",
+      "concept": "money-bag-growth-alt",
+      "category": "data",
       "aliases": [
-        "conversion",
-        "pipeline"
+        "savings",
+        "profit",
+        "revenue",
+        "earnings"
       ],
-      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: A solid green trapezoid shape with a wide flat top edge tapering to a narrower bottom edge, sitting directly on a short rounded horizontal green bar/base, with no other elements in the cell."
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'funnel-shape' from the broken render; re-identified now that the full artwork is visible: A navy money bag with a green dollar sign and a green upward arrow above it; there is no funnel shape. Duplicate artwork of icon-209.png ('money-bag-growth'); suffixed '-alt' to keep concept names unique."
     },
     {
       "file": "icon-054.png",
@@ -576,15 +621,15 @@
     },
     {
       "file": "icon-057.png",
-      "concept": "check-circle-secondary-alt",
+      "concept": "headphones-verified-alt",
       "category": "status",
       "aliases": [
-        "success",
-        "complete",
-        "confirm",
-        "done"
+        "approved",
+        "confirmed",
+        "audio-check",
+        "quality"
       ],
-      "notes": "Visually indistinguishable from icon-037; both white-checkmark variants."
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'check-circle-secondary-alt' from the broken render; re-identified now that the full artwork is visible: Navy over-ear headphones with a larger green circular checkmark badge centered in the headband; the old name ignored the headphones. Duplicate artwork of icon-051.png ('headphones-verified'); suffixed '-alt' to keep concept names unique."
     },
     {
       "file": "icon-058.png",
@@ -598,24 +643,27 @@
     },
     {
       "file": "icon-059.png",
-      "concept": "user-avatar-circle-secondary",
+      "concept": "person-desk-lean",
       "category": "people",
       "aliases": [
-        "profile",
-        "account",
-        "contact"
+        "employee",
+        "workstation",
+        "posture",
+        "ergonomics"
       ],
-      "notes": "Visually indistinguishable from icon-074 (originally named user-avatar-profile); qualifier denotes a repeated source asset."
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Re-identified but still abstract/ambiguous: A green-headed figure bent forward over a navy angled surface (desk, ramp, or lectern \u2014 exact base object unclear); reads as a person at work but the base shape is ambiguous."
     },
     {
       "file": "icon-060.png",
-      "concept": "highlight-edit-mark",
-      "category": "action",
+      "concept": "stopwatch-timer-alt",
+      "category": "status",
       "aliases": [
-        "pencil",
-        "modify"
+        "countdown",
+        "deadline",
+        "time-tracking",
+        "urgency"
       ],
-      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: Fragmentary green-only shapes with no navy outline: a rounded rectangle bar tilted diagonally at upper right like a marker or eraser tip, with a thinner parallel diagonal line beside it, and a separate short bent/angled line lower left resembling a corner or checkmark stroke."
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'highlight-edit-mark' from the broken render; re-identified now that the full artwork is visible: A navy stopwatch with rim tick marks and a top stem/button plus a small green accent near the stem; there is no pencil or edit mark visible. Duplicate artwork of icon-171.png ('stopwatch-timer'); suffixed '-alt' to keep concept names unique."
     },
     {
       "file": "icon-061.png",
@@ -661,14 +709,15 @@
     },
     {
       "file": "icon-065.png",
-      "concept": "megaphone-right",
+      "concept": "desktop-megaphone",
       "category": "communication",
       "aliases": [
-        "announcement",
+        "marketing",
         "broadcast",
-        "marketing"
+        "promotion",
+        "advertising"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'megaphone-right' from the broken render; re-identified now that the full artwork is visible: A navy desktop monitor with a green megaphone shape and notification dots overlapping its screen; the old name ignored the monitor."
     },
     {
       "file": "icon-066.png",
@@ -684,15 +733,15 @@
     },
     {
       "file": "icon-067.png",
-      "concept": "shield-check",
+      "concept": "id-card-verified",
       "category": "status",
       "aliases": [
-        "security",
-        "protection",
-        "success",
-        "complete"
+        "identity",
+        "license",
+        "background-check",
+        "verified-account"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'shield-check' from the broken render; re-identified now that the full artwork is visible: A navy ID/license card (photo placeholder plus two text lines, tab-shaped header) topped by a green shield with a white checkmark; the whole icon is an identity/license-verified badge, not just a shield-check."
     },
     {
       "file": "icon-068.png",
@@ -725,54 +774,63 @@
     },
     {
       "file": "icon-071.png",
-      "concept": "shopping-cart-solid",
+      "concept": "shopping-cart-package",
       "category": "object",
       "aliases": [
         "ecommerce",
-        "retail",
-        "purchase",
-        "basket"
+        "delivery",
+        "order",
+        "purchase"
       ],
-      "notes": "A single-tone solid green cart silhouette, distinct from icon-002's navy-and-green duotone rendering."
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'shopping-cart-solid' from the broken render; re-identified now that the full artwork is visible: A green cart handle, base bar and two wheels frame a navy open box (folded flaps) sitting in the basket; it's a cart carrying a package, not a plain solid cart."
     },
     {
       "file": "icon-072.png",
-      "concept": "battery-level-indicator",
-      "category": "status",
+      "concept": "bar-chart-trending-up",
+      "category": "data",
       "aliases": [
-        "battery"
+        "growth",
+        "analytics",
+        "performance",
+        "statistics"
       ],
-      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: A small solid green shape offset to the right side of the cell: a short rounded rectangle cap sitting above a taller rounded rectangle body, separated by a thin gap, resembling a vertical battery icon."
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'battery-level-indicator' from the broken render; re-identified now that the full artwork is visible: Three ascending bars (two navy outline, tallest green-filled) under a navy arrow curving up and to the right; an analytics/growth chart, not a battery gauge."
     },
     {
       "file": "icon-073.png",
-      "concept": "user-profile-details",
+      "concept": "profile-kiosk-display",
       "category": "people",
       "aliases": [
-        "account",
-        "contact"
+        "check-in",
+        "kiosk",
+        "id-display",
+        "directory"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'user-profile-details' from the broken render; re-identified now that the full artwork is visible: A navy frame with small ear-shaped tabs on a pedestal base holds a green person icon and two text lines; reads as a stand/kiosk displaying a profile card rather than a plain detail list."
     },
     {
       "file": "icon-074.png",
-      "concept": "user-avatar-circle",
-      "category": "people",
+      "concept": "phone-call-contact",
+      "category": "communication",
       "aliases": [
-        "profile",
-        "account",
-        "contact"
+        "call",
+        "dial",
+        "support",
+        "customer-service"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'user-avatar-circle' from the broken render; re-identified now that the full artwork is visible: A large navy phone handset dominates the icon, with a small green avatar-circle badge at upper right; it's a call-a-contact icon, not a standalone avatar."
     },
     {
       "file": "icon-075.png",
-      "concept": "corner-bracket-expand",
-      "category": "action",
+      "concept": "envelope-mail",
+      "category": "communication",
       "aliases": [
-        "corner"
+        "email",
+        "message",
+        "inbox",
+        "contact"
       ],
-      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: a single green L-shaped rounded corner bracket with no other elements, resembling one corner of a crop or fullscreen/expand frame"
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'corner-bracket-expand' from the broken render; re-identified now that the full artwork is visible: A navy envelope (mail icon) sits in front of a green rounded corner-accent shape; the envelope is the actual subject, the corner shape reads as decorative backing, not an expand control."
     },
     {
       "file": "icon-076.png",
@@ -787,14 +845,15 @@
     },
     {
       "file": "icon-077.png",
-      "concept": "shopping-bag",
+      "concept": "browser-window-shopping-bag",
       "category": "object",
       "aliases": [
         "ecommerce",
-        "retail",
-        "purchase"
+        "online-store",
+        "webpage",
+        "retail"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'shopping-bag' from the broken render; re-identified now that the full artwork is visible: A navy browser/app window (top bar with two dots plus a small toggle control) contains a green shopping bag with a U-shaped handle; an online-store webpage icon, not a bare bag."
     },
     {
       "file": "icon-078.png",
@@ -818,33 +877,39 @@
     },
     {
       "file": "icon-080.png",
-      "concept": "speaker-volume",
+      "concept": "handheld-bullhorn",
       "category": "communication",
       "aliases": [
-        "speaker"
+        "megaphone",
+        "announcement",
+        "loudhailer",
+        "broadcast"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'speaker-volume' from the broken render; re-identified now that the full artwork is visible: A navy handheld body with grille buttons and a pistol-grip handle flares into a green megaphone cone, with a small sound-tick to its left; a handheld bullhorn, not a generic speaker."
     },
     {
       "file": "icon-081.png",
-      "concept": "shield-check-alt",
-      "category": "status",
+      "concept": "envelope-verified",
+      "category": "communication",
       "aliases": [
-        "security",
-        "protection",
-        "success",
-        "complete"
+        "secure-email",
+        "encrypted",
+        "trusted-sender",
+        "protected"
       ],
-      "notes": "Visually indistinguishable from icon-067 (originally named security-verified-shield); qualifier denotes a repeated source asset."
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'shield-check-alt' from the broken render; re-identified now that the full artwork is visible: A navy envelope with a green shield-check badge overlapping its bottom edge; a verified/secure-email icon, not a generic shield-check status badge."
     },
     {
       "file": "icon-082.png",
-      "concept": "milestone-marker",
-      "category": "status",
+      "concept": "storefront-shop-alt",
+      "category": "object",
       "aliases": [
-        "milestone"
+        "store",
+        "retail",
+        "shop-front",
+        "business"
       ],
-      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: a small green dome-topped capsule shape (flat bottom, rounded top) resting on a green horizontal baseline, an abstract marker shape with no other detail"
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'milestone-marker' from the broken render; re-identified now that the full artwork is visible: A navy scalloped shop awning on two support posts sits over a green arched doorway and ground line; a storefront/shop building, not a milestone marker. Duplicate artwork of icon-125.png ('storefront-shop'); suffixed '-alt' to keep concept names unique."
     },
     {
       "file": "icon-083.png",
@@ -857,35 +922,39 @@
     },
     {
       "file": "icon-084.png",
-      "concept": "guest-user-placeholder",
-      "category": "people",
+      "concept": "user-location-pin",
+      "category": "navigation",
       "aliases": [
-        "profile",
-        "account",
-        "contact"
+        "location",
+        "check-in",
+        "find-people",
+        "map-pin"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'guest-user-placeholder' from the broken render; re-identified now that the full artwork is visible: A navy map-pin outline (circle with a pointed tail) contains a green person silhouette, with two green ground-mark lines below; a person's-location pin, not a blank guest-avatar placeholder."
     },
     {
       "file": "icon-085.png",
-      "concept": "dollar-coin",
+      "concept": "cloud-payment",
       "category": "data",
       "aliases": [
-        "money",
+        "billing",
         "revenue",
-        "price",
-        "payment"
+        "subscription",
+        "cost"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'dollar-coin' from the broken render; re-identified now that the full artwork is visible: A navy cloud outline has a green dollar-sign coin overlapping its lower edge; reads as cloud cost/billing, not a standalone coin."
     },
     {
       "file": "icon-086.png",
-      "concept": "chat-message-bubble",
+      "concept": "keyboard-chat-message",
       "category": "communication",
       "aliases": [
-        "conversation"
+        "typing",
+        "compose",
+        "live-chat",
+        "messaging"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'chat-message-bubble' from the broken render; re-identified now that the full artwork is visible: A green speech bubble with a typing-indicator dash floats above a navy keyboard (rows of keys and a spacebar); a compose/type-a-message icon, not just a chat bubble."
     },
     {
       "file": "icon-087.png",
@@ -934,15 +1003,15 @@
     },
     {
       "file": "icon-091.png",
-      "concept": "arrow-up-circle-secondary",
-      "category": "status",
+      "concept": "shopping-cart-increase",
+      "category": "object",
       "aliases": [
-        "increase",
-        "growth",
-        "rising",
-        "trending-up"
+        "add-to-cart",
+        "checkout",
+        "order-increase",
+        "ecommerce"
       ],
-      "notes": "Visually indistinguishable from icon-007 (originally named increase-arrow-circle); qualifier denotes a repeated source asset."
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'arrow-up-circle-secondary' from the broken render; re-identified now that the full artwork is visible: A full navy shopping cart (previously invisible) carries a green up-arrow circle badge near the top; an add-to-cart/increase-order icon, not a standalone trending-up arrow."
     },
     {
       "file": "icon-092.png",
@@ -1008,14 +1077,15 @@
     },
     {
       "file": "icon-098.png",
-      "concept": "user-avatar-circle-alt",
+      "concept": "briefcase-profile",
       "category": "people",
       "aliases": [
-        "profile",
-        "account",
-        "contact"
+        "business-account",
+        "employee",
+        "portfolio",
+        "work-profile"
       ],
-      "notes": "Visually indistinguishable from icon-074; qualifier denotes a repeated source asset."
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'user-avatar-circle-alt' from the broken render; re-identified now that the full artwork is visible: A navy briefcase (top handle, strap line, small feet) has a green avatar-circle badge overlapping its top; a business/employee-profile icon, not a standalone avatar."
     },
     {
       "file": "icon-099.png",
@@ -1024,7 +1094,7 @@
       "aliases": [
         "milestone"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Concept name was already accurate even from the broken render, so it's unchanged."
     },
     {
       "file": "icon-100.png",
@@ -1051,12 +1121,15 @@
     },
     {
       "file": "icon-102.png",
-      "concept": "plant-sprout",
+      "concept": "wallet-growth-sprout",
       "category": "object",
       "aliases": [
-        "growth"
+        "savings",
+        "investment",
+        "budget",
+        "finance"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'plant-sprout' from the broken render; re-identified now that the full artwork is visible: A green two-leaf sprout grows out of a navy bifold wallet with a card slot and two dots; a savings/financial-growth icon, not a standalone plant sprout."
     },
     {
       "file": "icon-103.png",
@@ -1069,24 +1142,27 @@
     },
     {
       "file": "icon-104.png",
-      "concept": "megaphone-right-handle-bottom",
+      "concept": "megaphone-inbox-tray",
       "category": "communication",
       "aliases": [
         "announcement",
-        "broadcast",
-        "marketing"
+        "marketing",
+        "campaign",
+        "broadcast"
       ],
-      "notes": "Right-facing like icon-065, but the handle sits at the bottom rather than the side."
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'megaphone-right-handle-bottom' from the broken render; re-identified now that the full artwork is visible: A green megaphone overlaps a navy open tray/folder (with a curved handle and two dots inside); reads as an announcements/marketing inbox, not a megaphone with a handle fragment."
     },
     {
       "file": "icon-105.png",
-      "concept": "team-pair",
-      "category": "people",
+      "concept": "video-call-screen",
+      "category": "communication",
       "aliases": [
-        "group",
-        "people"
+        "video-conference",
+        "virtual-meeting",
+        "webcam",
+        "team-meeting"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'team-pair' from the broken render; re-identified now that the full artwork is visible: A navy monitor on a stand is split into two panels, each holding a green person icon, above a control bar; a video-call/conferencing screen, not just a generic team pair."
     },
     {
       "file": "icon-106.png",
@@ -1095,7 +1171,7 @@
       "aliases": [
         "percentage"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Concept name was already accurate even from the broken render, so it's unchanged."
     },
     {
       "file": "icon-107.png",
@@ -1108,15 +1184,15 @@
     },
     {
       "file": "icon-108.png",
-      "concept": "dollar-coin-alt",
-      "category": "data",
+      "concept": "shield-dollar-protection",
+      "category": "status",
       "aliases": [
-        "money",
-        "revenue",
-        "price",
-        "payment"
+        "secure-payment",
+        "insured",
+        "buyer-protection",
+        "financial-security"
       ],
-      "notes": "Visually indistinguishable from icon-085; qualifier denotes a repeated source asset."
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'dollar-coin-alt' from the broken render; re-identified now that the full artwork is visible: A navy shield outline (two rivet dots) has a green dollar-sign coin overlapping its lower right; a payment/financial-protection badge, not a plain dollar coin."
     },
     {
       "file": "icon-109.png",
@@ -1171,24 +1247,27 @@
     },
     {
       "file": "icon-114.png",
-      "concept": "night-mode-moon",
+      "concept": "night-mode-display",
       "category": "status",
       "aliases": [
-        "night"
+        "dark-mode",
+        "sleep-mode",
+        "display",
+        "kiosk"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'night-mode-moon' from the broken render; re-identified now that the full artwork is visible: A green crescent-moon circle sits beside a navy stand-mounted panel (two dots on a two-post base); a night/dark-mode indicator for a display or kiosk, not just a moon icon alone."
     },
     {
       "file": "icon-115.png",
-      "concept": "flag-location-marker",
-      "category": "navigation",
+      "concept": "government-building-flag",
+      "category": "object",
       "aliases": [
-        "milestone",
-        "map",
-        "pin",
-        "place"
+        "bank",
+        "courthouse",
+        "institution",
+        "capitol"
       ],
-      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: a small green rounded-rectangle flag mounted on a short post above a wide flared trapezoid base, like a flag planted on a mound or a lamp-shaped location marker"
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'flag-location-marker' from the broken render; re-identified now that the full artwork is visible: A navy building with columns and an arched doorway is topped by a green flag; a government-building/bank icon, not a map location-pin marker."
     },
     {
       "file": "icon-116.png",
@@ -1203,13 +1282,15 @@
     },
     {
       "file": "icon-117.png",
-      "concept": "map-locate-target",
+      "concept": "user-target-locate",
       "category": "navigation",
       "aliases": [
-        "goal",
-        "aim"
+        "find-user",
+        "focus",
+        "aim",
+        "target-audience"
       ],
-      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: four small green rounded tabs positioned above, below, left, and right of an empty center point, like crosshair or alignment marks at the four cardinal directions with no connecting outline"
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'map-locate-target' from the broken render; re-identified now that the full artwork is visible: Navy corner brackets form a viewfinder around a navy person silhouette, with green tabs at the four cardinal points; a locate/target-a-person icon, not an abstract map target."
     },
     {
       "file": "icon-118.png",
@@ -1221,19 +1302,19 @@
         "purchase",
         "basket"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Concept name was already accurate even from the broken render, so it's unchanged."
     },
     {
       "file": "icon-119.png",
-      "concept": "arrow-up-circle-thin",
-      "category": "status",
+      "concept": "notification-bell-increase",
+      "category": "communication",
       "aliases": [
-        "increase",
-        "growth",
-        "rising",
-        "trending-up"
+        "alert",
+        "unread",
+        "reminder",
+        "push-notification"
       ],
-      "notes": "Same composition as icon-007 with a visibly thinner arrow stroke per the source description."
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'arrow-up-circle-thin' from the broken render; re-identified now that the full artwork is visible: A navy notification bell (hanger hook and ringer dots) is topped by a green up-arrow circle badge; a new/increasing-notifications icon, not a standalone trending-up arrow."
     },
     {
       "file": "icon-120.png",
@@ -1254,36 +1335,43 @@
       "aliases": [
         "customer-service"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Concept name was already accurate even from the broken render, so it's unchanged."
     },
     {
       "file": "icon-122.png",
-      "concept": "home-priority-arrow",
-      "category": "navigation",
+      "concept": "home-delivery-box",
+      "category": "object",
       "aliases": [
-        "home"
+        "moving",
+        "relocation",
+        "unboxing",
+        "new-home"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'home-priority-arrow' from the broken render; re-identified now that the full artwork is visible: A green house icon with small signal/motion dashes sits above a navy open shipping box with a center divider; reads as home-delivery or moving/unboxing, not home with a priority arrow."
     },
     {
       "file": "icon-123.png",
-      "concept": "megaphone-right-alt",
+      "concept": "browser-window-megaphone",
       "category": "communication",
       "aliases": [
+        "marketing",
         "announcement",
-        "broadcast",
-        "marketing"
+        "advertising",
+        "broadcast"
       ],
-      "notes": "Visually indistinguishable from icon-065 (originally named megaphone-announcement-solid); qualifier denotes a repeated source asset."
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'megaphone-right-alt' from the broken render; re-identified now that the full artwork is visible: A navy browser/app window (top bar with two dots) contains a green megaphone/bullhorn; a marketing-announcement webpage icon, not a bare megaphone fragment."
     },
     {
       "file": "icon-124.png",
-      "concept": "highlighter-marker-pen",
+      "concept": "notebook-highlighter",
       "category": "object",
       "aliases": [
-        "highlighter"
+        "study",
+        "annotate",
+        "notes",
+        "textbook"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'highlighter-marker-pen' from the broken render; re-identified now that the full artwork is visible: A navy notebook (header bar, two title lines, cover-image box) sits beside a green highlighter pen; a study/annotation icon, not a standalone highlighter."
     },
     {
       "file": "icon-125.png",
@@ -1297,23 +1385,27 @@
     },
     {
       "file": "icon-126.png",
-      "concept": "chart-axis-corner",
-      "category": "data",
+      "concept": "document-stack-folded-corner",
+      "category": "object",
       "aliases": [
-        "graph",
-        "analytics"
+        "file",
+        "report",
+        "notes",
+        "page"
       ],
-      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: a green right-angle line forming a horizontal base and a vertical riser meeting at a corner, with a small circle at the top end and a small square notch at the bend, like a chart axis or carpenter's square"
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'chart-axis-corner' from the broken render; re-identified now that the full artwork is visible: Two stacked documents with bulleted text lines and a folded corner (dog-ear) are visible; there is no chart or axis anywhere."
     },
     {
       "file": "icon-127.png",
-      "concept": "message-tag-notification",
+      "concept": "chat-bubble-growth-sprout",
       "category": "communication",
       "aliases": [
-        "bell",
-        "alert"
+        "feedback",
+        "conversation",
+        "discussion",
+        "eco-update"
       ],
-      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: a tilted green angular shape with a pointed notched tail on the left and a rounded body containing two small square dots on the right, resembling an angled tag or speech-bubble label"
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'message-tag-notification' from the broken render; re-identified now that the full artwork is visible: A speech bubble with a plant sprout growing from its top and a text line overlaps a second dotted speech bubble behind it; no bell or notification tag is present."
     },
     {
       "file": "icon-128.png",
@@ -1326,31 +1418,39 @@
     },
     {
       "file": "icon-129.png",
-      "concept": "quotation-marks-testimonial",
-      "category": "communication",
+      "concept": "crown-medal-ribbon",
+      "category": "status",
       "aliases": [
-        "quotation"
+        "premium",
+        "award",
+        "certified",
+        "achievement"
       ],
-      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: two separate angular green shapes resembling stylized quotation marks or small notched pennants, mirrored to face each other"
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'quotation-marks-testimonial' from the broken render; re-identified now that the full artwork is visible: A crown sits inside a circular medal with a bar beneath it and two ribbon tails hanging below; no quotation marks appear anywhere."
     },
     {
       "file": "icon-130.png",
-      "concept": "premium-crown",
-      "category": "object",
+      "concept": "crown-pedestal-structure",
+      "category": "status",
       "aliases": [
-        "royalty"
+        "royalty",
+        "premium",
+        "achievement",
+        "tier"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Re-identified but still abstract/ambiguous: A crown sits on thin posts above a symmetrical base with two hollow rectangular pillars and a platform; it could read as a castle turret, display pedestal, or podium, but the exact structure stays unclear even now that it is visible."
     },
     {
       "file": "icon-131.png",
-      "concept": "user-profile-list-item",
+      "concept": "id-badge-lanyard",
       "category": "people",
       "aliases": [
-        "account",
-        "contact"
+        "id-card",
+        "employee",
+        "credential",
+        "access-pass"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'user-profile-list-item' from the broken render; re-identified now that the full artwork is visible: An ID badge card hangs from a V-shaped lanyard strap, printed with a person silhouette and two text lines."
     },
     {
       "file": "icon-132.png",
@@ -1388,15 +1488,15 @@
     },
     {
       "file": "icon-135.png",
-      "concept": "arrow-up-circle-small",
-      "category": "status",
+      "concept": "easel-chart-arrow-up",
+      "category": "data",
       "aliases": [
+        "presentation",
+        "analytics",
         "increase",
-        "growth",
-        "rising",
-        "trending-up"
+        "forecast"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'arrow-up-circle-small' from the broken render; re-identified now that the full artwork is visible: A presentation easel displays an ascending bar chart, with a green circled up-arrow overlaid in the top corner."
     },
     {
       "file": "icon-136.png",
@@ -1433,12 +1533,15 @@
     },
     {
       "file": "icon-139.png",
-      "concept": "milestone-hill-marker",
-      "category": "misc",
+      "concept": "bank-building-columns",
+      "category": "object",
       "aliases": [
-        "milestone"
+        "government",
+        "institution",
+        "courthouse",
+        "finance"
       ],
-      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: a green flattened dome or trapezoid shape, wider at the bottom with a flat ridged top edge, and a white ring near its upper center"
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'milestone-hill-marker' from the broken render; re-identified now that the full artwork is visible: A classical building facade with a triangular pediment, circular emblem, and columns on a base is shown; there is no hill or milestone marker."
     },
     {
       "file": "icon-140.png",
@@ -1453,13 +1556,15 @@
     },
     {
       "file": "icon-141.png",
-      "concept": "growth-trend-arrow",
+      "concept": "calendar-trend-arrow",
       "category": "data",
       "aliases": [
-        "increase",
-        "rising"
+        "forecast",
+        "schedule",
+        "analytics",
+        "planning"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'growth-trend-arrow' from the broken render; re-identified now that the full artwork is visible: A wall calendar with spiral rings and a header bar contains a rising zigzag trend arrow and two short text lines; the calendar was previously invisible."
     },
     {
       "file": "icon-142.png",
@@ -1485,12 +1590,15 @@
     },
     {
       "file": "icon-144.png",
-      "concept": "control-bar-dots",
-      "category": "misc",
+      "concept": "server-rack-network-switch",
+      "category": "object",
       "aliases": [
-        "control"
+        "router",
+        "infrastructure",
+        "hardware",
+        "connectivity"
       ],
-      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: a green horizontal pill-shaped outline containing three small navy dots on the left and an empty rounded bar on the right, like an input field, slider, or progress control"
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'control-bar-dots' from the broken render; re-identified now that the full artwork is visible: Two stacked rack units, each with two status dots and a bar, stand on legs above a network switch/plug symbol."
     },
     {
       "file": "icon-145.png",
@@ -1525,14 +1633,15 @@
     },
     {
       "file": "icon-148.png",
-      "concept": "user-avatar-filled",
-      "category": "people",
+      "concept": "avatar-search-magnifier",
+      "category": "action",
       "aliases": [
-        "profile",
-        "account",
-        "contact"
+        "find-people",
+        "lookup",
+        "recruit",
+        "directory"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'user-avatar-filled' from the broken render; re-identified now that the full artwork is visible: A green user avatar sits beside two magnifying glasses, each with a person silhouette inside the lens, suggesting a people-lookup action."
     },
     {
       "file": "icon-149.png",
@@ -1545,34 +1654,39 @@
     },
     {
       "file": "icon-150.png",
-      "concept": "person-single",
-      "category": "people",
+      "concept": "eye-person-view",
+      "category": "action",
       "aliases": [
-        "user",
-        "profile",
-        "contact"
+        "visibility",
+        "watch",
+        "monitor",
+        "preview"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'person-single' from the broken render; re-identified now that the full artwork is visible: An eye shape with eyelashes contains a person silhouette in place of the pupil, rather than depicting a person alone."
     },
     {
       "file": "icon-151.png",
-      "concept": "megaphone-left",
+      "concept": "phone-megaphone-announcement",
       "category": "communication",
       "aliases": [
-        "announcement",
+        "mobile-marketing",
         "broadcast",
-        "marketing"
+        "push-notification",
+        "promotion"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'megaphone-left' from the broken render; re-identified now that the full artwork is visible: A smartphone outline has a megaphone overlapping its right edge; the phone body was previously invisible."
     },
     {
       "file": "icon-152.png",
-      "concept": "podium-stage-platform",
+      "concept": "shopping-basket-alt",
       "category": "object",
       "aliases": [
-        "podium"
+        "cart",
+        "purchase",
+        "retail",
+        "groceries"
       ],
-      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: A green horizontal bar resting atop two navy trapezoidal legs that splay outward, resembling a podium, stage riser, or stand"
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'podium-stage-platform' from the broken render; re-identified now that the full artwork is visible: A basket with a carry handle and ridged sides is shown; there is no podium or stage present. Duplicate artwork of icon-143.png ('shopping-basket'); suffixed '-alt' to keep concept names unique."
     },
     {
       "file": "icon-153.png",
@@ -1586,34 +1700,39 @@
     },
     {
       "file": "icon-154.png",
-      "concept": "analytics-bar-chart-card",
+      "concept": "folder-chart-report",
       "category": "data",
       "aliases": [
-        "graph",
-        "data"
+        "analytics",
+        "insights",
+        "files",
+        "documents"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'analytics-bar-chart-card' from the broken render; re-identified now that the full artwork is visible: An open folder with two file tabs sits behind a rounded card showing an ascending bar chart; the folder was previously invisible."
     },
     {
       "file": "icon-155.png",
-      "concept": "dollar-trend-indicator",
-      "category": "data",
+      "concept": "price-tag-dollar-alt",
+      "category": "object",
       "aliases": [
-        "money",
-        "revenue",
-        "price",
-        "payment"
+        "cost",
+        "sale",
+        "discount",
+        "retail"
       ],
-      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: A green dollar sign next to a small solid navy triangle pointing right, suggesting a financial trend or change"
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'dollar-trend-indicator' from the broken render; re-identified now that the full artwork is visible: A price tag with a string loop and a dollar sign has a small solid triangle beside it; no trend line is present. Duplicate artwork of icon-254.png ('price-tag-dollar'); suffixed '-alt' to keep concept names unique."
     },
     {
       "file": "icon-156.png",
-      "concept": "people-network-connection",
-      "category": "people",
+      "concept": "people-chat-exchange",
+      "category": "communication",
       "aliases": [
-        "hub"
+        "conversation",
+        "messaging",
+        "discussion",
+        "dialogue"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'people-network-connection' from the broken render; re-identified now that the full artwork is visible: Two person avatars and two speech bubbles with text lines are arranged diagonally, depicting a two-way conversation rather than a network hub."
     },
     {
       "file": "icon-157.png",
@@ -1637,21 +1756,27 @@
     },
     {
       "file": "icon-159.png",
-      "concept": "cash-drawer-box",
+      "concept": "delivery-truck-box",
       "category": "object",
       "aliases": [
-        "cash"
+        "shipping",
+        "logistics",
+        "transport",
+        "freight"
       ],
-      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: A small green rectangular box shape with a navy horizontal line/slot near the top, resembling a cash drawer or archive box"
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'cash-drawer-box' from the broken render; re-identified now that the full artwork is visible: A delivery truck with a cab, wheels, and flatbed carries a green box/crate; there is no cash drawer."
     },
     {
       "file": "icon-160.png",
-      "concept": "people-pair-team",
+      "concept": "team-portrait-group",
       "category": "people",
       "aliases": [
-        "group"
+        "staff",
+        "directory",
+        "members",
+        "roster"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'people-pair-team' from the broken render; re-identified now that the full artwork is visible: A framed portrait of one person sits above a row of three people, four figures total rather than a pair."
     },
     {
       "file": "icon-161.png",
@@ -1666,27 +1791,27 @@
     },
     {
       "file": "icon-162.png",
-      "concept": "arrow-up-circle-navy-mark-alt",
+      "concept": "graduation-cap-success-arrow",
       "category": "status",
       "aliases": [
-        "increase",
-        "growth",
-        "rising",
-        "trending-up"
+        "academic",
+        "milestone",
+        "advancement",
+        "commencement"
       ],
-      "notes": "Visually indistinguishable from icon-282 (originally named increase-arrow-circle); both navy-arrow variants."
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'arrow-up-circle-navy-mark-alt' from the broken render; re-identified now that the full artwork is visible: A graduation cap with radiating sparkle lines sits beneath a circled up-arrow; the cap was previously invisible."
     },
     {
       "file": "icon-163.png",
-      "concept": "dollar-coin-secondary",
-      "category": "misc",
+      "concept": "money-plant-growth",
+      "category": "data",
       "aliases": [
-        "money",
-        "revenue",
-        "price",
-        "payment"
+        "investment",
+        "savings",
+        "roi",
+        "portfolio"
       ],
-      "notes": "Visually indistinguishable from icon-085 (originally named dollar-badge-circle); qualifier denotes a repeated source asset."
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'dollar-coin-secondary' from the broken render; re-identified now that the full artwork is visible: A dollar-sign coin floats above a sprouting plant on a small base, a financial-growth metaphor rather than a plain coin."
     },
     {
       "file": "icon-164.png",
@@ -1743,14 +1868,15 @@
     },
     {
       "file": "icon-169.png",
-      "concept": "user-base-platform",
+      "concept": "browser-window-profile",
       "category": "people",
       "aliases": [
-        "profile",
-        "account",
-        "contact"
+        "account-page",
+        "dashboard",
+        "user-page",
+        "webpage"
       ],
-      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: A navy person head-and-shoulders silhouette sitting above a green rounded, dotted base shape, suggesting a person standing on a platform or base"
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'user-base-platform' from the broken render; re-identified now that the full artwork is visible: A browser/app window with a two-dot toolbar contains a person avatar and caption lines, a literal profile page rather than an abstract platform."
     },
     {
       "file": "icon-170.png",
@@ -1759,7 +1885,7 @@
       "aliases": [
         "scanner"
       ],
-      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: A thin green horizontal plate/tray with two small navy dots on its surface, held up by short navy legs at each end"
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Concept name was already accurate even from the broken render, so it's unchanged."
     },
     {
       "file": "icon-171.png",
@@ -1772,27 +1898,27 @@
     },
     {
       "file": "icon-172.png",
-      "concept": "growth-sprout-leaf",
-      "category": "object",
+      "concept": "cupped-hands-plant-sprout",
+      "category": "action",
       "aliases": [
-        "increase",
-        "trend",
-        "rising",
-        "plant"
+        "sustainability",
+        "nurture",
+        "care",
+        "esg"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'growth-sprout-leaf' from the broken render; re-identified now that the full artwork is visible: Two cupped hands hold up a green plant sprout; the hands were entirely invisible in the old name."
     },
     {
       "file": "icon-173.png",
-      "concept": "trend-arrow-up",
+      "concept": "magnifying-glass-trend-arrow",
       "category": "data",
       "aliases": [
-        "increase",
-        "growth",
-        "rising",
-        "trending-up"
+        "analytics",
+        "insights",
+        "forecast",
+        "market-research"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'trend-arrow-up' from the broken render; re-identified now that the full artwork is visible: A magnifying glass has a rising zigzag trend arrow passing through its lens and handle; the magnifying glass was previously invisible."
     },
     {
       "file": "icon-174.png",
@@ -1806,23 +1932,27 @@
     },
     {
       "file": "icon-175.png",
-      "concept": "lightning-bolt-energy",
+      "concept": "head-lightning-bolt",
       "category": "action",
       "aliases": [
-        "lightning"
+        "brainstorm",
+        "idea",
+        "insight",
+        "mental-energy"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'lightning-bolt-energy' from the broken render; re-identified now that the full artwork is visible: A human head shown in profile contains a lightning bolt where the brain would be; the head silhouette was previously invisible."
     },
     {
       "file": "icon-176.png",
-      "concept": "user-avatar-ringed-alt",
-      "category": "people",
+      "concept": "avatar-bar-chart-flag",
+      "category": "status",
       "aliases": [
-        "profile",
-        "account",
-        "contact"
+        "milestone",
+        "achievement",
+        "progress",
+        "career-growth"
       ],
-      "notes": "Visually indistinguishable from icon-140 (originally named user-profile-outline); qualifier denotes a repeated source asset."
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'user-avatar-ringed-alt' from the broken render; re-identified now that the full artwork is visible: A user avatar sits beside an ascending bar/staircase chart topped with a planted flag, indicating a reached goal."
     },
     {
       "file": "icon-177.png",
@@ -1869,53 +1999,63 @@
     },
     {
       "file": "icon-181.png",
-      "concept": "ribbon-y-mark",
-      "category": "misc",
+      "concept": "open-book-ribbon-bookmark",
+      "category": "object",
       "aliases": [
-        "ribbon"
+        "reading",
+        "guide",
+        "documentation",
+        "manual"
       ],
-      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: abstract green faceted/folded ribbon shape forming a stylized letter Y or downward arrow, with small folded flap details at the outer edges"
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'ribbon-y-mark' from the broken render; re-identified now that the full artwork is visible: An open book with a text line on each page has a ribbon bookmark hanging from its spine; the book was previously invisible."
     },
     {
       "file": "icon-182.png",
-      "concept": "stacked-crescent-accent",
-      "category": "misc",
+      "concept": "stacked-dollar-coins",
+      "category": "object",
       "aliases": [
-        "stacked"
+        "savings",
+        "wealth",
+        "cash",
+        "finance"
       ],
-      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: three green rounded crescent/bracket shapes stacked vertically in a wavy zigzag column, not connected to any outline"
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'stacked-crescent-accent' from the broken render; re-identified now that the full artwork is visible: A dollar-sign coin sits in front of a stack of additional coins peeking out behind it."
     },
     {
       "file": "icon-183.png",
-      "concept": "focus-scan-corners",
+      "concept": "scanner-focus-corners",
       "category": "action",
       "aliases": [
-        "focus"
+        "detect",
+        "capture",
+        "authenticate",
+        "verify"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'focus-scan-corners' from the broken render; re-identified now that the full artwork is visible: A card/document scanner device with a slot showing two dots and a dash is framed by radiating focus brackets; the scanner body was previously invisible."
     },
     {
       "file": "icon-184.png",
-      "concept": "dollar-coin-secondary-alt",
-      "category": "data",
+      "concept": "location-pin-dollar",
+      "category": "navigation",
       "aliases": [
-        "money",
-        "revenue",
-        "price",
-        "payment"
+        "price-point",
+        "map-marker",
+        "store-locator",
+        "geotag"
       ],
-      "notes": "Visually indistinguishable from icon-163 (originally named dollar-coin-circle); both in this repeated-asset group."
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'dollar-coin-secondary-alt' from the broken render; re-identified now that the full artwork is visible: A map-pin marker filled with a dollar sign has small ground-shadow dashes beneath it; the pin shape was previously invisible."
     },
     {
       "file": "icon-185.png",
-      "concept": "bar-chart-ascending",
+      "concept": "presentation-board-chart-tripod",
       "category": "data",
       "aliases": [
         "analytics",
-        "graph",
-        "data"
+        "dashboard",
+        "reporting",
+        "easel"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'bar-chart-ascending' from the broken render; re-identified now that the full artwork is visible: A navy presentation easel/monitor on a three-legged stand displays a green bar chart (short-tall-medium bars, not a strict ascending run) with a horizontal bar beneath; the old name ignored the board/stand entirely. Consolidated with icon-258.png (presentation-board-chart) as the same glyph (easel + bar chart + caption bar), distinguished by stand: tripod (splayed 3-leg) vs. single center post."
     },
     {
       "file": "icon-186.png",
@@ -1970,12 +2110,15 @@
     },
     {
       "file": "icon-191.png",
-      "concept": "minus-remove-dash",
-      "category": "misc",
+      "concept": "chess-knight-piece",
+      "category": "object",
       "aliases": [
-        "minus"
+        "strategy",
+        "tactics",
+        "board-game",
+        "gambit"
       ],
-      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: single thick short green horizontal rounded bar floating alone with no other elements"
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'minus-remove-dash' from the broken render; re-identified now that the full artwork is visible: A navy chess knight (horse-head) piece stands on a green base; only that flat green base was visible before and was mistaken for a minus/dash."
     },
     {
       "file": "icon-192.png",
@@ -2000,23 +2143,27 @@
     },
     {
       "file": "icon-194.png",
-      "concept": "podium-lectern-stand",
-      "category": "misc",
+      "concept": "lightbulb-checkmark-idea",
+      "category": "status",
       "aliases": [
-        "podium"
+        "insight",
+        "solution",
+        "validated",
+        "eureka"
       ],
-      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: small green shape resembling a wide dome or lampshade top on a short narrow stem, sitting above a thin horizontal base bar wider than the stem"
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'podium-lectern-stand' from the broken render; re-identified now that the full artwork is visible: A glowing lightbulb with a checkmark inside (an idea confirmed/validated) sits on a green two-tier base; only that base was visible before and read as a podium."
     },
     {
       "file": "icon-195.png",
-      "concept": "megaphone-left-waves",
+      "concept": "envelope-megaphone-announcement",
       "category": "communication",
       "aliases": [
-        "announcement",
+        "email-marketing",
         "broadcast",
-        "marketing"
+        "campaign",
+        "newsletter"
       ],
-      "notes": "Left-facing like icon-151, with sound-wave lines in front of the bell."
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'megaphone-left-waves' from the broken render; re-identified now that the full artwork is visible: A navy envelope with a small pointer arrow sits beneath a green megaphone; the envelope was fully invisible before, leaving only the megaphone catalogued."
     },
     {
       "file": "icon-196.png",
@@ -2059,24 +2206,27 @@
     },
     {
       "file": "icon-200.png",
-      "concept": "dollar-coin-tertiary",
+      "concept": "coin-sprout-growth",
       "category": "data",
       "aliases": [
-        "money",
-        "revenue",
-        "price",
-        "payment"
+        "investment",
+        "roi",
+        "profit",
+        "yield"
       ],
-      "notes": "Visually indistinguishable from icon-085 (originally named dollar-coin-circle); qualifier denotes a repeated source asset."
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'dollar-coin-tertiary' from the broken render; re-identified now that the full artwork is visible: The dollar coin floats above a navy sprout growing from a planter box; the plant and planter were invisible before, leaving only the coin catalogued alone."
     },
     {
       "file": "icon-201.png",
-      "concept": "abstract-spark-fragment",
-      "category": "misc",
+      "concept": "alarm-clock-ringing",
+      "category": "object",
       "aliases": [
-        "abstract"
+        "reminder",
+        "wake-up",
+        "timer",
+        "schedule"
       ],
-      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: two disconnected small green shapes - a crescent arc in the upper left and a diagonal capsule with a small separate crescent below it - scattered with gaps and no connecting outline"
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'abstract-spark-fragment' from the broken render; re-identified now that the full artwork is visible: A navy clock face with hour-marker dots and a hand is topped by green alarm-bell shapes; previously only the disconnected green bell fragments were visible, reading as abstract sparks."
     },
     {
       "file": "icon-202.png",
@@ -2089,21 +2239,27 @@
     },
     {
       "file": "icon-203.png",
-      "concept": "wings-spread-abstract",
-      "category": "misc",
+      "concept": "open-box-launch-arrow",
+      "category": "action",
       "aliases": [
-        "wings"
+        "deploy",
+        "export",
+        "release",
+        "rollout"
       ],
-      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: wide green shape made of two swept wing-like chevrons meeting at a shared center notch, resembling spread bird wings"
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'wings-spread-abstract' from the broken render; re-identified now that the full artwork is visible: An open package (flaps spread, seen in 3D) has an arrow bursting straight up out of it; before the fix only the green front panel was visible, reading as spread wings."
     },
     {
       "file": "icon-204.png",
-      "concept": "stacked-dash-lines",
-      "category": "misc",
+      "concept": "lightbulb-dollar-idea",
+      "category": "data",
       "aliases": [
-        "stacked"
+        "monetization",
+        "profitability",
+        "insight",
+        "funding"
       ],
-      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: two green horizontal bars stacked with a gap, the top bar wider and thicker than the shorter bottom bar"
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'stacked-dash-lines' from the broken render; re-identified now that the full artwork is visible: A lightbulb with a dollar sign inside sits on two stacked green bars; only those bars were visible before, misread as abstract stacked dashes."
     },
     {
       "file": "icon-205.png",
@@ -2188,15 +2344,15 @@
     },
     {
       "file": "icon-213.png",
-      "concept": "verified-search-checkmark",
+      "concept": "chat-search-verified",
       "category": "status",
       "aliases": [
         "confirmed",
         "approved",
-        "find",
-        "lookup"
+        "lookup",
+        "find"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'verified-search-checkmark' from the broken render; re-identified now that the full artwork is visible: A navy message/notification bar with ellipsis dots is now visible behind the green verified-search badge; the old name accounted only for the magnifying glass and checkmark."
     },
     {
       "file": "icon-214.png",
@@ -2212,12 +2368,15 @@
     },
     {
       "file": "icon-215.png",
-      "concept": "pause-bars-abstract",
-      "category": "misc",
+      "concept": "office-building-tower",
+      "category": "object",
       "aliases": [
-        "pause"
+        "corporate",
+        "headquarters",
+        "company",
+        "workplace"
       ],
-      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: two separate green vertical bars with slightly angled tops, similar height, floating side by side with no other elements"
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'pause-bars-abstract' from the broken render; re-identified now that the full artwork is visible: A navy high-rise office building (rooftop unit, six windows, entrance door) is now visible; the flanking green shapes, previously read as pause bars, are decorative accents."
     },
     {
       "file": "icon-216.png",
@@ -2231,31 +2390,39 @@
     },
     {
       "file": "icon-217.png",
-      "concept": "scattered-shape-accent",
-      "category": "misc",
+      "concept": "rocket-launch-alt",
+      "category": "action",
       "aliases": [
-        "scattered"
+        "startup",
+        "growth",
+        "boost",
+        "blastoff"
       ],
-      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: A green triangular wedge at top-left, a solid green circle in the middle, and a smaller green curved wedge at the bottom - three disconnected abstract geometric fragments."
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'scattered-shape-accent' from the broken render; re-identified now that the full artwork is visible: A rocket angled upward with a porthole window, exhaust flame, and motion trails is now visible; only the disconnected green fragments were catalogued before. Duplicate artwork of icon-055.png ('rocket-launch'); suffixed '-alt' to keep concept names unique."
     },
     {
       "file": "icon-218.png",
-      "concept": "focus-aperture-points",
-      "category": "action",
+      "concept": "user-target-reticle",
+      "category": "people",
       "aliases": [
-        "focus"
+        "audience",
+        "demographics",
+        "persona",
+        "segment"
       ],
-      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: Four small green rounded blob shapes positioned at top, bottom, left, and right like compass points, forming a broken square/frame with gaps between each piece."
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'focus-aperture-points' from the broken render; re-identified now that the full artwork is visible: The circular reticle frames a person silhouette at its center (target audience); the old name treated it as an empty camera aperture, missing the person."
     },
     {
       "file": "icon-219.png",
-      "concept": "user-profile-bust",
+      "concept": "user-comment-bubble",
       "category": "people",
       "aliases": [
-        "account",
-        "contact"
+        "testimonial",
+        "quote",
+        "review",
+        "feedback"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'user-profile-bust' from the broken render; re-identified now that the full artwork is visible: A person sits above a speech/message bubble (text line plus ellipsis dots, tail pointing down-left); the old name captured only the generic bust, missing the bubble that makes up most of the icon."
     },
     {
       "file": "icon-220.png",
@@ -2309,13 +2476,15 @@
     },
     {
       "file": "icon-225.png",
-      "concept": "direction-pointer-flag",
+      "concept": "compass-needle-direction",
       "category": "navigation",
       "aliases": [
-        "milestone",
-        "marker"
+        "explore",
+        "orientation",
+        "wayfinding",
+        "navigate"
       ],
-      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: A solid green diamond/kite-shaped form with one pointed end, tilted at roughly 45 degrees, resembling a paper airplane or angled directional flag."
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'direction-pointer-flag' from the broken render; re-identified now that the full artwork is visible: A full compass housing (circle, four tick marks, top-right winding knob) now surrounds the green needle, which alone had been misread as a flag."
     },
     {
       "file": "icon-226.png",
@@ -2338,7 +2507,7 @@
         "account",
         "contact"
       ],
-      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: A small green person icon beside a plain navy-outlined rounded square, suggesting a person paired with a selectable card or tile."
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Concept name was already accurate even from the broken render, so it's unchanged."
     },
     {
       "file": "icon-228.png",
@@ -2352,35 +2521,39 @@
     },
     {
       "file": "icon-229.png",
-      "concept": "diagonal-accent-bar",
-      "category": "misc",
+      "concept": "price-tag-label",
+      "category": "object",
       "aliases": [
-        "diagonal"
+        "sale",
+        "discount",
+        "promo",
+        "markdown"
       ],
-      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: A single thick green diagonal rounded bar/slash shape with no other elements."
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'diagonal-accent-bar' from the broken render; re-identified now that the full artwork is visible: A full price/luggage tag with a string loop and text lines is now visible; only the green diagonal stripe across its corner was catalogued before."
     },
     {
       "file": "icon-230.png",
-      "concept": "bar-chart-growth-tile",
+      "concept": "shopping-bag-sales-chart",
       "category": "data",
       "aliases": [
-        "analytics",
-        "graph",
-        "data",
-        "increase"
+        "ecommerce",
+        "retail",
+        "performance",
+        "revenue"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'bar-chart-growth-tile' from the broken render; re-identified now that the full artwork is visible: A shopping bag now carries the green analytics badge; the bag itself was invisible before, so only the bare bar-chart tile was catalogued."
     },
     {
       "file": "icon-231.png",
-      "concept": "megaphone-left-waves-alt",
+      "concept": "document-megaphone-announcement",
       "category": "communication",
       "aliases": [
-        "announcement",
+        "press-release",
         "broadcast",
-        "marketing"
+        "memo",
+        "bulletin"
       ],
-      "notes": "Visually indistinguishable from icon-195; both left-facing with sound waves."
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'megaphone-left-waves-alt' from the broken render; re-identified now that the full artwork is visible: A page/document sits behind the megaphone; the page was invisible before, leaving only the megaphone catalogued."
     },
     {
       "file": "icon-232.png",
@@ -2393,14 +2566,15 @@
     },
     {
       "file": "icon-233.png",
-      "concept": "bar-chart-dashboard-tile",
+      "concept": "envelope-analytics-report",
       "category": "data",
       "aliases": [
-        "analytics",
-        "graph",
-        "data"
+        "newsletter",
+        "metrics",
+        "performance",
+        "insights"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'bar-chart-dashboard-tile' from the broken render; re-identified now that the full artwork is visible: An envelope now sits beneath the green analytics badge; the envelope was invisible before, so only the bar-chart tile was catalogued alone."
     },
     {
       "file": "icon-234.png",
@@ -2424,41 +2598,51 @@
     },
     {
       "file": "icon-236.png",
-      "concept": "growth-arrow-tile",
+      "concept": "pie-chart-growth-arrow",
       "category": "data",
       "aliases": [
-        "increase",
-        "trend",
-        "rising"
+        "market-share",
+        "performance",
+        "analytics",
+        "increase"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'growth-arrow-tile' from the broken render; re-identified now that the full artwork is visible: A pie-chart circle with one wedge missing is now visible behind the green arrow badge; the old name described only the arrow tile, not the chart it sits on."
     },
     {
       "file": "icon-237.png",
-      "concept": "vertical-accent-bar",
-      "category": "misc",
+      "concept": "wallet-billfold",
+      "category": "object",
       "aliases": [
-        "vertical"
+        "money",
+        "finance",
+        "payment",
+        "cash"
       ],
-      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: A single thick green vertical rounded bar/pill shape with no other elements."
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'vertical-accent-bar' from the broken render; re-identified now that the full artwork is visible: A bifold wallet with a snap-button flap is now visible around the green bar; previously only that bar was catalogued as an abstract vertical accent."
     },
     {
       "file": "icon-238.png",
-      "concept": "decline-arrow-drop",
+      "concept": "bar-chart-decline-arrow",
       "category": "data",
       "aliases": [
-        "decline"
+        "downturn",
+        "decrease",
+        "loss",
+        "underperformance"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'decline-arrow-drop' from the broken render; re-identified now that the full artwork is visible: A two-bar declining chart on a baseline is now visible beneath the arrow; the old name captured only the green arrow-and-block, not the chart it's paired with."
     },
     {
       "file": "icon-239.png",
-      "concept": "slider-toggle-control",
-      "category": "action",
+      "concept": "balance-scale-justice",
+      "category": "object",
       "aliases": [
-        "slider"
+        "comparison",
+        "fairness",
+        "legal",
+        "tradeoff"
       ],
-      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: A horizontal bar made of two short navy dash segments flanking a green square in the middle, resembling a slider or equalizer control."
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'slider-toggle-control' from the broken render; re-identified now that the full artwork is visible: A full balance/justice scale with two hanging pans on a pedestal is now visible; only the green top accents were catalogued before, misread as a slider control."
     },
     {
       "file": "icon-240.png",
@@ -2474,12 +2658,15 @@
     },
     {
       "file": "icon-241.png",
-      "concept": "corner-crop-bracket",
-      "category": "action",
+      "concept": "invoice-dollar-document",
+      "category": "data",
       "aliases": [
-        "corner"
+        "receipt",
+        "billing",
+        "statement",
+        "payment-due"
       ],
-      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: A simple green right-angle line forming a single corner bracket, like a crop mark or frame corner."
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'corner-crop-bracket' from the broken render; re-identified now that the full artwork is visible: A dollar-sign invoice with line items is now visible; the green shape behind it (a second page peeking out) had been mistaken for a crop-tool bracket."
     },
     {
       "file": "icon-242.png",
@@ -2492,14 +2679,15 @@
     },
     {
       "file": "icon-243.png",
-      "concept": "shopping-bag-handle",
+      "concept": "smartphone-shopping-bag",
       "category": "object",
       "aliases": [
         "ecommerce",
+        "mcommerce",
         "retail",
-        "purchase"
+        "checkout"
       ],
-      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: A green rounded square containing a simple navy curved handle/horseshoe shape, resembling the handle of a bag or tote."
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'shopping-bag-handle' from the broken render; re-identified now that the full artwork is visible: A full smartphone body with a speaker slit is now visible behind the green shopping bag; the old name captured only the bag."
     },
     {
       "file": "icon-244.png",
@@ -2519,7 +2707,7 @@
         "account",
         "contact"
       ],
-      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: A small green person icon beside a wider navy-outlined rounded rectangle, suggesting a person paired with a media panel or screen."
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Concept name was already accurate even from the broken render, so it's unchanged."
     },
     {
       "file": "icon-246.png",
@@ -2534,26 +2722,27 @@
     },
     {
       "file": "icon-247.png",
-      "concept": "ascending-growth-chevrons",
-      "category": "data",
+      "concept": "syringe-vaccine",
+      "category": "object",
       "aliases": [
-        "increase",
-        "trend",
-        "rising"
+        "injection",
+        "immunization",
+        "healthcare",
+        "medical"
       ],
-      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: Two solid green chevron/arrow shapes pointing upward, a smaller one at top-left and a larger one at bottom-right, stepping diagonally upward."
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'ascending-growth-chevrons' from the broken render; re-identified now that the full artwork is visible: A medical syringe with dose markings is now the dominant shape; the flanking green chevron-over-shield accents (previously read as growth chevrons) are decorative boost/protection motifs."
     },
     {
       "file": "icon-248.png",
-      "concept": "check-circle-navy-mark-alt",
+      "concept": "paperclip-confirmed",
       "category": "status",
       "aliases": [
-        "success",
-        "complete",
-        "confirm",
-        "done"
+        "attachment",
+        "verified",
+        "approved",
+        "file-attached"
       ],
-      "notes": "Visually indistinguishable from icon-283 (originally named verified-checkmark-circle); both navy-checkmark variants."
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'check-circle-navy-mark-alt' from the broken render; re-identified now that the full artwork is visible: A navy paperclip (nested loops with a hooked tail) is now visible behind the green checkmark badge; previously only the circle-checkmark was catalogued, with no visible attachment shape."
     },
     {
       "file": "icon-249.png",
@@ -2582,7 +2771,7 @@
         "account",
         "contact"
       ],
-      "notes": "Same composition as icon-074 but the silhouette is solid navy rather than a white cutout."
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Concept name was already accurate even from the broken render, so it's unchanged."
     },
     {
       "file": "icon-252.png",
@@ -2597,7 +2786,7 @@
     },
     {
       "file": "icon-253.png",
-      "concept": "search-verified",
+      "concept": "document-search-verified",
       "category": "action",
       "aliases": [
         "find",
@@ -2605,7 +2794,7 @@
         "confirmed",
         "approved"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'search-verified' from the broken render; re-identified now that the full artwork is visible: A document/page with text lines is now visible behind the verified-search badge; the old name captured only the magnifying glass and checkmark, not the page."
     },
     {
       "file": "icon-254.png",
@@ -2620,21 +2809,27 @@
     },
     {
       "file": "icon-255.png",
-      "concept": "drag-handle",
-      "category": "misc",
+      "concept": "cash-dispenser-slot",
+      "category": "object",
       "aliases": [
-        "drag"
+        "atm",
+        "withdraw",
+        "payment",
+        "banking"
       ],
-      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: green flat-topped bracket shape with two rounded legs flaring outward at the base, no other elements present"
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'drag-handle' from the broken render; re-identified now that the full artwork is visible: A navy bill with a dollar sign and rounded bottom-corner notches emerges from a green rounded slot at top, like cash from an ATM/dispenser - not a drag handle."
     },
     {
       "file": "icon-256.png",
-      "concept": "umbrella-canopy",
+      "concept": "market-stall-counter",
       "category": "object",
       "aliases": [
-        "umbrella"
+        "kiosk",
+        "vendor",
+        "cart",
+        "concession"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'umbrella-canopy' from the broken render; re-identified now that the full artwork is visible: A scalloped awning (green) over a stall/cart counter with a window and a drawer-like base with two feet (navy) - a market stall or kiosk, not merely an umbrella canopy."
     },
     {
       "file": "icon-257.png",
@@ -2648,14 +2843,15 @@
     },
     {
       "file": "icon-258.png",
-      "concept": "bar-chart-ascending-alt",
+      "concept": "presentation-board-chart",
       "category": "data",
       "aliases": [
+        "briefing",
         "analytics",
-        "graph",
-        "data"
+        "report",
+        "graph"
       ],
-      "notes": "Visually indistinguishable from icon-185; qualifier denotes a repeated source asset."
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'bar-chart-ascending-alt' from the broken render; re-identified now that the full artwork is visible: A presentation screen on an easel stand (navy) displaying a bar chart and caption bar (green) - the easel and stand were invisible before, not just a floating chart. Consolidated with icon-185.png (presentation-board-chart-tripod) as the same glyph (easel + bar chart + caption bar), distinguished by stand: single center post vs. tripod (splayed 3-leg)."
     },
     {
       "file": "icon-259.png",
@@ -2664,20 +2860,23 @@
       "aliases": [
         "analytics"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Concept name was already accurate even from the broken render, so it's unchanged."
     },
     {
       "file": "icon-260.png",
-      "concept": "highlighter-marker",
-      "category": "object",
+      "concept": "resume-profile-highlighter",
+      "category": "action",
       "aliases": [
-        "highlighter"
+        "cv",
+        "review",
+        "markup",
+        "annotate"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'highlighter-marker' from the broken render; re-identified now that the full artwork is visible: A document with a person/profile silhouette and a text line (navy) being marked by a highlighter (green) - the resume/ID document was invisible before, not just a highlighter."
     },
     {
       "file": "icon-261.png",
-      "concept": "sprout-growth-burst",
+      "concept": "growth-chart-sprout",
       "category": "data",
       "aliases": [
         "plant",
@@ -2685,7 +2884,7 @@
         "trend",
         "rising"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'sprout-growth-burst' from the broken render; re-identified now that the full artwork is visible: A three-bar chart on a baseline (navy) with a sprout and radiating burst lines (green) growing from the tallest bar - the bar chart was invisible before, not just a sprout burst."
     },
     {
       "file": "icon-262.png",
@@ -2700,23 +2899,27 @@
     },
     {
       "file": "icon-263.png",
-      "concept": "storefront-shop-green-frame",
+      "concept": "storefront-shop-door",
       "category": "object",
       "aliases": [
-        "store",
-        "retail"
+        "retail",
+        "boutique",
+        "business",
+        "entrance"
       ],
-      "notes": "Predominantly green with navy accent details \u2014 the inverse duotone balance from icon-125's mostly-navy rendering."
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'storefront-shop-green-frame' from the broken render; re-identified now that the full artwork is visible: A storefront frame with a top awning strip (navy) and a door with a keyhole/handle cutout (green) - the outer frame was invisible before; 'green-frame' in the old name was a leftover color reference, not a shape."
     },
     {
       "file": "icon-264.png",
-      "concept": "chat-bubble-abstract",
+      "concept": "chat-bubbles-conversation",
       "category": "communication",
       "aliases": [
         "message",
-        "conversation"
+        "dialogue",
+        "messaging",
+        "texting"
       ],
-      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: abstract green blob with two white dots like eyes or an ellipsis and a curved swooping tail, resembling a speech bubble or duck-like silhouette"
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'chat-bubble-abstract' from the broken render; re-identified now that the full artwork is visible: Two overlapping speech bubbles - a larger navy one with text lines and a dot, plus a smaller green one with two dots - a concrete two-party conversation, not an abstract shape."
     },
     {
       "file": "icon-265.png",
@@ -2729,15 +2932,15 @@
     },
     {
       "file": "icon-266.png",
-      "concept": "dollar-coin-tertiary-alt",
+      "concept": "bank-building-dollar-coin",
       "category": "data",
       "aliases": [
-        "money",
+        "finance",
         "revenue",
-        "price",
-        "payment"
+        "payment",
+        "currency"
       ],
-      "notes": "Visually indistinguishable from icon-200; both in this repeated-asset group."
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'dollar-coin-tertiary-alt' from the broken render; re-identified now that the full artwork is visible: A classical bank facade with columns and a flat pediment roof (navy) sits above a shining green dollar coin with sparkle marks - the bank building was invisible before, not just a coin."
     },
     {
       "file": "icon-267.png",
@@ -2760,24 +2963,27 @@
     },
     {
       "file": "icon-269.png",
-      "concept": "mountain-peaks-abstract",
-      "category": "misc",
+      "concept": "collared-dress-shirt",
+      "category": "object",
       "aliases": [
-        "mountain"
+        "apparel",
+        "clothing",
+        "attire",
+        "wardrobe"
       ],
-      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: three green triangular peak shapes of graduated height arranged side by side with white gaps, resembling a crown or mountain range"
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'mountain-peaks-abstract' from the broken render; re-identified now that the full artwork is visible: A button-down collared shirt - green collar flaps, navy button placket and body outline - not mountain peaks."
     },
     {
       "file": "icon-270.png",
-      "concept": "growth-trajectory-sprout",
+      "concept": "target-growth-arrow",
       "category": "data",
       "aliases": [
-        "increase",
-        "trend",
-        "rising",
-        "plant"
+        "goal",
+        "milestone",
+        "progress",
+        "objective"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'growth-trajectory-sprout' from the broken render; re-identified now that the full artwork is visible: A bullseye target with crosshair ticks (navy) and a solid arrowhead with a notched tail (green) curving out of its center - a dart/arrow shape, not a sprout or leaf."
     },
     {
       "file": "icon-271.png",
@@ -2801,22 +3007,27 @@
     },
     {
       "file": "icon-273.png",
-      "concept": "trend-line-increase",
+      "concept": "bar-chart-trend-arrow",
       "category": "data",
       "aliases": [
-        "trend"
+        "analytics",
+        "growth",
+        "performance",
+        "metrics"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'trend-line-increase' from the broken render; re-identified now that the full artwork is visible: A three-bar bar chart on a baseline (navy) with an upward trend arrow above it (green) - the bar chart was invisible before, not just a trend line."
     },
     {
       "file": "icon-274.png",
-      "concept": "priority-flag-bars",
+      "concept": "clipboard-priority-flags",
       "category": "status",
       "aliases": [
+        "checklist",
+        "tasks",
         "milestone",
-        "marker"
+        "ranking"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'priority-flag-bars' from the broken render; re-identified now that the full artwork is visible: A clipboard with a clip notch (navy) holding a vertical pole and stepped flag-like bars of varying length (green) - the clipboard was invisible before, not just flag bars."
     },
     {
       "file": "icon-275.png",
@@ -2830,12 +3041,15 @@
     },
     {
       "file": "icon-276.png",
-      "concept": "pencil-edit-write",
+      "concept": "document-pencil-edit",
       "category": "action",
       "aliases": [
-        "modify"
+        "write",
+        "revise",
+        "draft",
+        "annotate"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'pencil-edit-write' from the broken render; re-identified now that the full artwork is visible: A document with text lines and a placeholder box (navy) being marked up by a pencil (green) - the page itself was invisible before, not just a floating pencil."
     },
     {
       "file": "icon-277.png",
@@ -2861,12 +3075,15 @@
     },
     {
       "file": "icon-279.png",
-      "concept": "horizontal-divider-bar",
-      "category": "misc",
+      "concept": "shopping-tote-bag",
+      "category": "object",
       "aliases": [
-        "horizontal"
+        "retail",
+        "purchase",
+        "store",
+        "errands"
       ],
-      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: single flat green horizontal trapezoid bar with no other elements"
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'horizontal-divider-bar' from the broken render; re-identified now that the full artwork is visible: A tote/shopping bag with an arched handle and sides (navy) and a solid base (green) - not a horizontal divider bar."
     },
     {
       "file": "icon-280.png",
@@ -2881,46 +3098,51 @@
     },
     {
       "file": "icon-281.png",
-      "concept": "growth-trend-card",
-      "category": "data",
+      "concept": "team-growth-chart",
+      "category": "people",
       "aliases": [
-        "increase",
-        "rising"
+        "audience",
+        "presentation",
+        "stakeholders",
+        "staff"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'growth-trend-card' from the broken render; re-identified now that the full artwork is visible: Two person silhouettes (navy) standing beneath a green card showing an upward trend arrow - the people were fully invisible before, not just a growth card."
     },
     {
       "file": "icon-282.png",
-      "concept": "arrow-up-circle-navy-mark",
+      "concept": "eye-visibility-increase",
       "category": "status",
       "aliases": [
-        "increase",
         "growth",
         "rising",
-        "trending-up"
+        "trending-up",
+        "insight"
       ],
-      "notes": "Same composition as icon-007 but the arrow is navy instead of white."
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'arrow-up-circle-navy-mark' from the broken render; re-identified now that the full artwork is visible: An eye with lash/ray marks above (navy) containing a green iris with an upward arrow - the eye shape was invisible before, not just an arrow-in-circle."
     },
     {
       "file": "icon-283.png",
-      "concept": "check-circle-navy-mark",
+      "concept": "shield-verified-increase",
       "category": "status",
       "aliases": [
-        "success",
-        "complete",
-        "confirm",
-        "done"
+        "secure",
+        "protected",
+        "trust",
+        "rising"
       ],
-      "notes": "Same composition as icon-001 but the checkmark is navy instead of white (originally named checkmark-circle)."
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'check-circle-navy-mark' from the broken render; re-identified now that the full artwork is visible: A shield (navy) with an upward arrow inside, badged by a green checkmark circle - the shield and arrow were invisible before, not just a check circle."
     },
     {
       "file": "icon-284.png",
-      "concept": "payment-terminal-device",
+      "concept": "sim-card-hub-sync",
       "category": "object",
       "aliases": [
-        "payment"
+        "network",
+        "distribute",
+        "telecom",
+        "connect"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Re-identified but still abstract/ambiguous: Two SIM-card-shaped items (navy, notched corner plus chip pad) connect via a T-shaped link to a green hub device (two dots and a slot, flanked by thin bars); the top device's exact identity (terminal, router, or reader) stays unclear even with navy restored, so 'payment terminal' may overstate it."
     },
     {
       "file": "icon-285.png",
@@ -2945,12 +3167,15 @@
     },
     {
       "file": "icon-287.png",
-      "concept": "corner-crop-marker",
-      "category": "misc",
+      "concept": "credit-card-stack-alt",
+      "category": "object",
       "aliases": [
-        "corner"
+        "payment",
+        "debit",
+        "banking",
+        "wallet"
       ],
-      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: simple green L-shaped corner bracket line with a rounded joint, no other elements"
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'corner-crop-marker' from the broken render; re-identified now that the full artwork is visible: Two stacked payment cards - front navy card with a chip and magnetic stripe, back green card peeking out - not a corner crop marker. Duplicate artwork of icon-028.png ('credit-card-stack'); suffixed '-alt' to keep concept names unique."
     },
     {
       "file": "icon-288.png",
@@ -2972,24 +3197,27 @@
     },
     {
       "file": "icon-290.png",
-      "concept": "favorite-star",
+      "concept": "award-ribbon-star",
       "category": "status",
       "aliases": [
-        "rating"
+        "achievement",
+        "badge",
+        "rating",
+        "honor"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'favorite-star' from the broken render; re-identified now that the full artwork is visible: A ribbon medal/badge (navy) with a star at its center (green) - the medal shape was invisible before, not just a favorite star."
     },
     {
       "file": "icon-291.png",
-      "concept": "growth-sprout",
-      "category": "object",
+      "concept": "money-growth-sprout",
+      "category": "data",
       "aliases": [
-        "increase",
-        "trend",
-        "rising",
-        "plant"
+        "investment",
+        "revenue",
+        "finance",
+        "increase"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'growth-sprout' from the broken render; re-identified now that the full artwork is visible: A sprout (green) growing from a cash/bill shape beside a dollar coin (navy) - the money elements were invisible before, not just a plant sprout."
     },
     {
       "file": "icon-292.png",
@@ -3003,12 +3231,15 @@
     },
     {
       "file": "icon-293.png",
-      "concept": "bookmark-tags",
+      "concept": "bookmark-folder-tags",
       "category": "object",
       "aliases": [
-        "bookmark"
+        "saved",
+        "favorites",
+        "archive",
+        "labels"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'bookmark-tags' from the broken render; re-identified now that the full artwork is visible: An open folder/box with text lines (navy) and three bookmark ribbon tags hanging from its top edge (green) - the container was invisible before, not just bookmark tags."
     },
     {
       "file": "icon-294.png",
@@ -3017,7 +3248,7 @@
       "aliases": [
         "content"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Concept name was already accurate even from the broken render, so it's unchanged."
     },
     {
       "file": "icon-295.png",
@@ -3038,7 +3269,7 @@
         "revenue",
         "payment"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Concept name was already accurate even from the broken render, so it's unchanged."
     },
     {
       "file": "icon-297.png",
@@ -3068,7 +3299,7 @@
         "store",
         "retail"
       ],
-      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: A green horizontal shape with a flat top edge and a scalloped four-bump wavy bottom edge, like an awning valance or bunting trim, with no other elements."
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Concept name was already accurate even from the broken render, so it's unchanged."
     },
     {
       "file": "icon-300.png",
@@ -3094,32 +3325,39 @@
     },
     {
       "file": "icon-302.png",
-      "concept": "analytics-bar-chart",
+      "concept": "document-bar-chart-report",
       "category": "data",
       "aliases": [
+        "analytics",
+        "stats",
         "graph",
-        "data"
+        "metrics"
       ],
-      "notes": null
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'analytics-bar-chart' from the broken render; re-identified now that the full artwork is visible: A document/page with a folded corner (navy) overlaid with a green bar-chart badge - the page outline was invisible before, not just a floating bar chart."
     },
     {
       "file": "icon-303.png",
-      "concept": "podium-stand",
-      "category": "object",
+      "concept": "lightbulb-idea-increase",
+      "category": "status",
       "aliases": [
-        "podium"
+        "insight",
+        "innovation",
+        "growth",
+        "inspiration"
       ],
-      "notes": "Abstract/ambiguous shape with no clear single real-world referent \u2014 named by its most likely usage context. As extracted: A small green shape combining a flat wide horizontal bar with a narrower rounded-bottom rectangle hanging below it, positioned low in the cell, resembling a simplified podium or pedestal base."
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'podium-stand' from the broken render; re-identified now that the full artwork is visible: A lightbulb with glow/ray marks (navy) and a green base, containing an upward arrow - not a podium stand; the bulb outline was invisible before."
     },
     {
       "file": "icon-304.png",
-      "concept": "pencil-edit-solid",
+      "concept": "document-pencil-edit-solid",
       "category": "action",
       "aliases": [
         "write",
-        "modify"
+        "revise",
+        "draft",
+        "update"
       ],
-      "notes": "A standalone solid green pencil with a defined eraser end \u2014 distinct from icon-063's accented navy pencil."
+      "notes": "Recolored 2026-09: this icon's line-art was originally white (invisible on the white .icon-tile card background) \u2014 extracted from a deck slide instance meant for a dark background. Recolored to navy so it matches the rest of the library. Originally catalogued as 'pencil-edit-solid' from the broken render; re-identified now that the full artwork is visible: A document with four text lines (navy) being marked up by a pencil (green) - the page itself was invisible before, not just a floating pencil."
     },
     {
       "file": "ai/ai-model-core.png",
@@ -3275,6 +3513,28 @@
         "ingestion"
       ],
       "notes": "New original icon (2026-09), hand-authored to extend the library with an AI-usage category \u2014 not extracted from the deck like icon-001..icon-304."
+    },
+    {
+      "file": "ai/target-spark.png",
+      "concept": "target-spark",
+      "category": "ai",
+      "aliases": [
+        "strategy",
+        "targeting",
+        "prioritization"
+      ],
+      "notes": "New original icon (2026-09), hand-authored for the AI-usage category \u2014 a targeting crosshair with an AI-spark bullseye, for AI product strategy / deciding where AI belongs. Not extracted from the deck."
+    },
+    {
+      "file": "ai/app-window-spark.png",
+      "concept": "app-window-spark",
+      "category": "ai",
+      "aliases": [
+        "experience",
+        "interface",
+        "ship"
+      ],
+      "notes": "New original icon (2026-09), hand-authored for the AI-usage category \u2014 an app window framing an AI spark, for the AI experience shipped as working software. Not extracted from the deck."
     }
   ]
 }
