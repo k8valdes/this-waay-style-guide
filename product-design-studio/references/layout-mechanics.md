@@ -51,12 +51,17 @@ text. A light card dropped into a navy section must not inherit that section's l
 - **Prefer extend over invent:** a from-scratch card is a new opportunity to reintroduce this exact bug. Prefer extending an already-portable component (the generic content card) over inventing a new one.
 - **Specificity check:** if the base selector already uses a doubled class, a single-class colour modifier will lose SILENTLY. Match or exceed the doubled pattern, or the override never applies and the failure is invisible until computed style is inspected.
 
-## Ghost-button hover
+## Button hover
 
-On hover/focus a ghost button's fill becomes its outline colour, and the label knocks out to the
-ground it was sitting on. Never a third colour, never a tint.
-- On light: green outline → green fill, white label.
-- On navy: white outline → white fill, navy label.
+Every button — primary, ghost, white, tag — on every ground fills **teal** on hover/press with a
+**navy** label (`fill.action-hover` + `text.on-fill`, 5.2:1). Teal is the interaction colour: it
+appears only in motion and state (hover, selected, focus, link underlines), never as a resting fill
+beside green. Never a tint, never a darkened version of the resting colour.
+- On light: navy fill (or navy outline) → teal fill, navy label.
+- On navy: white fill (or white outline) → teal fill, navy label.
+
+*Superseded 2026-11-15:* the earlier ghost rule ("fill becomes the outline colour; label knocks out
+to the ground — never a third colour") belonged to the green-action system.
 
 ## Straddle element (a card/banner bridging two sections)
 

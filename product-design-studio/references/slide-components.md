@@ -11,7 +11,7 @@ brand-agnostic — for another client only the token bindings and assets change.
 - **Source of truth:** `2026 This Waay Deck Template_NEW_BH` (36 slides). Tokens: `slide.*` in
   `tokens.json` (v4.0) → resolved through `build/tokens.css` / the resolver.
 - **Deck accent is TEAL, not green.** Eyebrows, subheads, timed-rows, numerals, and Opportunity/Sub-
-  Category pills are teal (`fill.accent` / `text.accent-alt`). **GREEN (`fill.action`) is reserved** for
+  Category pills are teal (`fill.accent` / `text.accent-alt`). **GREEN (`fill.highlight`) is reserved** for
   divider-words, gantt bars, Category pills, and the closing word. This is the deck's most important
   binding and the opposite of the marketing site (green eyebrows).
 - **Headers are NAVY** here (`text.body` / `text.on-ground`), not the legacy slideDeck "Deck Gray" —
@@ -31,11 +31,11 @@ brand-agnostic — for another client only the token bindings and assets change.
 | **body-paragraph** | text | `slide.body` → `text.body` | Axiforma / muted via `overlay.muted-ink`. |
 | **timed-row** | time, description | `slide.timedRowTime` → `text.accent-alt` · `slide.timedRowBody` → `text.body` | The agenda unit. |
 | **numbered-item** | numeral, title, sub-text | `slide.numeralFill` → `fill.accent` (teal) · `slide.numeralText` → `text.on-fill` | Teal circle numeral. |
-| **pill** | label | `slide.pillOpportunity`/`pillSubCategory` → `fill.accent` (teal) · `slide.pillCategory` → `fill.action` (green) · `slide.pillLabel` → `text.on-fill` · `slide.pillRadius` | Three states: Opportunity (teal), Sub-Category (teal), Category (green). |
+| **pill** | label | `slide.pillOpportunity`/`pillSubCategory` → `fill.accent` (teal) · `slide.pillCategory` → `fill.highlight` (green) · `slide.pillLabel` → `text.on-fill` · `slide.pillRadius` | Three states: Opportunity (teal), Sub-Category (teal), Category (green). |
 | **card** | icon-tile, title, body, pill | `slide.cardGround` → `surface.ground` (navy) · `slide.cardTitle` → `text.on-ground` · `slide.cardBody` → `overlay.on-dark-body` · `slide.cardRadius` | Variants: compact / expanded / alt-light (`slide.cardAlt*`, proposed) / user-flow. |
 | **icon-tile** | icon | icon asset (duotone library, `assets/icons/icon-NNN.png`) | White/green icon in a card. Request by meaning, not number — `assets/icons/icon-manifest.json` maps a concept name (e.g. `settings-gear`) and its aliases to the file; see `references/icon-library.md` for the convention. |
-| **divider-word** | word | `slide.dividerWord` → `fill.action` (**green**) | Huge; the section break. |
-| **gantt-bar** | span | `slide.ganttBar` → `fill.action` (green) | |
+| **divider-word** | word | `slide.dividerWord` → `fill.highlight` (**green**) | Huge; the section break. |
+| **gantt-bar** | span | `slide.ganttBar` → `fill.highlight` (green) | |
 | **table-header-cell** | text | `slide.ganttHeaderFill` → `surface.ground` · `slide.ganttHeaderText` → `text.on-ground` | Gantt week header. |
 | **process-diamond** | label | `slide.diamondFill` → `fill.accent` (teal) · `diamondAlt` → navy (proposed) · `diamondEmphasis` → green (proposed) · `diamondLabel` → `text.on-ground` | Double-diamond stage. |
 | **paper-plane motif** | — | asset (`assets/motif/`) | Official art; never redrawn. Cover / dividers / closing / Conclusion accent. |

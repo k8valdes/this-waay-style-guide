@@ -57,6 +57,19 @@
         },
         "$description": "THE brand green. Buttons, eyebrows, fills, icons, highlights on any ground; large surfaces."
       },
+      "500": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.0,
+            0.506,
+            0.318
+          ],
+          "hex": "#008151"
+        },
+        "$description": "VIVID ACCESSIBLE TEXT variant of green — eyebrows, inline emphasis, testimonial roles, case-study summaries on light grounds. ~4.9:1 on white, >=4.55:1 on every soft-gradient stop. Same hue as green.400 and the same chroma — only darker."
+      },
       "600": {
         "$type": "color",
         "$value": {
@@ -68,7 +81,7 @@
           ],
           "hex": "#2C6D4D"
         },
-        "$description": "ACCESSIBLE TEXT variant of green — eyebrows, links, inline emphasis on light grounds. ~6.2:1 on white, passes AA. Same hue family as green.400."
+        "$description": "Deep accessible green — ~6.2:1 on white. Since 2026-11-15 it is no longer the web text ink (text.accent moved to green.500); it remains the deck's greenInk and the text color on the pale green success tint, where green.500 falls under 4.5:1."
       }
     },
     "teal": {
@@ -424,13 +437,52 @@
         "$value": {
           "colorSpace": "srgb",
           "components": [
+            0.047,
+            0.165,
+            0.282
+          ],
+          "hex": "#0C2A48"
+        },
+        "$description": "THE action fill on light grounds — primary buttons, interactive chips, current-page markers. Navy at rest; every action turns teal on hover (fill.action-hover). On navy grounds use fill.action-on-dark."
+      },
+      "action-on-dark": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hex": "#FFFFFF"
+        },
+        "$description": "Action fill on navy grounds — the white button, navy label (text.body), 14.6:1. Turns teal on hover."
+      },
+      "action-hover": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.043,
+            0.671,
+            0.671
+          ],
+          "hex": "#0BABAB"
+        },
+        "$description": "Hover / pressed / selected fill for every action on any ground — buttons, current page, active tab marker, active carousel dot. Navy label on top (text.on-fill, 5.2:1). Teal's web role is interaction: it never fills a resting element beside green."
+      },
+      "highlight": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
             0.329,
             0.725,
             0.529
           ],
           "hex": "#54B987"
         },
-        "$description": "THE action fill — buttons, labels, icons, on any ground. PRIMARY accent on the WEB surface."
+        "$description": "THE highlight fill — eyebrows on navy, icons, category pills, tag chips, price tags, decorative panels, chart series 1, screenshot callouts. PRIMARY accent on the WEB surface. Never an action fill."
       },
       "accent": {
         "$type": "color",
@@ -443,7 +495,7 @@
           ],
           "hex": "#0BABAB"
         },
-        "$description": "Heritage accent fill. PRIMARY accent on the DECK/DOCUMENT surface (eyebrows, subheads, timed-row minutes, numerals, Opportunity/Sub-Category pills)."
+        "$description": "Heritage accent fill. PRIMARY accent on the DECK/DOCUMENT surface (eyebrows, subheads, timed-row minutes, numerals, Opportunity/Sub-Category pills). On the web, teal is the interaction color — reached through fill.action-hover, border.focus and border.link, never as a resting fill beside green."
       },
       "emphasis": {
         "$type": "color",
@@ -517,13 +569,13 @@
         "$value": {
           "colorSpace": "srgb",
           "components": [
-            0.173,
-            0.427,
-            0.302
+            0.0,
+            0.506,
+            0.318
           ],
-          "hex": "#2C6D4D"
+          "hex": "#008151"
         },
-        "$description": "Accessible green for TEXT — ~6.2:1. References green.600 (the ink), NOT the green.400 fill. THIS is the enforcement."
+        "$description": "Accessible green for highlight TEXT on light grounds — eyebrows, inline emphasis, ~4.9:1 (>=4.55:1 on every soft-gradient stop). References green.500 (the vivid ink), NOT the green.400 fill. THIS is the enforcement. Not for links (text.link)."
       },
       "accent-alt": {
         "$type": "color",
@@ -536,20 +588,46 @@
           ],
           "hex": "#077373"
         },
-        "$description": "Accessible teal for text — ~5.7:1."
+        "$description": "Accessible teal for text — ~5.7:1. Deck/document surface (subheads, attribution). On the web teal text reads as interactive: use text.accent for inline emphasis."
       },
       "link": {
         "$type": "color",
         "$value": {
           "colorSpace": "srgb",
           "components": [
-            0.027,
-            0.451,
-            0.451
+            0.047,
+            0.165,
+            0.282
           ],
-          "hex": "#077373"
+          "hex": "#0C2A48"
         },
-        "$description": "Interactive text — split from decorative text.accent. Wired to an accessible ink (teal.600) so links inherit contrast safety by default."
+        "$description": "Link text — navy, always underlined in border.link (teal), 14.6:1 on white. The underline is the link cue; link text never takes teal."
+      },
+      "link-on-dark": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hex": "#FFFFFF"
+        },
+        "$description": "Link text on navy grounds — white, underlined in border.link (teal)."
+      },
+      "on-action": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hex": "#FFFFFF"
+        },
+        "$description": "Label on the navy action fill (fill.action) — 14.6:1. On a teal hover fill the label switches to text.on-fill (navy)."
       },
       "muted": {
         "$type": "color",
@@ -575,7 +653,7 @@
           ],
           "hex": "#0C2A48"
         },
-        "$description": "Default text ON a color fill: navy. Passes AA on green (6.02:1) and teal (5.2:1). Components override at their own risk — see button.primary.label."
+        "$description": "Default text ON a color fill: navy. Passes AA on green (6.02:1) and teal (5.2:1) — including every teal hover state. No component overrides it as of 2026-11-15."
       },
       "danger": {
         "$type": "color",
@@ -604,6 +682,45 @@
           "hex": "#8DA3B5"
         },
         "$description": "Borders, gridlines. Fill-only hue — never used as text."
+      },
+      "focus": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.027,
+            0.451,
+            0.451
+          ],
+          "hex": "#077373"
+        },
+        "$description": "Focus ring on light grounds — 3px solid, 3px offset. 5.7:1 on white."
+      },
+      "focus-on-dark": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.043,
+            0.671,
+            0.671
+          ],
+          "hex": "#0BABAB"
+        },
+        "$description": "Focus ring on navy grounds — 3px solid, 3px offset. 5.2:1 on navy."
+      },
+      "link": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.043,
+            0.671,
+            0.671
+          ],
+          "hex": "#0BABAB"
+        },
+        "$description": "Link underline — 2px thick, 4px offset, under navy or white link text. Decoration: the text carries the contrast, so the underline can stay vivid."
       }
     }
   },
@@ -1169,6 +1286,41 @@
         }
       },
       "$description": "Green fill gradient. Counts as a punch usage — same one-per-asset rule."
+    },
+    "green-teal": {
+      "$type": "gradient",
+      "$value": [
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [
+              0.329,
+              0.725,
+              0.529
+            ],
+            "hex": "#54B987"
+          },
+          "position": 0
+        },
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [
+              0.027,
+              0.451,
+              0.451
+            ],
+            "hex": "#077373"
+          },
+          "position": 1
+        }
+      ],
+      "$extensions": {
+        "x.brandkit": {
+          "angle": 135
+        }
+      },
+      "$description": "Highlight gradient — green into teal, modeled on the paper-plane wing. Icon tiles and text-free panels. NOT a punch usage (unlike gradient.green). Text does not pass AA across its range — navy fails toward the teal end, white toward the green end — so panels that carry text stay flat fill.highlight with navy text."
     }
   },
   "typography": {
@@ -1354,13 +1506,13 @@
         "$value": {
           "colorSpace": "srgb",
           "components": [
-            0.329,
-            0.725,
-            0.529
+            0.047,
+            0.165,
+            0.282
           ],
-          "hex": "#54B987"
+          "hex": "#0C2A48"
         },
-        "$description": "green.400 fill."
+        "$description": "navy.900 fill (fill.action). Use button.on-navy on navy grounds."
       },
       "label": {
         "$type": "color",
@@ -1373,7 +1525,45 @@
           ],
           "hex": "#FFFFFF"
         },
-        "$description": "OVERRIDES the safe default (color.text.on-fill = navy) with white. This is the deviation."
+        "$description": "White on navy — 14.6:1, passes AA. The 2026-08 white-on-green deviation is retired; its record is kept below."
+      },
+      "hover-background": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.043,
+            0.671,
+            0.671
+          ],
+          "hex": "#0BABAB"
+        },
+        "$description": "Teal fill on hover/press."
+      },
+      "hover-label": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.047,
+            0.165,
+            0.282
+          ],
+          "hex": "#0C2A48"
+        },
+        "$description": "Navy on teal, 5.2:1."
+      },
+      "focus-ring": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.027,
+            0.451,
+            0.451
+          ],
+          "hex": "#077373"
+        }
       },
       "radius": {
         "$type": "dimension",
@@ -1389,11 +1579,11 @@
         "$value": {
           "colorSpace": "srgb",
           "components": [
-            0.329,
-            0.725,
-            0.529
+            0.047,
+            0.165,
+            0.282
           ],
-          "hex": "#54B987"
+          "hex": "#0C2A48"
         }
       },
       "label": {
@@ -1401,11 +1591,104 @@
         "$value": {
           "colorSpace": "srgb",
           "components": [
-            0.173,
-            0.427,
-            0.302
+            0.047,
+            0.165,
+            0.282
           ],
-          "hex": "#2C6D4D"
+          "hex": "#0C2A48"
+        }
+      },
+      "hover-background": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.043,
+            0.671,
+            0.671
+          ],
+          "hex": "#0BABAB"
+        }
+      },
+      "hover-label": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.047,
+            0.165,
+            0.282
+          ],
+          "hex": "#0C2A48"
+        }
+      },
+      "radius": {
+        "$type": "dimension",
+        "$value": {
+          "value": 25,
+          "unit": "px"
+        }
+      }
+    },
+    "secondary-on-navy": {
+      "border": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hex": "#FFFFFF"
+        }
+      },
+      "label": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hex": "#FFFFFF"
+        }
+      },
+      "hover-background": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.043,
+            0.671,
+            0.671
+          ],
+          "hex": "#0BABAB"
+        }
+      },
+      "hover-label": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.047,
+            0.165,
+            0.282
+          ],
+          "hex": "#0C2A48"
+        }
+      },
+      "focus-ring": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.043,
+            0.671,
+            0.671
+          ],
+          "hex": "#0BABAB"
         }
       },
       "radius": {
@@ -1434,11 +1717,47 @@
         "$value": {
           "colorSpace": "srgb",
           "components": [
-            0.173,
-            0.427,
-            0.302
+            0.047,
+            0.165,
+            0.282
           ],
-          "hex": "#2C6D4D"
+          "hex": "#0C2A48"
+        }
+      },
+      "hover-background": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.043,
+            0.671,
+            0.671
+          ],
+          "hex": "#0BABAB"
+        }
+      },
+      "hover-label": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.047,
+            0.165,
+            0.282
+          ],
+          "hex": "#0C2A48"
+        }
+      },
+      "focus-ring": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.043,
+            0.671,
+            0.671
+          ],
+          "hex": "#0BABAB"
         }
       },
       "radius": {
@@ -1455,11 +1774,11 @@
         "$value": {
           "colorSpace": "srgb",
           "components": [
-            0.329,
-            0.725,
-            0.529
+            0.047,
+            0.165,
+            0.282
           ],
-          "hex": "#54B987"
+          "hex": "#0C2A48"
         }
       },
       "label": {
@@ -1467,11 +1786,35 @@
         "$value": {
           "colorSpace": "srgb",
           "components": [
-            0.173,
-            0.427,
-            0.302
+            0.047,
+            0.165,
+            0.282
           ],
-          "hex": "#2C6D4D"
+          "hex": "#0C2A48"
+        }
+      },
+      "hover-background": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.043,
+            0.671,
+            0.671
+          ],
+          "hex": "#0BABAB"
+        }
+      },
+      "hover-label": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.047,
+            0.165,
+            0.282
+          ],
+          "hex": "#0C2A48"
         }
       },
       "radius": {

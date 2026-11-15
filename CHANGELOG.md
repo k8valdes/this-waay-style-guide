@@ -2,6 +2,53 @@
 
 This tracks version milestones for the unified `Branding/` home itself — not each brand's own internal changelog. See `product-design-studio/index.html` (footer living-document note) and `gridmark-partners/gridmark-design-system-v3.html` (Governance & versioning) for brand-level changelogs.
 
+## Unified v1.7 — 2026-11-15 — Action/highlight split: navy actions, teal interaction, green highlights (branch: action-highlight-split)
+
+A governed brand decision (decided 2026-11-15 by Kate, after a homepage comparison of teal, steel,
+navy, and navy + teal actions). Green and any second flat accent competed when both carried color
+at rest, so the three jobs now get three colors. **Spec-led:** this is the first change where the
+spec leads production — thiswaay.com still ships green buttons and links; its migration is a
+tracked follow-up (`meta.specLed`). `verify-schema` **11/11**, `verify-phase3b` **6/6**,
+`validate.py` **4/4** (and `--deck` 4/4), `validate-spec` Check A clean.
+
+- **Highlight = Waay Green.** New `color.fill.highlight` (green.400) takes the highlight half of the
+  old `fill.action`: eyebrows, icons, category pills, tag chips, price tags, panels, chart series 1.
+  `badge.category-pill` / `tag-chip` / `price-tag` rebind to it (value unchanged).
+- **Action = navy, white on navy.** `color.fill.action` → navy.900 (was green.400; provenance kept).
+  New `fill.action-on-dark` (white), `text.on-action` (white), `text.link-on-dark` (white).
+  `text.link` → navy.900 (was teal.600): link text is navy, the underline carries the color.
+- **Interaction = teal.** New `fill.action-hover` (teal.400, navy label 5.2:1), `border.focus`
+  (teal.600), `border.focus-on-dark` (teal.400), `border.link` (teal.400 underline). Every button on
+  every ground fills teal on hover; focus rings are teal.
+- **Buttons.** `button.primary` = navy + white (14.6:1) with hover/focus tokens; `secondary` = navy
+  outline + navy label; new `secondary-on-navy` (white outline + label); `on-navy` = white + navy
+  label; `tag` = navy outline + label. All carry `hover-background` / `hover-label`.
+- **Deviation retired.** The 2026-08 white-on-green accepted deviation (2.42:1) no longer exists —
+  white on navy passes. Its record stays on `button.primary.label` with `status: retired`,
+  `retired`, `retiredBecause`; `verify-schema` Check 10 now requires those fields on a retired
+  record, and Check 11 preservation still finds every figure.
+- **Vivid green ink.** New primitive `color.green.500` `#008151`; `text.accent` moves to it from green.600 `#2C6D4D`, which read drab (~30% less chroma than Waay Green). Same hue and chroma as green.400, only darker: 4.9:1 on white, >=4.55:1 on every soft-gradient stop. The site's raw `#54B987` eyebrow (2.4:1) was considered and rejected on AA. green.600 stays for decks and for text on the `#E2F4EA` success tint (green.500 is 4.31:1 there); `validate.py` C now spot-checks `#008151`.
+- **New gradient.** `gradient.green-teal` (green.400 → teal.600, 135°), modeled on the paper-plane
+  wing — icon tiles and text-free panels only (text can't pass AA across its range). Not a punch usage.
+- **Decks unchanged.** The five reserved-green `slide.*` atoms (`pillCategory`, `dividerWord`,
+  `closingWord`, `ganttBar`, `diamondEmphasis`) rebind `fill.action` → `fill.highlight`, same
+  rendered value. The PPTX/DOCX theme maps primitives, so `.potx` / `.docx` need no rebuild.
+- **Validator rule refined.** "No text role resolves to a fill primitive" (verify-schema Check 5,
+  validate.py C.5) now exempts ground primitives (navy, white) — they are surfaces, the AAA text
+  pair, and now the action fills. The rule still guards every vivid fill-only hue.
+- **Guide v3.3.** New "Highlight, action, interaction" block in Color system with live buttons and
+  links on both grounds; buttons, focus rings, nav hover, tabs, pagination, links, and the copy
+  button follow the split; new Secondary row in the Button matrix; accessibility table corrected
+  (navy/white is **14.6:1**, not 16.6:1) and gains navy-on-teal; inline web emphasis moves from teal
+  to green ink (teal text would read as interactive); AI-usage rules rewritten. The guide's generated
+  `:root` was regenerated in full, which also brings in the 33 `slide.*` tokens it had never received.
+- **Prose synced:** `STYLE.md` (marked ⬦ — decided, not yet shipped), `references/components.md`,
+  `references/layout-mechanics.md` (button hover rule superseded), `references/slide-components.md`
+  (bindings), `RELATIONSHIP.md` (focus ring; action color noted as a This Waay-only decision).
+- **Build artifacts regenerated:** `build/tokens.css`, `build/figma-variables.json`,
+  `build/tokens.flat.dtcg.json` (205 production tokens). `meta.updated` → 2026-11-15; schema
+  version stays 4.0.
+
 ## Unified v1.6.1 — 2026-08-17 — Spec correction: per-surface accent recorded; deck headers navy; Deck Gray reviewed (branch: spec-correction-accent-header, off atomic-deck)
 
 Two governed spec-text/status corrections surfaced by the Phase 2R atomic audit. Both make an

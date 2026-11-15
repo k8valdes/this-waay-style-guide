@@ -2,7 +2,7 @@
 
 > **For AI tools:** This is the canonical brand reference for This Waay. Use it as context when generating any asset — copy, layouts, illustrations, charts, slides, or components. Pair it with `tokens.json` for exact values. This document contains **brand expression only**; it intentionally excludes pricing, positioning, and business strategy.
 >
-> Version 3.0 · August 2026 · Living document.
+> Version 3.3 · November 2026 · Living document.
 
 > ### ⚠️ Read this before building anything
 >
@@ -17,6 +17,8 @@
 >
 > Anything marked ⬦ is aspirational. Everything else matches what ships today.
 >
+> **One decided rule leads the site ⬦:** the 2026-11-15 action/highlight split (navy actions, teal interaction, green highlights) was decided ahead of production. `tokens.json` carries it as production so every *new* asset uses it; thiswaay.com still ships green buttons and links until its migration.
+>
 > **v3.0 corrected real drift.** v2.x specified card radius 14px (actually **8px**), content width 1080px (actually **1140px**, Bootstrap), pill radius 999px (actually **25px**), body 16px/1.7 (actually **15px**), and a 2-stop soft gradient (actually **3 stops, ending warm**). Pages built from v2.x drifted *by construction* — which is what happened to the AI Practice page.
 
 This Waay is a product design and AI strategy studio in Sacramento, California. The brand reads as **composed, structural, and quietly confident** — clarity over noise, restraint over decoration.
@@ -25,16 +27,16 @@ This Waay is a product design and AI strategy studio in Sacramento, California. 
 
 ## Color
 
-Navy is the ground; **Waay Green is the action, everywhere, on every surface.**
+Navy is the ground. **Waay Green is the highlight; navy and white are the action; teal is what interaction looks like.** ⬦ *Decided 2026-11-15 — the shipped site still uses green for actions. See [Action, highlight, interaction](#-action-highlight-interaction--decided-2026-11-15).*
 
 ### Primary
 
 | Role | Hex | Use |
 |---|---|---|
-| Navy | `#0C2A48` | The ground state — hero/section backgrounds, card bodies, body text, plane body on light. **The lighter of the two navies** |
+| Navy | `#0C2A48` | The ground state — hero/section backgrounds, card bodies, body text, plane body on light. **The lighter of the two navies.** ⬦ The action color on light grounds — buttons and link text |
 | Deep Navy | `#05203A` | The deepest surface — footer, lowest layer. Sits *beneath* Navy, never beside it as a peer *(v3 fix — was `#081F37`)* |
-| **White** | `#FFFFFF` | **A primary ground, not an absence.** The page alternates navy and white — white carries half the page rhythm *(v3 — promoted to primary)* |
-| **Waay Green** | `#54B987` | **The brand green.** All actions, labels, icons, highlights, accents — any ground |
+| **White** | `#FFFFFF` | **A primary ground, not an absence.** The page alternates navy and white — white carries half the page rhythm *(v3 — promoted to primary)*. ⬦ The action color on navy grounds |
+| **Waay Green** | `#54B987` | **The brand green — the highlight.** Eyebrows, labels, icons, pills, panels, chart series 1 — any ground. ⬦ Never a button or link *(it carried actions too until 2026-11-15; production still does)* |
 | Punch Green | `#3DD68C` | Rare, deliberate emphasis — **one moment per asset max.** Never buttons/labels/charts |
 
 ### Secondary
@@ -43,7 +45,7 @@ Support charts, documents, and illustration. **They never lead.**
 
 | Role | Hex | Use |
 |---|---|---|
-| Teal | `#0BABAB` | Heritage accent — subheads, links, mid-sentence callouts in documents. Not a site UI color *(v3 — moved from primary)* |
+| Teal | `#0BABAB` | ⬦ **Interaction on the web** — hover and selected fills, focus rings, link underlines, green's gradient partner; never a resting fill beside green *(2026-11-15)*. In documents and decks, the heritage accent for subheads and callouts |
 | Steel | `#0D698A` | Charts, diagrams, supporting UI |
 | Slate | `#8DA3B5` | Muted labels, captions, borders, chart gridlines |
 | Coral | `#F2A08D` | **Illustration only** — the glowing path accent. Never UI, charts, or text |
@@ -70,7 +72,23 @@ linear-gradient(135deg, #F5F7EC 0%, #EAFDFA 20%, #F2FBFB 80%, #F8F7F0 100%)
 
 ⬦ *Production contains ~5 near-identical soft-gradient recipes (the testimonial panel puts its midpoint at 66%). These two are the proposed canonical survivors — until that consolidation ships, match the section you're extending rather than assuming the canonical one.*
 
-**The one-green rule:** `#54B987` is the only green for buttons, labels, icons, and recurring UI. Punch Green appears at most once per asset; if in doubt, don't use it. The green gradient counts as a punch usage.
+**The one-green rule:** `#54B987` is the only green for labels, icons, and recurring highlights — ⬦ never for buttons or links. Punch Green appears at most once per asset; if in doubt, don't use it. The green gradient (`gradient.green`) counts as a punch usage; the green-to-teal gradient does not.
+
+### ⬦ Action, highlight, interaction — decided 2026-11-15
+
+Three jobs, three colors, so two accents never sit side by side as flat color. Decided by Kate after a homepage comparison of teal, steel, navy, and navy + teal actions. **Not yet shipped** — thiswaay.com still uses green buttons and links.
+
+| Job | Color | Tokens | Where |
+|---|---|---|---|
+| **Highlight** | Waay Green `#54B987` (vivid ink `#008151` for text on light) | `fill.highlight`, `text.accent` | Eyebrows, icons, category pills, tag chips, price tags, panels, chart series 1, screenshot callouts |
+| **Action** | Navy `#0C2A48` on light grounds · White on navy | `fill.action`, `fill.action-on-dark`, `text.on-action`, `text.link`, `text.link-on-dark` | Buttons (white label on navy, navy label on white — 14.6:1) and link text |
+| **Interaction** | Teal `#0BABAB` (Teal Ink `#077373` for focus on light) | `fill.action-hover`, `border.focus`, `border.focus-on-dark`, `border.link` | Hover/pressed/selected fills with a **navy** label (5.2:1), focus rings, link underlines, the active tab marker, the current page |
+
+- **Buttons:** every button on every ground fills teal on hover with a navy label. No tints, no darkening.
+- **Links:** navy text (white on navy) with a 2px teal underline at a 4px offset. The underline is the cue; link text never takes teal.
+- **Inline emphasis on the web** is green ink (`text.accent`), never teal — teal text would read as interactive. Documents keep teal callouts.
+- **Gradient:** `gradient.green-teal` (`#54B987` → `#077373`, 135°) for icon tiles and text-free panels, modeled on the paper-plane wing. Text doesn't pass AA across its range, so panels that carry text stay flat green with navy text.
+- **Decks are unchanged:** teal stays the deck accent; reserved green rebinds to `fill.highlight` with the same value.
 
 ### ⬦ Accessible "ink" variants — PROPOSED, not shipped
 
@@ -78,16 +96,16 @@ linear-gradient(135deg, #F5F7EC 0%, #EAFDFA 20%, #F2FBFB 80%, #F8F7F0 100%)
 
 | Role | Hex | Contrast on white | Use |
 |---|---|---|---|
-| Green — Ink | `#2C6D4D` | 6.2:1 | Eyebrows, links, inline emphasis on light grounds — raw Green is 2.4:1 here, fails AA |
-| Teal — Ink | `#077373` | 5.7:1 | Subheads, links, callouts on light grounds — raw Teal is 2.8:1, fails AA |
+| Green — Ink | `#008151` | 4.9:1 (≥4.55:1 on every soft-gradient stop) | Eyebrows, inline emphasis, testimonial roles, case-study summaries on light grounds — same hue and saturation as Waay Green, only darker; raw Green is 2.4:1 here, fails AA. *(2026-11-15 — was `#2C6D4D`, which read drab; that deeper ink stays for decks and text on the `#E2F4EA` success tint.)* |
+| Teal — Ink | `#077373` | 5.7:1 | Focus rings on light grounds; subheads and callouts in documents — raw Teal is 2.8:1, fails AA |
 | Ink — Muted | `#5C7185` | 5.1:1 | Captions, secondary labels — raw Slate is 2.6:1, fails AA |
 | No — Ink | `#A53727` | 6.6:1 | "Don't" tags, form error text — raw `#D86A5A` is 3.4:1, fails AA |
 
 The saturated originals (`Green`, `Teal`, `Slate`, `#D86A5A`) remain correct for **fills, large surfaces, and text on dark grounds** — they were never broken there. They only fail as small/normal text on white or soft-gradient backgrounds.
 
-> **✔ Decided (Aug 2026) — green buttons carry WHITE text.** The primary button is a green fill with white text, matching production. This closes the previously-open white-vs-navy question; new work uses white.
+> **✔ Decided (Nov 2026) ⬦ — buttons are navy, white on navy, and fill teal on hover.** White on navy measures 14.6:1, so the primary button now passes AA.
 >
-> *Accessibility footnote:* white-on-green measures ~2.4:1, below the AA 4.5:1 minimum for normal text (it clears the 3:1 large-text threshold, so at the shipped 16px Bold it is borderline). If a future audit requires AA on this element, the lever is **darkening the green behind white text** — not reverting to navy, which would undo the decision.
+> *Retired:* the Aug 2026 decision put white text on green (~2.4:1) as an accepted deviation held for consistency with production, with darkening the green as the remediation lever. That deviation no longer exists in the spec; its record stays on `button.primary.label` in `tokens.json`. Production still ships the white-on-green button until the site migrates.
 
 **Known typo in production:** `#54b886` appears in some shipped rules (buttons, explore links) — a one-digit slip from `#54B987`. Never propagate it.
 
@@ -156,7 +174,7 @@ Headings get a *much* shorter measure than body copy on purpose: it forces them 
 
 **`balance` is wrong in a narrow column.** In a card at `col-lg-3`, balancing shortens *every* line and the rag goes stubby. Long text in a narrow measure wants `pretty`. Rule of thumb: **balance short text in wide containers, pretty long text in narrow ones.**
 
-**Do:** sentence case headlines; at most one green-ink/teal-ink highlight per headline; short declarative lines; let whitespace pace the page; pull every size/weight/tracking/leading value from the scale, never a new one-off number.
+**Do:** sentence case headlines; at most one green highlight per headline (green ink on light grounds); short declarative lines; let whitespace pace the page; pull every size/weight/tracking/leading value from the scale, never a new one-off number.
 **Don't:** all-caps headlines (caps are for eyebrows only); multiple accent colors in one text block; decorative or script faces; a second type family; a hand-picked font-size that isn't one of the scale steps.
 
 ---
@@ -241,7 +259,7 @@ Both come from the same cause: a skewed element rotates about its own centre, so
 **WCAG 2.2 AA is the baseline for every This Waay and client deliverable** — not a follow-up pass.
 
 - **Contrast:** use the ink tokens above for text on light grounds; on a green or teal fill, text is **navy**, not white. Never distinguish meaning by color alone (links, chart series, form errors, "don't" tags all need a second cue — weight, icon, pattern, or text).
-- **Focus:** every interactive element needs a visible `:focus-visible` ring — never rely on the browser default, and never remove it without replacing it.
+- **Focus:** every interactive element needs a visible `:focus-visible` ring — never rely on the browser default, and never remove it without replacing it. ⬦ Recipe: 3px solid, 3px offset, teal — `border.focus` (Teal Ink, 5.7:1) on light grounds, `border.focus-on-dark` (Teal, 5.2:1) on navy.
 - **Structure:** one `<main>`, one `<h1>`, sequential `<h2>`s, a skip-to-content link as the first focusable element.
 - **Keyboard & custom widgets:** every clickable thing is a real `<button>`/`<a>`, or has `role` + `tabindex="0"` + a keydown handler. Async state changes (copied, saved, submitted) announce via `aria-live`, not a visual-only change.
 - **Images & icons:** decorative SVGs get `aria-hidden="true"`; meaningful ones (the logo, a narrative illustration used as a hero) get `role="img"` + real `aria-label`/`alt` describing the *meaning*, not the literal scene.
@@ -265,9 +283,9 @@ Motion should feel like the flight path — **purposeful and directional, never 
 
 ## Components
 
-- **Navigation:** sticky bar on navy, `1px solid rgba(255,255,255,0.08)` bottom border. **Two-row layout:** logo/wordmark sits on its own line; a second row holds section-group buttons, each disclosing its subsections as a dropdown (**Architecture** · Token architecture, **Foundations** · Color/Type/Spacing/Motion/Accessibility, **Brand** · Motifs/Illustration, **System** · Components, **Application** · Screenshots/Data viz/Diagrams/Slide decks, **Language** · Voice, **Operations** · AI usage). Group buttons are real `<button>`s with `aria-expanded`/`aria-controls`, click/keyboard-triggered — never hover-only — with only one group open at a time, and Escape/outside-click/focus-out closing it. Links are Axiforma SemiBold 600, 0.85rem, `#B9CBDC` default, Waay Green on hover. A collapsed/mobile state uses the same real-`<button>` disclosure pattern — never a bare icon with no accessible name.
-- **Buttons:** green pill, **25px radius**, AxiformaBold 16px/24px, padding `13px 30px 11px`. **Primary = green fill, white text** (decided Aug 2026). Variants: primary · ghost · white (for navy grounds) · tag (2px outline, 2px radius, 12px). Sentence case. ⬦ Only the large size ships; md/sm are proposed.
-  - **Ghost hover rule:** the fill becomes the **outline colour**, and the label **knocks out to the ground it was sitting on**. Never a third colour, never a tint. On light: green outline → green fill, white label. On navy: white outline → white fill, navy label.
+- **Navigation:** sticky bar on navy, `1px solid rgba(255,255,255,0.08)` bottom border. **Two-row layout:** logo/wordmark sits on its own line; a second row holds section-group buttons, each disclosing its subsections as a dropdown (**Architecture** · Token architecture, **Foundations** · Color/Type/Spacing/Motion/Accessibility, **Brand** · Motifs/Illustration, **System** · Components, **Application** · Screenshots/Data viz/Diagrams/Slide decks, **Language** · Voice, **Operations** · AI usage). Group buttons are real `<button>`s with `aria-expanded`/`aria-controls`, click/keyboard-triggered — never hover-only — with only one group open at a time, and Escape/outside-click/focus-out closing it. Links are Axiforma SemiBold 600, 0.85rem, `#B9CBDC` default, Waay Green on hover today — ⬦ teal on hover going forward. A collapsed/mobile state uses the same real-`<button>` disclosure pattern — never a bare icon with no accessible name.
+- **Buttons:** pill, **25px radius**, AxiformaBold 16px/24px, padding `13px 30px 11px`. ⬦ **Primary = navy fill, white text** on light grounds; **white fill, navy text** on navy (decided Nov 2026 — production still ships green fill, white text). Variants: primary · secondary/ghost (navy outline on light, white outline on navy) · white (for navy grounds) · tag (2px outline, 2px radius, 12px). Sentence case. ⬦ Only the large size ships; md/sm are proposed.
+  - ⬦ **Hover rule:** every button, on every ground, fills **teal** with a **navy** label (5.2:1). Teal appears only in interaction — never as a resting fill. *(Supersedes the ghost rule "fill becomes the outline colour, never a third colour," which belonged to the green-action system.)*
 - **A component that carries its own ground owns its own text colour** — and its own **controls**, not just its own text. A light card dropped into a navy section must not inherit that section's light-on-dark styling — the failure mode is white text on a soft-gradient card (reads as blank) or an on-navy ghost button (white outline) rendered inside a light card sitting inside a navy section (also reads as blank, for the same reason one level down). A section-scoped rule like `.tw-on-navy .tw-btn--ghost` only knows the *section's* ground, not the ground of whatever card the button actually sits on. Any component with its own ground — including the buttons and list markers inside it — sets those colours at a specificity high enough to beat a section-level descendant selector. This is what makes a card portable to *any* section, not just the one it was designed next to.
   - **Prefer extending an existing portable component over inventing a new one.** A from-scratch card is a new opportunity to reintroduce this exact bug. A CTA block built as its own translucent-on-dark card broke the moment its section's ground changed from navy to soft; replacing it with the already-portable content card (self-contained, correct on any ground) removed the bug rather than patched it.
   - **Specificity check when adding a colour modifier:** if a base selector for the element you're overriding already uses a doubled class (the pattern above), a single-class modifier will lose silently. Match or exceed the doubled pattern, or the override never applies and the failure is invisible until you inspect computed style.
@@ -298,7 +316,7 @@ Motion should feel like the flight path — **purposeful and directional, never 
   - **A caution for whoever builds the next sprite-based icon system:** if icons are assembled as `<symbol>` defs referenced via `<use>`, a CSS selector like `.wrapper .inner-part` will **never match** the inner part, no matter what renders on screen — the symbol's content lives inside `<defs>`, structurally outside the wrapper, and CSS selector matching for `<use>` follows the *source* tree, not the rendered instance. *Inherited values* (custom properties, `currentColor`) DO correctly flow through the instance — style through those, consumed by plain, ancestor-free class rules, never an ancestor selector reaching toward the symbol's internals.
 - **Flight path:** hand-flown dotted trail (round caps, `stroke-dasharray: 0.1 8`) with at least one loop, **bridging exactly two sections** at a transition — 1–2× per page, never on every section.
 - **Track card** (`.tw-track`, new): the one canonical on-dark card — navy ground only, translucent-white fill (`rgba(255,255,255,0.04)`, `1px solid rgba(255,255,255,0.1)`) that needs the dark backdrop to read. Header row pairs a Semibold title with a green price; a meta line (`4 weeks · Materials ready`) sits below at 60% white — not Figma's spec'd 45%, which measures ~4.1:1 on navy and fails AA. A divider separates the description from an "Includes" checklist (green dot markers, 72% white text). Used in pairs for tiered offers — e.g. the Assessment page pricing section.
-- **Forms:** labeled inputs/textarea/select, native checkbox/radio (`accent-color: var(--tw-green)` — don't hand-roll custom controls), inline error state with `role="alert"`.
+- **Forms:** labeled inputs/textarea/select, native checkbox/radio (`accent-color: var(--tw-teal-ink)` ⬦ — checked is a selected state, and selected is teal; don't hand-roll custom controls), inline error state with `role="alert"`.
 - **FAQ/accordion:** native `<details>/<summary>` — accessible by default, no ARIA to hand-roll.
 - **Tabs:** WAI-ARIA APG pattern — roving tabindex, arrow-key navigation, automatic activation.
 - **Modal/dialog:** native `<dialog>.showModal()` — built-in focus trap and Esc-to-close; return focus to the trigger on close.
