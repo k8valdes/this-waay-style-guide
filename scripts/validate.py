@@ -94,8 +94,9 @@ def main():
         tp, _ = r_resolve_path(r, role)
         return tp
     c = []
-    # 5: no text.* role resolves to a fill primitive
-    fill_prims = {rp for n in _roles(r, "fill") if (rp := _term(r, f"color.fill.{n}"))}
+    # 5: no text.* role resolves to a fill-only primitive (grounds — navy, white — are exempt)
+    ground_prims = {rp for n in _roles(r, "surface") if (rp := _term(r, f"color.surface.{n}"))}
+    fill_prims = {rp for n in _roles(r, "fill") if (rp := _term(r, f"color.fill.{n}"))} - ground_prims
     for n in _roles(r, "text"):
         tp = _term(r, f"color.text.{n}")
         if tp in fill_prims:
@@ -116,8 +117,8 @@ def main():
                 c.append(f"{path}: boldFlag false but fontWeight={fw}")
     # spot-check the emitted CSS actually carries the accessible ink, not the fill
     m = re.search(r"--color-text-accent:\s*(#[0-9A-Fa-f]{6})", artifacts["css"])
-    if m and m.group(1).upper() != "#2C6D4D":
-        c.append(f"emitted --color-text-accent = {m.group(1)} (should be #2C6D4D green.600 ink)")
+    if m and m.group(1).upper() != "#008151":
+        c.append(f"emitted --color-text-accent = {m.group(1)} (should be #008151 green.500 vivid ink)")
     check("C. rules-as-structure hold on resolved output", not c, c)
 
     # D. stock-Office / font integrity on the emitted theme

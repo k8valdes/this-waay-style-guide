@@ -154,9 +154,12 @@ def main():
     border_roles = {n: prim_of("color.border." + n) for n in color.get("border", {}) if not n.startswith("$")}
 
     # 5. no text.* role resolves to a fill primitive (accessible-ink enforcement)
-    fill_prims = set(v for v in fill_roles.values() if v)
+    #    Grounds are exempt: navy and white are both surfaces and the AAA text pair, and since
+    #    2026-11-15 they are also the action fills. The rule guards the vivid fill-only hues.
+    ground_prims = set(v for v in surface_roles.values() if v)
+    fill_prims = set(v for v in fill_roles.values() if v) - ground_prims
     text_on_fill_prim = [f"text.{n} -> {p}" for n, p in text_roles.items() if p in fill_prims]
-    check("5. no text.* role resolves to a fill primitive (accessible-ink)",
+    check("5. no text.* role resolves to a fill-only primitive (accessible-ink; grounds exempt)",
           not text_on_fill_prim, text_on_fill_prim)
 
     # 6. no surface.* references a gradient-stop primitive
@@ -222,12 +225,15 @@ def main():
                             v9.append(f"{'.'.join(path)} -> primitive {m.group(1)} (not via a role, unnoted)")
     check("9. every component has status; no unnoted primitive reference", not v9, v9)
 
-    # 10. accepted-deviation on button.primary.label with all five fields
+    # 10. deviation record on button.primary.label with all five fields; a retired record
+    #     (2026-11-15: the label now passes on navy) must also say when and why it retired
     lbl = token_at(doc, "button.primary.label")
     dev = ext(lbl).get("acceptedDeviation", {}) if lbl else {}
     need = {"verdict", "decided", "reason", "rejected", "remediationLever"}
+    if dev.get("status") == "retired":
+        need |= {"retired", "retiredBecause"}
     missing = sorted(need - set(dev))
-    check("10. accepted-deviation on button.primary.label (5 fields)", lbl is not None and not missing,
+    check("10. deviation record on button.primary.label (5 fields; retired records dated)", lbl is not None and not missing,
           missing or ([] if lbl else ["button.primary.label missing"]))
 
     # 11. preservation — the excellent bits survive (facts, not prose wording)

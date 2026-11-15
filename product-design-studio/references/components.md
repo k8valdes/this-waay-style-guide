@@ -14,14 +14,24 @@ the site's whitespace and component sizing.
 ## Button
 
 Base geometry: radius `25px` (`dimension.radius.pill`), `AxiformaBold 16px/24px`
-(`typography.button`), padding `13px 30px 11px`, transition `all .3s ease`. Hover **inverts** fill
-and text rather than darkening (see layout-mechanics → ghost-button hover). Only the `lg` size
-ships today; `md`/`sm` are proposed.
+(`typography.button`), padding `13px 30px 11px`, transition `all .3s ease`. **Every button, on
+every ground, fills teal on hover with a navy label** (`fill.action-hover` + `text.on-fill`, 5.2:1);
+focus rings are teal (`border.focus` on light, `border.focus-on-dark` on navy). See
+layout-mechanics → button hover. Only the `lg` size ships today; `md`/`sm` are proposed.
 
-- **primary** — green fill (`fill.action`), **white** label. This is the accepted deviation (see `button.primary.label` in `tokens.json`): 2.42:1, fails AA, held for brand consistency.
-- **secondary / ghost** — transparent, green outline + accessible-green label (`text.accent`).
-- **on-navy (white)** — white fill, green label, for navy grounds.
-- **tag** — 2px outline, 2px radius, 12px — the squarest button.
+Decided 2026-11-15 by Kate: **actions are navy (white on navy), interaction is teal, green is the
+highlight** — green no longer appears on buttons. Spec-led: thiswaay.com still ships green buttons
+until its migration.
+
+- **primary** — navy fill (`fill.action`), white label (`text.on-action`), 14.6:1. The 2026-08 white-on-green deviation (2.42:1) is **retired**; its record stays on `button.primary.label` in `tokens.json`.
+- **secondary / ghost (light grounds)** — transparent, navy outline + navy label (`text.body`).
+- **secondary-on-navy / ghost (navy grounds)** — transparent, white outline + white label.
+- **on-navy (white)** — white fill (`fill.action-on-dark`), navy label, for navy grounds.
+- **tag** — 2px navy outline, 2px radius, 12px — the squarest button. Its static twin is `badge.tag-chip` (green — a highlight, not a control).
+
+**Links** follow the same split: navy text (`text.link`; white on navy, `text.link-on-dark`) with a
+2px teal underline at a 4px offset (`border.link`). The underline is the link cue — link text never
+takes teal, and teal never sets inline emphasis on the web (use `text.accent`, green ink).
 
 ## Cards — the 13→3 consolidation
 
@@ -79,5 +89,5 @@ Sticky, `top: 0`, `z-index: 50`. Background navy (`color.navy.900` / `surface.gr
 border `color.overlay.nav-border` (white @ 8%). Two-row layout: logo/wordmark on the first row, a
 second row of section-group buttons (`aria-expanded` + `aria-controls`) disclosing subsection
 dropdowns — click/keyboard only, never hover-only; one group open at a time; Escape and
-outside-click close it. Link text `color.slate.300` (`#B9CBDC`); link hover `color.fill.action`
-(green); link size `text-size.md` (0.85rem), weight 600.
+outside-click close it. Link text `color.slate.300` (`#B9CBDC`); link hover `color.fill.action-hover`
+(teal — hover is interaction; was green before 2026-11-15); link size `text-size.md` (0.85rem), weight 600.
